@@ -4,12 +4,22 @@
 #   { search }              Bing and DuckDuckGo results with snippets
 # Remove entries once the question is settled; the job prints matching sentences only.
 # Last batch (2026-10-03, run 37147001796) is recorded in each entry's verified_via.
-# 2026-10-03 pre-launch probe (not a source): what the domains serve before the first deploy.
-- url: https://xn--3ys368f86s.com/
+# 2026-10-03 pre-launch probe (not a source): run 37156051290 found that none of the three
+# domains resolves from GitHub's runners (ERR_NAME_NOT_RESOLVED). These lookups record why:
+# public DNS answers (Google DNS-over-HTTPS) and the .com registry status (RDAP).
+- url: https://dns.google/resolve?name=xn--3ys368f86s.com&type=A
   pattern: "."
-- url: http://xn--3ys368f86s.com/
+- url: https://dns.google/resolve?name=xn--3ys368f86s.com&type=NS
   pattern: "."
-- url: https://weimeijiao.com/en/toolbox/?smoke=1
+- url: https://dns.google/resolve?name=weimeijiao.com&type=A
   pattern: "."
-- url: https://xn--k6s926f86s.com/en/
+- url: https://dns.google/resolve?name=weimeijiao.com&type=NS
   pattern: "."
+- url: https://dns.google/resolve?name=xn--k6s926f86s.com&type=NS
+  pattern: "."
+- url: https://rdap.verisign.com/com/v1/domain/xn--3ys368f86s.com
+  pattern: "status|nameserver|ldhName|eventAction|eventDate|hold"
+- url: https://rdap.verisign.com/com/v1/domain/weimeijiao.com
+  pattern: "status|nameserver|ldhName|eventAction|eventDate|hold"
+- url: https://rdap.verisign.com/com/v1/domain/xn--k6s926f86s.com
+  pattern: "status|nameserver|ldhName|eventAction|eventDate|hold"
