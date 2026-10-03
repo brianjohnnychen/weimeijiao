@@ -450,9 +450,41 @@ async function checkHelplines(fileArg) {
       }
       await sleep(400);
     }
-    if (!ok) failures++;
+    if (!ok) {
+      failures++;
+      for (const q of h.search ?? []) await searchHint(q);
+    }
   }
   return failures;
+}
+
+/** For a help line not yet confirmed: list search results so an official page can be found
+ *  and added to its sources for the next run (the result pages themselves are never a source). */
+async function searchHint(query) {
+  const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}&count=10`;
+  try {
+    if (!browserPromise) await chromeStatus('about:blank');
+    const browser = await browserPromise;
+    const page = await browser.newPage({ userAgent: UA_BROWSER, locale: 'zh-TW' });
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 40000 });
+      await page.waitForTimeout(2500);
+      const hits = await page.evaluate(() =>
+        [...document.querySelectorAll('li.b_algo')].slice(0, 8).map((li) => ({
+          title: li.querySelector('h2')?.innerText ?? '',
+          href: li.querySelector('h2 a')?.href ?? '',
+          cite: li.querySelector('cite')?.innerText ?? '',
+          snippet: (li.querySelector('.b_caption p, .b_lineclamp2, .b_algoSlug')?.innerText ?? '').slice(0, 220),
+        })),
+      );
+      report(`    search "${query}": ${hits.length} result(s)`);
+      for (const r of hits) report(`      - ${r.title} | ${r.cite || r.href}\n${wrap(r.snippet, 104, '        ')}`);
+    } finally {
+      await page.close();
+    }
+  } catch (err) {
+    report(`    search "${query}": failed (${String(err?.message ?? err).slice(0, 100)})`);
+  }
 }
 
 let failures = 0;

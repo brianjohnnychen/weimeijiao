@@ -12,6 +12,8 @@
     - https://www.12355.net/
     - http://www.12355.net/
     - https://www.gqt.org.cn/
+  search:
+    - "12355 青少年服务台 共青团 热线"
 - id: cn-12356
   region: mainland-china
   phone: "12356"
@@ -22,6 +24,9 @@
     - https://www.nhc.gov.cn/
     - https://www.gov.cn/
     - https://zh.wikipedia.org/wiki/12356
+  search:
+    - "12356 心理援助热线 国家卫生健康委"
+    - "全国统一心理援助热线 12356 开通"
 - id: cn-12338
   region: mainland-china
   phone: "12338"
@@ -31,6 +36,8 @@
   sources:
     - https://www.women.org.cn/
     - http://www.women.org.cn/
+  search:
+    - "12338 妇女维权公益服务热线 全国妇联"
 - id: tw-113
   region: taiwan
   phone: "113"
@@ -41,6 +48,8 @@
     - https://dep.mohw.gov.tw/DOPS/
     - https://www.mohw.gov.tw/
     - https://www.sfaa.gov.tw/
+  search:
+    - "113保護專線 衛生福利部 保護服務司"
 - id: tw-1925
   region: taiwan
   phone: "1925"
@@ -51,6 +60,8 @@
     - https://dep.mohw.gov.tw/DOMHAOH/
     - https://dep.mohw.gov.tw/DOMH/
     - https://www.mohw.gov.tw/
+  search:
+    - "1925安心專線 衛生福利部 心理健康司"
 - id: tw-1995
   region: taiwan
   phone: "1995"
@@ -106,7 +117,10 @@
   name_en: "National Parent Helpline"
   expect: ["1-855-427-2736"]
   sources:
+    - https://nationalparenthelpline.org/
     - https://www.nationalparenthelpline.org/
+  search:
+    - "National Parent Helpline 1-855-427-2736"
 - id: uk-nspcc
   region: united-kingdom
   phone: "0808 800 5000"
