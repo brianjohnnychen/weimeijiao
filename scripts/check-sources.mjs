@@ -460,12 +460,22 @@ async function checkHelplines(fileArg) {
 
 /** For a help line not yet confirmed: list search results so an official page can be found
  *  and added to its sources for the next run (the result pages themselves are never a source). */
-async function searchHint(query) {
-  const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}&count=10`;
+async function searchHint(entry) {
+  const query = typeof entry === 'string' ? entry : entry.q;
+  const mkt = (typeof entry === 'object' && entry.mkt) || 'en-US';
+  const url = `https://www.bing.com/search?q=${encodeURIComponent(query)}&count=10&mkt=${mkt}&setlang=${mkt}&cc=${mkt.split('-')[1]}`;
+  // Bing result links are redirects (/ck/a?...&u=a1<base64url>); decode them to the real address.
+  const real = (href) => {
+    try {
+      const u = new URL(href).searchParams.get('u');
+      if (u && u.startsWith('a1')) return Buffer.from(u.slice(2).replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('utf8');
+    } catch {}
+    return href;
+  };
   try {
     if (!browserPromise) await chromeStatus('about:blank');
     const browser = await browserPromise;
-    const page = await browser.newPage({ userAgent: UA_BROWSER, locale: 'zh-TW' });
+    const page = await browser.newPage({ userAgent: UA_BROWSER, locale: mkt });
     try {
       await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 40000 });
       await page.waitForTimeout(2500);
@@ -473,12 +483,11 @@ async function searchHint(query) {
         [...document.querySelectorAll('li.b_algo')].slice(0, 8).map((li) => ({
           title: li.querySelector('h2')?.innerText ?? '',
           href: li.querySelector('h2 a')?.href ?? '',
-          cite: li.querySelector('cite')?.innerText ?? '',
           snippet: (li.querySelector('.b_caption p, .b_lineclamp2, .b_algoSlug')?.innerText ?? '').slice(0, 220),
         })),
       );
-      report(`    search "${query}": ${hits.length} result(s)`);
-      for (const r of hits) report(`      - ${r.title} | ${r.cite || r.href}\n${wrap(r.snippet, 104, '        ')}`);
+      report(`    search "${query}" (${mkt}): ${hits.length} result(s)`);
+      for (const r of hits) report(`      - ${r.title} | ${real(r.href)}\n${wrap(r.snippet, 104, '        ')}`);
     } finally {
       await page.close();
     }

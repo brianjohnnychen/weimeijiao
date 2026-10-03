@@ -881,7 +881,12 @@ th {
 
 .article-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2.5rem;
+}
+
+.article-grid > * {
+  min-width: 0;
 }
 
 @media (min-width: 1080px) {
@@ -1892,6 +1897,7 @@ a.anchor:hover {
 
 .bib-entry p {
   margin: 0.25rem 0;
+  overflow-wrap: anywhere;
 }
 
 .bib-meta {
