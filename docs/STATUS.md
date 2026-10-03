@@ -1,6 +1,10 @@
 # STATUS
 
-## READY FOR FINAL PASS
+## FINAL QA PASS IN PROGRESS
+
+Started 2026-10-04 05:31 Taipei (2026-10-03 21:31 UTC) by the build session on its current model, because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (Brian's rule, SPEC §2). No second final pass is needed. Results will replace this note; go-live follows per SPEC §2 once the 21 illustrations are generated after the 00:00 UTC quota reset.
+
+## READY FOR FINAL PASS (build session, superseded by the final pass above)
 
 Marked 2026-10-04 04:27 Taipei (2026-10-03 20:27 UTC) by the build session, on commit `b11d4d7` (and the commit that adds this line) of branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)). Inbox item 1 is built and has passed the build session's own QA. Nothing has been deployed.
 
