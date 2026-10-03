@@ -12,6 +12,7 @@
   name_zh_hans: "12355 青少年服务台"
   expect: ["12355"]
   sources:
+    - https://www.gqt.org.cn/xxgk/zdgz/202209/t20220921_789696.htm
     - https://www.12355.net/
     - http://www.12355.net/
     - https://www.gqt.org.cn/
@@ -30,11 +31,11 @@
   search:
     - { q: "12356 心理援助热线 国家卫生健康委", mkt: zh-CN }
 - id: cn-12338
-  status: candidate
+  status: published
   region: mainland-china
   phone: "12338"
   name_en: "12338 women's and children's rights hotline (All-China Women's Federation)"
-  name_zh_hans: "12338 妇女维权公益服务热线"
+  name_zh_hans: "12338 妇女维权公益服务热线（全国妇联）"
   expect: ["12338"]
   sources:
     - http://www.bjwomen.gov.cn/flgz/ymlm/wqga/12338rx/index.html

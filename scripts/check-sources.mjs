@@ -428,18 +428,19 @@ async function checkHelplines(fileArg) {
     const expect = h.expect ?? [h.phone];
     let ok = false;
     let loaded = 0; // sources that answered with a real page (as opposed to timeouts, resets, WAF blocks)
+    const challenge = /request is being verified|verify you are (a )?human|just a moment|attention required|checking your browser|captcha|access denied|403 forbidden/i;
     for (const src of h.sources ?? []) {
       const r = await get(src, { browser: true });
       let text = r.ok ? clean(r.body ?? '') : '';
       let via = `fetch ${r.status}`;
-      if (r.ok && text.length > 200) loaded++;
+      if (r.ok && text.length > 200 && !challenge.test(text)) loaded++;
       const has = (t) => expect.every((e) => t.includes(e) || (digits(e).length >= 3 && digits(t).includes(digits(e))));
       if (!has(text)) {
         const c = await chromeText(src);
         if (c.text) {
           text = c.text.replace(/\s+/g, ' ');
           via = `chrome ${c.status}`;
-          if (c.status >= 200 && c.status < 400 && text.length > 200 && !(r.ok && text.length > 200)) loaded++;
+          if (c.status >= 200 && c.status < 400 && text.length > 200 && !challenge.test(text) && !(r.ok && text.length > 200)) loaded++;
         } else via += `, chrome ${c.status}${c.error ? ' ' + c.error.slice(0, 80) : ''}`;
       }
       const found = has(text);
