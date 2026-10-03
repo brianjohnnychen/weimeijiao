@@ -1,6 +1,6 @@
 # QA
 
-The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA and the link test on every push.
+The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test and the anchor test on every push.
 
 Latest full run: 2026-10-03 (UTC) on the build session's last commit. Times below are UTC.
 
@@ -11,7 +11,8 @@ Latest full run: 2026-10-03 (UTC) on the build session's last commit. Times belo
 | Content lint | `node scripts/check-content.mjs` | 159 MDX files, 0 errors, 0 warnings |
 | Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 105 pages (35 per locale), 0 errors, 0 warnings; 42 PDFs; 105 Open Graph images |
 | Link test | `node scripts/link-test.mjs --write` | 14,127 internal links, 9,010 of them to an anchor, 0 broken (block at the end) |
-| UI check | `node scripts/ui-check.mjs` | 126 page views, no problems ([report](screenshots/ui-check.md)) |
+| Anchor test | `node scripts/anchor-test.mjs` | 26 of 26 deep links land on their target (13 kinds of target, 375px and 1280px) |
+| UI check | `node scripts/ui-check.mjs` | 129 page views, no problems ([report](screenshots/ui-check.md)) |
 | Printables | page limits in `scripts/postbuild.mjs` | 39 one-page sheets and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
 | Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | see [lighthouse.md](lighthouse.md) and section 7 |
@@ -41,9 +42,13 @@ Word-for-word lookups (`content/source-quotes.yml`, `quotes` job) settled the re
 
 ## 2. UI and UX at 375px and 1280px
 
-`scripts/ui-check.mjs` opens 14 pages (home, by-age hub, a phase page, approach, toolbox, situations, little time, physical discipline, learning hub, a learning phase page, research, printables hub, age finder, about) in all three locales at 375px and 1280px in light mode and at 375px in dark mode, with the browser language set to the page's language. On every full page it checks: no horizontal overflow, no console errors, no failed requests, no broken images. Screenshots of the first screen of each view are in [docs/screenshots/](screenshots/). Result: no problems in 126 views.
+`scripts/ui-check.mjs` opens 14 pages (home, by-age hub, a phase page, approach, toolbox, situations, little time, physical discipline, learning hub, a learning phase page, research, printables hub, age finder, about) in all three locales at 375px and 1280px in light mode and at 375px in dark mode, plus the home page at 320px, with the browser language set to the page's language. On every full page it checks: no horizontal overflow, no console errors, no failed requests, no broken images, and that the site name in the header is neither cut off nor running under the header controls. Screenshots of the first screen of each view are in [docs/screenshots/](screenshots/). Result: no problems in 129 views.
 
-Checked by eye on the screenshots: header, language switcher and theme button fit at 375px in all locales; the home hero, toolbox cards, little-time effort table and research entries do not overflow; long DOIs wrap on the Research page.
+Checked by eye on the screenshots (home, toolbox, research, little time and physical discipline in different locales, widths and themes): this is how the English header problem was found (at 375px the name ran under the language switcher). It is fixed, and the UI check now tests for it. The 21 pages still waiting for their illustration show the designed placeholder (open issue in STATUS.md).
+
+## 2a. Deep links land on their target
+
+The link test proves every `#anchor` exists; `scripts/anchor-test.mjs` proves the browser actually scrolls there. Long pages skip layout for off-screen blocks, and Chinese pages switch to their web fonts after load, and neither may move a deep-linked target out of view. For 13 targets of every kind (headings, citation markers inside paragraphs, tool and situation cards, a section inside a card, bibliography entries) in all three locales, it opens the page at `#id` in a fresh tab at 375px and 1280px, waits for the font switch, and checks the target sits just below whatever is visible of the header. CI runs it on a machine with no Chinese system font, the worst case for the font switch; that run is how a 300-700px jump on the Simplified Chinese toolbox was caught and fixed. Result: 26 of 26 in place.
 
 ## 3. Dark mode
 
@@ -63,7 +68,11 @@ At 1280px on every page the UI check confirms: the first Tab lands on a visible 
 
 ## 7. Lighthouse
 
-`scripts/lighthouse.mjs` runs Lighthouse (mobile and desktop presets) on Home, the 3-5 phase page and Physical discipline in all three locales against the built files served locally with compression, as GitHub Pages serves them. Target: 95 or higher in every category. Results: [lighthouse.md](lighthouse.md).
+`scripts/lighthouse.mjs` runs Lighthouse 13 (mobile and desktop presets) on Home, the 3-5 phase page and Physical discipline in all three locales against the built files served locally with compression, as GitHub Pages serves them. Each page and form factor runs three times and the median run is reported, because single runs vary by several points. Target: 95 or higher in every category. Results: [lighthouse.md](lighthouse.md).
+
+Test machine: headless Chrome on Linux with the Noto CJK system fonts installed, as on Android phones. Without any Chinese system font, Chrome spends seconds searching fallback fonts glyph by glyph before first paint; no phone or computer in use is in that state (iOS and macOS ship PingFang, Windows ships Microsoft YaHei and JhengHei, Android ships Noto CJK), so that setup is not used for scores.
+
+What was changed to reach the target on Chinese pages: the Noto web fonts load only after the page has loaded and gone idle and then switch in one step (they used to be requested before first paint, about 2 MB on a long page); off-screen prose blocks skip layout (`content-visibility`), which keeps that switch short; the Latin faces now carry their unicode-range, so English text no longer downloads the extended-Latin files; and English pages preload their three main faces, so text does not reflow when they arrive.
 
 ## 8. Sources and help lines
 
@@ -74,7 +83,7 @@ The sources workflow is the site's permanent link checker. On every change to `c
 See docs/STATUS.md for the current list and who it is waiting on.
 
 <!-- link-test:start -->
-Link test run 2026-10-03 20:05 UTC over dist/ (106 HTML pages).
+Link test run 2026-10-03 20:11 UTC over dist/ (106 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
