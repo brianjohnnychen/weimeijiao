@@ -12,10 +12,6 @@ on:
       - content/helplines.yml
       - scripts/check-sources.mjs
       - .github/workflows/sources.yml
-  pull_request:
-    paths:
-      - content/sources.yml
-      - scripts/check-sources.mjs
   schedule:
     - cron: '23 2 * * 1'
   workflow_dispatch:
@@ -27,6 +23,11 @@ on:
 
 permissions:
   contents: read
+
+# A newer push supersedes a running check (runs for the same branch are cancelled, not failed).
+concurrency:
+  group: sources-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: true
 
 jobs:
   sources:
