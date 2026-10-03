@@ -3510,3 +3510,74 @@
     - school
   accessed: 2026-10-04
   verified_via: "2026-10-04 CI source check (GitHub Actions run 37140330171): Crossref metadata and abstract (OpenAlex) read in full. The check output filed this under key cooper-2006-reading-summer, but its Crossref search and match are Kim and Quinn (2013), so the entry uses id kim-quinn-2013."
+- id: mace-1986
+  evidence_level: experiment
+  authors: Mace, F. C., Page, T. J., Ivancic, M. T., & O'Brien, S.
+  year: 1986
+  title: "Effectiveness of brief time-out with and without contingent delay: A comparative analysis"
+  venue: Journal of Applied Behavior Analysis, 19(1), 79-86
+  doi: 10.1901/jaba.1986.19-79
+  pmid: "3710950"
+  url: https://doi.org/10.1901/jaba.1986.19-79
+  lang: en
+  finding:
+    en: In a small study of three children (one typically developing, two with intellectual disabilities), brief time-out reduced aggression and disruption both when release was delayed until disruption during time-out stopped and when it was not.
+    zh-hans: 一项只有 3 名儿童（1 名发育正常，2 名有智力障碍）的小型研究发现，短暂的暂停无论是否要求孩子在暂停中停止吵闹才能结束，都减少了攻击和捣乱行为。
+    zh-hant: 一項只有 3 名兒童（1 名發展正常，2 名有智能障礙）的小型研究發現，短暫的暫停無論是否要求孩子在暫停中停止吵鬧才能結束，都減少了攻擊和搗亂行為。
+  key_facts:
+    - '"We evaluated a commonly used component of brief time-out, in which release from time-out is delayed contingent on the occurrence of disruption."'
+    - '"Data were collected for one normal and two mentally retarded children" (1986 wording)'
+    - '"both delay and no delay variations were effective in reducing the frequency of the target behaviors"'
+  topics:
+    - time-out
+  accessed: 2026-10-04
+  verified_via: "2026-10-04 CI candidate lookup (sources workflow run 37142476308): Crossref metadata and abstract (Europe PMC, PMID 3710950) read in full. Crossref gives the title in capitals; shown in sentence case. Crossref year 1986 (online 2013)."
+- id: larzelere-2000-review
+  evidence_level: review
+  authors: Larzelere, R. E.
+  year: 2000
+  title: "Child outcomes of nonabusive and customary physical punishment by parents: An updated literature review"
+  venue: Clinical Child and Family Psychology Review, 3(4), 199-221
+  doi: 10.1023/a:1026473020315
+  pmid: "11225737"
+  url: https://doi.org/10.1023/a:1026473020315
+  lang: en
+  finding:
+    en: This review by a leading proponent reports that all six clinical-sample studies and all three sequential-analysis studies found beneficial outcomes, such as less noncompliance and fighting, mainly when nonabusive spanking backed up milder discipline with 2- to 6-year-olds, while five of eight controlled longitudinal studies found mainly detrimental outcomes, which the author attributes chiefly to overly frequent use and to residual confounding.
+    zh-hans: 这篇由主要支持者撰写的综述指出，6 项临床样本研究和 3 项序列分析研究都发现了有益结果（例如不服从和打架减少），主要出现在对 2 至 6 岁孩子把非虐待性的打屁股用作温和管教的后备手段时；而 8 项控制了初始行为问题的纵向研究中，有 5 项主要发现不良结果，作者认为这主要源于使用过于频繁和残余混杂。
+    zh-hant: 這篇由主要支持者撰寫的文獻回顧指出，6 項臨床樣本研究和 3 項序列分析研究都發現了有益結果（例如不服從和打架減少），主要出現在對 2 至 6 歲孩子把非虐待性的打屁股當作溫和管教的後備手段時；而 8 項控制了初始行為問題的縱貫研究中，有 5 項主要發現不良結果，作者認為這主要源於使用過於頻繁和殘餘干擾。
+  key_facts:
+    - '"All six studies that used clinical samples (including four randomized clinical studies) and all three sequential-analysis studies found beneficial outcomes, such as reduced noncompliance and fighting, primarily when nonabusive spanking was used to back up milder disciplinary tactics in 2- to 6-year olds."'
+    - '"Five of eight longitudinal studies that controlled for initial child misbehavior found predominantly detrimental outcomes of spanking."'
+    - '"those detrimental outcomes were primarily due to overly frequent use of physical punishment"'
+    - '"apparently detrimental outcomes have been found for every alternative disciplinary tactic when investigated with similar analyses"'
+    - '"Such detrimental associations of frequent use of any disciplinary tactic may be due to residual confounding from initial child misbehavior."'
+  topics:
+    - physical-punishment
+  side: minority
+  accessed: 2026-10-04
+  verified_via: "2026-10-04 CI candidate lookup (sources workflow run 37142476308): Crossref metadata and abstract (Europe PMC, PMID 11225737) read in full."
+- id: reynolds-kelley-1997
+  evidence_level: experiment
+  authors: Reynolds, L. K., & Kelley, M. L.
+  year: 1997
+  title: The efficacy of a response cost-based treatment package for managing aggressive behavior in preschoolers
+  venue: Behavior Modification, 21(2), 216-230
+  doi: 10.1177/01454455970212005
+  pmid: "9086867"
+  url: https://doi.org/10.1177/01454455970212005
+  lang: en
+  finding:
+    en: In a small classroom study of four aggressive preschoolers, a response cost system (teachers removed a smiley face, with a reprimand, after each aggressive act, and children who kept at least one face chose a reward) substantially decreased aggressive behavior and was highly acceptable to teachers and parents.
+    zh-hans: 一项只有 4 名有攻击行为的学龄前儿童的小型课堂研究中，老师采用“扣分”制度：孩子每出现一次攻击行为，就拿走一个笑脸并简短批评，到时段结束时至少还剩一个笑脸的孩子可以挑选奖励。结果攻击行为大幅减少，老师和家长也都很能接受这种做法。
+    zh-hant: 一項只有 4 名有攻擊行為的學齡前兒童的小型課堂研究中，老師採用「扣點」制度：孩子每出現一次攻擊行為，就拿走一個笑臉並簡短糾正，到時段結束時至少還剩一個笑臉的孩子可以挑選獎勵。結果攻擊行為大幅減少，老師和家長也都很能接受這種做法。
+  key_facts:
+    - '"The present study examined the effectiveness of a response cost treatment package for improving the classroom behavior of four aggressive preschoolers."'
+    - '"The system required teachers to remove smiley faces contingent on aggressive behavior. Each face loss was accompanied by a reprimand."'
+    - '"If the child retained at least one smiley face at the end of the observation period, he was allowed to choose from a list of rewards."'
+    - '"the response cost treatment package substantially decreased aggressive behavior and was a highly acceptable classroom treatment to teachers and parents"'
+  topics:
+    - response-cost
+    - aggression
+  accessed: 2026-10-04
+  verified_via: "2026-10-04 CI candidate lookup (sources workflow run 37142476308): Crossref metadata and abstract (Europe PMC, PMID 9086867) read in full. Classroom setting, teacher-delivered."
