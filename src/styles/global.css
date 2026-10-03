@@ -83,16 +83,28 @@
   --lh-body: 1.7;
 }
 
+/* Chinese pages show the system CJK font first; site.ts adds .cjk-ready once the self-hosted
+   Noto slices this page needs have loaded, so the switch happens in one step. */
 :root:lang(zh-Hans) {
-  --font-body: 'WMJ Punct SC Sans', 'DM Sans', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --font-head: 'WMJ Punct SC Serif', 'Lora', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --font-body: 'DM Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
+  --font-head: 'Lora', 'Songti SC', 'STSong', 'SimSun', 'Noto Serif CJK SC', serif;
   --lh-body: 1.85;
 }
 
+:root:lang(zh-Hans).cjk-ready {
+  --font-body: 'WMJ Punct SC Sans', 'DM Sans', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-head: 'WMJ Punct SC Serif', 'Lora', 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+}
+
 :root:lang(zh-Hant) {
+  --font-body: 'DM Sans', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans CJK TC', sans-serif;
+  --font-head: 'Lora', 'Songti TC', 'PMingLiU', 'Noto Serif CJK TC', serif;
+  --lh-body: 1.85;
+}
+
+:root:lang(zh-Hant).cjk-ready {
   --font-body: 'WMJ Punct TC Sans', 'DM Sans', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
   --font-head: 'WMJ Punct TC Serif', 'Lora', 'Noto Serif TC', 'Songti TC', 'PMingLiU', serif;
-  --lh-body: 1.85;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -749,10 +761,16 @@ th {
 }
 
 /* Suggestion banner (shown by script only) */
+/* Language suggestion: a bar fixed to the bottom of the viewport, so showing it never shifts the page. */
 .lang-banner {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 900;
   background: var(--accent-bg);
-  border-bottom: 1px solid var(--note-border);
+  border-top: 1px solid var(--note-border);
+  box-shadow: 0 -6px 18px rgb(0 0 0 / 0.12);
   font-size: 0.95rem;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .lang-banner[hidden] {
@@ -1898,6 +1916,19 @@ a.anchor:hover {
 .bib-entry p {
   margin: 0.25rem 0;
   overflow-wrap: anywhere;
+}
+
+/* Long lists (bibliography, tool cards, situation guides): skip layout and paint of entries far
+   off screen until they are scrolled near. Anchors, find-in-page and screen readers still work. */
+.bib-entry {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 220px;
+}
+
+.tool-card,
+.situation {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1400px;
 }
 
 .bib-meta {

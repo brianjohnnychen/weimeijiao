@@ -89,8 +89,44 @@ function initMenu() {
   });
 }
 
+/**
+ * Chinese pages: the self-hosted Noto faces come in many small unicode-range slices. Letting
+ * each slice swap in as it arrives re-lays out the page dozens of times on a phone. Instead,
+ * text first shows in the system CJK font; we ask the browser for exactly the slices this page
+ * needs, then switch to Noto in one step (html.cjk-ready). Without JS, a <noscript> style
+ * applies the Noto stacks directly.
+ */
+function initCjkFonts() {
+  const root = document.documentElement;
+  const lang = root.lang;
+  if (!lang.startsWith('zh') || !('fonts' in document)) return;
+  const tc = lang === 'zh-Hant';
+  const sans = tc ? 'Noto Sans TC' : 'Noto Sans SC';
+  const serif = tc ? 'Noto Serif TC' : 'Noto Serif SC';
+  const ready = () => root.classList.add('cjk-ready');
+  const link = document.querySelector<HTMLLinkElement>('link[data-cjk-css]');
+  const cssLoaded = new Promise<void>((resolve) => {
+    if (!link || link.rel === 'stylesheet') return resolve();
+    link.addEventListener('load', () => resolve(), { once: true });
+    link.addEventListener('error', () => resolve(), { once: true });
+  });
+  const textOf = (selector: string) => [...document.querySelectorAll<HTMLElement>(selector)].map((e) => e.textContent ?? '').join('');
+  cssLoaded
+    .then(() => {
+      const body = document.body.textContent ?? "";
+      const heads = textOf('h1, h2, h3, h4, .brand-name, .card-title, .core-idea, .phase-tile .age');
+      const bold = textOf('strong, b, th, dt, legend, summary, .btn, .nav-link[aria-current], .eyebrow, .chip, .tool-head h2, .say-context');
+      return Promise.race([
+        Promise.all([document.fonts.load(`400 16px "${sans}"`, body), document.fonts.load(`700 16px "${sans}"`, bold || '中'), document.fonts.load(`600 16px "${serif}"`, heads || '中')]),
+        new Promise((resolve) => setTimeout(resolve, 6000)),
+      ]);
+    })
+    .then(ready, ready);
+}
+
 export function initSite() {
   initTheme();
   initLocale();
   initMenu();
+  initCjkFonts();
 }

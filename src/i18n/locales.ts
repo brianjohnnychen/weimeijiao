@@ -15,13 +15,24 @@ interface LocaleMeta {
   og: string;
   /** Self-hosted CJK font stylesheet, if any. */
   fontCss: string | null;
+  /** Font stacks with the self-hosted CJK faces (used directly when JS is off). */
+  fontBody?: string;
+  fontHead?: string;
   /** Site name in this locale. */
   siteName: string;
 }
 
 export const LOCALE_META: Record<Locale, LocaleMeta> = {
-  'zh-hans': { lang: 'zh-Hans', prefix: '', label: '简体中文', og: 'zh_CN', fontCss: '/fonts/sc.css', siteName: '魏美娇' },
-  'zh-hant': { lang: 'zh-Hant', prefix: '/zh-hant', label: '繁體中文', og: 'zh_TW', fontCss: '/fonts/tc.css', siteName: '魏美嬌' },
+  'zh-hans': {
+    lang: 'zh-Hans', prefix: '', label: '简体中文', og: 'zh_CN', fontCss: '/fonts/sc.css', siteName: '魏美娇',
+    fontBody: "'WMJ Punct SC Sans','DM Sans','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif",
+    fontHead: "'WMJ Punct SC Serif','Lora','Noto Serif SC','Songti SC','SimSun',serif",
+  },
+  'zh-hant': {
+    lang: 'zh-Hant', prefix: '/zh-hant', label: '繁體中文', og: 'zh_TW', fontCss: '/fonts/tc.css', siteName: '魏美嬌',
+    fontBody: "'WMJ Punct TC Sans','DM Sans','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",
+    fontHead: "'WMJ Punct TC Serif','Lora','Noto Serif TC','Songti TC','PMingLiU',serif",
+  },
   en: { lang: 'en', prefix: '/en', label: 'English', og: 'en_US', fontCss: null, siteName: 'Wei Mei Jiao' },
 };
 

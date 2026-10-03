@@ -1,6 +1,7 @@
 // Tiny static server for dist/ (local previews, screenshots, PDFs, OG images and tests).
 // Serves /path/ as /path/index.html and falls back to /404.html like GitHub Pages.
 import { createServer } from 'node:http';
+import { gzipSync } from 'node:zlib';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 
@@ -27,8 +28,17 @@ export function serve(dir, port = 0) {
         res.end(await readFile(join(dir, '404.html')).catch(() => 'Not found'));
         return;
       }
-      res.writeHead(200, { 'Content-Type': TYPES[extname(file)] ?? 'application/octet-stream' });
-      res.end(await readFile(file));
+      // Like GitHub Pages: gzip text responses and a 10-minute cache lifetime.
+      const type = TYPES[extname(file)] ?? 'application/octet-stream';
+      const body = await readFile(file);
+      const headers = { 'Content-Type': type, 'Cache-Control': 'max-age=600' };
+      if (/^(text\/|application\/(json|xml)|image\/svg)/.test(type) && /\bgzip\b/.test(req.headers['accept-encoding'] ?? '')) {
+        res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip', Vary: 'Accept-Encoding' });
+        res.end(gzipSync(body));
+        return;
+      }
+      res.writeHead(200, headers);
+      res.end(body);
     } catch (err) {
       res.writeHead(500);
       res.end(String(err));

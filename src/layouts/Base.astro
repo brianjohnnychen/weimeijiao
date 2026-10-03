@@ -60,7 +60,16 @@ const isRootHome = pathname === '/';
     <meta property="og:locale" content={meta.og} />
     {LOCALES.filter((l) => l !== locale).map((l) => <meta property="og:locale:alternate" content={LOCALE_META[l].og} />)}
     <meta name="twitter:card" content="summary_large_image" />
-    {meta.fontCss && <link rel="stylesheet" href={meta.fontCss} />}
+    {meta.fontCss && (
+      <>
+        {/* CJK @font-face rules load without blocking first paint; text shows in the system font until then (font-display: swap). */}
+        <link rel="preload" href={meta.fontCss} as="style" data-cjk-css onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+          <link rel="stylesheet" href={meta.fontCss} />
+          <style is:inline>{`:root{--font-body:${meta.fontBody};--font-head:${meta.fontHead}}`}</style>
+        </noscript>
+      </>
+    )}
     <script is:inline>
       (function () {
         try {
