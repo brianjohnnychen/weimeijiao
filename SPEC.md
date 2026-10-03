@@ -92,7 +92,7 @@ Brian chose to cover physical discipline by presenting both sides, with the weig
 - Other peer-reviewed meta-analyses, reviews and journal-published policy statements as verified. (The WHO fact sheet and the APA 2019 resolution are not journal publications, so under §6 they are not cited.)
 
 7.3 **What proponents argue (minority view).** Summarize fairly, with citations:
-- Larzelere, Gunnoe, Pritsker & Ferguson (2024), *Marriage & Family Review*, meta-analysis of 47 controlled longitudinal studies testing whether the type of longitudinal analysis explains why earlier reviews disagreed; the authors conclude that harmful effects of customary spanking have been exaggerated. (The research pass found no "under 1% of variance" figure in this paper; do not use it.)
+- Larzelere, Gunnoe, Pritsker & Ferguson (2024), *Marriage & Family Review*, meta-analysis of controlled longitudinal studies: customary spanking explained less than 1% of the remaining variance in each child outcome once baseline adjustment is controlled; the authors attribute harmful-looking results to residual confounding and discourage blanket anti-spanking injunctions (verified against the abstract).
 - Larzelere's "conditional spanking" position (e.g., Larzelere & Kuhn 2005, *Clinical Child and Family Psychology Review*): that outcomes depend on how it is used. Present the conditions proponents themselves describe as *their* position, attributed to them, not as the site's instructions.
 - Cultural and family-autonomy arguments parents commonly raise.
 

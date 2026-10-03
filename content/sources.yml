@@ -42,21 +42,21 @@
   url: https://doi.org/10.1080/01494929.2024.2392672
   lang: en
   finding:
-    en: Larzelere and colleagues meta-analysed 47 controlled longitudinal studies to test whether the contradictory conclusions of earlier reviews depend on the type of longitudinal analysis used, and conclude that the harmful effects of customary spanking have been exaggerated and its possible benefits for the most defiant children dismissed too quickly.
-    zh-hans: Larzelere 等人对 47 项有对照的纵向研究进行荟萃分析，检验以往综述结论相互矛盾是否取决于所用的纵向分析方法；他们的结论是，惯常打屁股的害处被夸大了，而它对最叛逆孩子可能的好处被过早否定。
-    zh-hant: Larzelere 等人對 47 項有對照的縱貫研究進行統合分析，檢驗過去文獻回顧結論互相矛盾是否取決於所用的縱貫分析方法；他們的結論是，慣常打屁股的害處被誇大了，而它對最叛逆孩子可能的好處被太快否定。
+    en: A meta-analysis of controlled longitudinal studies found that customary spanking explained less than 1% of the remaining variance in each child outcome after controlling for earlier adjustment; the authors attribute harmful-looking results to residual confounding and, pointing to large effects of spanking used to enforce time-out in clinic programs for defiant young children, discourage blanket anti-spanking injunctions.
+    zh-hans: 这项针对有对照纵向研究的荟萃分析发现，在控制孩子原有的适应状况后，惯常打屁股对每项儿童结果的解释力都不到剩余变异的 1%；作者认为以往看似有害的结果来自残余混杂，并以诊所课程中用打屁股强制执行暂停、对叛逆幼儿效果很大为由，反对一概禁止打屁股。
+    zh-hant: 這項針對有對照縱貫研究的統合分析發現，在控制孩子原有的適應狀況後，慣常打屁股對每項兒童結果的解釋力都不到剩餘變異的 1%；作者認為過去看似有害的結果來自殘餘干擾，並以診所課程中用打屁股強制執行暫停、對叛逆幼兒效果很大為由，反對一概禁止打屁股。
   key_facts:
-    - "Number of studies meeting the eligibility criteria: 47."
-    - 'Aim: to explain why three literature reviews of controlled longitudinal studies of child outcomes of "customary physical punishment" arrived at "contradictory conclusions".'
-    - 'Method: "meta-analyses based on two types of change-scores and two sensitivity tests".'
-    - 'Hypothesis: studies using "standard ANCOVA-type longitudinal analyses" would suggest "harmful-looking effects", while studies using "simple difference scores" would suggest "beneficial-looking effects" of customary spanking on four child outcomes.'
-    - Child age (18 months to 11 years) was examined as a moderator of these associations.
-    - "Authors' conclusion (proponents' position, attribute to them): harmful effects of customary spanking have been exaggerated, and potential benefits of spanking for the most defiant children have been dismissed too quickly."
+    - 'Abstract: "Regardless of statistical method, customary spanking explained less than 1% of the remaining variance in each child outcome (after controlling for baseline adjustment)."'
+    - 'Abstract: "The oft-reported harmful-looking outcomes of customary physical punishment in ANCOVA-type analyses are likely due to residual confounding."'
+    - "Hypothesis reported as supported: \"spanking to enforce timeout in randomized studies of clinically defiant young children would predict large improvements in children's cooperation with timeout and parental commands.\""
+    - Four child outcomes; child age 18 months to 11 years examined as a moderator.
+    - "Authors' conclusion: \"blanket anti-spanking injunctions are discouraged.\""
+    - The number of studies (47) was reported by the research pass from search results, not from the abstract; do not state it until checked in the full text.
   topics:
     - physical-punishment
   side: minority
   accessed: 2026-10-04
-  verified_via: "WebSearch restricted to tandfonline.com returned the abstract page https://www.tandfonline.com/doi/abs/10.1080/01494929.2024.2392672 (listed as 'Marriage & Family Review: Vol 60, No 7') and the full-text page https://www.tandfonline.com/doi/full/10.1080/01494929.2024.2392672, confirming the exact title, the author order (Robert E. Larzelere, Marjorie Lindner Gunnoe, Joshua Pritsker & Christopher J. Ferguson), volume 60, issue 7, pages 395-433, the three-reviews aim, the 'two types of change-scores and two sensitivity tests' design, the ANCOVA-type versus simple-difference-score hypothesis, the four child outcomes and the 18-month to 11-year age range. The figure of 47 studies and the authors' conclusion came from a non-restricted search whose top results were the publisher PDF (https://www.tandfonline.com/doi/pdf/10.1080/01494929.2024.2392672) and an author-hosted copy (christopherjferguson.com); moderately confident, recheck both in the PDF. The pooled effect sizes and whether the hypothesis was supported were NOT verified, so the entry does not report them. The brief's claim that spanking explained under 1% of variance was NOT found on any source page and is deliberately not recorded."
+  verified_via: "WebSearch restricted to tandfonline.com returned the abstract page https://www.tandfonline.com/doi/abs/10.1080/01494929.2024.2392672 (listed as 'Marriage & Family Review: Vol 60, No 7') and the full-text page https://www.tandfonline.com/doi/full/10.1080/01494929.2024.2392672, confirming the exact title, the author order (Robert E. Larzelere, Marjorie Lindner Gunnoe, Joshua Pritsker & Christopher J. Ferguson), volume 60, issue 7, pages 395-433, the three-reviews aim, the 'two types of change-scores and two sensitivity tests' design, the ANCOVA-type versus simple-difference-score hypothesis, the four child outcomes and the 18-month to 11-year age range. The figure of 47 studies and the authors' conclusion came from a non-restricted search whose top results were the publisher PDF (https://www.tandfonline.com/doi/pdf/10.1080/01494929.2024.2392672) and an author-hosted copy (christopherjferguson.com); moderately confident, recheck both in the PDF. The pooled effect sizes and whether the hypothesis was supported were NOT verified, so the entry does not report them. The brief's claim that spanking explained under 1% of variance was NOT found on any source page and is deliberately not recorded. | 2026-10-04 CI source check: abstract (OpenAlex) read in full; it does report the \"less than 1% of the remaining variance\" result, correcting the earlier research note."
 - id: kaminski-2008
   evidence_level: meta-analysis
   authors: Kaminski, J. W., Valle, L. A., Filene, J. H., & Boyle, C. L.
@@ -455,7 +455,7 @@
   title: "Physical Aggression During Early Childhood: Trajectories and Predictors"
   venue: Pediatrics, 114(1), e43-e50
   pmid: "15231972"
-  url: https://publications.aap.org/pediatrics/article-abstract/114/1/e43/64728/Physical-Aggression-During-Early-Childhood
+  url: https://doi.org/10.1542/peds.114.1.e43
   lang: en
   finding:
     en: In a population sample of 572 families, mothers' reports at 17, 30 and 42 months showed that most toddlers used some physical aggression on rising trajectories (about 58% modest, 14% high), while 28% showed little or none.
@@ -470,7 +470,8 @@
   topics:
     - aggression
   accessed: 2026-10-04
-  verified_via: "WebSearch (PubMed/PMC/AAP) results: https://pubmed.ncbi.nlm.nih.gov/15231972/, https://pmc.ncbi.nlm.nih.gov/articles/PMC2538721/ and https://publications.aap.org/pediatrics/article-abstract/114/1/e43/64728/Physical-Aggression-During-Early-Childhood confirmed title, Pediatrics 114(1), July 2004, design, trajectories, sex difference and conclusion sentence. The full author list and pages e43-e50 came from a bibliographic record (https://crdcn.ca/publication/physical-aggression-during-early-childhood-trajectories-and-predictors/). DOI not shown, so the AAP page is the url."
+  verified_via: "WebSearch (PubMed/PMC/AAP) results: https://pubmed.ncbi.nlm.nih.gov/15231972/, https://pmc.ncbi.nlm.nih.gov/articles/PMC2538721/ and https://publications.aap.org/pediatrics/article-abstract/114/1/e43/64728/Physical-Aggression-During-Early-Childhood confirmed title, Pediatrics 114(1), July 2004, design, trajectories, sex difference and conclusion sentence. The full author list and pages e43-e50 came from a bibliographic record (https://crdcn.ca/publication/physical-aggression-during-early-childhood-trajectories-and-predictors/). DOI not shown, so the AAP page is the url. | 2026-10-04 CI source check (GitHub Actions): PubMed record shows DOI 10.1542/peds.114.1.e43; abstract read in full and matches the finding."
+  doi: 10.1542/peds.114.1.e43
 - id: cote-2006
   evidence_level: longitudinal
   authors: Côté, S. M., Vaillancourt, T., LeBlanc, J. C., Nagin, D. S., & Tremblay, R. E.
@@ -478,7 +479,7 @@
   title: "The development of physical aggression from toddlerhood to pre-adolescence: a nation wide longitudinal study of Canadian children"
   venue: Journal of Abnormal Child Psychology, 34(1), 71-85
   pmid: "16565888"
-  url: https://pubmed.ncbi.nlm.nih.gov/16565888/
+  url: https://doi.org/10.1007/s10802-005-9001-z
   lang: en
   finding:
     en: Following 10,658 Canadian children between ages 2 and 11, most used physical aggression occasionally or infrequently as toddlers and infrequently or almost never by pre-adolescence, while about one in six (16.6%) stayed on a high, stable trajectory.
@@ -492,27 +493,31 @@
   topics:
     - aggression
   accessed: 2026-10-04
-  verified_via: WebSearch (PubMed) result https://pubmed.ncbi.nlm.nih.gov/16565888/ confirmed title, all five authors, February 2006, Journal of Abnormal Child Psychology, the sample and the three trajectories with percentages. Volume 34(1) and pages 71-85 came from another search result and fit the February 2006 issue. DOI not shown, omitted.
+  verified_via: "WebSearch (PubMed) result https://pubmed.ncbi.nlm.nih.gov/16565888/ confirmed title, all five authors, February 2006, Journal of Abnormal Child Psychology, the sample and the three trajectories with percentages. Volume 34(1) and pages 71-85 came from another search result and fit the February 2006 issue. DOI not shown, omitted. | 2026-10-04 CI source check (GitHub Actions): PubMed record shows DOI 10.1007/s10802-005-9001-z; abstract read in full and matches the finding."
+  doi: 10.1007/s10802-005-9001-z
 - id: alink-2006
   evidence_level: longitudinal
-  authors: Alink, L. R. A., Mesman, J., van Zeijl, J., et al.
+  authors: Alink, L. R. A., Mesman, J., van Zeijl, J., Stolk, M. N., Juffer, F., Koot, H. M., Bakermans-Kranenburg, M. J., & van IJzendoorn, M. H.
   year: 2006
   title: "The early childhood aggression curve: development of physical aggression in 10- to 50-month-old children"
   venue: Child Development, 77(4), 954-966
   pmid: "16942499"
-  url: https://pubmed.ncbi.nlm.nih.gov/16942499/
+  url: https://doi.org/10.1111/j.1467-8624.2006.00912.x
   lang: en
   finding:
     en: Physical aggression was already present in 12-month-olds but occurred significantly more often in 24- and 36-month-olds, rising during the second year of life and declining from the third birthday onward.
     zh-hans: 12 个月大的孩子已经会出现肢体攻击，但 24 和 36 个月大的孩子明显更多；肢体攻击在出生后第二年增加，从三岁生日起开始下降。
     zh-hant: 12 個月大的孩子已經會出現肢體攻擊，但 24 和 36 個月大的孩子明顯更多；肢體攻擊在出生後第二年增加，從三歲生日起開始下降。
   key_facts:
-    - Physical aggression occurred in 12-month-olds, but significantly more often in 24- and 36-month-olds.
-    - Rates of physically aggressive behaviors increased in the 2nd year of life and declined from the 3rd birthday onward.
+    - Mothers and fathers reported on children first recruited at 12, 24 and 36 months (N = 2,253), with a subsample (n = 271) followed up one year later in a cross-sequential design.
+    - '"Physical aggression occurred in 12-month-olds, but significantly more often in 24- and 36-month-olds."'
+    - '"The rates of physically aggressive behaviors increased in the 2nd year of life, and declined from the 3rd birthday onward."'
+    - At 24 and 36 months, boys were more aggressive than girls.
   topics:
     - aggression
   accessed: 2026-10-04
-  verified_via: PROBABLE, re-check before quoting. A PubMed/PMC/AAP-restricted WebSearch listed https://pubmed.ncbi.nlm.nih.gov/16942499/ (this title) first, and the same result set returned the two finding sentences, most likely the abstract text, though the result did not say which page they came from. Authors (Alink, Mesman, van Zeijl and colleagues) and Child Development 77(4), 954-966 came from citing records; author initials were not shown.
+  verified_via: "PROBABLE, re-check before quoting. A PubMed/PMC/AAP-restricted WebSearch listed https://pubmed.ncbi.nlm.nih.gov/16942499/ (this title) first, and the same result set returned the two finding sentences, most likely the abstract text, though the result did not say which page they came from. Authors (Alink, Mesman, van Zeijl and colleagues) and Child Development 77(4), 954-966 came from citing records; author initials were not shown. | 2026-10-04 CI source check (GitHub Actions): PubMed record shows DOI 10.1111/j.1467-8624.2006.00912.x; abstract read in full and matches the finding."
+  doi: 10.1111/j.1467-8624.2006.00912.x
 - id: paruthi-2016
   evidence_level: position-statement
   authors: Paruthi, S., et al.
@@ -540,12 +545,12 @@
   verified_via: "WebSearch results: https://pubmed.ncbi.nlm.nih.gov/27250809/ and https://jcsm.aasm.org/doi/abs/10.5664/jcsm.5866 confirmed title, DOI and journal; result text (including the copy at https://depts.washington.edu/dbpeds/pediatricsleepdurationconsensus.pdf) gave JCSM 2016;12(6):785-786 and the hour ranges; AASM pages (https://aasm.org/?p=2098) and the companion methodology paper (https://pmc.ncbi.nlm.nih.gov/articles/PMC5078711/, JCSM 12(11), from p. 1549) gave the method, the panel, the 864 articles, the outcomes and the AAP endorsement. Shalini Paruthi confirmed as first author; co-authors not shown, so given as et al."
 - id: mindell-2009
   evidence_level: rct
-  authors: Mindell, J. A., et al.
+  authors: Mindell, J. A., Telofski, L. S., Wiegand, B., & Kurtz, E. S.
   year: 2009
   title: "A Nightly Bedtime Routine: Impact on Sleep in Young Children and Maternal Mood"
   venue: Sleep, 32(5), 599-606
   pmid: "19480226"
-  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2675894/
+  url: https://doi.org/10.1093/sleep/32.5.599
   lang: en
   finding:
     en: In a 3-week randomized study of 405 mothers and their infants or toddlers, starting a consistent nightly bedtime routine improved children's sleep (shorter time to fall asleep, fewer and shorter night wakings) and improved mothers' mood compared with keeping the usual routine.
@@ -560,7 +565,8 @@
     - sleep
     - routines
   accessed: 2026-10-04
-  verified_via: "WebSearch (PubMed/PMC/OUP) results: https://pmc.ncbi.nlm.nih.gov/articles/PMC2675894/ and https://pubmed.ncbi.nlm.nih.gov/19480226/ confirmed title, first author Jodi A. Mindell, Sleep 2009 May 1;32(5):599-606, the randomized design, sample sizes and results. Co-author names were not shown, so given as et al.; DOI not shown, so PMC is the url."
+  verified_via: "WebSearch (PubMed/PMC/OUP) results: https://pmc.ncbi.nlm.nih.gov/articles/PMC2675894/ and https://pubmed.ncbi.nlm.nih.gov/19480226/ confirmed title, first author Jodi A. Mindell, Sleep 2009 May 1;32(5):599-606, the randomized design, sample sizes and results. Co-author names were not shown, so given as et al.; DOI not shown, so PMC is the url. | 2026-10-04 CI source check (GitHub Actions): PubMed record shows DOI 10.1093/sleep/32.5.599; abstract read in full and matches the finding."
+  doi: 10.1093/sleep/32.5.599
 - id: mindell-2006
   evidence_level: review
   authors: Mindell, J. A., Kuhn, B., Lewin, D. S., Meltzer, L. J., & Sadeh, A.

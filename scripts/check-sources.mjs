@@ -260,7 +260,9 @@ async function checkSources(details) {
         const score = titleScore(`${cr.title} ${cr.subtitle}`.trim(), s.title);
         const score2 = titleScore(cr.title, s.title);
         const yearOk = !s.year || !cr.year || Math.abs(Number(cr.year) - Number(s.year)) <= 1 || (cr.online && Math.abs(Number(cr.online) - Number(s.year)) <= 1);
-        const authorOk = !cr.firstFamily || norm(s.authors).includes(norm(cr.firstFamily));
+        const family = norm(cr.firstFamily);
+        const lastWord = family.split(' ').pop();
+        const authorOk = !family || norm(s.authors).includes(family) || (lastWord && norm(s.authors).includes(lastWord));
         if (Math.max(score, score2) < 0.8 || !yearOk || !authorOk) {
           doiCell = `FAIL: metadata mismatch (title ${Math.max(score, score2).toFixed(2)}, year ${cr.year}, first author ${cr.firstFamily})`;
           notes.push(`Crossref: ${cr.authors} (${cr.year}). ${cr.title}${cr.subtitle ? ': ' + cr.subtitle : ''}. ${cr.container} ${cr.volume ?? ''}(${cr.issue ?? ''}) ${cr.page ?? ''}`);
