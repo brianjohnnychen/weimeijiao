@@ -111,17 +111,25 @@ function initCjkFonts() {
     link.addEventListener('error', () => resolve(), { once: true });
   });
   const textOf = (selector: string) => [...document.querySelectorAll<HTMLElement>(selector)].map((e) => e.textContent ?? '').join('');
-  cssLoaded
-    .then(() => {
-      const body = document.body.textContent ?? "";
-      const heads = textOf('h1, h2, h3, h4, .brand-name, .card-title, .core-idea, .phase-tile .age');
-      const bold = textOf('strong, b, th, dt, legend, summary, .btn, .nav-link[aria-current], .eyebrow, .chip, .tool-head h2, .say-context');
-      return Promise.race([
-        Promise.all([document.fonts.load(`400 16px "${sans}"`, body), document.fonts.load(`700 16px "${sans}"`, bold || '中'), document.fonts.load(`600 16px "${serif}"`, heads || '中')]),
-        new Promise((resolve) => setTimeout(resolve, 6000)),
-      ]);
-    })
-    .then(ready, ready);
+  // The page first renders with the system's Chinese fonts. The Noto slices it needs are fetched
+  // only once the page has loaded and the browser is idle, so they never compete with first paint,
+  // and the page switches in one step when all of them have arrived. If that takes longer than
+  // 10 seconds the page keeps the system fonts (the slices stay cached for the next page).
+  const start = () =>
+    cssLoaded
+      .then(() => {
+        const body = document.body.textContent ?? '';
+        const heads = textOf('h1, h2, h3, h4, .brand-name, .card-title, .core-idea, .phase-tile .age');
+        const bold = textOf('strong, b, th, dt, legend, summary, .btn, .nav-link[aria-current], .eyebrow, .chip, .tool-head h2, .say-context');
+        return Promise.race([
+          Promise.all([document.fonts.load(`400 16px "${sans}"`, body), document.fonts.load(`700 16px "${sans}"`, bold || '中'), document.fonts.load(`600 16px "${serif}"`, heads || '中')]).then(() => true),
+          new Promise<boolean>((resolve) => setTimeout(() => resolve(false), 10000)),
+        ]);
+      })
+      .then((loaded) => loaded && requestAnimationFrame(ready), () => {});
+  const idle = () => ('requestIdleCallback' in window ? window.requestIdleCallback(() => start(), { timeout: 3000 }) : setTimeout(start, 1000));
+  if (document.readyState === 'complete') idle();
+  else window.addEventListener('load', idle, { once: true });
 }
 
 export function initSite() {

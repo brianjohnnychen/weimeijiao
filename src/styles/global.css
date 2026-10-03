@@ -748,15 +748,38 @@ th {
 }
 
 @media (max-width: 420px) {
+  .header-inner {
+    gap: 0.5rem;
+  }
+  .header-tools {
+    gap: 0.3rem;
+  }
+  .brand {
+    gap: 0.45rem;
+  }
   .brand-tagline {
     display: none;
   }
   .brand-name {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .lang-switch a {
-    min-width: 36px;
-    padding: 0 0.4rem;
+    min-width: 32px;
+    padding: 0 0.3rem;
+  }
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Very narrow screens: the English name no longer fits beside the controls, so the logo stands
+   alone (the link keeps its accessible name). */
+@media (max-width: 359px) {
+  :root:lang(en) .brand-name {
+    display: none;
   }
 }
 
@@ -1929,6 +1952,24 @@ a.anchor:hover {
 .situation {
   content-visibility: auto;
   contain-intrinsic-block-size: auto 1400px;
+}
+
+/* Long pages: prose blocks off screen are skipped the same way, so first render and the one-step
+   switch to the Chinese web fonts stay cheap. Headings are left out (they are anchor targets);
+   links into a skipped block still work because the browser renders the target before scrolling
+   to it. Screen only: print lays out everything. */
+@media screen {
+  .prose > :is(p, ul, ol, div, section, table, blockquote, figure, nav, dl) {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 8em;
+  }
+}
+
+/* When the address points at something on the page (a deep link or a table-of-contents jump),
+   everything is laid out for real, so estimated sizes above the target cannot push it out of
+   place. */
+main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
+  content-visibility: visible;
 }
 
 .bib-meta {

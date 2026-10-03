@@ -19,10 +19,14 @@ const outFiles = join(root, 'public', 'fonts', 'files');
 const outPublic = join(root, 'public', 'fonts');
 const outLatin = join(root, 'src', 'styles', 'fonts');
 
+// The per-weight files list every subset with its unicode-range (the per-subset files omit it,
+// which would make browsers download latin-ext for plain English text). Only latin and latin-ext
+// are kept.
 const LATIN = [
-  ['lora', ['latin-500.css', 'latin-ext-500.css', 'latin-600.css', 'latin-ext-600.css', 'latin-400-italic.css', 'latin-ext-400-italic.css']],
-  ['dm-sans', ['latin-400.css', 'latin-ext-400.css', 'latin-500.css', 'latin-ext-500.css', 'latin-700.css', 'latin-ext-700.css']],
+  ['lora', ['500.css', '600.css', '400-italic.css']],
+  ['dm-sans', ['400.css', '500.css', '700.css']],
 ];
+const LATIN_SUBSET = /-latin(?:-ext)?-\d/;
 const SC = [['noto-serif-sc', ['600.css']], ['noto-sans-sc', ['400.css', '700.css']]];
 const TC = [['noto-serif-tc', ['600.css']], ['noto-sans-tc', ['400.css', '700.css']]];
 
@@ -145,7 +149,8 @@ async function loadFaces(groups) {
 }
 
 async function buildLatin() {
-  const faces = await loadFaces(LATIN);
+  const faces = (await loadFaces(LATIN)).filter((f) => LATIN_SUBSET.test(f.file));
+  if (faces.some((f) => !f.unicodeRange)) throw new Error('A Latin font face has no unicode-range');
   for (const f of faces) await copyFile(join(f.dir, 'files', f.file), join(outFiles, f.file));
   return faces.map(faceCss).join('\n') + '\n';
 }

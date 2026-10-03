@@ -30,6 +30,9 @@ const fullTitle = bareTitle ? title : `${title} | ${meta.siteName}`;
 const ogImage = absolute(ogImagePath(pathname));
 const xDefault = alts.find((a) => a.locale === 'zh-hans')!.url;
 const isRootHome = pathname === '/';
+// English pages preload the three faces most of their text uses, so the web fonts usually arrive
+// before first paint and the text does not reflow when they swap in.
+const LATIN_PRELOAD = ['dm-sans-latin-400-normal.woff2', 'dm-sans-latin-700-normal.woff2', 'lora-latin-600-normal.woff2'];
 ---
 <!doctype html>
 <html lang={meta.lang} dir="ltr">
@@ -70,6 +73,7 @@ const isRootHome = pathname === '/';
         </noscript>
       </>
     )}
+    {locale === 'en' && LATIN_PRELOAD.map((file) => <link rel="preload" href={`/fonts/files/${file}`} as="font" type="font/woff2" crossorigin />)}
     <script is:inline>
       (function () {
         try {

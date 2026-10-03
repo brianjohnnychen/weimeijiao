@@ -1,6 +1,8 @@
 // UI check over the built site (dist/) in headless Chrome, all three locales:
-//   - screenshots of the first screen at 375px and 1280px (light) and 375px (dark) to docs/screenshots/
-//   - every listed page, full height: no horizontal overflow, no console errors, no broken images
+//   - screenshots of the first screen at 375px and 1280px (light) and 375px (dark) to docs/screenshots/,
+//     plus the home page at 320px
+//   - every listed page, full height: no horizontal overflow, no console errors, no broken images;
+//     the site name in the header is neither cut off nor running under the header controls
 //   - keyboard: the first Tab lands on a visible skip link; Tab moves through header controls
 //     with a visible focus indicator; Enter on the skip link moves focus to <main>
 //   - dark mode: the page background really is dark when the system prefers dark
@@ -75,7 +77,13 @@ async function check(locale, name, path, width, scheme) {
       .map((el) => `${el.tagName.toLowerCase()}${el.id ? '#' + el.id : ''}.${[...el.classList].join('.')}`);
     const broken = [...document.images].filter((i) => i.complete && i.naturalWidth === 0 && !i.closest('dialog')).map((i) => i.currentSrc || i.src);
     const bg = getComputedStyle(document.body).backgroundColor;
-    return { overflow, wide, broken, bg };
+    // Header: the site name must not run under the language switcher and buttons.
+    const name = document.querySelector('.brand-name');
+    const tools = document.querySelector('.header-tools');
+    const nb = name && getComputedStyle(name).display !== 'none' ? name.getBoundingClientRect() : null;
+    const clipped = name ? name.scrollWidth > name.clientWidth + 1 : false;
+    const headerOverlap = nb && tools ? Math.max(0, Math.round(nb.right - tools.getBoundingClientRect().left)) : 0;
+    return { overflow, wide, broken, bg, headerOverlap, clipped };
   });
   const lum = (() => {
     const m = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(info.bg);
@@ -84,6 +92,8 @@ async function check(locale, name, path, width, scheme) {
   })();
   const issues = [];
   if (info.overflow > 0) issues.push(`horizontal overflow ${info.overflow}px (${info.wide.join(', ')})`);
+  if (info.headerOverlap > 0) issues.push(`site name overlaps the header controls by ${info.headerOverlap}px`);
+  if (info.clipped) issues.push('site name is cut off');
   if (errors.length) issues.push(`console: ${errors.slice(0, 3).join(' | ')}`);
   if (info.broken.length) issues.push(`broken images: ${info.broken.slice(0, 3).join(', ')}`);
   if (external.length) issues.push(`third-party requests: ${external.slice(0, 3).join(', ')}`);
@@ -134,6 +144,8 @@ for (const [locale, prefix] of LOCALES) {
     await check(locale, name, prefix + path, 1280, 'light');
     await check(locale, name, prefix + path, 375, 'dark');
   }
+  // The narrowest phones in use: the header must still fit.
+  await check(locale, 'home', prefix + '/', 320, 'light');
 }
 await browser.close();
 server.close();
@@ -142,7 +154,7 @@ const when = new Date().toISOString().replace('T', ' ').slice(0, 16);
 const md = [
   `# UI check (${when} UTC)`,
   '',
-  `${rows.length} page views: ${PAGES.length} pages x 3 locales x (375px light, 1280px light, 375px dark). Screenshots show the first screen; overflow, console, image and request checks cover the whole page.`,
+  `${rows.length} page views: ${PAGES.length} pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen; overflow, header, console, image and request checks cover the whole page.`,
   '',
   problems.length ? `## Problems (${problems.length})\n\n${problems.map((p) => `- ${p}`).join('\n')}` : '## Problems\n\nNone.',
   '',

@@ -1,0 +1,46 @@
+name: CI
+
+# Builds and tests every push (pull request heads included). Never deploys (see deploy.yml).
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Content lint (frontmatter, citations, links, headings, dashes, locale vocabulary)
+        run: node scripts/check-content.mjs
+
+      - name: Build (Astro, PDFs, OG images) and QA
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: npm run build
+
+      - name: Link test (every internal link and anchor, all locales)
+        run: node scripts/link-test.mjs
+
+      - name: Anchor test (deep links land on their target)
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node scripts/anchor-test.mjs
+
+      - name: Check CNAME
+        run: test "$(cat dist/CNAME)" = "xn--3ys368f86s.com"

@@ -30,12 +30,13 @@ jobs:
 
       - run: npm ci
 
-      - name: Build, render PDFs and OG images, run QA and the link test
+      - name: Build, render PDFs and OG images, run QA, the link test and the anchor test
         env:
           CHROME_PATH: /usr/bin/google-chrome
         run: |
           npm run build
           node scripts/link-test.mjs
+          node scripts/anchor-test.mjs
 
       - name: Check CNAME
         run: test "$(cat dist/CNAME)" = "xn--3ys368f86s.com"
