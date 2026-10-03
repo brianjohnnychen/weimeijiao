@@ -85,7 +85,7 @@ const entryLinks: { key: keyof HomeData['entries']; path: string }[] = [
           <li>
             <div class="phase-tile" id={`age-${p}`}>
               <span class="age">{ui.phaseAge[p]}</span>
-              <h3><a href={href(locale, paths.phase(p))}>{ui.phaseName[p]}</a></h3>
+              <h3 id={`age-${p}-title`}><a href={href(locale, paths.phase(p))}>{ui.phaseName[p]}</a></h3>
               <p>{phases[i].data.lede}</p>
             </div>
           </li>
@@ -102,7 +102,7 @@ const entryLinks: { key: keyof HomeData['entries']; path: string }[] = [
         {entryLinks.map((e) => (
           <li>
             <div class="entry" id={`entry-${e.key}`}>
-              <h3><a href={href(locale, e.path)}>{data.entries[e.key].title}</a></h3>
+              <h3 id={`entry-${e.key}-title`}><a href={href(locale, e.path)}>{data.entries[e.key].title}</a></h3>
               <p>{data.entries[e.key].text}</p>
             </div>
           </li>

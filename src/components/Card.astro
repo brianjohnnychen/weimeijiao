@@ -2,8 +2,8 @@
 import AiImage from './AiImage.astro';
 import type { Locale } from '../i18n/locales';
 
-interface Props { locale: Locale; title: string; href: string; summary?: string; image?: string; kicker?: string; headingLevel?: 2 | 3 }
-const { locale, title, href, summary, image, kicker, headingLevel = 3 } = Astro.props;
+interface Props { locale: Locale; title: string; href: string; summary?: string; image?: string; kicker?: string; headingLevel?: 2 | 3; headingId?: string }
+const { locale, title, href, summary, image, kicker, headingLevel = 3, headingId } = Astro.props;
 const H = `h${headingLevel}` as 'h2' | 'h3';
 ---
 <article class="card">
@@ -14,7 +14,7 @@ const H = `h${headingLevel}` as 'h2' | 'h3';
   )}
   <div class="card-body">
     {kicker && <span class="card-kicker">{kicker}</span>}
-    <H class="card-title"><a href={href}>{title}</a></H>
+    <H class="card-title" id={headingId}><a href={href}>{title}</a></H>
     {summary && <p>{summary}</p>}
     {Astro.slots.has('default') && <div class="card-meta"><slot /></div>}
   </div>

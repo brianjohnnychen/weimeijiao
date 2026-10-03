@@ -30,7 +30,7 @@ const toc = [{ id: 'phases', text: page.data.title }, ...headingsIn(page.body)];
     <ul class="card-grid">
       {PHASES.map((p, i) => (
         <li id={`phase-${p}`}>
-          <Card locale={locale} title={`${ui.phaseName[p]} (${ui.phaseAge[p]})`} href={href(locale, paths.phase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} />
+          <Card locale={locale} title={`${ui.phaseName[p]} (${ui.phaseAge[p]})`} href={href(locale, paths.phase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} headingId={`phase-${p}-title`} />
         </li>
       ))}
     </ul>

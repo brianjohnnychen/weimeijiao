@@ -32,7 +32,7 @@ const data = page.data as { title: string; description: string; lede?: string; i
     <ul class="card-grid">
       {PHASES.map((p, i) => (
         <li id={`learning-${p}`}>
-          <Card locale={locale} title={`${ui.phaseName[p]} (${ui.phaseAge[p]})`} href={href(locale, paths.learningPhase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} />
+          <Card locale={locale} title={`${ui.phaseName[p]} (${ui.phaseAge[p]})`} href={href(locale, paths.learningPhase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} headingId={`learning-${p}-title`} />
         </li>
       ))}
     </ul>

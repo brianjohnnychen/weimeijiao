@@ -3297,7 +3297,7 @@
   finding:
     en: A preregistered meta-analysis of 64 studies (68 independent samples, 631 effect sizes) found a positive, statistically significant average correlation between the home math environment and children's math achievement (r = .13), which was robust in sensitivity analyses, with large differences between studies.
     zh-hans: 这项预先注册的荟萃分析纳入 64 项研究（68 个独立样本、631 个效应量），发现家庭数学环境与孩子的数学成绩之间存在统计上显著的正相关（平均 r = .13），敏感性分析显示结果稳健，但各研究之间差异很大。
-    zh-hant: 這項預先登錄的統合分析納入 64 項研究（68 個獨立樣本、631 個效果量），發現家庭數學環境與孩子的數學成就之間有統計上顯著的正相關（平均 r = .13），敏感度分析顯示結果穩健，但各研究之間差異很大。
+    zh-hant: 這項預先註冊的統合分析納入 64 項研究（68 個獨立樣本、631 個效果量），發現家庭數學環境與孩子的數學成就之間有統計上顯著的正相關（平均 r = .13），敏感度分析顯示結果穩健，但各研究之間差異很大。
   key_facts:
     - '"The home math environment (HME), which includes all math-related activities, attitudes, beliefs, expectations, and utterances in the home"'
     - '"A multilevel correlated effects model using 631 effect sizes from 64 quantitative studies comprising 68 independent samples found a positive, statistically significant average weighted correlation of r = .13 (SE = .02, p < .001)."'

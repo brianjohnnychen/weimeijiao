@@ -49,7 +49,7 @@ const groups = [
       <ul class="printable-list">
         {g.items.map((i) => (
           <li id={`printable-${i.slug}`}>
-            <h3><a href={href(locale, paths.printable(i.slug))}>{i.title}</a></h3>
+            <h3 id={`printable-${i.slug}-title`}><a href={href(locale, paths.printable(i.slug))}>{i.title}</a></h3>
             <p>{i.text}</p>
             <p class="printable-links"><a href={href(locale, paths.printable(i.slug))}>{ui.print.print}</a> · <a href={href(locale, paths.printablePdf(i.slug))} download>{ui.print.pdf}</a></p>
           </li>
