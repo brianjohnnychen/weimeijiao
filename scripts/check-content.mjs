@@ -269,7 +269,7 @@ for (const f of selected) {
       }
     }
     if (slug === 'research') {
-      for (const k of ['bibliographyTitle', 'bibliographyIntro', 'citedIn', 'notCited', 'pubmed', 'back']) str(F, d[k], k);
+      for (const k of ['bibliographyTitle', 'bibliographyIntro', 'citedIn', 'pubmed', 'back']) str(F, d[k], k);
       for (const k of ['programs', 'techniques', 'physical', 'development', 'everyday', 'learning']) str(F, d.groups?.[k], `groups.${k}`);
     }
     if (slug === 'printables') for (const k of ['quiz', 'summaries', 'learning', 'tools']) str(F, d.groups?.[k], `groups.${k}`);

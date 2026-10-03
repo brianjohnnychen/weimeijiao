@@ -28,10 +28,15 @@ export function groupOf(s: Source): ResearchGroupKey {
 
 const sortKey = (s: Source) => `${s.authors.toLowerCase()} ${String(s.year ?? '')}`;
 
-/** All sources in bibliography order, grouped. */
+// Every source cited anywhere in the content. The Research page lists these and only these:
+// sources.yml may also hold verified sources that no page cites, and they stay off the page.
+const CONTENT = import.meta.glob<string>('/src/content/**/*.{md,mdx}', { query: '?raw', import: 'default', eager: true });
+const CITED = new Set(Object.values(CONTENT).flatMap((text) => citeIdsIn(text)));
+
+/** All cited sources in bibliography order, grouped. */
 export const BIBLIOGRAPHY: { key: ResearchGroupKey; sources: Source[] }[] = RESEARCH_GROUPS.map((g) => ({
   key: g.key,
-  sources: SOURCES.filter((s) => groupOf(s) === g.key).sort((a, b) => sortKey(a).localeCompare(sortKey(b))),
+  sources: SOURCES.filter((s) => CITED.has(s.id) && groupOf(s) === g.key).sort((a, b) => sortKey(a).localeCompare(sortKey(b))),
 })).filter((g) => g.sources.length > 0);
 
 const ORDER = BIBLIOGRAPHY.flatMap((g) => g.sources.map((s) => s.id));

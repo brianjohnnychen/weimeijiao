@@ -30,7 +30,6 @@ const data = page.data as unknown as {
   bibliographyIntro: string;
   groups: Record<string, string>;
   citedIn: string;
-  notCited: string;
   pubmed: string;
   back: string;
 };
@@ -51,6 +50,7 @@ const colon = locale === 'en' ? ': ' : '：';
           {group.sources.map((s) => {
             const link = sourceLink(s);
             const where = cited.get(s.id) ?? [];
+            if (!where.length) throw new Error(`${s.id} is cited but no ${locale} page citing it was found: add that page to citingPages() in src/lib/cites.ts`);
             return (
               <li id={`src-${s.id}`} value={citeNumber(s.id)} class="bib-entry">
                 <p class="bib-citation"><Citation source={s} locale={locale} /></p>
@@ -61,14 +61,8 @@ const colon = locale === 'en' ? ': ' : '：';
                 </p>
                 <p class="bib-finding">{s.finding[locale]}</p>
                 <p class="bib-cited">
-                  {where.length > 0 ? (
-                    <>
-                      <strong>{data.citedIn}{colon}</strong>
-                      {where.map((w, i) => <>{i > 0 && sep}<a href={w.href}>{w.label}</a></>)}
-                    </>
-                  ) : (
-                    <span class="muted">{data.notCited}</span>
-                  )}
+                  <strong>{data.citedIn}{colon}</strong>
+                  {where.map((w, i) => <>{i > 0 && sep}<a href={w.href}>{w.label}</a></>)}
                 </p>
               </li>
             );

@@ -4,6 +4,7 @@
 //   - every h1-h3 in <main> and every card / list entry has an anchor id
 //   - no third-party assets (scripts, styles, fonts, images, frames) anywhere
 //   - no em or en dashes, no draft markers in visible text or alt/title/aria/meta text
+//   - no unrendered markup (**bold**, [text](/link), [[cite:id]]); no straight quotes in English text
 //   - zh-Hant pages: no mainland vocabulary or non-Taiwan character forms (OpenCC t->twp + list)
 //   - zh-Hans pages: no Traditional characters (OpenCC t->cn) and no Taiwan-only vocabulary
 // Text inside elements marked with another lang (e.g. a citation title) is checked for that language only.
@@ -63,6 +64,9 @@ const banned = [
   { re: /–/, label: 'en dash' },
   { re: /WMJ-DRAFT/, label: 'draft marker' },
   { re: /\b(TODO|TBD|FIXME|lorem ipsum)\b/i, label: 'placeholder text' },
+  { re: /\*\*|\*[^\s*][^*]*\*(?!\w)/, label: 'unrendered markdown emphasis' },
+  { re: /\]\((?:\/|#|https?:)/, label: 'unrendered markdown link' },
+  { re: /\[\[cite:/, label: 'unrendered citation' },
 ];
 
 // Character forms only: OpenCC's phrase table (twp) also rewrites normal Taiwan usage such as
@@ -185,6 +189,12 @@ for (let i = 0; i < files.length; i++) {
     if (m) err(page, `${b.label}: "...${allText.slice(Math.max(0, m.index - 30), m.index + 30).replace(/\s+/g, ' ')}..."`);
   }
   for (const [lang, text] of Object.entries(acc)) checkVocab(page, lang, text);
+  for (const [lang, text] of Object.entries(acc)) {
+    if (!lang.toLowerCase().startsWith('en')) continue;
+    const t = decode(text);
+    const m = /["']/.exec(t);
+    if (m) err(page, `straight quote in English text: "...${t.slice(Math.max(0, m.index - 30), m.index + 30).replace(/\s+/g, ' ')}..."`);
+  }
 }
 
 // CSS files: no external url()
@@ -209,11 +219,12 @@ for (const p of contentPages) if (!sitemap.includes(`<loc>${SITE}${p}</loc>`)) e
 if (!existsSync(join(dist, 'robots.txt'))) err('/robots.txt', 'missing');
 const cname = await readFile(join(dist, 'CNAME'), 'utf8').catch(() => '');
 if (cname.trim() !== 'xn--3ys368f86s.com') err('/CNAME', `content is "${cname.trim()}"`);
-for (const l of LOCALES) {
-  for (const slug of ['age-finder', 'routine-chart', 'calm-down-plan', 'family-rules']) {
-    const pdf = join(dist, l.prefix, 'printables', `${slug}.pdf`);
-    if (!existsSync(pdf) || (await stat(pdf)).size < 1000) err(`/${l.prefix}printables/${slug}.pdf`, 'PDF missing');
-  }
+// Every printable page has its PDF next to it.
+for (const p of contentPages) {
+  const m = /^\/(?:(zh-hant|en)\/)?printables\/([^/]+)\/$/.exec(p);
+  if (!m) continue;
+  const pdf = join(dist, m[1] ?? '', 'printables', `${m[2]}.pdf`);
+  if (!existsSync(pdf) || (await stat(pdf)).size < 1000) err(p, 'PDF missing');
 }
 
 for (const w of warnings) console.log(`warning: ${w}`);
