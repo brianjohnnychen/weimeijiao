@@ -427,16 +427,19 @@ async function checkHelplines(fileArg) {
   for (const h of list) {
     const expect = h.expect ?? [h.phone];
     let ok = false;
+    let loaded = 0; // sources that answered with a real page (as opposed to timeouts, resets, WAF blocks)
     for (const src of h.sources ?? []) {
       const r = await get(src, { browser: true });
       let text = r.ok ? clean(r.body ?? '') : '';
       let via = `fetch ${r.status}`;
+      if (r.ok && text.length > 200) loaded++;
       const has = (t) => expect.every((e) => t.includes(e) || (digits(e).length >= 3 && digits(t).includes(digits(e))));
       if (!has(text)) {
         const c = await chromeText(src);
         if (c.text) {
           text = c.text.replace(/\s+/g, ' ');
           via = `chrome ${c.status}`;
+          if (c.status >= 200 && c.status < 400 && text.length > 200 && !(r.ok && text.length > 200)) loaded++;
         } else via += `, chrome ${c.status}${c.error ? ' ' + c.error.slice(0, 80) : ''}`;
       }
       const found = has(text);
@@ -453,9 +456,14 @@ async function checkHelplines(fileArg) {
     }
     // Only lines the site publishes can fail the job (they guard the About page against stale
     // numbers, re-checked weekly). Candidates are still being researched: report and search.
-    if (!ok && h.status === 'published') {
+    // A published number fails the job only when a source page loads and no longer shows it; if every
+    // source is unreachable from the runner (common for mainland China sites), it is a warning.
+    if (!ok && h.status === 'published' && loaded > 0) {
       failures++;
-      report(`    ${h.id}: PUBLISHED line not confirmed by any source: update or remove it on the About page`);
+      report(`    ${h.id}: PUBLISHED line not shown on its source pages any more: update or remove it on the About page`);
+    } else if (!ok && h.status === 'published') {
+      report(`    ${h.id}: warning: every source was unreachable from the runner this time (not counted as a failure)`);
+      summary.push(`| ${h.id} | ${h.phone} | warning: sources unreachable | - |`);
     }
     if (!ok && h.status !== 'published') report(`    ${h.id}: candidate, not confirmed yet (not published on the site)`);
     if (!ok) for (const q of h.search ?? []) await searchHint(q);
