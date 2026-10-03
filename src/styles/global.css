@@ -2438,6 +2438,10 @@ a.anchor:hover {
     size: A4;
     margin: 12mm;
   }
+  /* Citation markers are links to the Research page: on paper the footer points there instead. */
+  .sheet sup.cite {
+    display: none;
+  }
   :root {
     color-scheme: light;
   }

@@ -31,7 +31,7 @@ const printablesTitle = ui.nav.printables;
         {image && <div class="sheet-art screen-only"><AiImage id={image} locale={locale} width={320} sizes="160px" /></div>}
       </header>
       <slot />
-      <footer class="sheet-foot">{LOCALE_META[locale].siteName} · 魏美娇.com{href(locale, paths.printable(slug))}</footer>
+      <footer class="sheet-foot">{LOCALE_META[locale].siteName} · 魏美娇.com{href(locale, paths.printable(slug))} · {ui.print.sources} 魏美娇.com{href(locale, paths.research())}</footer>
     </article>
   </div>
 </Base>

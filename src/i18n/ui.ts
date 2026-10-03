@@ -30,7 +30,7 @@ export interface UiStrings {
   phase: { start: string; normal: string; works: string; backfires: string; say: string; printable: string; printableCta: string; tools: string; situations: string; prev: string; next: string };
   tool: { how: string; ages: string; evidence: string; mistakes: string; say: string; related: string; relatedSituations: string };
   situation: { now: string; why: string; say: string; prevent: string; help: string; tools: string };
-  print: { print: string; pdf: string; printHint: string; fromSite: string };
+  print: { print: string; pdf: string; printHint: string; fromSite: string; sources: string };
   quiz: { see: string; restart: string; result: string; also: string; read: string; answered: string; incomplete: string; noJs: string; scoring: string };
   gallery: { open: string; close: string; prev: string; next: string; of: string };
   breadcrumbHome: string;
@@ -110,7 +110,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: '怎么做', ages: '适用年龄', evidence: '证据强度', mistakes: '常见错误', say: '可以这样说', related: '相关工具', relatedSituations: '适用的难题' },
     situation: { now: '现在就做', why: '为什么会这样', say: '可以这样说', prevent: '预防下一次', help: '什么时候需要求助', tools: '可以用到的工具' },
-    print: { print: '打印', pdf: '下载 PDF', printHint: '用 A4 或 Letter 纸打印，一页即可。', fromSite: '来自 魏美娇.com' },
+    print: { print: '打印', pdf: '下载 PDF', printHint: '用 A4 或 Letter 纸打印，一页即可。', fromSite: '来自 魏美娇.com', sources: '研究依据见' },
     quiz: {
       see: '看结果',
       restart: '重新开始',
@@ -198,7 +198,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: '怎麼做', ages: '適用年齡', evidence: '證據強度', mistakes: '常見錯誤', say: '可以這樣說', related: '相關工具', relatedSituations: '適用的難題' },
     situation: { now: '現在就做', why: '為什麼會這樣', say: '可以這樣說', prevent: '預防下一次', help: '什麼時候需要求助', tools: '可以用到的工具' },
-    print: { print: '列印', pdf: '下載 PDF', printHint: '用 A4 或 Letter 紙張列印，一頁就好。', fromSite: '來自 魏美嬌.com' },
+    print: { print: '列印', pdf: '下載 PDF', printHint: '用 A4 或 Letter 紙張列印，一頁就好。', fromSite: '來自 魏美嬌.com', sources: '研究依據見' },
     quiz: {
       see: '看結果',
       restart: '重新開始',
@@ -286,7 +286,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: 'How to do it', ages: 'Ages it fits', evidence: 'Evidence strength', mistakes: 'Common mistakes', say: 'Things you can say', related: 'Related tools', relatedSituations: 'Situations it helps with' },
     situation: { now: 'Right now', why: 'Why it happens', say: 'Things you can say', prevent: 'Preventing the next one', help: 'When to get help', tools: 'Tools that help' },
-    print: { print: 'Print', pdf: 'Download PDF', printHint: 'Prints on one A4 or Letter page.', fromSite: 'From weimeijiao (魏美娇.com)' },
+    print: { print: 'Print', pdf: 'Download PDF', printHint: 'Prints on one A4 or Letter page.', fromSite: 'From weimeijiao (魏美娇.com)', sources: 'Sources:' },
     quiz: {
       see: 'See the result',
       restart: 'Start over',
