@@ -4,3 +4,4 @@
 - 2026-10-03 (Cowork): Cloudflare DNS for xn--3ys368f86s.com: four GitHub Pages A records, four AAAA records, www CNAME brianjohnnychen.github.io, all DNS only.
 - 2026-10-03 (Cowork): weimeijiao.com and xn--k6s926f86s.com: proxied placeholder AAAA 100:: on @ and www, plus a single redirect rule sending everything to https://xn--3ys368f86s.com with the same path and query (301).
 - 2026-10-03 (Cowork): Created this public repo with SPEC.md, CLAUDE.md and docs/.
+- 2026-10-03 (Cowork): GitHub Pages enabled on this repo: source = GitHub Actions, custom domain xn--3ys368f86s.com saved, HTTPS certificate pending. Code sessions skip the Pages-settings step.
