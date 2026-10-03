@@ -1,0 +1,72 @@
+name: Generate images
+
+# Generates missing AI illustrations (content/images.yml) with Cloudflare Workers AI and
+# commits them to the branch that triggered the run. On main it then redeploys the site.
+on:
+  workflow_dispatch:
+    inputs:
+      regenerate:
+        description: Image ids to regenerate even if the file exists (comma separated, optional)
+        required: false
+        default: ''
+  push:
+    paths:
+      - content/images.yml
+      - scripts/generate-images.mjs
+      - .github/workflows/images.yml
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: images-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install (runtime dependencies only)
+        run: npm ci --omit=dev
+
+      - name: Generate missing images
+        id: generate
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_AI_TOKEN: ${{ secrets.CF_AI_TOKEN }}
+          REGENERATE: ${{ github.event.inputs.regenerate }}
+        run: node scripts/generate-images.mjs
+
+      - name: Commit new images
+        id: commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/assets/ai
+          if git diff --cached --quiet; then
+            echo "No image changes."
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Generate AI illustrations"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
+            sleep $((i * 5))
+          done
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Redeploy the site
+        if: always() && steps.commit.outputs.committed == 'true' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
