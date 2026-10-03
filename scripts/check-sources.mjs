@@ -6,6 +6,9 @@
 //                                                       query): metadata, abstract, best matches
 //   node scripts/check-sources.mjs --helplines FILE     confirm each help line's number still
 //                                                       appears on its official page
+//   node scripts/check-sources.mjs --quotes FILE        print, word for word, the sentences of a
+//                                                       source's abstract and article page (or any
+//                                                       page) that match a pattern
 //
 // Checks for content/sources.yml:
 //   - DOI is registered (doi.org handle API) and its Crossref metadata matches the entry
@@ -531,11 +534,58 @@ async function searchHint(entry) {
   }
 }
 
+// Quote lookups (content/source-quotes.yml): settle a wording question by reading the source's
+// own sentences. Each entry is { id, pattern, urls? } for a sources.yml entry (abstract plus
+// article page), { url, pattern } for any page, or { search } for search results with snippets. Notices of reaffirmation, retirement or errata are
+// always printed. Informational only: never fails the job.
+async function lookupQuotes(fileArg) {
+  const entries = YAML.parse(readFileSync(join(root, fileArg), 'utf8')) ?? [];
+  const all = YAML.parse(readFileSync(join(root, 'content', 'sources.yml'), 'utf8'));
+  const list = Array.isArray(all) ? all : all.sources;
+  const NOTICE = /reaffirm|retired|retirement|erratum|errata|expired/i;
+  const sentencesOf = (text) => clean(text).split(/(?<=[.!?])\s+(?=[A-Z0-9"“(\[])/);
+  const show = (label, text, re) => {
+    const hits = sentencesOf(text).filter((x) => re.test(x) || NOTICE.test(x));
+    report(`  ${label}: ${hits.length} matching sentence(s)`);
+    for (const h of hits.slice(0, 60)) report(wrap(`- ${h.slice(0, 700)}`, 106, '      '));
+  };
+  for (const e of entries) {
+    const re = new RegExp(e.pattern ?? '.', 'i');
+    if (e.id) {
+      const s = list.find((x) => x.id === e.id);
+      if (!s) {
+        report(`\n${e.id}: not in content/sources.yml`);
+        continue;
+      }
+      report(`\n${e.id}: ${s.title} (pattern /${re.source}/i)`);
+      const { abstract, source } = await abstractFor(s.doi, s.pmid);
+      if (abstract) show(`abstract (${source})`, abstract, re);
+      else report('  abstract: none found');
+      for (const u of [...new Set([s.url, s.doi && `https://doi.org/${s.doi}`, ...(e.urls ?? [])].filter(Boolean))]) {
+        const page = await chromeText(u);
+        report(`  page ${u} -> ${page.status} ${page.finalUrl ?? ''} (${page.text.length} chars)${page.error ? ' ' + page.error.slice(0, 120) : ''}`);
+        if (page.text) show('page', page.text, re);
+      }
+    } else if (e.search) {
+      report(`\nsearch: ${e.search}`);
+      await searchHint({ q: e.search, mkt: e.mkt });
+    } else if (e.url) {
+      report(`\n${e.url} (pattern /${re.source}/i)`);
+      const page = await chromeText(e.url);
+      report(`  -> ${page.status} ${page.finalUrl ?? ''} (${page.text.length} chars)${page.error ? ' ' + page.error.slice(0, 120) : ''}`);
+      if (page.text) show('page', page.text, re);
+    }
+  }
+  return 0;
+}
+
 let failures = 0;
 const candidates = option('--candidates');
 const helplines = option('--helplines');
+const quotes = option('--quotes');
 if (candidates) failures += await lookupCandidates(candidates);
 else if (helplines) failures += await checkHelplines(helplines);
+else if (quotes) failures += await lookupQuotes(quotes);
 else failures += await checkSources(flag('--details'));
 
 if (process.env.GITHUB_STEP_SUMMARY && summary.length) {

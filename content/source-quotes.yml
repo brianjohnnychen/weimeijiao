@@ -1,0 +1,31 @@
+# Word-for-word lookups, run on push by the quotes job in .github/workflows/sources.yml.
+#   { id, pattern, urls? }  a sources.yml entry: its abstract and article page(s)
+#   { url, pattern }        any page
+#   { search }              Bing and DuckDuckGo results with snippets
+# Remove entries once the question is settled; the job prints matching sentences only.
+- id: aap-2018-discipline
+  pattern: "verbal abuse|humiliat|shame|shaming|insult|threat|stress hormone|brain|reaffirm|retire"
+  urls:
+    - https://publications.aap.org/pediatrics/article/142/6/e20183112/37452/Effective-Discipline-to-Raise-Healthy-Children
+- url: https://www.healthychildren.org/English/family-life/family-dynamics/communication-discipline/Pages/Where-We-Stand-Spanking.aspx
+  pattern: "recommend|spank|hitting|threat|insult|humiliat|sham|2018|policy"
+- url: https://www.aap.org/en/news-room/news-releases/aap/2018/aap-says-spanking-harms-children/
+  pattern: "verbal|humiliat|sham|insult|threat|yell|stress|brain|recommend"
+- search: "\"Effective Discipline to Raise Healthy Children\" reaffirmed"
+- id: kennedy-kramer-2008
+  pattern: "random|assign|wait|control|comparison|design|families"
+- id: leijten-2019
+  pattern: "26|praise|reinforcement|consequence|time-out|ignor"
+- id: roediger-karpicke-2006
+  pattern: "student|undergraduate|college|participant|subjects"
+- id: aap-2016-media
+  pattern: "age|years|months|young children|birth|preschool|18|24"
+- url: https://www.sciencedirect.com/science/article/pii/S0005789405803296
+  pattern: "time ?out|spank|room|hold|barrier|chair|escape|abstract"
+- url: https://www.sciencedirect.com/science/article/pii/S0005789478801427
+  pattern: "time ?out|duration|minute|second|noncomplian|abstract"
+- url: https://www.sciencedirect.com/science/article/pii/S0005789475801821
+  pattern: "time ?out|duration|minute|contrast|abstract"
+- search: "Roberts Powers 1990 \"Adjusting chair timeout enforcement procedures for oppositional children\""
+- search: "Hobbs Forehand Murray 1978 \"Effects of various durations of timeout on the noncompliant behavior of children\""
+- search: "time-out study parent presence absent present child noncompliance timeout room parent stays"
