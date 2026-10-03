@@ -1,7 +1,8 @@
 name: Generate images
 
 # Generates missing AI illustrations (content/images.yml) with Cloudflare Workers AI and
-# commits them to the branch that triggered the run. On main it then redeploys the site.
+# commits them to the branch that triggered the run. It never deploys: deploys are manual
+# (deploy.yml, workflow_dispatch only, triggered by Brian after the final QA pass).
 on:
   workflow_dispatch:
     inputs:
@@ -17,7 +18,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 concurrency:
   group: images-${{ github.ref }}
@@ -64,9 +64,3 @@ jobs:
             sleep $((i * 5))
           done
           echo "committed=true" >> "$GITHUB_OUTPUT"
-
-      - name: Redeploy the site
-        if: always() && steps.commit.outputs.committed == 'true' && github.ref == 'refs/heads/main'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy.yml --ref main

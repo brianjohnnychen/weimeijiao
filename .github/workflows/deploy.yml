@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+# Manual only. The custom domain (xn--3ys368f86s.com) is attached to Pages, so every deploy is
+# public. Brian runs this after the final QA pass. There is deliberately no push trigger.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build, render PDFs and OG images, run QA and the link test
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: |
+          npm run build
+          node scripts/link-test.mjs
+
+      - name: Check CNAME
+        run: test "$(cat dist/CNAME)" = "xn--3ys368f86s.com"
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
