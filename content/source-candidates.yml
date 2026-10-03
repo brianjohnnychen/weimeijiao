@@ -1,0 +1,505 @@
+# Candidate sources to verify (research input, not cited on the site). The sources workflow
+# looks each one up (Crossref metadata, abstract from Europe PMC / PubMed / OpenAlex) so the
+# claim can be checked against the source itself. Verified ones move to content/sources.yml.
+# key: proposed id; doi: best-known DOI (checked, may be wrong); query: citation search fallback.
+
+# --- Behavioral parent training: the shared core -------------------------------------------
+- key: comer-2013
+  doi: 10.1016/j.jaac.2012.10.001
+  query: Comer Chow Chan Cooper-Vince Wilson 2013 Psychosocial treatment efficacy for disruptive behavior problems in very young children meta-analytic examination
+  claim: meta-analysis of psychosocial treatments (incl. PMT, PCIT) for disruptive behavior in children under 8; effect sizes
+- key: comer-2013-cpr
+  query: Comer 2013 Clinical Psychology Review parent management training parent-child interaction therapy meta-analysis
+  claim: Brian cites "Comer et al. 2013 Clin Psychol Rev"; check whether such a paper exists
+- key: lundahl-2006
+  doi: 10.1016/j.cpr.2005.07.004
+  query: Lundahl Risser Lovejoy 2006 A meta-analysis of parent training moderators and follow-up effects
+  claim: parent training meta-analysis, effects on child disruptive behavior, follow-up
+- key: thomas-zimmer-gembeck-2007
+  doi: 10.1007/s10802-007-9104-9
+  query: Thomas Zimmer-Gembeck 2007 Behavioral outcomes of Parent-Child Interaction Therapy and Triple P review and meta-analysis
+  claim: PCIT and Triple P outcomes
+- key: thomas-2017-pcit
+  doi: 10.1542/peds.2017-0352
+  query: Thomas Abell Webb Avdagic Zimmer-Gembeck 2017 Parent-child interaction therapy a meta-analysis Pediatrics
+  claim: PCIT meta-analysis effect on child behavior problems
+- key: garland-2008
+  doi: 10.1097/CHI.0b013e31816765c2
+  query: Garland Hawley Brookman-Frazee Hurlburt 2008 Identifying common elements of evidence-based psychosocial treatments for children's disruptive behavior problems
+  claim: common elements shared by evidence-based treatments (praise, time-out, consistent consequences, instructions)
+- key: michelson-2013
+  doi: 10.1007/s10567-013-0128-0
+  query: Michelson Davenport Dretzke Barlow Day 2013 Do evidence-based interventions work when tested in the real world parent management training meta-analysis
+  claim: PMT effects in routine (real-world) settings
+- key: mingebach-2018
+  doi: 10.1371/journal.pone.0202855
+  query: Mingebach Kamp-Becker Christiansen Weber 2018 Meta-meta-analysis on the effectiveness of parent-based interventions for child externalizing behavior problems
+  claim: meta-meta-analysis of parent training effects
+- key: barlow-2016-cochrane
+  doi: 10.1002/14651858.CD003680.pub3
+  query: Barlow Bergman Kornor Wei Bennett 2016 Group-based parent training programmes for improving emotional and behavioural adjustment in young children Cochrane
+  claim: Cochrane review of group parent training for young children
+- key: furlong-2012-cochrane
+  doi: 10.1002/14651858.CD008225.pub2
+  query: Furlong McGilloway Bywater Hutchings Smith Donnelly 2012 Behavioural and cognitive-behavioural group-based parenting programmes for early-onset conduct problems in children aged 3 to 12 Cochrane
+  claim: Cochrane review, parenting programmes reduce conduct problems ages 3-12
+- key: forgatch-pmto
+  query: Forgatch DeGarmo 1999 Parenting through change an effective prevention program for single mothers Journal of Consulting and Clinical Psychology
+  claim: PMTO (Oregon model) randomized trial
+- key: patterson-2010-cascade
+  doi: 10.1017/S0954579410000568
+  query: Patterson Forgatch DeGarmo 2010 Cascading effects following intervention Development and Psychopathology
+  claim: PMTO long-term effects
+- key: kazdin-2005-book
+  query: Kazdin 2005 Parent management training treatment for oppositional aggressive and antisocial behavior in children and adolescents Oxford University Press
+  claim: university-press book describing PMT
+- key: dretzke-2009
+  doi: 10.1186/1753-2000-3-7
+  query: Dretzke Davenport Frew Barlow Stewart-Brown Bayliss Taylor Sandercock Hyde 2009 The clinical effectiveness of different parenting programmes for children with conduct problems systematic review of randomised controlled trials
+  claim: systematic review of RCTs, parenting programmes for conduct problems
+- key: compliance-plos-2018
+  doi: 10.1371/journal.pone.0204929
+  query: Parenting behaviors that shape child compliance a multilevel meta-analysis PLOS ONE 2018
+  claim: time-out and brief ignoring increased compliance; praise did not (experimental studies)
+- key: reyno-mcgrath-2006
+  doi: 10.1111/j.1469-7610.2005.01544.x
+  query: Reyno McGrath 2006 Predictors of parent training efficacy for child externalizing behavior problems a meta-analytic review
+  claim: what predicts parent training not working (low income, parental psychopathology, severity)
+- key: chorpita-daleiden-2009
+  doi: 10.1037/a0013762
+  query: Chorpita Daleiden 2009 Mapping evidence-based treatments for children and adolescents application of the distillation and matching model to 615 treatments from 322 randomized trials
+  claim: common practice elements across treatments for disruptive behavior
+
+# --- Time-out details: duration, backups, release, presence --------------------------------
+- key: hobbs-1978
+  query: Hobbs Forehand Murray 1978 Effectiveness of various durations of timeout on the noncompliant behavior of children Behavior Therapy
+  claim: time-out durations compared (e.g., 10 s vs 1 min vs 4 min)
+- key: white-1972
+  doi: 10.1901/jaba.1972.5-111
+  query: White Nielsen Johnson 1972 Timeout duration and the suppression of deviant behavior in children Journal of Applied Behavior Analysis
+  claim: time-out durations (1, 15, 30 min) compared
+- key: kendall-1975
+  query: Kendall Nay Jeffers 1975 Timeout duration and contrast effects a systematic evaluation of a successive treatments design Behavior Therapy
+  claim: short time-outs effective when not preceded by longer ones
+- key: donaldson-vollmer-2011
+  doi: 10.1901/jaba.2011.44-693
+  query: Donaldson Vollmer 2011 An evaluation and comparison of time-out procedures with and without release contingencies Journal of Applied Behavior Analysis
+  claim: time-out with vs without release contingency
+- key: donaldson-2013
+  doi: 10.1002/jaba.40
+  query: Donaldson Vollmer Yakich Van Camp 2013 Effects of a reduced time-out interval on compliance with the time-out instruction
+  claim: shorter time-out interval effects
+- key: day-roberts-1983
+  doi: 10.1007/BF00912184
+  query: Day Roberts 1983 An analysis of the physical punishment component of a parent training program Journal of Abnormal Child Psychology
+  claim: spank vs barrier (room) as time-out backup; both effective?
+- key: roberts-powers-1990
+  query: Roberts Powers 1990 Adjusting chair timeout enforcement procedures for oppositional children Behavior Therapy
+  claim: compares time-out enforcement procedures (spank, room, hold) for children who escape the chair
+- key: roberts-1988
+  query: Roberts 1988 Enforcing chair timeouts with room timeouts Behavior Modification
+  claim: brief room time-out as backup for leaving the time-out chair
+- key: bean-roberts-1981
+  doi: 10.1007/BF00917860
+  query: Bean Roberts 1981 The effect of time-out release contingencies on changes in child noncompliance Journal of Abnormal Child Psychology
+  claim: quiet-before-release contingency
+- key: roberts-1981-differential
+  query: Roberts Hatzenbuehler Bean 1981 The effects of differential attention and time out on child noncompliance Behavior Therapy
+  claim: time-out vs differential attention on noncompliance
+- key: roberts-1978-instructions
+  query: Roberts McMahon Forehand Humphreys 1978 The effect of parental instruction-giving on child compliance Behavior Therapy
+  claim: how instructions are given affects compliance
+- key: everett-2007
+  query: Everett Hupp Olmi 2010 Time-out with parents a descriptive analysis of 30 years of research Education and Treatment of Children
+  claim: review of time-out parameters in parent research (duration, backup, location)
+- key: kazdin-1980-acceptability
+  doi: 10.1901/jaba.1980.13-259
+  query: Kazdin 1980 Acceptability of time out from reinforcement procedures for disruptive child behavior Behavior Therapy
+  claim: acceptability of time-out procedures
+
+# --- Physical punishment: both sides -------------------------------------------------------
+- key: gershoff-grogan-kaylor-2016
+  doi: 10.1037/fam0000191
+  query: Gershoff Grogan-Kaylor 2016 Spanking and child outcomes old controversies and new meta-analyses
+  claim: 75 studies, 160,927 children; spanking linked to 13 of 17 detrimental outcomes; not to compliance
+- key: gershoff-2002
+  doi: 10.1037/0033-2909.128.4.539
+  query: Gershoff 2002 Corporal punishment by parents and associated child behaviors and experiences a meta-analytic and theoretical review Psychological Bulletin
+  claim: immediate compliance association; other outcomes negative
+- key: baumrind-2002
+  doi: 10.1037/0033-2909.128.4.580
+  query: Baumrind Larzelere Cowan 2002 Ordinary physical punishment is it harmful comment on Gershoff Psychological Bulletin
+  claim: critique: ordinary physical punishment vs harsh; confounding
+- key: gershoff-2018-causal
+  doi: 10.1037/amp0000327
+  query: Gershoff Goodman Miller-Perrin Holden Jackson Kazdin 2018 The strength of the causal evidence against physical punishment of children American Psychologist
+  claim: causal evidence argument against physical punishment
+- key: heilmann-2021
+  doi: 10.1016/S0140-6736(21)00582-1
+  query: Heilmann Mehay Watt Kelly Durrant van Turnhout Gershoff 2021 Physical punishment and child outcomes a narrative review of prospective studies Lancet
+  claim: 69 prospective studies; physical punishment predicts increased behaviour problems; no benefit
+- key: ferguson-2013
+  doi: 10.1016/j.cpr.2012.11.002
+  query: Ferguson 2013 Spanking corporal punishment and negative long-term outcomes a meta-analytic review of longitudinal studies Clinical Psychology Review
+  claim: small longitudinal effects after controlling for prior behavior
+- key: larzelere-kuhn-2005
+  doi: 10.1007/s10567-005-2340-z
+  query: Larzelere Kuhn 2005 Comparing child outcomes of physical punishment and alternative disciplinary tactics a meta-analysis
+  claim: conditional spanking: nonabusive, backup for milder tactics, ages 2-6; compared with alternatives
+- key: larzelere-2010-bmc
+  doi: 10.1186/1471-2431-10-10
+  query: Larzelere Cox Smith 2010 Do nonphysical punishments reduce antisocial behavior more than spanking a comparison using the strongest previous causal evidence against spanking BMC Pediatrics
+  claim: nonphysical punishments vs spanking, similar associations
+- key: larzelere-1996-review
+  query: Larzelere 1996 A review of the outcomes of parental use of nonabusive or customary physical punishment Pediatrics
+  claim: review of outcomes, backup role
+- key: larzelere-1998-reasoning
+  query: Larzelere Sather Schneider Larson Pike 1998 Punishment enhances reasoning's effectiveness as a disciplinary response to toddlers Journal of Marriage and Family
+  claim: reasoning combined with punishment
+- key: lansford-2005
+  doi: 10.1111/j.1467-8624.2005.00847.x
+  query: Lansford Chang Dodge Malone Oburu Palmerus 2005 Physical discipline and children's adjustment cultural normativeness as a moderator Child Development
+  claim: cultural normativeness weakens but does not remove associations with aggression and anxiety
+- key: gershoff-2010-international
+  doi: 10.1111/j.1467-8624.2009.01409.x
+  query: Gershoff Grogan-Kaylor Lansford Chang Zelli Deater-Deckard Dodge 2010 Parent discipline practices in an international sample of families associations with child behaviors and moderation by perceived normativeness
+  claim: six countries; corporal punishment associated with more aggression across countries
+- key: wang-kenny-2014
+  doi: 10.1111/cdev.12143
+  query: Wang Kenny 2014 Longitudinal links between fathers' and mothers' harsh verbal discipline and adolescents' conduct problems and depressive symptoms Child Development
+  claim: harsh verbal discipline predicts conduct problems and depressive symptoms
+- key: lee-2014-cps
+  doi: 10.1016/j.chiabu.2014.01.018
+  query: Lee Grogan-Kaylor Berger 2014 Parental spanking of 1-year-old children and subsequent child protective services involvement Child Abuse and Neglect
+  claim: spanking at age 1 associated with later CPS involvement (escalation)
+- key: zolotor-2008
+  doi: 10.1016/j.amepre.2008.06.031
+  query: Zolotor Theodore Chang Berkoff Runyan 2008 Speak softly and forget the stick corporal punishment and child physical abuse American Journal of Preventive Medicine
+  claim: spanking with objects associated with abuse
+- key: cps-2004-discipline
+  doi: 10.1093/pch/9.1.37
+  query: Canadian Paediatric Society 2004 Effective discipline for children Paediatrics and Child Health position statement
+  claim: journal-published position statement of another pediatric body
+- key: durrant-ensom-2012
+  doi: 10.1503/cmaj.101314
+  query: Durrant Ensom 2012 Physical punishment of children lessons from 20 years of research CMAJ
+  claim: review of 20 years of research
+
+# --- Edge cases ----------------------------------------------------------------------------
+- key: sanders-dadds-1982
+  query: Sanders Dadds 1982 The effects of planned activities and child management procedures in parent training an analysis of setting generality Behavior Therapy
+  claim: planned activities training for difficult settings (shopping, outings)
+- key: siddiqui-ross-2004
+  doi: 10.1037/0893-3200.18.1.147
+  query: Siddiqui Ross 2004 Mediation as a method of parent intervention in children's disputes Journal of Family Psychology
+  claim: parental mediation of sibling conflict
+- key: kennedy-kramer-2008
+  doi: 10.1111/j.1741-3729.2008.00523.x
+  query: Kennedy Kramer 2008 Improving emotion regulation and sibling relationship quality the More Fun With Sisters and Brothers program Family Relations
+  claim: sibling program RCT outcomes
+- key: tucker-2013
+  doi: 10.1542/peds.2012-3801
+  query: Tucker Finkelhor Turner Shattuck 2013 Association of sibling aggression with child and adolescent mental health Pediatrics
+  claim: sibling aggression associated with worse mental health
+- key: teubert-pinquart-2010
+  doi: 10.1080/15295192.2010.492040
+  query: Teubert Pinquart 2010 The association between coparenting and child adjustment a meta-analysis Parenting Science and Practice
+  claim: coparenting quality associated with child adjustment
+- key: kirby-sanders-2014
+  doi: 10.1016/j.brat.2013.11.002
+  query: Kirby Sanders 2014 A randomized controlled trial evaluating a parenting program designed specifically for grandparents Behaviour Research and Therapy
+  claim: Grandparent Triple P RCT outcomes
+- key: wolraich-2019-adhd
+  doi: 10.1542/peds.2019-2528
+  query: Wolraich Hagan Allan 2019 Clinical practice guideline for the diagnosis evaluation and treatment of attention-deficit hyperactivity disorder in children and adolescents Pediatrics
+  claim: parent training in behavior management first line for preschoolers with ADHD
+- key: hyman-2020-autism
+  doi: 10.1542/peds.2019-3447
+  query: Hyman Levy Myers 2020 Identification evaluation and management of children with autism spectrum disorder Pediatrics clinical report
+  claim: AAP clinical report on autism; behavioral interventions, parent-mediated
+- key: bearss-2015
+  doi: 10.1001/jama.2015.3150
+  query: Bearss Johnson Smith 2015 Effect of parent training vs parent education on behavioral problems in children with autism spectrum disorder a randomized clinical trial JAMA
+  claim: parent training reduced disruptive behavior in autistic children
+- key: postorino-2017
+  doi: 10.1007/s10567-017-0237-2
+  query: Postorino Sharp McCracken 2017 A systematic review and meta-analysis of parent training for disruptive behavior in children with autism spectrum disorder
+  claim: parent training effect for disruptive behavior in autism
+- key: rimestad-2019
+  doi: 10.1177/1087054716648775
+  query: Rimestad Lambek Christiansen Hougaard 2019 Short- and long-term effects of parent training for preschool children with or at risk of ADHD systematic review meta-analysis
+  claim: parent training for preschool ADHD
+- key: daley-2014
+  doi: 10.1016/j.jaac.2014.05.013
+  query: Daley van der Oord Ferrin 2014 Behavioral interventions in attention-deficit hyperactivity disorder a meta-analysis of randomized controlled trials across multiple outcome domains
+  claim: behavioral interventions improve parenting and conduct problems in ADHD
+- key: kendrick-2012-cochrane
+  doi: 10.1002/14651858.CD005014.pub3
+  query: Kendrick Young Mullins 2012 Home safety education and provision of safety equipment for injury prevention Cochrane
+  claim: home safety education and equipment improve safety practices
+- key: barr-2009-purple
+  doi: 10.1542/peds.2008-0908
+  query: Barr Rivara Barr 2009 Effectiveness of educational materials designed to change knowledge and behaviors regarding crying and shaken-baby syndrome in mothers of newborns randomized controlled trial Pediatrics
+  claim: education materials on infant crying; walk-away behavior
+- key: landry-2006
+  doi: 10.1037/0012-1649.42.4.627
+  query: Landry Smith Swank 2006 Responsive parenting establishing early foundations for social communication and independent problem-solving skills Developmental Psychology
+  claim: responsive parenting intervention improved infant outcomes
+- key: kuczynski-kochanska-1990
+  doi: 10.1037/0012-1649.26.3.398
+  query: Kuczynski Kochanska 1990 Development of children's noncompliance strategies from toddlerhood to age 5 Developmental Psychology
+  claim: noncompliance strategies change with age; direct defiance declines, negotiation increases
+
+# --- Toolbox methods -----------------------------------------------------------------------
+- key: little-kelley-1989
+  query: Little Kelley 1989 The efficacy of response cost procedures for reducing children's noncompliance to parental instructions Behavior Therapy
+  claim: response cost (privilege removal) reduced noncompliance
+- key: ollendick-2016
+  doi: 10.1080/15374416.2015.1004681
+  query: Ollendick Greene Austin 2016 Parent management training and collaborative and proactive solutions a randomized control trial for oppositional youth
+  claim: CPS comparable to PMT for oppositional youth
+- key: greene-2004
+  doi: 10.1037/0022-006X.72.6.1157
+  query: Greene Ablon Goring 2004 Effectiveness of collaborative problem solving in affectively dysregulated children with oppositional-defiant disorder initial findings Journal of Consulting and Clinical Psychology
+  claim: collaborative problem solving vs parent training
+- key: kazdin-1992-psst
+  doi: 10.1037/0022-006X.60.5.733
+  query: Kazdin Siegel Bass 1992 Cognitive problem-solving skills training and parent management training in the treatment of antisocial behavior in children
+  claim: PSST plus PMT combined effects
+- key: fiese-2002
+  doi: 10.1037/0893-3200.16.4.381
+  query: Fiese Tomcho Douglas Josephs Poltrock Baker 2002 A review of 50 years of research on naturally occurring family routines and rituals cause for celebration
+  claim: routines associated with child health and well-being
+- key: patall-2008-choice
+  doi: 10.1037/0033-2909.134.2.270
+  query: Patall Cooper Robinson 2008 The effects of choice on intrinsic motivation and related outcomes a meta-analysis of research findings Psychological Bulletin
+  claim: choice increases intrinsic motivation, effort, performance
+- key: tronick-1989
+  doi: 10.1037/0003-066X.44.2.112
+  query: Tronick 1989 Emotions and emotional communication in infants American Psychologist
+  claim: interactive repair of mismatches in infant-caregiver interaction
+- key: kochanska-2019-repair
+  query: parent child rupture repair conflict repair young children study
+  claim: research on repair after parent-child conflict
+
+# --- Situations ------------------------------------------------------------------------------
+- key: talwar-lee-2008
+  doi: 10.1111/j.1467-8624.2008.01164.x
+  query: Talwar Lee 2008 Social and cognitive correlates of children's lying behavior Child Development
+  claim: lying development linked to theory of mind / executive function
+- key: talwar-lee-2011
+  doi: 10.1111/j.1467-8624.2011.01663.x
+  query: Talwar Lee 2011 A punitive environment fosters children's dishonesty a natural experiment Child Development
+  claim: punitive school children lied more and more effectively
+- key: talwar-2015
+  doi: 10.1016/j.jecp.2014.09.011
+  query: Talwar Arruda Yachison 2015 The effects of punishment and appeals for honesty on children's truth-telling behavior Journal of Experimental Child Psychology
+  claim: threat of punishment did not increase truth-telling; appeals to honesty did
+- key: evans-lee-2013
+  doi: 10.1037/a0031409
+  query: Evans Lee 2013 Emergence of lying in very young children Developmental Psychology
+  claim: many 2-3 year olds lie
+- key: galloway-2006
+  doi: 10.1016/j.appet.2006.01.019
+  query: Galloway Fiorito Francis Birch 2006 Finish your soup counterproductive effects of pressuring children to eat on intake and affect Appetite
+  claim: pressure to eat reduced intake and increased negative comments
+- key: wardle-2003
+  doi: 10.1038/sj.ejcn.1601541
+  query: Wardle Herrera Cooke Gibson 2003 Modifying children's food preferences the effects of exposure and reward on acceptance of an unfamiliar vegetable European Journal of Clinical Nutrition
+  claim: repeated exposure increased liking; reward not better
+- key: cooper-2006-homework
+  doi: 10.3102/00346543076001001
+  query: Cooper Robinson Patall 2006 Does homework improve academic achievement a synthesis of research 1987-2003 Review of Educational Research
+  claim: homework-achievement link weaker in elementary grades
+- key: patall-2008-homework
+  doi: 10.3102/0034654308325185
+  query: Patall Cooper Robinson 2008 Parent involvement in homework a research synthesis Review of Educational Research
+  claim: which kinds of parent homework involvement help
+- key: hill-tyson-2009
+  doi: 10.1037/a0015362
+  query: Hill Tyson 2009 Parental involvement in middle school a meta-analytic assessment of the strategies that promote achievement Developmental Psychology
+  claim: academic socialization strongest; homework help mixed (middle school)
+- key: barger-2019
+  doi: 10.1037/bul0000201
+  query: Barger Kim Kuncel Pomerantz 2019 The relation between parents' involvement in children's schooling and children's adjustment a meta-analysis Psychological Bulletin
+  claim: parent involvement and child adjustment; homework help weaker
+- key: madigan-2019-screens
+  doi: 10.1001/jamapediatrics.2018.5056
+  query: Madigan Browne Racine Mori Tough 2019 Association between screen time and children's performance on a developmental screening test JAMA Pediatrics
+  claim: more screen time at 24/36 months predicted poorer later screening scores
+
+# --- Encouraging learning ------------------------------------------------------------------
+- key: romeo-2018
+  doi: 10.1177/0956797617742725
+  query: Romeo Leonard Robinson West Mackey Rowe Gabrieli 2018 Beyond the 30-million-word gap children's conversational exposure is associated with language-related brain function Psychological Science
+  claim: conversational turns associated with Broca's area activation and language skills
+- key: gilkerson-2018
+  doi: 10.1542/peds.2017-4276
+  query: Gilkerson Richards Warren Oller Russo Vohr 2018 Language experience in the second year of life and language outcomes in late childhood Pediatrics
+  claim: conversational turns at 18-24 months predicted later language and IQ
+- key: rowe-2012
+  doi: 10.1111/j.1467-8624.2012.01805.x
+  query: Rowe 2012 A longitudinal investigation of the role of quantity and quality of child-directed speech in vocabulary development Child Development
+  claim: quality of input (diverse/sophisticated words, decontextualized talk) by age
+- key: weisleder-fernald-2013
+  doi: 10.1177/0956797613488145
+  query: Weisleder Fernald 2013 Talking to children matters early language experience strengthens processing and builds vocabulary Psychological Science
+  claim: child-directed speech (not overheard) predicted processing speed and vocabulary
+- key: tamis-lemonda-2014
+  doi: 10.1177/0963721414522813
+  query: Tamis-LeMonda Kuchirko Song 2014 Why is infant language learning facilitated by parental responsiveness Current Directions in Psychological Science
+  claim: responsive parenting supports language learning
+- key: kuhl-2003
+  doi: 10.1073/pnas.1532872100
+  query: Kuhl Tsao Liu 2003 Foreign-language experience in infancy effects of short-term exposure and social interaction on phonetic learning PNAS
+  claim: live interaction, not video, supported infant phonetic learning
+- key: mol-2008-dialogic
+  doi: 10.1080/10409280701838603
+  query: Mol Bus de Jong Smeets 2008 Added value of dialogic parent-child book readings a meta-analysis Early Education and Development
+  claim: dialogic reading effects on expressive vocabulary, larger for younger children
+- key: whitehurst-1988
+  doi: 10.1037/0012-1649.24.4.552
+  query: Whitehurst Falco Lonigan 1988 Accelerating language development through picture book reading Developmental Psychology
+  claim: dialogic reading trial improved expressive language
+- key: bus-1995
+  doi: 10.3102/00346543065001001
+  query: Bus van IJzendoorn Pellegrini 1995 Joint book reading makes for success in learning to read a meta-analysis on intergenerational transmission of literacy
+  claim: joint book reading associated with language and reading outcomes
+- key: dowdall-2020
+  doi: 10.1111/cdev.13225
+  query: Dowdall Melendez-Torres Murray Gardner Hartford Cooper 2020 Shared picture book reading interventions for child language development a systematic review and meta-analysis Child Development
+  claim: shared reading interventions improve expressive and receptive language
+- key: mol-bus-2011
+  doi: 10.1037/a0021890
+  query: Mol Bus 2011 To read or not to read a meta-analysis of print exposure from infancy to early adulthood Psychological Bulletin
+  claim: print exposure related to oral language and reading across ages
+- key: skene-2022-guided-play
+  doi: 10.1111/cdev.13730
+  query: Skene O'Farrelly Byrne Kirby Stevens Ramchandani 2022 Can guidance during play enhance children's learning and development in educational contexts a systematic review and meta-analysis
+  claim: guided play vs direct instruction and free play, early math and other outcomes
+- key: yogman-2018-play
+  doi: 10.1542/peds.2018-2058
+  query: Yogman Garner Hutchinson Hirsh-Pasek Golinkoff 2018 The power of play a pediatric role in enhancing development in young children Pediatrics
+  claim: AAP clinical report on play and development
+- key: gunderson-2013
+  doi: 10.1111/cdev.12064
+  query: Gunderson Gripshover Romero Dweck Goldin-Meadow Levine 2013 Parent praise to 1- to 3-year-olds predicts children's motivational frameworks 5 years later
+  claim: process praise at 14-38 months predicted incremental mindset at 7-8 years
+- key: gunderson-2018
+  doi: 10.1037/dev0000444
+  query: Gunderson Sorhagen Gripshover Dweck Goldin-Meadow Levine 2018 Parent praise to toddlers predicts fourth grade academic achievement via children's incremental mindsets
+  claim: process praise to toddlers predicted 4th grade achievement via mindset
+- key: kamins-dweck-1999
+  doi: 10.1037/0012-1649.35.3.835
+  query: Kamins Dweck 1999 Person versus process praise and criticism implications for contingent self-worth and coping Developmental Psychology
+  claim: person praise led to more helplessness after setbacks than process praise
+- key: mueller-dweck-1998
+  doi: 10.1037/0022-3514.75.1.33
+  query: Mueller Dweck 1998 Praise for intelligence can undermine children's motivation and performance Journal of Personality and Social Psychology
+  claim: praise for intelligence vs effort
+- key: brummelman-2014
+  doi: 10.1037/a0031917
+  query: Brummelman Thomaes Overbeek Orobio de Castro van den Hout Bushman 2014 On feeding those hungry for praise person praise backfires in children with low self-esteem
+  claim: person praise increased shame after failure in low self-esteem children
+- key: sisk-2018
+  doi: 10.1177/0956797617739704
+  query: Sisk Burgoyne Sun Butler Macnamara 2018 To what extent and under which circumstances are growth mind-sets important to academic achievement two meta-analyses
+  claim: weak association; intervention effects small
+- key: macnamara-burgoyne-2023
+  doi: 10.1037/bul0000352
+  query: Macnamara Burgoyne 2023 Do growth mindset interventions impact students' academic achievement a systematic review and meta-analysis with recommendations for best practices
+  claim: mindset intervention effects small/negligible with best practices
+- key: burnette-2023
+  doi: 10.1037/bul0000368
+  query: Burnette Billingsley Banks 2023 A systematic review and meta-analysis of growth mindset interventions for whom how and why might such interventions work
+  claim: effects for some subgroups
+- key: yeager-2019
+  doi: 10.1038/s41586-019-1466-y
+  query: Yeager Hanselman Walton 2019 A national experiment reveals where a growth mindset improves achievement Nature
+  claim: small effects concentrated in lower-achieving students in supportive schools (adolescents)
+- key: deci-1999
+  doi: 10.1037/0033-2909.125.6.627
+  query: Deci Koestner Ryan 1999 A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation Psychological Bulletin
+  claim: expected tangible rewards undermine intrinsic motivation; verbal rewards enhance
+- key: cameron-2001
+  query: Cameron Banko Pierce 2001 Pervasive negative effects of rewards on intrinsic motivation the myth continues The Behavior Analyst
+  claim: counterpoint: negative effects limited to specific conditions
+- key: lepper-1973
+  doi: 10.1037/h0035519
+  query: Lepper Greene Nisbett 1973 Undermining children's intrinsic interest with extrinsic reward a test of the overjustification hypothesis
+  claim: expected reward reduced later free-choice drawing in preschoolers
+- key: joussemet-2008
+  doi: 10.1037/a0012754
+  query: Joussemet Landry Koestner 2008 A self-determination theory perspective on parenting Canadian Psychology
+  claim: autonomy support in parenting
+- key: vasquez-2016
+  doi: 10.1007/s10648-015-9329-z
+  query: Vasquez Patall Fong Corrigan Pine 2016 Parent autonomy support academic achievement and psychosocial functioning a meta-analysis of research
+  claim: parent autonomy support associated with achievement and well-being
+- key: diamond-2013
+  doi: 10.1146/annurev-psych-113011-143750
+  query: Diamond 2013 Executive functions Annual Review of Psychology
+  claim: core EFs: inhibition, working memory, cognitive flexibility; develop through childhood
+- key: diamond-lee-2011
+  doi: 10.1126/science.1204529
+  query: Diamond Lee 2011 Interventions shown to aid executive function development in children 4 to 12 years old Science
+  claim: activities that improve EF; need to be challenging and repeated
+- key: moffitt-2011
+  doi: 10.1073/pnas.1010076108
+  query: Moffitt Arseneault Belsky 2011 A gradient of childhood self-control predicts health wealth and public safety PNAS
+  claim: childhood self-control predicted adult outcomes
+- key: takacs-kassai-2019
+  doi: 10.1037/bul0000195
+  query: Takacs Kassai 2019 The efficacy of different interventions to foster children's executive function skills a series of meta-analyses Psychological Bulletin
+  claim: which EF interventions work (mixed)
+- key: levine-2010
+  doi: 10.1037/a0019671
+  query: Levine Suriyakham Rowe Huttenlocher Gunderson 2010 What counts in the development of young children's number knowledge Developmental Psychology
+  claim: parents' number talk at 14-30 months predicted cardinal-number knowledge at 46 months
+- key: gunderson-levine-2011
+  doi: 10.1111/j.1467-7687.2011.01050.x
+  query: Gunderson Levine 2011 Some types of parent number talk count more than others relations between parents' input and children's cardinal-number knowledge Developmental Science
+  claim: talk about present objects with larger sets
+- key: ramani-siegler-2008
+  doi: 10.1111/j.1467-8624.2007.01131.x
+  query: Ramani Siegler 2008 Promoting broad and stable improvements in low-income children's numerical knowledge through playing number board games Child Development
+  claim: linear number board games improved numerical knowledge
+- key: daucourt-2021
+  doi: 10.1037/bul0000330
+  query: Daucourt Napoli Quinn Wood Hart 2021 The home math environment and math achievement a meta-analysis Psychological Bulletin
+  claim: home math environment small positive association
+- key: hale-guan-2015
+  doi: 10.1016/j.smrv.2014.07.007
+  query: Hale Guan 2015 Screen time and sleep among school-aged children and adolescents a systematic literature review Sleep Medicine Reviews
+  claim: screen time associated with delayed bedtime, shorter sleep
+- key: dunlosky-2013
+  doi: 10.1177/1529100612453266
+  query: Dunlosky Rawson Marsh Nathan Willingham 2013 Improving students' learning with effective learning techniques promising directions from cognitive and educational psychology
+  claim: practice testing and distributed practice rated high utility
+- key: adesope-2017
+  doi: 10.3102/0034654316689306
+  query: Adesope Trevisan Sundararajan 2017 Rethinking the use of tests a meta-analysis of practice testing Review of Educational Research
+  claim: practice testing beneficial across ages
+- key: cepeda-2006
+  doi: 10.1037/0033-2909.132.3.354
+  query: Cepeda Pashler Vul Wixted Rohrer 2006 Distributed practice in verbal recall tasks a review and quantitative synthesis Psychological Bulletin
+  claim: spacing improves retention
+- key: agarwal-2021
+  doi: 10.1007/s10648-021-09595-9
+  query: Agarwal Nunes Blunt 2021 Retrieval practice consistently benefits student learning a systematic review of applied research in schools and classrooms
+  claim: retrieval practice benefits in classrooms incl. elementary
+- key: lipowski-2014
+  doi: 10.1037/a0035202
+  query: Lipowski Pyc Dunlosky Rawson 2014 Establishing and explaining the testing effect in free recall for young children Developmental Psychology
+  claim: testing effect in young children (around 6-7)
+- key: fritz-2007
+  doi: 10.1080/17470210600823595
+  query: Fritz Morris Nolan Singleton 2007 Expanding retrieval practice an effective aid to preschool children's learning Quarterly Journal of Experimental Psychology
+  claim: retrieval practice helps preschoolers
+- key: roediger-karpicke-2006
+  doi: 10.1111/j.1467-9280.2006.01693.x
+  query: Roediger Karpicke 2006 Test-enhanced learning taking memory tests improves long-term retention Psychological Science
+  claim: testing beats restudy for long-term retention
+- key: cooper-2006-reading-summer
+  query: Kim Quinn 2013 A meta-analysis of K-8 summer reading interventions the role of socioeconomic status Review of Educational Research
+  claim: summer reading interventions (optional)

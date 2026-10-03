@@ -1,0 +1,86 @@
+name: Check sources
+
+# The site's permanent link checker for content/sources.yml: every DOI is checked against
+# Crossref, every link must resolve. Runs when sources change, weekly (link rot), and on demand.
+# If content/source-candidates.yml exists, it also looks up candidate sources (metadata and
+# abstracts) so they can be verified before being added.
+on:
+  push:
+    paths:
+      - content/sources.yml
+      - content/source-candidates.yml
+      - content/helplines.yml
+      - scripts/check-sources.mjs
+      - .github/workflows/sources.yml
+  pull_request:
+    paths:
+      - content/sources.yml
+      - scripts/check-sources.mjs
+  schedule:
+    - cron: '23 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      details:
+        description: Print each source's abstract too
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev
+      - name: Check every source
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node scripts/check-sources.mjs ${{ (github.event.inputs.details == 'true' || github.event_name == 'push') && '--details' || '' }}
+
+  candidates:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev
+      - name: Look up candidate sources
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: |
+          if [ -f content/source-candidates.yml ]; then
+            node scripts/check-sources.mjs --candidates content/source-candidates.yml
+          else
+            echo "No content/source-candidates.yml; nothing to look up."
+          fi
+
+  helplines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev
+      - name: Check help-line numbers on their official pages
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: |
+          if [ -f content/helplines.yml ]; then
+            node scripts/check-sources.mjs --helplines content/helplines.yml
+          else
+            echo "No content/helplines.yml."
+          fi

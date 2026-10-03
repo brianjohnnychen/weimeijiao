@@ -1,4 +1,630 @@
-# Every source the site cites. Fields per SPEC §6: id, authors, year, title, venue, DOI/URL,
-# one-line finding (in all three languages), accessed date. verified_via records how each entry
-# was checked against the source's own page. Never add an entry you have not opened and verified.
-[]
+# Every source the site cites (SPEC §6). Academic and scientific sources only: peer-reviewed
+# journal articles, systematic reviews and meta-analyses, Cochrane reviews, university-press books,
+# and policy statements of scientific or medical bodies published in peer-reviewed journals.
+# Fields: id, evidence_level, authors, year, title, venue, doi/pmid/url, finding (en, zh-hans, zh-hant),
+# key_facts (verified specifics writers may use), topics, accessed, verified_via (how it was checked).
+# Never add an entry you have not opened and verified. scripts/check-sources.mjs checks every link
+# and every DOI's metadata in CI.
+- id: aap-2018-discipline
+  evidence_level: position-statement
+  authors: Sege, R. D., Siegel, B. S., Council on Child Abuse and Neglect, & Committee on Psychosocial Aspects of Child and Family Health
+  year: 2018
+  title: Effective Discipline to Raise Healthy Children
+  venue: Pediatrics, 142(6), e20183112
+  doi: 10.1542/peds.2018-3112
+  pmid: "30397164"
+  url: https://doi.org/10.1542/peds.2018-3112
+  lang: en
+  finding:
+    en: The American Academy of Pediatrics advises parents and other adults not to use any corporal punishment, including hitting and spanking, or verbal abuse such as threatening, insulting, humiliating or shaming, stating that such aversive strategies are minimally effective in the short term and not effective in the long term.
+    zh-hans: 美国儿科学会建议家长和其他成年人不要使用任何体罚（包括打和打屁股），也不要使用威胁、侮辱、羞辱等言语虐待，并指出这类厌恶性管教方式短期效果很小，长期无效。
+    zh-hant: 美國兒科醫學會建議家長和其他成年人不要使用任何體罰（包括打和打屁股），也不要使用威脅、侮辱、羞辱等言語虐待，並指出這類嫌惡式管教方式短期效果很小，長期無效。
+  key_facts:
+    - '"Aversive disciplinary strategies, including all forms of corporal punishment and yelling at or shaming children, are minimally effective in the short-term and not effective in the long-term."'
+    - 'Recommendation: "Parents, other caregivers, and adults interacting with children and adolescents should not use corporal punishment (including hitting and spanking)"; the statement "supports the need for adults to avoid physical punishment and verbal abuse of children."'
+    - Corporal punishment is linked to "an increased risk of negative behavioral, cognitive, psychosocial, and emotional outcomes for children"; the AAP adds that harsh verbal abuse is linked to mental health problems in preteens and adolescents.
+    - "AAP: striking a child, yelling at or shaming them can elevate stress hormones and lead to changes in the brain's architecture."
+    - "Alternatives the AAP recommends: positive reinforcement of appropriate behaviors, limit setting, redirecting, and setting future expectations."
+    - Published in the December 2018 issue of Pediatrics; it updated the AAP's 1998 guidance "Guidance for Effective Discipline".
+  topics:
+    - physical-punishment
+    - position-statement
+  side: majority
+  accessed: 2026-10-04
+  verified_via: "WebSearch restricted to AAP and PubMed domains returned the article page https://publications.aap.org/pediatrics/article/142/6/e20183112/37452/Effective-Discipline-to-Raise-Healthy-Children (title; Pediatrics 142(6) e20183112; abstract sentences on aversive strategies, negative outcomes and avoiding physical punishment and verbal abuse) and PubMed https://pubmed.ncbi.nlm.nih.gov/30397164/ (PMID). AAP News (publications.aap.org/aapnews/news/6955 and /7019) gave the DOI 10.1542/peds.2018-3112, the December 2018 issue and the update of the 1998 guidance. A Pediatrics item at https://publications.aap.org/pediatrics/article-abstract/143/2/e20183609/37315/ is titled with the full citation 'Sege RD, Siegel BS; Council on Child Abuse and Neglect; Committee on Psychosocial Aspects of Child and Family Health ...', which confirms the author line (it appears to be an erratum; what it corrects was not checked). The recommendation sentence 'should not use corporal punishment (including hitting and spanking)' was confirmed in an AAP-domain search. HealthyChildren.org (AAP) pages 'Where We Stand: Spanking' and 'American Academy of Pediatrics Updates Policy on Corporal Punishment' confirmed the no spanking, hitting, slapping, threatening, insulting, humiliating or shaming summary, the recommended alternatives, the stress-hormone and brain-architecture statement and the harsh verbal abuse link. REAFFIRMATION STATUS UNRESOLVED: no reaffirmation, revision or retirement notice was found; AAP policy statements automatically expire 5 years after publication unless reaffirmed, revised or retired (confirmed on AAP 'Publications Reaffirmed or Retired' pages). AAP sites still present the 2018 policy as AAP's position. Human check of the article page for a reaffirmation note is needed."
+- id: larzelere-2024
+  evidence_level: meta-analysis
+  authors: Larzelere, R. E., Gunnoe, M. L., Pritsker, J., & Ferguson, C. J.
+  year: 2024
+  title: "Resolving the Contradictory Conclusions from Three Reviews of Controlled Longitudinal Studies of Physical Punishment: A Meta-Analysis"
+  venue: Marriage & Family Review, 60(7), 395-433
+  doi: 10.1080/01494929.2024.2392672
+  url: https://doi.org/10.1080/01494929.2024.2392672
+  lang: en
+  finding:
+    en: Larzelere and colleagues meta-analysed 47 controlled longitudinal studies to test whether the contradictory conclusions of earlier reviews depend on the type of longitudinal analysis used, and conclude that the harmful effects of customary spanking have been exaggerated and its possible benefits for the most defiant children dismissed too quickly.
+    zh-hans: Larzelere 等人对 47 项有对照的纵向研究进行荟萃分析，检验以往综述结论相互矛盾是否取决于所用的纵向分析方法；他们的结论是，惯常打屁股的害处被夸大了，而它对最叛逆孩子可能的好处被过早否定。
+    zh-hant: Larzelere 等人對 47 項有對照的縱貫研究進行統合分析，檢驗過去文獻回顧結論互相矛盾是否取決於所用的縱貫分析方法；他們的結論是，慣常打屁股的害處被誇大了，而它對最叛逆孩子可能的好處被太快否定。
+  key_facts:
+    - "Number of studies meeting the eligibility criteria: 47."
+    - 'Aim: to explain why three literature reviews of controlled longitudinal studies of child outcomes of "customary physical punishment" arrived at "contradictory conclusions".'
+    - 'Method: "meta-analyses based on two types of change-scores and two sensitivity tests".'
+    - 'Hypothesis: studies using "standard ANCOVA-type longitudinal analyses" would suggest "harmful-looking effects", while studies using "simple difference scores" would suggest "beneficial-looking effects" of customary spanking on four child outcomes.'
+    - Child age (18 months to 11 years) was examined as a moderator of these associations.
+    - "Authors' conclusion (proponents' position, attribute to them): harmful effects of customary spanking have been exaggerated, and potential benefits of spanking for the most defiant children have been dismissed too quickly."
+  topics:
+    - physical-punishment
+  side: minority
+  accessed: 2026-10-04
+  verified_via: "WebSearch restricted to tandfonline.com returned the abstract page https://www.tandfonline.com/doi/abs/10.1080/01494929.2024.2392672 (listed as 'Marriage & Family Review: Vol 60, No 7') and the full-text page https://www.tandfonline.com/doi/full/10.1080/01494929.2024.2392672, confirming the exact title, the author order (Robert E. Larzelere, Marjorie Lindner Gunnoe, Joshua Pritsker & Christopher J. Ferguson), volume 60, issue 7, pages 395-433, the three-reviews aim, the 'two types of change-scores and two sensitivity tests' design, the ANCOVA-type versus simple-difference-score hypothesis, the four child outcomes and the 18-month to 11-year age range. The figure of 47 studies and the authors' conclusion came from a non-restricted search whose top results were the publisher PDF (https://www.tandfonline.com/doi/pdf/10.1080/01494929.2024.2392672) and an author-hosted copy (christopherjferguson.com); moderately confident, recheck both in the PDF. The pooled effect sizes and whether the hypothesis was supported were NOT verified, so the entry does not report them. The brief's claim that spanking explained under 1% of variance was NOT found on any source page and is deliberately not recorded."
+- id: kaminski-2008
+  evidence_level: meta-analysis
+  authors: Kaminski, J. W., Valle, L. A., Filene, J. H., & Boyle, C. L.
+  year: 2008
+  title: A Meta-analytic Review of Components Associated with Parent Training Program Effectiveness
+  venue: Journal of Abnormal Child Psychology, 36(4), 567-589
+  doi: 10.1007/s10802-007-9201-9
+  pmid: "18205039"
+  url: https://doi.org/10.1007/s10802-007-9201-9
+  lang: en
+  finding:
+    en: Across 77 published evaluations of parent training programs for children aged 0 to 7, programs that taught positive parent-child interaction and emotional communication, time out and parenting consistency, and that had parents practice new skills with their child during sessions had larger effects.
+    zh-hans: 在 77 项针对 0 至 7 岁儿童家长培训课程的已发表评估中，教授积极亲子互动与情绪沟通、教授暂停法（time-out）与教养一致性，并让家长在课程中和孩子一起练习新技能的课程，效果更大。
+    zh-hant: 在 77 項針對 0 至 7 歲兒童親職訓練課程的已發表評估中，教導正向親子互動與情緒溝通、教導暫停法（time-out）與管教一致性，並讓家長在課程中和孩子一起練習新技巧的課程，效果較大。
+  key_facts:
+    - Component analysis of 77 published evaluations of parent training programs for children aged 0-7.
+    - 'Consistently associated with larger effects: "increasing positive parent-child interactions and emotional communication skills", "teaching parents to use time out and the importance of parenting consistency", and "requiring parents to practice new skills with their children during parent training sessions".'
+    - "Consistently associated with smaller effects: \"teaching parents problem solving\"; \"teaching parents to promote children's cognitive, academic, or social skills\"; and \"providing other, additional services\"."
+    - The journal has since been renamed Research on Child and Adolescent Psychopathology, and Springer now lists the article under that name.
+  topics:
+    - parenting-programs
+    - time-out
+    - connection
+  accessed: 2026-10-04
+  verified_via: "link.springer.com/article/10.1007/s10802-007-9201-9 (search restricted to Springer/PubMed): title, four authors, Journal of Abnormal Child Psychology 36(4):567-589, 2008, DOI, and the component findings; pubmed.ncbi.nlm.nih.gov/18205039 (search result): title, PMID, and abstract wording (77 evaluations, ages 0-7, components linked to larger and smaller effects)."
+- id: leijten-2019
+  evidence_level: meta-analysis
+  authors: Leijten, P., Gardner, F., Melendez-Torres, G. J., et al.
+  year: 2019
+  title: "Meta-Analyses: Key Parenting Program Components for Disruptive Child Behavior"
+  venue: Journal of the American Academy of Child & Adolescent Psychiatry, 58(2), 180-190
+  doi: 10.1016/j.jaac.2018.07.900
+  pmid: "30738545"
+  url: https://doi.org/10.1016/j.jaac.2018.07.900
+  lang: en
+  finding:
+    en: "Two meta-analyses of randomized parenting program trials found that only three of 26 parenting techniques were linked to stronger effects on disruptive child behavior: positive reinforcement, praise in particular, and natural/logical consequences."
+    zh-hans: 两项针对家长课程随机试验的荟萃分析发现，在 26 种教养技巧中，只有 3 种与改善孩子破坏性行为的更强效果相关：正向强化、特别是表扬，以及自然后果和逻辑后果。
+    zh-hant: 兩項針對親職課程隨機試驗的統合分析發現，在 26 種教養技巧中，只有 3 種與改善孩子干擾行為的較強效果有關：正向增強、特別是讚美，以及自然後果與邏輯後果。
+  key_facts:
+    - '"Three of 26 parenting techniques were associated with stronger program effects: positive reinforcement, praise in particular, and natural/logical consequences."'
+    - Several additional techniques, for example relationship building and parental self-management, were associated with stronger effects in treatment but weaker effects in prevention.
+    - No technique was associated with stronger longer-term effects.
+    - "Program effects grew with level of need: universal d = -0.21, selective d = -0.27, indicated d = -0.55, treatment d = -0.69 (negative d means less disruptive behavior)."
+    - Time-out and ignoring are not among the techniques the abstract links to stronger effects; the full list of 26 coded techniques was not checked.
+  topics:
+    - parenting-programs
+    - praise
+    - consequences
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/30738545 and sciencedirect.com/science/article/abs/pii/S0890856718319804 (search restricted to PubMed/JAACAP/ScienceDirect): title, first three authors, JAACAP February 2019, abstract results; research.bangor.ac.uk research portal entry (Bangor University): volume 58(2), pages 180-190 and DOI 10.1016/j.jaac.2018.07.900. The portal misspells two co-author names, so authors after the third are given as et al."
+- id: leijten-2018
+  evidence_level: meta-analysis
+  authors: Leijten, P., et al.
+  year: 2018
+  title: Are Relationship Enhancement and Behavior Management "The Golden Couple" for Disruptive Child Behavior? Two Meta-analyses
+  venue: Child Development, 89(6)
+  doi: 10.1111/cdev.13051
+  pmid: "29557553"
+  url: https://doi.org/10.1111/cdev.13051
+  lang: en
+  finding:
+    en: "Two meta-analyses of randomized trials found that combining relationship enhancement with behavior management was not better overall than behavior management alone: it was better in treatment settings, worse in prevention settings, and no different up to 3 years later."
+    zh-hans: 两项随机试验荟萃分析发现，把增进亲子关系和行为管理结合起来，总体上并不比单做行为管理更好：在治疗情境中更好，在预防情境中较差，三年内的长期效果没有差别。
+    zh-hant: 兩項隨機試驗統合分析發現，把增進親子關係和行為管理結合起來，整體上並不比單做行為管理更好：在治療情境中較好，在預防情境中較差，三年內的長期效果沒有差別。
+  key_facts:
+    - Two meta-analyses of 156 and 41 RCTs with 15,768 participants in total and average child ages of 1 to 11 years.
+    - The integrative approach showed no overall superiority over behavior management alone.
+    - Relative to behavior management, the integrative approach was superior in treatment settings but inferior in prevention settings.
+    - The two approaches did not have different sustained effects up to 3 years after the program.
+    - The authors argue against implementing the same parenting programs in treatment and prevention settings.
+  topics:
+    - parenting-programs
+    - connection
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/29557553 and srcd.onlinelibrary.wiley.com/doi/10.1111/cdev.13051 (search restricted to PubMed/Wiley): title, first author Patty Leijten, Child Development November 2018, DOI, abstract numbers and findings; volume 89, issue 6 also stated in an unrestricted search led by the Utrecht University research portal entry. Co-authors and page range were not confirmed."
+- id: owen-2012
+  evidence_level: systematic-review
+  authors: Owen, D. J., Slep, A. M. S., & Heyman, R. E.
+  year: 2012
+  title: "The Effect of Praise, Positive Nonverbal Response, Reprimand, and Negative Nonverbal Response on Child Compliance: A Systematic Review"
+  venue: Clinical Child and Family Psychology Review, 15(4), 364-385
+  doi: 10.1007/s10567-012-0120-0
+  pmid: "22918669"
+  url: https://doi.org/10.1007/s10567-012-0120-0
+  lang: en
+  finding:
+    en: A systematic review of 41 studies of children aged 1.5 to 11 found that reprimands and negative nonverbal responses consistently increased compliance, while praise and positive nonverbal responses had mixed effects.
+    zh-hans: 一项涵盖 41 项研究、儿童年龄 1.5 至 11 岁的系统综述发现，口头责备和负面的非语言回应一致地提高了孩子的配合度，而表扬和正面的非语言回应效果不一。
+    zh-hant: 一項涵蓋 41 項研究、兒童年齡 1.5 至 11 歲的系統性回顧發現，口頭責備和負面的非語言回應一致地提高了孩子的配合度，而讚美和正面的非語言回應效果不一。
+  key_facts:
+    - 41 studies; children aged 1.5 to 11 years.
+    - '"Reprimand and negative nonverbal responses consistently resulted in greater compliance".'
+    - '"praise and positive nonverbal responses resulted in mixed child outcomes".'
+    - The authors propose a mechanism that may increase children's sensitivity to both positive and negative behavioral contingencies.
+  topics:
+    - praise
+    - instructions
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/22918669 (search restricted to PubMed/Springer/NCBI): title, authors Daniela J Owen, Amy M S Slep and Richard E Heyman, 15(4):364-85, December 2012, abstract findings; link.springer.com/article/10.1007/s10567-012-0120-0: title, journal, volume, pages, DOI."
+- id: dadds-tully-2019
+  evidence_level: review
+  authors: Dadds, M. R., & Tully, L. A.
+  year: 2019
+  title: "What is it to discipline a child: What should it be? A reanalysis of time-out from the perspective of child mental health, attachment, and trauma"
+  venue: American Psychologist, 74(7), 794-808
+  doi: 10.1037/amp0000449
+  pmid: "30802080"
+  url: https://doi.org/10.1037/amp0000449
+  lang: en
+  finding:
+    en: This reanalysis answers attachment-based criticism of time-out and argues that time-out used in line with current models of learning, attachment, self-regulation and family systems can quickly remedy children's problems and generally enhances child well-being.
+    zh-hans: 这篇重新分析回应了从依恋理论出发对暂停法的批评，认为只要按照当前关于学习、依恋、自我调节和家庭系统的理论来使用，暂停法能较快改善孩子的问题，总体上有益于孩子的身心健康。
+    zh-hant: 這篇重新分析回應了從依附理論出發對暫停法的批評，認為只要依照目前關於學習、依附、自我調節和家庭系統的理論來使用，暫停法能較快改善孩子的問題，整體上有益於孩子的身心健康。
+  key_facts:
+    - Describes time-out from positive reinforcement as one of the most common and well-researched discipline procedures in the world.
+    - Responds to criticism from writers drawing on attachment theory that time-out breaks attachment security and may harm children with trauma histories.
+    - Derives five axioms for judging the worth and acceptability of any discipline strategy and uses them to specify how time-out should be used to maximize positive child outcomes.
+    - Concludes that time-out used this way is a "positive perturbation" that "generally enhances child well-being".
+  topics:
+    - time-out
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/30802080 (searches restricted to PubMed/APA PsycNet): title, authors Mark R Dadds and Lucy A Tully, American Psychologist October 2019, PMID, DOI, abstract points; the restricted search also returned volume 74, issue 7, pages 794-808."
+- id: knight-2020
+  evidence_level: longitudinal
+  authors: Knight, R. M., Albright, J., Deling, L., Dore-Stites, D., & Drayton, A. K.
+  year: 2020
+  title: Longitudinal Relationship Between Time-Out and Child Emotional and Behavioral Functioning
+  venue: Journal of Developmental & Behavioral Pediatrics, 41(1), 31-37
+  url: https://journals.lww.com/jrnldbp/abstract/2020/01000/longitudinal_relationship_between_time_out_and.5.aspx
+  lang: en
+  finding:
+    en: In longitudinal data from the Early Head Start Research and Evaluation study, children whose parents reported using time-out did not differ from other children on later emotional, behavioral or parent-child relationship outcomes.
+    zh-hans: 在美国早期开端计划（Early Head Start）研究评估项目的纵向数据中，家长报告使用暂停法的孩子，与其他孩子在之后的情绪、行为或亲子关系结果上没有差别。
+    zh-hant: 在美國早期啟蒙計畫（Early Head Start）研究評估專案的縱貫資料中，家長表示使用暫停法的孩子，與其他孩子在之後的情緒、行為或親子關係結果上沒有差異。
+  key_facts:
+    - Archival longitudinal data from the Early Head Start Research and Evaluation study.
+    - "Three time points: baseline (ages 0-3), pre-kindergarten, and fifth grade."
+    - Analyses for all outcome variables showed no significant difference between children whose parents reported using time-out and those whose parents did not.
+    - Parent-reported use of time-out was not associated with long-term negative outcomes.
+    - Observational design based on parents' reports of whether they used time-out.
+  topics:
+    - time-out
+  accessed: 2026-10-04
+  verified_via: "journals.lww.com/jrnldbp/abstract/2020/01000/longitudinal_relationship_between_time_out_and.5.aspx (search restricted to PubMed/LWW): title, five authors, J Dev Behav Pediatr 41(1):31-37, January 2020, design and findings. DOI and PMID were not confirmed and are omitted."
+- id: morawska-sanders-2011
+  evidence_level: review
+  authors: Morawska, A., & Sanders, M. R.
+  year: 2011
+  title: "Parental Use of Time Out Revisited: A Useful or Harmful Parenting Strategy?"
+  venue: Journal of Child and Family Studies, 20, 1-8
+  doi: 10.1007/s10826-010-9371-x
+  url: https://doi.org/10.1007/s10826-010-9371-x
+  lang: en
+  finding:
+    en: This review weighs the criticisms of time out and concludes that its judicious use within parent training programs is justified and beneficial for many children with conduct problems, while setting out what affects its effectiveness and when it should not be used.
+    zh-hans: 这篇综述权衡了对暂停法的各种批评，结论是在家长培训课程中审慎使用暂停法是合理的，对许多有品行问题的孩子有益；文中也说明了影响效果的因素和不宜使用的情况。
+    zh-hant: 這篇文獻回顧權衡了對暫停法的各種批評，結論是在親職訓練課程中審慎使用暫停法是合理的，對許多有行為規範問題的孩子有益；文中也說明了影響效果的因素和不宜使用的情況。
+  key_facts:
+    - Examines the controversy over time out as a strategy for reducing disruptive and oppositional behavior in young children.
+    - Concludes that judicious use of time out in parent training programs is justified and beneficial for many children with conduct problems.
+    - Discusses factors that influence the effectiveness of time out and contraindications for its use.
+  topics:
+    - time-out
+  accessed: 2026-10-04
+  verified_via: "link.springer.com/article/10.1007/s10826-010-9371-x (search restricted to Springer/PubMed): title, authors Alina Morawska and Matthew Sanders, Journal of Child and Family Studies 2011, volume 20, pages 1-8, DOI, abstract content. Issue number and PMID were not confirmed."
+- id: sanders-2014
+  evidence_level: meta-analysis
+  authors: Sanders, M. R., Kirby, J. N., Tellegen, C. L., & Day, J. J.
+  year: 2014
+  title: "The Triple P-Positive Parenting Program: A systematic review and meta-analysis of a multi-level system of parenting support"
+  venue: Clinical Psychology Review, 34(4), 337-357
+  doi: 10.1016/j.cpr.2014.04.003
+  pmid: "24842549"
+  url: https://doi.org/10.1016/j.cpr.2014.04.003
+  lang: en
+  finding:
+    en: A meta-analysis of 101 studies with 16,099 families found significant short- and long-term effects of the Triple P system on child and parent outcomes, including a short-term effect of d = 0.473 on children's social, emotional and behavioral outcomes.
+    zh-hans: 一项纳入 101 项研究、16,099 个家庭的荟萃分析发现，Triple P（3P 正向教养）体系对孩子和家长的结果都有显著的短期和长期效果，对孩子社交、情绪和行为结果的短期效果量为 d = 0.473。
+    zh-hant: 一項納入 101 項研究、16,099 個家庭的統合分析發現，Triple P（3P 正向教養）體系對孩子和家長的結果都有顯著的短期與長期效果，對孩子社交、情緒和行為結果的短期效果量為 d = 0.473。
+  key_facts:
+    - 116 eligible studies over a 33-year period; 101 studies comprising 16,099 families analyzed quantitatively.
+    - Seven outcome variables and 15 moderator variables were evaluated.
+    - "Short-term effect on children's social, emotional and behavioral outcomes: d = 0.473."
+    - Significant effects at short and long term; no single moderator affected all outcome variables.
+  topics:
+    - parenting-programs
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/24842549 and sciencedirect.com/science/article/abs/pii/S0272735814000683 (search restricted to PubMed/ScienceDirect): title, four authors, Clinical Psychology Review June 2014, 34(4):337-357, DOI, abstract numbers."
+- id: menting-2013
+  evidence_level: meta-analysis
+  authors: Menting, A. T. A., Orobio de Castro, B., & Matthys, W.
+  year: 2013
+  title: "Effectiveness of the Incredible Years parent training to modify disruptive and prosocial child behavior: A meta-analytic review"
+  venue: Clinical Psychology Review, 33(8), 901-913
+  doi: 10.1016/j.cpr.2013.07.006
+  pmid: "23994367"
+  url: https://doi.org/10.1016/j.cpr.2013.07.006
+  lang: en
+  finding:
+    en: A meta-analysis of 50 studies found that Incredible Years parent training reduced disruptive child behavior (d = .27 across informants), with larger effects in treatment studies and for children with more severe problems.
+    zh-hans: 一项纳入 50 项研究的荟萃分析发现，Incredible Years（不可思议的岁月）家长培训减少了孩子的破坏性行为（各类报告人综合效果量 d = .27），在治疗性研究和问题较严重的孩子中效果更大。
+    zh-hant: 一項納入 50 項研究的統合分析發現，Incredible Years（不可思議的歲月）親職訓練減少了孩子的干擾行為（各類報告者綜合效果量 d = .27），在治療性研究和問題較嚴重的孩子中效果較大。
+  key_facts:
+    - 50 studies comparing an Incredible Years parent training group with a comparison group immediately after intervention.
+    - "Mean effect on disruptive child behavior across informants: d = .27."
+    - "Parent report: treatment studies d = .50, indicated prevention d = .20, selective prevention d = .13."
+    - Initial severity of child behavior was the strongest predictor of effects, with larger effects in studies including more severe cases.
+  topics:
+    - parenting-programs
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/23994367 and sciencedirect.com/science/article/abs/pii/S0272735813000949 (search restricted to PubMed/ScienceDirect): title, three authors, Clinical Psychology Review 33(8), December 2013, pages 901-913, DOI, abstract numbers."
+- id: holden-2022
+  evidence_level: pilot
+  authors: Holden, G. W., Gower, T., Wee, S. E., Gaspar, R., & Ashraf, R.
+  year: 2022
+  title: 'Is It Time for "Time-In"?: A Pilot Test of the Child-Rearing Technique'
+  venue: Pediatric Reports, 14(2), 244-253
+  doi: 10.3390/pediatric14020032
+  pmid: "35645369"
+  url: https://doi.org/10.3390/pediatric14020032
+  lang: en
+  finding:
+    en: In a small pilot study, mothers of 3- to 5-year-olds who received brief training used time-in over two weeks and rated it easy to use and effective; the authors note there are few empirical studies of the technique.
+    zh-hans: 在一项小型试点研究中，3 至 5 岁孩子的母亲接受简短培训后，在两周内使用陪伴冷静（time-in），并认为它容易使用且有效；作者也指出，关于这种方法的实证研究还很少。
+    zh-hant: 在一項小型前導研究中，3 至 5 歲孩子的母親接受簡短訓練後，在兩週內使用陪伴冷靜（time-in），並認為它容易使用且有效；作者也指出，關於這種方法的實證研究還很少。
+  key_facts:
+    - Time-in "is intended to help the child connect to the parent, communicate their feelings, and learn how to self-regulate".
+    - Mothers received brief training and reported daily on their use of time-in over a two-week period, followed by a post-intervention interview.
+    - 32 mothers of 3- to 5-year-olds took part in the initial interview; 19 had mostly complete data.
+    - Based on daily reports and interviews, mothers evaluated the technique as easy to use and effective.
+    - Although time-in has been advocated in the positive parenting literature since at least the 1990s, the authors write that there are few empirical studies evaluating it.
+  topics:
+    - time-in
+  accessed: 2026-10-04
+  verified_via: "pubmed.ncbi.nlm.nih.gov/35645369 and ncbi.nlm.nih.gov/pmc/articles/PMC9149873 (search restricted to NCBI/Springer): title, aims, design, findings and the statement that few empirical studies exist; mdpi.com/2036-7503/14/2/32 (search restricted to MDPI/PubMed): five authors, Pediatric Reports 14(2):244-253, published 23 May 2022, DOI; the MDPI/PMC search also gave the sample figures."
+- id: leijten-2016
+  evidence_level: experiment
+  authors: Leijten, P., Thomaes, S., Orobio de Castro, B., Dishion, T. J., & Matthys, W.
+  year: 2016
+  title: What good is labeling what's good? A field experimental investigation of parental labeled praise and child compliance
+  venue: Behaviour Research and Therapy
+  url: https://www.sciencedirect.com/science/article/abs/pii/S0005796716301656
+  lang: en
+  finding:
+    en: In two field experiments there was no evidence that labeled praise works better than unlabeled praise, and in the first experiment teaching parents labeled praise did not increase children's immediate compliance while teaching unlabeled praise did.
+    zh-hans: 两项现场实验没有发现具体表扬（说明表扬的是什么行为）比笼统表扬更有效的证据；在第一项实验中，教家长具体表扬没有提高孩子当下的配合度，而教笼统表扬则提高了。
+    zh-hant: 兩項現場實驗沒有發現具體讚美（說明讚美的是什麼行為）比籠統讚美更有效的證據；在第一項實驗中，教家長具體讚美沒有提高孩子當下的配合度，而教籠統讚美則有提高。
+  key_facts:
+    - "Experiment 1: 161 children aged 4-8; immediate effects of labeled praise, unlabeled praise and no praise."
+    - "Experiment 2: 132 children aged 3-9 with varying levels of disruptive behavior; immediate and two-week effects."
+    - In Experiment 1, teaching parents labeled praise did not increase immediate child compliance, whereas teaching them unlabeled praise did.
+    - No evidence that labeled praise is superior to unlabeled praise.
+  topics:
+    - praise
+  accessed: 2026-10-04
+  verified_via: "sciencedirect.com/science/article/abs/pii/S0005796716301656 (search restricted to ScienceDirect/PubMed): title, five authors, Behaviour Research and Therapy, December 2016, design and findings. Volume, pages, DOI and PMID were not confirmed and are omitted."
+- id: radley-dart-2016
+  evidence_level: review
+  authors: Radley, K. C., & Dart, E. H.
+  year: 2016
+  title: "Antecedent Strategies to Promote Children's and Adolescents' Compliance with Adult Requests: A Review of the Literature"
+  venue: Clinical Child and Family Psychology Review, 19, 39-54
+  doi: 10.1007/s10567-015-0197-3
+  url: https://doi.org/10.1007/s10567-015-0197-3
+  lang: en
+  finding:
+    en: A review of 42 studies of eight antecedent strategies for children and adolescents aged 1 to 19 concluded that high-probability command sequences, effective instruction delivery and errorless compliance training may be considered evidence-based ways to increase compliance with adult requests.
+    zh-hans: 一篇综述回顾了 42 项研究、针对 1 至 19 岁儿童青少年的 8 种事前策略，结论是高概率指令序列、有效下指令和无错误配合训练，可视为提高孩子配合大人要求的循证方法。
+    zh-hant: 一篇文獻回顧整理了 42 項研究、針對 1 至 19 歲兒童青少年的 8 種事前策略，結論是高機率指令序列、有效下指令和無錯誤配合訓練，可視為提高孩子配合大人要求的實證方法。
+  key_facts:
+    - 42 studies evaluating eight antecedent strategies; participants aged 1-19.
+    - Describes compliance with adult requests as a "keystone behavior".
+    - High-probability command sequences, effective instruction delivery, and errorless compliance training may be considered evidence-based antecedent strategies.
+    - Published online 14 November 2015 in volume 19 (2016).
+  topics:
+    - instructions
+  accessed: 2026-10-04
+  verified_via: "link.springer.com/article/10.1007/s10567-015-0197-3 (search restricted to Springer/PubMed): title, authors Keith C. Radley and Evan H. Dart, Clinical Child and Family Psychology Review volume 19, pages 39-54 (2016), online 14 November 2015, DOI, abstract findings. Issue number and PMID were not confirmed."
+- id: zubler-2022
+  evidence_level: review
+  authors: Zubler, J. M., et al.
+  year: 2022
+  title: Evidence-Informed Milestones for Developmental Surveillance Tools
+  venue: Pediatrics, 149(3)
+  url: https://stacks.cdc.gov/view/cdc/122643/cdc_122643_DS1.pdf
+  lang: en
+  finding:
+    en: A CDC-funded American Academy of Pediatrics expert working group revised CDC's developmental surveillance checklists so that milestones are evidence-informed and show when most children can be expected to reach them, to discourage a wait-and-see approach.
+    zh-hans: 由美国疾病控制与预防中心资助的美国儿科学会专家工作组修订了发展监测清单，让里程碑有证据依据，并标示大多数孩子预期达到的年龄，以减少再等等看的做法。
+    zh-hant: 由美國疾病管制與預防中心資助的美國兒科醫學會專家工作小組修訂了發展監測檢核表，讓里程碑有證據依據，並標示大多數孩子預期達到的年齡，以減少再等等看的做法。
+  key_facts:
+    - CDC's Learn the Signs. Act Early. program funded the AAP to convene an expert working group to revise CDC's developmental surveillance checklists.
+    - "Stated goals: identify evidence-informed milestones to include in CDC checklists, clarify when most children can be expected to reach a milestone (to discourage a wait-and-see approach), and support clinical judgment regarding screening between recommended ages."
+    - Published in Pediatrics volume 149, issue 3 (March 2022), after online publication in February 2022.
+  topics:
+    - milestones
+    - development
+  accessed: 2026-10-04
+  verified_via: WebSearch result https://stacks.cdc.gov/view/cdc/122643/cdc_122643_DS1.pdf (CDC Stacks copy of the article) confirmed title, first author Jennifer M. Zubler, the CDC-funded AAP working group and its three goals; the same result set gave Pediatrics 149(3), March 2022, online February 2022. Full author list, DOI and PMID were not shown, so they are omitted (authors given as et al.).
+- id: narang-2020
+  evidence_level: position-statement
+  authors: Narang, S. K., Fingarson, A., Lukefahr, J., & Council on Child Abuse and Neglect
+  year: 2020
+  title: Abusive Head Trauma in Infants and Children
+  venue: Pediatrics, 145(4), e20200203
+  doi: 10.1542/peds.2020-0203
+  url: https://doi.org/10.1542/peds.2020-0203
+  lang: en
+  finding:
+    en: The American Academy of Pediatrics policy statement on abusive head trauma updates its 2009 statement and asks pediatricians to stay alert to the signs of abusive head trauma, evaluate suspected cases thoroughly, consult subspecialists when needed, and advocate strongly on the issue.
+    zh-hans: 美国儿科学会关于虐待性头部创伤的政策声明更新了 2009 年版本，要求儿科医生对虐待性头部创伤的征兆保持警觉，彻底评估疑似个案，必要时会诊专科医生，并积极倡导相关议题。
+    zh-hant: 美國兒科醫學會關於虐待性頭部外傷的政策聲明更新了 2009 年版本，要求兒科醫師對虐待性頭部外傷的徵兆保持警覺，徹底評估疑似個案，必要時會診次專科醫師，並積極倡議相關議題。
+  key_facts:
+    - Revises the AAP's 2009 policy statement on abusive head trauma to incorporate the growing body of knowledge on the topic.
+    - Recommends that pediatric practitioners remain vigilant for the signs and symptoms of abusive head trauma, conduct thorough medical evaluations, consult pediatric medical subspecialists when necessary, and embrace the need for strong advocacy.
+    - "\"The role of the pediatric practitioner is not to apportion blame or investigate potential criminal activity but to identify the medical problem, evaluate and treat the child's injuries, and offer honest medical information to parents, families, investigators, and attorneys/judges.\""
+    - The AAP article page notes that the statement was reaffirmed in April 2025 with reference and data updates.
+  topics:
+    - infant-crying
+    - safety
+  accessed: 2026-10-04
+  verified_via: WebSearch (publications.aap.org, PubMed, aap.org) result https://publications.aap.org/pediatrics/article/145/4/e20200203/36936/Abusive-Head-Trauma-in-Infants-and-Children confirmed title, policy statement, Pediatrics 145(4) e20200203, April 2020, corresponding author Sandeep K. Narang, DOI, the revision of the 2009 statement, the recommendations, the quoted sentence and the April 2025 reaffirmation note. Co-authors Fingarson and Lukefahr and the Council on Child Abuse and Neglect were confirmed only from citations on other PubMed records. PMID not shown, omitted. The statement's specific advice on crying education was not confirmed and is not recorded.
+- id: wolke-2017
+  evidence_level: meta-analysis
+  authors: Wolke, D., Bilgin, A., & Samara, M.
+  year: 2017
+  title: "Systematic Review and Meta-Analysis: Fussing and Crying Durations and Prevalence of Colic in Infants"
+  venue: The Journal of Pediatrics, 185, 55-61.e4
+  doi: 10.1016/j.jpeds.2017.02.020
+  pmid: "28385295"
+  url: https://doi.org/10.1016/j.jpeds.2017.02.020
+  lang: en
+  finding:
+    en: Pooling 28 diary studies of 8,690 infants, this meta-analysis found average fussing and crying of 117-133 minutes a day in the first 6 weeks, falling to 68 minutes by 10-12 weeks, with no statistical evidence for a universal crying peak at 6 weeks.
+    zh-hans: 这项荟萃分析汇总了 28 项日记研究、8,690 名婴儿，发现出生后头 6 周平均每天哭闹 117 至 133 分钟，到 10 至 12 周降到 68 分钟，没有统计证据支持所有婴儿都在 6 周时达到哭闹高峰。
+    zh-hant: 這項統合分析彙整了 28 項日誌研究、8,690 名嬰兒，發現出生後頭 6 週平均每天哭鬧 117 至 133 分鐘，到 10 至 12 週降到 68 分鐘，沒有統計證據支持所有嬰兒都在 6 週時達到哭鬧高峰。
+  key_facts:
+    - 28 diary studies (33 samples) with 8,690 infants were meta-analyzed, out of 5,687 articles reviewed.
+    - Mean fuss/cry duration was stable at 117-133 minutes in the first 6 weeks and dropped to 68 minutes by 10-12 weeks of age.
+    - No statistical evidence for a universal crying peak at 6 weeks of age was found.
+    - Colic (modified Wessel criteria) was much more frequent in the first 6 weeks (17%-25%) than at 8-9 weeks (11%) or 10-12 weeks (0.6%).
+  topics:
+    - infant-crying
+  accessed: 2026-10-04
+  verified_via: "WebSearch results: https://pubmed.ncbi.nlm.nih.gov/28385295/ (title) and https://wrap.warwick.ac.uk/87542 (University of Warwick repository record with the author manuscript) confirmed authors, year, title, J Pediatr 185:55-61.e4, the DOI and the abstract findings recorded here."
+- id: wakschlag-2012
+  evidence_level: cross-sectional
+  authors: Wakschlag, L. S., et al.
+  year: 2012
+  title: "Defining the developmental parameters of temper loss in early childhood: implications for developmental psychopathology"
+  venue: Journal of Child Psychology and Psychiatry, 53(11), 1099-1108
+  doi: 10.1111/j.1469-7610.2012.02595.x
+  pmid: "22928674"
+  url: https://doi.org/10.1111/j.1469-7610.2012.02595.x
+  lang: en
+  finding:
+    en: In a diverse community sample of 1,490 preschoolers, nearly all had tantrums sometimes (83.7%) but only 8.6% had daily tantrums, and clinically concerning temper loss tended to be unpredictable, prolonged and/or destructive rather than a reaction to frustration in expectable situations.
+    zh-hans: 在一个包含 1,490 名学龄前儿童的多元社区样本中，几乎所有孩子都会偶尔发脾气（83.7%），但每天发脾气的只有 8.6%；需要临床关注的发脾气往往难以预料、持续时间长或带有破坏性，而不是在可预期的情境中受挫后的反应。
+    zh-hant: 在一個包含 1,490 名學齡前兒童的多元社區樣本中，幾乎所有孩子都會偶爾鬧脾氣（83.7%），但每天鬧脾氣的只有 8.6%；需要臨床關注的鬧脾氣往往難以預料、持續很久或帶有破壞性，而不是在可預期的情境中受挫後的反應。
+  key_facts:
+    - Parent reports on 1,490 preschoolers using the Temper Loss scale of the Multidimensional Assessment of Preschool Disruptive Behavior (MAP-DB).
+    - '"Nearly all (83.7%) preschoolers had tantrums sometimes but only 8.6% had daily tantrums."'
+    - Normative misbehaviors occurred more frequently than clinically concerning temper loss behaviors; milder behaviors tended to reflect frustration in expectable contexts.
+    - Clinically concerning problem indicators were "unpredictable, prolonged, and/or destructive".
+    - In multivariate models, Temper Loss was associated with emotional and behavioral problems.
+  topics:
+    - tantrums
+  accessed: 2026-10-04
+  verified_via: "WebSearch (PubMed/PMC/Wiley) results: https://pubmed.ncbi.nlm.nih.gov/22928674/, https://pmc.ncbi.nlm.nih.gov/articles/PMC3633202/ and https://acamh.onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-7610.2012.02595.x confirmed title, first author Lauren S. Wakschlag, 2012, journal, DOI, November 2012 issue and the abstract findings. Volume 53(11) fits the November 2012 issue; pages 1099-1108 come from the brief and were not shown in results. Co-authors not shown, so given as et al."
+- id: belden-2008
+  evidence_level: cross-sectional
+  authors: Belden, A. C., Thomson, N. R., & Luby, J. L.
+  year: 2008
+  title: "Temper Tantrums in Healthy Versus Depressed and Disruptive Preschoolers: Defining Tantrum Behaviors Associated with Clinical Problems"
+  venue: The Journal of Pediatrics, 152(1)
+  url: https://eedp.wustl.edu/app/uploads/2016/07/Belden-Thomson-Luby-Temper-tantrums-in-healthy-vs-depressed-2008.pdf
+  lang: en
+  finding:
+    en: Among 279 preschoolers aged 3 to 6, tantrums involving violence, self-harm or aggression toward people and objects, and tantrums at school or daycare, were more typical of children with disruptive or depressive disorders than of healthy children.
+    zh-hans: 在 279 名 3 至 6 岁的学龄前儿童中，发脾气时出现暴力、自伤或攻击他人和物品，以及在幼儿园或托育机构发脾气，较常见于有破坏性行为障碍或抑郁障碍的孩子，而非健康的孩子。
+    zh-hant: 在 279 名 3 至 6 歲的學齡前兒童中，鬧脾氣時出現暴力、自傷或攻擊他人和物品，以及在學校或托育機構鬧脾氣，較常見於有干擾行為障礙或憂鬱症的孩子，而非健康的孩子。
+  key_facts:
+    - Caregivers of 279 children aged 3 to 6 completed the Preschool-Age Psychiatric Assessment; children were grouped as healthy, depressed only, disruptive only, or comorbid depressed and disruptive.
+    - Disruptive preschoolers showed violence during tantrums significantly more often than depressed and healthy preschoolers, and had significantly more tantrums at school or daycare.
+    - Depressed preschoolers were more aggressive toward objects and other people than healthy children, and showed significantly more self-harmful tantrum behaviors than healthy and disruptive children.
+  topics:
+    - tantrums
+    - when-to-get-help
+  accessed: 2026-10-04
+  verified_via: WebSearch result https://eedp.wustl.edu/app/uploads/2016/07/Belden-Thomson-Luby-Temper-tantrums-in-healthy-vs-depressed-2008.pdf (article PDF on the authors' Washington University lab site) confirmed title, authors Andy C. Belden, Nicole Renick Thomson (one result text spelled it Thompson; the file name and brief say Thomson) and Joan L. Luby, J Pediatr 152(1), January 2008, and the design and group findings. Page numbers, DOI and PMID were not shown and are omitted. The specific tantrum frequency and duration thresholds were NOT confirmed and are left out.
+- id: tremblay-2004
+  evidence_level: longitudinal
+  authors: Tremblay, R. E., Nagin, D. S., Séguin, J. R., Zoccolillo, M., Zelazo, P. D., Boivin, M., Pérusse, D., & Japel, C.
+  year: 2004
+  title: "Physical Aggression During Early Childhood: Trajectories and Predictors"
+  venue: Pediatrics, 114(1), e43-e50
+  pmid: "15231972"
+  url: https://publications.aap.org/pediatrics/article-abstract/114/1/e43/64728/Physical-Aggression-During-Early-Childhood
+  lang: en
+  finding:
+    en: In a population sample of 572 families, mothers' reports at 17, 30 and 42 months showed that most toddlers used some physical aggression on rising trajectories (about 58% modest, 14% high), while 28% showed little or none.
+    zh-hans: 在一个包含 572 个家庭的人口样本中，母亲在孩子 17、30 和 42 个月时的报告显示，大多数学步儿会有一些肢体攻击，而且呈上升趋势（约 58% 程度中等，14% 程度较高），只有 28% 很少或没有。
+    zh-hant: 在一個包含 572 個家庭的人口樣本中，母親在孩子 17、30 和 42 個月時的回報顯示，大多數學步兒會有一些肢體攻擊，而且呈上升趨勢（約 58% 程度中等，14% 程度較高），只有 28% 很少或沒有。
+  key_facts:
+    - 572 families recruited when the baby was 5 months old; physical aggression frequency reported by mothers at 17, 30 and 42 months.
+    - "Three trajectories: little or no physical aggression (28%), a rising trajectory of modest aggression (about 58%), and a rising trajectory of high physical aggression (14%)."
+    - Boys were more at risk than girls of being on the high trajectory.
+    - '"Children who are at highest risk of not learning to regulate physical aggression in early childhood have mothers with a history of antisocial behaviour during their school years, mothers who start childbearing early and who smoke during pregnancy, and parents who have low income and have serious problems living together."'
+    - The study ends at 42 months, so it shows the rise of physical aggression in toddlerhood, not its later decline (see cote-2006).
+  topics:
+    - aggression
+  accessed: 2026-10-04
+  verified_via: "WebSearch (PubMed/PMC/AAP) results: https://pubmed.ncbi.nlm.nih.gov/15231972/, https://pmc.ncbi.nlm.nih.gov/articles/PMC2538721/ and https://publications.aap.org/pediatrics/article-abstract/114/1/e43/64728/Physical-Aggression-During-Early-Childhood confirmed title, Pediatrics 114(1), July 2004, design, trajectories, sex difference and conclusion sentence. The full author list and pages e43-e50 came from a bibliographic record (https://crdcn.ca/publication/physical-aggression-during-early-childhood-trajectories-and-predictors/). DOI not shown, so the AAP page is the url."
+- id: cote-2006
+  evidence_level: longitudinal
+  authors: Côté, S. M., Vaillancourt, T., LeBlanc, J. C., Nagin, D. S., & Tremblay, R. E.
+  year: 2006
+  title: "The development of physical aggression from toddlerhood to pre-adolescence: a nation wide longitudinal study of Canadian children"
+  venue: Journal of Abnormal Child Psychology, 34(1), 71-85
+  pmid: "16565888"
+  url: https://pubmed.ncbi.nlm.nih.gov/16565888/
+  lang: en
+  finding:
+    en: Following 10,658 Canadian children between ages 2 and 11, most used physical aggression occasionally or infrequently as toddlers and infrequently or almost never by pre-adolescence, while about one in six (16.6%) stayed on a high, stable trajectory.
+    zh-hans: 追踪 10,658 名 2 至 11 岁加拿大儿童的研究发现，大多数孩子在学步期偶尔或很少出现肢体攻击，到青春期前很少或几乎不再出现；约六分之一（16.6%）的孩子则一直维持在较高水平。
+    zh-hant: 追蹤 10,658 名 2 至 11 歲加拿大兒童的研究發現，大多數孩子在學步期偶爾或很少出現肢體攻擊，到青春期前很少或幾乎不再出現；約六分之一（16.6%）的孩子則一直維持在較高程度。
+  key_facts:
+    - Ten cohorts of about 1,000 children each (n = 10,658) from a nationally representative Canadian sample, followed over 6 years, covering ages 2 to 11.
+    - "Low desisting trajectory (31.1%): infrequent physical aggression in toddlerhood and virtually none by pre-adolescence."
+    - "Moderate desisting trajectory (52.2%): occasional physical aggression in toddlerhood and infrequent use by pre-adolescence."
+    - "High stable trajectory: 16.6% of children."
+  topics:
+    - aggression
+  accessed: 2026-10-04
+  verified_via: WebSearch (PubMed) result https://pubmed.ncbi.nlm.nih.gov/16565888/ confirmed title, all five authors, February 2006, Journal of Abnormal Child Psychology, the sample and the three trajectories with percentages. Volume 34(1) and pages 71-85 came from another search result and fit the February 2006 issue. DOI not shown, omitted.
+- id: alink-2006
+  evidence_level: longitudinal
+  authors: Alink, L. R. A., Mesman, J., van Zeijl, J., et al.
+  year: 2006
+  title: "The early childhood aggression curve: development of physical aggression in 10- to 50-month-old children"
+  venue: Child Development, 77(4), 954-966
+  pmid: "16942499"
+  url: https://pubmed.ncbi.nlm.nih.gov/16942499/
+  lang: en
+  finding:
+    en: Physical aggression was already present in 12-month-olds but occurred significantly more often in 24- and 36-month-olds, rising during the second year of life and declining from the third birthday onward.
+    zh-hans: 12 个月大的孩子已经会出现肢体攻击，但 24 和 36 个月大的孩子明显更多；肢体攻击在出生后第二年增加，从三岁生日起开始下降。
+    zh-hant: 12 個月大的孩子已經會出現肢體攻擊，但 24 和 36 個月大的孩子明顯更多；肢體攻擊在出生後第二年增加，從三歲生日起開始下降。
+  key_facts:
+    - Physical aggression occurred in 12-month-olds, but significantly more often in 24- and 36-month-olds.
+    - Rates of physically aggressive behaviors increased in the 2nd year of life and declined from the 3rd birthday onward.
+  topics:
+    - aggression
+  accessed: 2026-10-04
+  verified_via: PROBABLE, re-check before quoting. A PubMed/PMC/AAP-restricted WebSearch listed https://pubmed.ncbi.nlm.nih.gov/16942499/ (this title) first, and the same result set returned the two finding sentences, most likely the abstract text, though the result did not say which page they came from. Authors (Alink, Mesman, van Zeijl and colleagues) and Child Development 77(4), 954-966 came from citing records; author initials were not shown.
+- id: paruthi-2016
+  evidence_level: position-statement
+  authors: Paruthi, S., et al.
+  year: 2016
+  title: "Recommended Amount of Sleep for Pediatric Populations: A Consensus Statement of the American Academy of Sleep Medicine"
+  venue: Journal of Clinical Sleep Medicine, 12(6), 785-786
+  doi: 10.5664/jcsm.5866
+  pmid: "27250809"
+  url: https://doi.org/10.5664/jcsm.5866
+  lang: en
+  finding:
+    en: The American Academy of Sleep Medicine recommends, per 24 hours and on a regular basis, 12-16 hours of sleep (including naps) for infants 4-12 months, 11-14 hours for children 1-2 years, 10-13 hours for children 3-5 years, and 9-12 hours for children 6-12 years.
+    zh-hans: 美国睡眠医学会建议，每 24 小时内规律地睡足：4 至 12 个月婴儿 12 至 16 小时（含小睡），1 至 2 岁 11 至 14 小时，3 至 5 岁 10 至 13 小时，6 至 12 岁 9 至 12 小时。
+    zh-hant: 美國睡眠醫學會建議，每 24 小時內規律地睡足：4 至 12 個月嬰兒 12 至 16 小時（含小睡），1 至 2 歲 11 至 14 小時，3 至 5 歲 10 至 13 小時，6 至 12 歲 9 至 12 小時。
+  key_facts:
+    - "Infants 4 to 12 months: 12 to 16 hours per 24 hours, including naps."
+    - "Children 1 to 2 years: 11 to 14 hours per 24 hours, including naps."
+    - "Children 3 to 5 years: 10 to 13 hours per 24 hours, including naps."
+    - "Children 6 to 12 years: 9 to 12 hours per 24 hours (teenagers 13 to 18: 8 to 10 hours). The age bands start at 4 months."
+    - Regularly sleeping the recommended hours is associated with better outcomes including improved attention, behavior, learning, memory, emotional regulation, quality of life, and mental and physical health.
+    - Developed by a 13-member AASM panel using a modified RAND Appropriateness Method after reviewing 864 published articles; endorsed by the American Academy of Pediatrics.
+  topics:
+    - sleep
+  accessed: 2026-10-04
+  verified_via: "WebSearch results: https://pubmed.ncbi.nlm.nih.gov/27250809/ and https://jcsm.aasm.org/doi/abs/10.5664/jcsm.5866 confirmed title, DOI and journal; result text (including the copy at https://depts.washington.edu/dbpeds/pediatricsleepdurationconsensus.pdf) gave JCSM 2016;12(6):785-786 and the hour ranges; AASM pages (https://aasm.org/?p=2098) and the companion methodology paper (https://pmc.ncbi.nlm.nih.gov/articles/PMC5078711/, JCSM 12(11), from p. 1549) gave the method, the panel, the 864 articles, the outcomes and the AAP endorsement. Shalini Paruthi confirmed as first author; co-authors not shown, so given as et al."
+- id: mindell-2009
+  evidence_level: rct
+  authors: Mindell, J. A., et al.
+  year: 2009
+  title: "A Nightly Bedtime Routine: Impact on Sleep in Young Children and Maternal Mood"
+  venue: Sleep, 32(5), 599-606
+  pmid: "19480226"
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2675894/
+  lang: en
+  finding:
+    en: In a 3-week randomized study of 405 mothers and their infants or toddlers, starting a consistent nightly bedtime routine improved children's sleep (shorter time to fall asleep, fewer and shorter night wakings) and improved mothers' mood compared with keeping the usual routine.
+    zh-hans: 在一项为期 3 周、涉及 405 位母亲及其婴幼儿的随机研究中，与维持原有习惯相比，开始固定的每晚睡前程序改善了孩子的睡眠（入睡更快、夜醒更少更短），也改善了母亲的情绪。
+    zh-hant: 在一項為期 3 週、涉及 405 位母親及其嬰幼兒的隨機研究中，與維持原有習慣相比，開始固定的每晚睡前流程改善了孩子的睡眠（入睡更快、夜醒更少更短），也改善了母親的情緒。
+  key_facts:
+    - 405 mothers with an infant (7-18 months, n = 206) or toddler (18-36 months, n = 199) took part in two age-specific 3-week studies, randomly assigned to a routine or a control group.
+    - Week 1 was a baseline with the usual bedtime routine; the routine group then followed a specific bedtime routine in weeks 2 and 3, while controls continued as usual.
+    - The routine produced significant reductions in problematic sleep behaviors, with improvements in sleep onset latency and in the number and duration of night wakings; sleep continuity increased.
+    - Significantly fewer mothers rated their child's sleep as problematic, and maternal mood significantly improved.
+  topics:
+    - sleep
+    - routines
+  accessed: 2026-10-04
+  verified_via: "WebSearch (PubMed/PMC/OUP) results: https://pmc.ncbi.nlm.nih.gov/articles/PMC2675894/ and https://pubmed.ncbi.nlm.nih.gov/19480226/ confirmed title, first author Jodi A. Mindell, Sleep 2009 May 1;32(5):599-606, the randomized design, sample sizes and results. Co-author names were not shown, so given as et al.; DOI not shown, so PMC is the url."
+- id: mindell-2006
+  evidence_level: review
+  authors: Mindell, J. A., Kuhn, B., Lewin, D. S., Meltzer, L. J., & Sadeh, A.
+  year: 2006
+  title: Behavioral Treatment of Bedtime Problems and Night Wakings in Infants and Young Children
+  venue: Sleep, 29(10), 1263-1276
+  url: https://academic.oup.com/sleep/article-pdf/29/10/1263/13662859/sleep-29-10-1263.pdf
+  lang: en
+  finding:
+    en: "This review of 52 treatment studies, published by the American Academy of Sleep Medicine, found behavioral interventions effective for bedtime problems and night wakings in infants and young children: 94% of studies reported efficacy, and more than 80% of treated children showed clinically significant improvement lasting 3 to 6 months."
+    zh-hans: 这篇由美国睡眠医学会发表、回顾 52 项治疗研究的综述发现，行为干预对婴幼儿的就寝问题和夜醒有效：94% 的研究报告有效，超过 80% 接受干预的孩子出现具有临床意义的改善，并维持 3 至 6 个月。
+    zh-hant: 這篇由美國睡眠醫學會發表、回顧 52 項治療研究的文獻回顧發現，行為介入對嬰幼兒的就寢問題和夜醒有效：94% 的研究回報有效，超過 80% 接受介入的孩子出現具有臨床意義的改善，並維持 3 至 6 個月。
+  key_facts:
+    - 52 treatment studies reviewed.
+    - 94% of the studies reported that behavioral interventions were efficacious.
+    - More than 80% of children treated showed clinically significant improvement, maintained for 3 to 6 months.
+  topics:
+    - sleep
+  accessed: 2026-10-04
+  verified_via: "WebSearch results: the publisher PDF https://academic.oup.com/sleep/article-pdf/29/10/1263/13662859/sleep-29-10-1263.pdf (title, Sleep 29(10), first page 1263) and a PubMed-restricted search (authors Mindell, Kuhn, Lewin, Meltzer, Sadeh; Sleep, October 2006; published by the American Academy of Sleep Medicine). The figures (52 studies, 94%, more than 80%, 3-6 months) appeared as a citation of this paper in the same result set, not as abstract text, and the end page 1276 was not shown, so check both against the abstract before quoting. DOI and PMID not shown, omitted."
+- id: aap-2016-media
+  evidence_level: position-statement
+  authors: American Academy of Pediatrics, Council on Communications and Media
+  year: 2016
+  title: Media and Young Minds
+  venue: Pediatrics, 138(5), e20162591
+  doi: 10.1542/peds.2016-2591
+  url: https://doi.org/10.1542/peds.2016-2591
+  lang: en
+  finding:
+    en: For children younger than 18 months the AAP discouraged screen media other than video-chatting; for 18 to 24 months it advised parents who introduce media to choose high-quality content and use it together with the child; for children older than 2 it advised limiting media to 1 hour or less a day of high-quality programming, shared with a parent.
+    zh-hans: 美国儿科学会建议：18 个月以下避免使用视频通话以外的屏幕媒体；18 至 24 个月如果要接触，家长应选择高质量内容并陪孩子一起使用；2 岁以上每天限制在 1 小时以内的高质量节目，并由家长陪同观看。
+    zh-hant: 美國兒科醫學會建議：18 個月以下避免使用視訊通話以外的螢幕媒體；18 至 24 個月如果要接觸，家長應選擇高品質內容並陪孩子一起使用；2 歲以上每天限制在 1 小時以內的高品質節目，並由家長陪同觀看。
+  key_facts:
+    - "Under 18 months: discourage use of screen media 'other than video-chatting'."
+    - "18 to 24 months: parents who want to introduce digital media should choose high-quality programs or apps and use them together with the child, because this is how toddlers learn best."
+    - "Older than 2 years: limit media to '1 hour or less per day of high-quality programming', with shared parent-child use to promote learning, interaction and limit setting."
+    - Screen-free mealtimes and no screens in the hour before bedtime.
+    - "Casts parents as media mentors: choosing content, co-viewing and co-using, and helping children apply what they see to the world around them."
+  topics:
+    - screens
+  accessed: 2026-10-04
+  verified_via: WebSearch restricted to publications.aap.org, pubmed, aap.org and healthychildren.org returned the AAP article page https://publications.aap.org/pediatrics/article/138/5/e20162591/60503/Media-and-Young-Minds and full-text PDF https://publications.aap.org/pediatrics/article-pdf/doi/10.1542/peds.2016-2591/1061988/peds_20162591.pdf (title, Pediatrics 138(5) e20162591, DOI in the PDF path, the under-18-month, 18-24-month and over-2-years recommendations, screen-free meals and the hour before bed). An unrestricted search confirmed Council on Communications and Media authorship and the November 2016 issue. AAP News summary https://publications.aap.org/aapnews/news/12960/ also returned.
+- id: aap-2026-digital-ecosystems
+  evidence_level: position-statement
+  authors: Munzer, T., Parga-Belinkie, J., Milkovich, L. M., Tomopoulos, S., Ajumobi, T., Cross, C., Gerwin, R., Madigan, S., & American Academy of Pediatrics Council on Communications and Media
+  year: 2026
+  title: "Digital Ecosystems, Children, and Adolescents: Policy Statement"
+  venue: Pediatrics, 157(2), e2025075320
+  doi: 10.1542/peds.2025-075320
+  pmid: "41556917"
+  url: https://doi.org/10.1542/peds.2025-075320
+  lang: en
+  finding:
+    en: The AAP's newest media policy treats television, the internet, social media, video games and interactive assistants as one digital ecosystem and calls for a systems-wide response, including changes to how platforms are designed, alongside guidance for families and clinicians.
+    zh-hans: 美国儿科学会最新的媒体政策把电视、互联网、社交媒体、电子游戏和互动式助手视为一个数字生态系统，呼吁整个系统共同应对，包括改变平台的设计方式，同时为家庭和临床人员提供指引。
+    zh-hant: 美國兒科醫學會最新的媒體政策把電視、網路、社群媒體、電玩遊戲和互動式助理視為一個數位生態系，呼籲整個系統共同因應，包括改變平台的設計方式，同時為家庭和臨床人員提供指引。
+  key_facts:
+    - Defines the digital ecosystem as including television, the internet, social media, video games, and interactive assistants; when designed around children's developmental needs it can support learning and well-being.
+    - "Framed by a socioecological model: the child's own characteristics, caregivers, the digital ecosystem, and broader societal systems."
+    - AAP says most platforms are designed to boost engagement and profit, not to support children's health and development.
+    - Recommendations are addressed to families, pediatricians and other clinicians, educators, researchers, industry and policymakers.
+    - "Companion technical report: Pediatrics 157(2), e2025075321, DOI 10.1542/peds.2025-075321, PMID 41556931."
+  topics:
+    - screens
+  accessed: 2026-10-04
+  verified_via: WebSearch restricted to publications.aap.org and pubmed returned https://pubmed.ncbi.nlm.nih.gov/41556917/ and https://publications.aap.org/pediatrics/article/157/2/e2025075320/206129/Digital-Ecosystems-Children-and-Adolescents-Policy (title, authors, council, volume/issue/article number, DOI, 2026-01-20 online date, abstract wording on the digital ecosystem and socioecological model). https://www.healthychildren.org/English/news/Pages/creating-a-child-friendly-digital-world-AAP-releases-new-media-recommendations.aspx confirmed the systems-wide approach, the engagement/profit point and the audiences. https://pubmed.ncbi.nlm.nih.gov/41556931/ confirmed the technical report.
