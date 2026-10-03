@@ -74,7 +74,7 @@ The sources workflow is the site's permanent link checker. On every change to `c
 See docs/STATUS.md for the current list and who it is waiting on.
 
 <!-- link-test:start -->
-Link test run 2026-10-03 19:53 UTC over dist/ (106 HTML pages).
+Link test run 2026-10-03 20:05 UTC over dist/ (106 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|

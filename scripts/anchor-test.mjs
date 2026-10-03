@@ -38,7 +38,9 @@ for (const width of [375, 1280]) {
   for (const target of TARGETS) {
     const page = await browser.newPage({ viewport: { width, height: 800 }, reducedMotion: 'reduce' });
     await page.goto(url + target, { waitUntil: 'load' });
-    await page.waitForTimeout(2000);
+    // Chinese pages switch to the web fonts after load; measure once that has happened (or given up).
+    await page.waitForFunction(() => !document.documentElement.lang.startsWith('zh') || document.documentElement.classList.contains('cjk-ready'), null, { timeout: 15000 }).catch(() => {});
+    await page.waitForTimeout(800);
     const id = decodeURIComponent(target.split('#')[1]);
     const box = await page.evaluate((id) => {
       const el = document.getElementById(id);

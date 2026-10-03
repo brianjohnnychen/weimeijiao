@@ -1233,6 +1233,13 @@ q {
   font-size: 0.88rem;
 }
 
+/* Back-links and source links are small text: give each a full-size tap target (WCAG 2.5.8). */
+.ref-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+}
+
 .citation-title {
   font-style: italic;
 }

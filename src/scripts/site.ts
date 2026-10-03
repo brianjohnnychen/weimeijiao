@@ -96,6 +96,30 @@ function initMenu() {
  * needs, then switch to Noto in one step (html.cjk-ready). Without JS, a <noscript> style
  * applies the Noto stacks directly.
  */
+/** Run a change that reflows the page (the font switch) without moving what the reader is
+ *  looking at: the deep-link target if it is on screen, otherwise the element at the top of the
+ *  viewport, keeps its position. Native scroll anchoring is paused meanwhile so the two do not
+ *  both correct. */
+function keepPlace(change: () => void) {
+  const root = document.documentElement;
+  const headerBottom = Math.max(0, document.querySelector('.site-header')?.getBoundingClientRect().bottom ?? 0);
+  let anchor: Element | null = null;
+  if (location.hash.length > 1) {
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    const box = target?.getBoundingClientRect();
+    if (target && box && box.bottom > headerBottom && box.top < window.innerHeight) anchor = target;
+  }
+  if (!anchor && window.scrollY > 0) anchor = document.elementFromPoint(window.innerWidth / 2, headerBottom + 4);
+  const before = anchor?.getBoundingClientRect().top;
+  root.style.overflowAnchor = 'none';
+  change();
+  if (anchor && before !== undefined) {
+    const shift = anchor.getBoundingClientRect().top - before;
+    if (Math.abs(shift) >= 1) window.scrollBy(0, shift);
+  }
+  root.style.overflowAnchor = '';
+}
+
 function initCjkFonts() {
   const root = document.documentElement;
   const lang = root.lang;
@@ -103,7 +127,7 @@ function initCjkFonts() {
   const tc = lang === 'zh-Hant';
   const sans = tc ? 'Noto Sans TC' : 'Noto Sans SC';
   const serif = tc ? 'Noto Serif TC' : 'Noto Serif SC';
-  const ready = () => root.classList.add('cjk-ready');
+  const ready = () => keepPlace(() => root.classList.add('cjk-ready'));
   const link = document.querySelector<HTMLLinkElement>('link[data-cjk-css]');
   const cssLoaded = new Promise<void>((resolve) => {
     if (!link || link.rel === 'stylesheet') return resolve();
