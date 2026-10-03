@@ -60,6 +60,12 @@ async function generate(img) {
       return sharp(bytes).png({ compressionLevel: 9 }).toBuffer();
     }
     const body = (await res.text()).slice(0, 400);
+    if (res.status === 429 && /daily free allocation|code\"?:\s*4006/.test(body)) {
+      // The account's daily free Workers AI allocation is used up; retrying won't help until it resets (00:00 UTC).
+      const e = new Error(`daily free allocation used up: ${body}`);
+      e.quota = true;
+      throw e;
+    }
     if ((res.status === 429 || res.status >= 500) && attempt < 4) {
       console.log(`  ${img.id}: HTTP ${res.status}, retrying (attempt ${attempt})`);
       await sleep(2000 * 2 ** attempt);
@@ -71,6 +77,7 @@ async function generate(img) {
 }
 
 const failed = [];
+let quotaHit = false;
 for (const img of todo) {
   try {
     const png = await generate(img);
@@ -80,10 +87,21 @@ for (const img of todo) {
   } catch (err) {
     failed.push(img.id);
     console.log(`::warning::${img.id}: ${err.message}`);
+    if (err.quota) {
+      quotaHit = true;
+      const rest = todo.slice(todo.indexOf(img) + 1).map((i) => i.id);
+      failed.push(...rest);
+      console.log(`::error::Cloudflare's daily free Workers AI allocation is used up. Stopping; ${rest.length} more image(s) left for the next run after 00:00 UTC.`);
+      break;
+    }
   }
 }
 
-if (failed.length) {
+const quotaStop = failed.length > 0 && process.exitCode !== 1 && quotaHit;
+if (failed.length && quotaStop) {
+  // Not a code failure: the daily allocation resets at 00:00 UTC and the next run picks these up.
+  console.log(`::warning::${failed.length} image(s) waiting for the daily Workers AI allocation to reset: ${failed.join(', ')}`);
+} else if (failed.length) {
   console.log(`::error::${failed.length} image(s) failed: ${failed.join(', ')}`);
   process.exitCode = 1;
 }

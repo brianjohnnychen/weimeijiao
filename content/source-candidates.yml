@@ -1,50 +1,17 @@
 # Candidate sources to verify (research input, not cited on the site). The sources workflow
 # looks each one up (Crossref metadata; abstract from Europe PMC, PubMed, OpenAlex, Semantic
 # Scholar or the publisher's page) so the claim can be checked against the source itself.
-# Round 2: entries whose abstract was not found in round 1, corrected DOIs, and a few additions.
-- key: morawska-sanders-2011
-  doi: 10.1007/s10826-010-9371-x
-- key: forgatch-pmto
-  doi: 10.1037/0022-006x.67.5.711
-- key: hobbs-1978
-  doi: 10.1016/s0005-7894(78)80142-7
-- key: kendall-1975
-  doi: 10.1016/s0005-7894(75)80182-1
-- key: roberts-powers-1990
-  doi: 10.1016/s0005-7894(05)80329-6
-- key: roberts-1981-differential
-  doi: 10.1016/s0005-7894(81)80109-8
-- key: roberts-1978-instructions
-  doi: 10.1016/s0005-7894(78)80009-4
-- key: sanders-dadds-1982
-  doi: 10.1016/s0005-7894(82)80007-5
-- key: little-kelley-1989
-  doi: 10.1016/s0005-7894(89)80131-5
-- key: kazdin-1992-psst
-  doi: 10.1037/0022-006x.60.5.733
-- key: fiese-2002
-  doi: 10.1037/0893-3200.16.4.381
-- key: tronick-1989
-  doi: 10.1037/0003-066x.44.2.112
-- key: whitehurst-1988
-  doi: 10.1037/0012-1649.24.4.552
-- key: kamins-dweck-1999
-  doi: 10.1037/0012-1649.35.3.835
-- key: vasquez-2016
-  doi: 10.1007/s10648-015-9329-z
-- key: everett-2010
-  doi: 10.1353/etc.0.0091
-- key: chorpita-daleiden-2009
-  query: "Chorpita Daleiden 2009 Mapping evidence-based treatments for children and adolescents: application of the distillation and matching model to 615 treatments from 322 randomized trials Journal of Consulting and Clinical Psychology"
-- key: forgatch-kjobli-2016
-  query: "Forgatch Kjobli 2016 Parent Management Training-Oregon Model adapting intervention with rigorous research Family Process"
-- key: guo-2016-china
-  query: "Guo Morawska Sanders 2016 A randomized controlled trial of Group Triple P with Chinese parents in Mainland China Behavior Modification"
-- key: leung-2003-hongkong
-  query: "Leung Sanders Leung Mak Lau 2003 An outcome evaluation of the implementation of the Triple P-Positive Parenting Program in Hong Kong Family Process"
-- key: leung-2009-pcit
-  query: "Leung Tsang Heung Yiu 2009 Effectiveness of Parent-Child Interaction Therapy among Chinese families Research on Social Work Practice"
-- key: leung-2017-pcit-adhd
-  query: "Leung Tsang Ng Choi 2017 Efficacy of Parent-Child Interaction Therapy with Chinese ADHD children randomized controlled trial Research on Social Work Practice"
-- key: gardner-2019-age
-  query: "Gardner Leijten Melendez-Torres 2019 The earlier the better? Individual participant data and traditional meta-analysis of age effects of parenting interventions Child Development"
+# Round 3: time-out length and back-ups (little-time guide), response cost (privilege removal),
+# and proponents' own description of conditional spanking (physical discipline page).
+- key: fabiano-2004
+  query: "Fabiano Pelham Manos Gnagy 2004 An evaluation of three time-out procedures for children with attention-deficit/hyperactivity disorder Behavior Therapy"
+- key: mace-1986
+  query: "Mace Page Ivancic O'Brien 1986 Effectiveness of brief time-out with and without contingent delay: a comparative analysis Journal of Applied Behavior Analysis"
+- key: larzelere-2000-review
+  query: "Larzelere 2000 Child outcomes of nonabusive and customary physical punishment by parents: an updated literature review Clinical Child and Family Psychology Review"
+- key: reynolds-kelley-1997
+  query: "Reynolds Kelley 1997 The efficacy of a response cost-based treatment package for managing aggressive behavior in preschoolers Behavior Modification"
+- key: roberts-1988-room
+  doi: 10.1177/01454455880123003
+- key: kuczynski-kochanska-1990
+  query: "Kuczynski Kochanska 1990 Development of children's noncompliance strategies from toddlerhood to age 5 Developmental Psychology"

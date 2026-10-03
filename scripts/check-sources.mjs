@@ -395,34 +395,62 @@ async function lookupCandidates(fileArg) {
   return 0;
 }
 
+/** Rendered text of a page in headless Chrome (for sites that block plain fetches or render with JS). */
+async function chromeText(url) {
+  try {
+    if (!browserPromise) await chromeStatus('about:blank');
+    const browser = await browserPromise;
+    if (!browser) return { status: 0, text: '' };
+    const page = await browser.newPage({ userAgent: UA_BROWSER });
+    try {
+      const res = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 40000 });
+      await page.waitForTimeout(3500);
+      const text = await page.evaluate(() => document.body?.innerText ?? '');
+      return { status: res?.status() ?? 0, text, finalUrl: page.url() };
+    } finally {
+      await page.close();
+    }
+  } catch (err) {
+    return { status: 0, text: '', error: String(err?.message ?? err) };
+  }
+}
+
+// Help lines (About page): each entry lists the official page(s) that publish the number and the
+// strings that must appear there. A line is published on the site only if one source shows it.
 async function checkHelplines(fileArg) {
   const list = YAML.parse(readFileSync(join(root, fileArg), 'utf8')) ?? [];
   let failures = 0;
   report(`Checking ${list.length} help lines from ${fileArg}\n`);
+  summary.push('| help line | number | result | source |', '|---|---|---|---|');
+  const digits = (v) => String(v).replace(/[^0-9]/g, '');
   for (const h of list) {
+    const expect = h.expect ?? [h.phone];
+    let ok = false;
     for (const src of h.sources ?? []) {
-      let html = '';
       const r = await get(src, { browser: true });
-      if (r.ok) html = r.body ?? '';
-      else {
-        const c = await chromeStatus(src);
-        if (c.status >= 200 && c.status < 400) {
-          const { chromium } = await import('playwright-core');
-          void chromium;
-        }
+      let text = r.ok ? clean(r.body ?? '') : '';
+      let via = `fetch ${r.status}`;
+      const has = (t) => expect.every((e) => t.includes(e) || (digits(e).length >= 3 && digits(t).includes(digits(e))));
+      if (!has(text)) {
+        const c = await chromeText(src);
+        if (c.text) {
+          text = c.text.replace(/\s+/g, ' ');
+          via = `chrome ${c.status}`;
+        } else via += `, chrome ${c.status}${c.error ? ' ' + c.error.slice(0, 80) : ''}`;
       }
-      const text = clean(html);
-      const digits = (s) => String(s).replace(/[^0-9]/g, '');
-      const found = (h.expect ?? [h.phone]).every((e) => text.includes(e) || digits(text).includes(digits(e)));
-      const snippet = (() => {
-        const e = (h.expect ?? [h.phone])[0];
-        const i = text.indexOf(e);
-        return i >= 0 ? text.slice(Math.max(0, i - 160), i + 200) : text.slice(0, 200);
-      })();
-      report(`- ${h.id} (${h.phone}) via ${src}: ${r.status} ${found ? 'FOUND' : 'NOT FOUND'}\n${wrap(snippet, 110, '    ')}`);
-      if (!found) failures++;
+      const found = has(text);
+      const e0 = expect[0];
+      const i = text.indexOf(e0);
+      const snippet = i >= 0 ? text.slice(Math.max(0, i - 200), i + 240) : text.slice(0, 240);
+      report(`- ${h.id} (${h.phone}) via ${src}: ${via} ${found ? 'FOUND' : 'NOT FOUND'}\n${wrap(snippet, 110, '    ')}`);
+      summary.push(`| ${h.id} | ${h.phone} | ${found ? 'found' : 'not found'} (${via}) | ${src} |`);
+      if (found) {
+        ok = true;
+        break;
+      }
       await sleep(400);
     }
+    if (!ok) failures++;
   }
   return failures;
 }

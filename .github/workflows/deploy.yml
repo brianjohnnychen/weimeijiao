@@ -1,7 +1,9 @@
 name: Deploy to GitHub Pages
 
 # Manual only. The custom domain (xn--3ys368f86s.com) is attached to Pages, so every deploy is
-# public. Brian runs this after the final QA pass. There is deliberately no push trigger.
+# public. It runs once, after the final QA pass (SPEC §2); build sessions never run it.
+# There is deliberately no push trigger. The smoke job then checks the live site and the
+# redirect domains.
 on:
   workflow_dispatch:
 
@@ -51,3 +53,15 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check the live site and redirect domains
+        run: node scripts/smoke-test.mjs

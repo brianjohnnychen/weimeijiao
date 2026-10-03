@@ -26,6 +26,10 @@ const SourceSchema = z.object({
   key_facts: z.array(z.string()).optional(),
   topics: z.array(z.string()).default([]),
   side: z.enum(['majority', 'minority', 'neutral']).optional(),
+  /** Ages studied, as the abstract states them (research note for writers). */
+  ages: z.string().optional(),
+  /** How settled the finding is across the sources on the site: consistent, mixed, or one study. */
+  strength: z.enum(['consistent', 'mixed', 'single-study']).optional(),
   accessed: z.union([z.string(), z.date()]).transform((v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v)),
   verified_via: z.string(),
   articles: z.array(z.object({ article: z.string(), text: z.string(), text_en: z.string().optional() })).optional(),
