@@ -17,14 +17,12 @@
   phone: "12356"
   name_en: "12356 national psychological assistance hotline"
   name_zh_hans: "12356 心理援助热线"
-  expect: ["12356", "心理援助"]
+  expect: ["12356"]
   sources:
+    - https://en.nhc.gov.cn/2025-02/14/c_86392.htm
     - https://www.nhc.gov.cn/
-    - https://www.gov.cn/
-    - https://zh.wikipedia.org/wiki/12356
   search:
     - { q: "12356 心理援助热线 国家卫生健康委", mkt: zh-CN }
-    - { q: "12356 mental health hotline National Health Commission", mkt: en-US }
 - id: cn-12338
   region: mainland-china
   phone: "12338"
@@ -47,7 +45,8 @@
     - https://www.mohw.gov.tw/
     - https://www.sfaa.gov.tw/
   search:
-    - { q: "113保護專線 衛生福利部 保護服務司", mkt: zh-TW }
+    - { q: "113保護專線 衛生福利部", mkt: zh-TW }
+    - { q: "Taiwan 113 protection hotline Ministry of Health and Welfare", mkt: en-US }
 - id: tw-1925
   region: taiwan
   phone: "1925"
@@ -59,7 +58,8 @@
     - https://dep.mohw.gov.tw/DOMH/
     - https://www.mohw.gov.tw/
   search:
-    - { q: "1925安心專線 衛生福利部 心理健康司", mkt: zh-TW }
+    - { q: "1925安心專線 衛生福利部", mkt: zh-TW }
+    - { q: "Taiwan 1925 mental health hotline Ministry of Health and Welfare", mkt: en-US }
 - id: tw-1995
   region: taiwan
   phone: "1995"

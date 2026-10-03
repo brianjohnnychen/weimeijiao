@@ -488,6 +488,27 @@ async function searchHint(entry) {
       );
       report(`    search "${query}" (${mkt}): ${hits.length} result(s)`);
       for (const r of hits) report(`      - ${r.title} | ${real(r.href)}\n${wrap(r.snippet, 104, '        ')}`);
+      // Second engine (DuckDuckGo's HTML endpoint), which handles Chinese queries better here.
+      const kl = { 'zh-TW': 'tw-tzh', 'zh-CN': 'cn-zh', 'zh-HK': 'hk-tzh' }[mkt] ?? 'us-en';
+      await page.goto(`https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}&kl=${kl}`, { waitUntil: 'domcontentloaded', timeout: 40000 });
+      await page.waitForTimeout(1500);
+      const ddg = await page.evaluate(() =>
+        [...document.querySelectorAll('.result')].slice(0, 8).map((r) => ({
+          title: r.querySelector('.result__a')?.textContent?.trim() ?? '',
+          href: r.querySelector('.result__a')?.getAttribute('href') ?? '',
+          snippet: (r.querySelector('.result__snippet')?.textContent ?? '').trim().slice(0, 220),
+        })),
+      );
+      const ddgReal = (href) => {
+        try {
+          const u = new URL(href, 'https://duckduckgo.com').searchParams.get('uddg');
+          return u ? decodeURIComponent(u) : href;
+        } catch {
+          return href;
+        }
+      };
+      report(`    duckduckgo "${query}" (${kl}): ${ddg.length} result(s)`);
+      for (const r of ddg) report(`      - ${r.title} | ${ddgReal(r.href)}\n${wrap(r.snippet, 104, '        ')}`);
     } finally {
       await page.close();
     }
