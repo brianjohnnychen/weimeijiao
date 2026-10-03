@@ -11,7 +11,8 @@ style: >-
   terracotta and sand, rounded simple shapes, subtle paper texture, calm and kind mood,
   East Asian and mixed-heritage family, simple uncluttered background, centered composition
   with generous empty space at the top and bottom, simple hands, no text, no letters, no numbers,
-  no writing, no logos, no signs, no screens showing content, no recognizable characters, no real people.
+  no writing, no logos, no signs, no screens showing content, no recognizable characters, no real people,
+  no signature, no watermark, no caption, no words or numbers on charts, books, boxes or walls.
 
 images:
   # Home and hubs
@@ -19,33 +20,33 @@ images:
     page: home
     prompt: A warm living room in the evening. A parent sits on the sofa reading a picture book to a toddler on their lap while an older child builds a tower of wooden blocks on the rug nearby.
     alt:
-      en: A parent reads a picture book to a toddler on the sofa while an older child builds with wooden blocks on the rug.
-      zh-hans: 傍晚的客厅里，家长在沙发上给怀里的幼儿读绘本，大一点的孩子在地毯上搭积木。
-      zh-hant: 傍晚的客廳裡，家長在沙發上為懷裡的幼兒讀繪本，大一點的孩子在地毯上堆積木。
+      en: A parent reads a picture book to a toddler on the sofa while one child sits nearby and another builds with wooden blocks on the rug.
+      zh-hans: 家长在沙发上给怀里的幼儿读绘本，一个孩子坐在旁边，另一个孩子在地毯上搭积木。
+      zh-hant: 家長在沙發上為懷裡的幼兒讀繪本，一個孩子坐在旁邊，另一個孩子在地毯上堆積木。
     size: '4:3'
   - id: by-age-hero
     page: by-age
     prompt: A family walking together along a park path in soft afternoon light, a parent carrying a baby, a toddler holding the other parent's hand, and two older children walking ahead, each child a different age.
     alt:
-      en: A family walks along a park path, a baby carried by one parent, a toddler holding hands and two older children walking ahead.
-      zh-hans: 一家人走在公园小路上，家长抱着宝宝，学步儿牵着另一位家长的手，两个大一点的孩子走在前面。
-      zh-hant: 一家人走在公園小路上，家長抱著寶寶，學步兒牽著另一位家長的手，兩個大一點的孩子走在前面。
+      en: "A family walks along a park path: one parent carries two babies, the other holds a toddler's hand, and two older children walk between them."
+      zh-hans: 一家人走在公园小路上，一位家长抱着两个宝宝，另一位家长牵着学步儿，两个大一点的孩子走在中间。
+      zh-hant: 一家人走在公園小路上，一位家長抱著兩個寶寶，另一位家長牽著學步兒，兩個大一點的孩子走在中間。
     size: '4:3'
   - id: approach-hero
     page: approach
     prompt: A parent kneels on a living room rug and gives a gentle high five to a young child who has just put the last toy into a woven basket. Both are smiling.
     alt:
-      en: A parent kneels and gives a smiling child a high five after the child puts the last toy into a basket.
-      zh-hans: 孩子把最后一个玩具放进篮子，家长蹲下来和孩子击掌，两人都在笑。
-      zh-hant: 孩子把最後一個玩具放進籃子，家長蹲下來和孩子擊掌，兩人都在笑。
+      en: A parent kneels and gives a smiling child a high five beside a basket on the living room rug while another family member hugs the child.
+      zh-hans: 家长跪在客厅地毯上和笑着的孩子击掌，旁边放着篮子，另一位家人从后面抱着孩子。
+      zh-hant: 家長跪在客廳地毯上和笑著的孩子擊掌，旁邊放著籃子，另一位家人從後面抱著孩子。
     size: '4:3'
   - id: edge-cases-hero
     page: approach/edge-cases
     prompt: A parent and a grandparent sit side by side at a kitchen table with cups of tea, calmly talking and agreeing, while a young child plays with toy animals on the floor nearby.
     alt:
-      en: A parent and a grandparent talk calmly over tea at the kitchen table while a child plays with toy animals nearby.
-      zh-hans: 家长和长辈坐在餐桌旁喝茶，平静地商量事情，孩子在旁边的地上玩动物玩具。
-      zh-hant: 家長和長輩坐在餐桌旁喝茶，平靜地商量事情，孩子在旁邊的地上玩動物玩具。
+      en: A parent and a grandparent talk calmly over tea at a round table while a child plays with toy animals on the floor.
+      zh-hans: 家长和长辈在圆桌旁喝茶，平静地商量事情，孩子在地上玩动物玩具。
+      zh-hant: 家長和長輩在圓桌旁喝茶，平靜地商量事情，孩子在地上玩動物玩具。
     size: '4:3'
   - id: toolbox-hero
     page: toolbox
@@ -59,9 +60,9 @@ images:
     page: situations
     prompt: A family living room in the evening. One child sits upset on the sofa with a parent beside them, a hand resting gently on the child's back, while another child plays calmly with a toy train on the rug.
     alt:
-      en: A parent sits beside an upset child on the sofa with a hand on their back while another child plays with a toy train.
-      zh-hans: 孩子不开心地坐在沙发上，家长坐在旁边轻扶着他的背，另一个孩子在地毯上玩小火车。
-      zh-hant: 孩子不開心地坐在沙發上，家長坐在旁邊輕扶著他的背，另一個孩子在地毯上玩小火車。
+      en: A parent reaches out to an upset child on the sofa while another child kneels on the rug beside a toy train.
+      zh-hans: 家长伸手安抚坐在沙发上不开心的孩子，另一个孩子跪在地毯上的小火车旁。
+      zh-hant: 家長伸手安撫坐在沙發上不開心的孩子，另一個孩子跪在地毯上的小火車旁。
     size: '4:3'
   - id: little-time-hero
     page: little-time
@@ -73,7 +74,7 @@ images:
     size: '4:3'
   - id: physical-hero
     page: physical
-    prompt: A parent sits on the floor at a child's eye level by a sunny window, hands open and relaxed, having a calm and serious conversation with a young child who is listening.
+    prompt: A parent sits cross-legged on the floor facing a young child who also sits cross-legged, at the same eye level, beside a sunny window; the parent's hands are open and relaxed and both have calm, serious faces. Exactly one adult and one child, both with complete bodies.
     alt:
       en: A parent sits on the floor at a child's eye level by a window, hands open, talking calmly with the child.
       zh-hans: 家长坐在窗边的地板上，和孩子视线平齐，双手摊开，平静地和孩子谈话。
@@ -83,9 +84,9 @@ images:
     page: learning
     prompt: A parent and a child sit close together on a cozy sofa sharing a large picture book, the child pointing at a picture of a whale and the parent listening with interest.
     alt:
-      en: A parent and child share a picture book on a cozy sofa; the child points at a whale and the parent listens.
-      zh-hans: 家长和孩子依偎在沙发上一起看绘本，孩子指着书里的鲸鱼，家长认真地听。
-      zh-hant: 家長和孩子依偎在沙發上一起看繪本，孩子指著書裡的鯨魚，家長專心地聽。
+      en: A parent and a child sit close together on a cozy sofa, sharing a picture book with a whale on the page.
+      zh-hans: 家长和孩子依偎在沙发上，一起看一本画着鲸鱼的绘本。
+      zh-hant: 家長和孩子依偎在沙發上，一起看一本畫著鯨魚的繪本。
     size: '4:3'
   - id: research-hero
     page: research
@@ -97,7 +98,7 @@ images:
     size: '4:3'
   - id: printables-hero
     page: printables
-    prompt: A refrigerator door covered with a child's simple drawings and a picture chart made only of small pictures, as a parent lifts a young child up to place a star sticker on the chart.
+    prompt: A parent lifts a young child up to place a star sticker on a chart taped to a refrigerator door; the chart is a simple grid of colored squares and small picture icons with no writing at all, next to a few of the child's crayon drawings.
     alt:
       en: A parent lifts a child to put a star sticker on a picture chart on the fridge, among the child's drawings.
       zh-hans: 冰箱门上贴着孩子的画和图画表，家长抱起孩子，让他在表上贴一颗星星贴纸。
@@ -115,7 +116,7 @@ images:
     size: '4:3'
   - id: phase-1-3-years
     page: phase/1-3-years
-    prompt: A toddler reaches toward a potted plant on a low shelf while a parent crouches beside them and gently offers a bright soft ball instead, the toddler turning toward the ball with curiosity.
+    prompt: A toddler about eighteen months old stands on the floor reaching toward a potted plant on a low table, while a parent kneeling beside the toddler gently holds out a bright orange ball; the toddler turns toward the ball with curiosity. Exactly one adult and one toddler.
     alt:
       en: A parent crouches and offers a bright ball to a toddler who was reaching for a potted plant.
       zh-hans: 学步儿伸手去够矮架上的盆栽，家长蹲在旁边递上一个彩色软球，孩子好奇地转过来。
@@ -123,7 +124,7 @@ images:
     size: '4:3'
   - id: phase-3-5-years
     page: phase/3-5-years
-    prompt: A preschooler stands on a small step stool helping a parent set the dinner table, carefully placing a cup, while the parent smiles and nods.
+    prompt: A four-year-old child stands on a sturdy wooden step stool at a dining table, carefully placing a cup next to a plate, while a parent stands beside the table smiling and nodding. Exactly one adult and one child, both fully visible, no other hands.
     alt:
       en: A preschooler on a step stool helps set the dinner table, placing a cup while the parent smiles.
       zh-hans: 学龄前的孩子站在小凳子上帮忙摆餐桌，小心地放好杯子，家长笑着点头。
@@ -133,17 +134,17 @@ images:
     page: phase/5-7-years
     prompt: Morning at a front door. A young school child with a backpack puts on their own shoes while a parent kneels nearby holding a lunch bag, both calm and ready to leave.
     alt:
-      en: In the morning, a child with a backpack puts on their own shoes while a parent kneels nearby with a lunch bag.
-      zh-hans: 早上在门口，背着书包的孩子自己穿鞋，家长拿着便当袋蹲在旁边。
-      zh-hant: 早上在門口，背著書包的孩子自己穿鞋，家長拿著便當袋蹲在旁邊。
+      en: In the morning, a child with a backpack heads for the front door while a parent kneels beside them holding a book.
+      zh-hans: 早上，背着书包的孩子走向门口，家长拿着一本书蹲在旁边。
+      zh-hant: 早上，背著書包的孩子走向門口，家長拿著一本書蹲在旁邊。
     size: '4:3'
   - id: phase-7-10-years
     page: phase/7-10-years
     prompt: An older child waters potted plants on a sunny balcony with a small watering can while a parent hangs laundry nearby, the two chatting comfortably.
     alt:
-      en: An older child waters plants on a sunny balcony while a parent hangs laundry nearby and they chat.
-      zh-hans: 大一点的孩子在阳台上给盆栽浇水，家长在旁边晾衣服，两人轻松地聊天。
-      zh-hant: 大一點的孩子在陽台上替盆栽澆水，家長在旁邊晾衣服，兩人輕鬆地聊天。
+      en: Two children water potted plants on a sunny balcony beside a line of drying laundry.
+      zh-hans: 两个孩子在阳光下的阳台上给盆栽浇水，旁边晾着衣服。
+      zh-hant: 兩個孩子在陽光下的陽台上替盆栽澆水，旁邊晾著衣服。
     size: '4:3'
 
   # Learning by age
@@ -159,13 +160,13 @@ images:
     page: learning/1-3-years
     prompt: A toddler and a parent sit on the floor stacking large soft blocks of different sizes, the parent holding up fingers while the toddler adds one more block.
     alt:
-      en: A toddler and a parent stack soft blocks on the floor; the parent holds up fingers as the toddler adds a block.
-      zh-hans: 学步儿和家长坐在地上叠大积木，家长伸出手指数着，孩子再放上一块。
-      zh-hant: 學步兒和家長坐在地上疊大積木，家長伸出手指數著，孩子再放上一塊。
+      en: A toddler and a parent stack big soft blocks on the floor; the toddler holds up fingers while the parent adds a block.
+      zh-hans: 学步儿和家长坐在地上叠大积木，孩子伸出手指比数字，家长再放上一块。
+      zh-hant: 學步兒和家長坐在地上疊大積木，孩子伸出手指比數字，家長再放上一塊。
     size: '4:3'
   - id: learning-3-5-years
     page: learning/3-5-years
-    prompt: A preschooler sits on a parent's lap with a large picture book open, the child excitedly pointing at a picture of a fox while the parent asks a question with a curious face.
+    prompt: A preschool child about four years old sits on a parent's lap with a large open picture book showing a friendly fox; the child points at the fox and the parent smiles warmly at the child. Both faces relaxed and happy. Exactly one adult and one child.
     alt:
       en: A preschooler on a parent's lap points at a fox in a picture book while the parent asks a question.
       zh-hans: 孩子坐在家长腿上看绘本，兴奋地指着书里的狐狸，家长好奇地向他提问。
@@ -175,17 +176,17 @@ images:
     page: learning/5-7-years
     prompt: A child and a parent play a simple board game on a low table, a colorful winding path of plain colored squares, the child moving a wooden token and counting dots on a die.
     alt:
-      en: A child and parent play a board game with a winding colored path; the child moves a token and counts the dots on a die.
-      zh-hans: 孩子和家长在矮桌上玩棋盘游戏，沿着彩色小路移动棋子，孩子在数骰子上的点。
-      zh-hant: 孩子和家長在矮桌上玩桌遊，沿著彩色小路移動棋子，孩子在數骰子上的點。
+      en: A child and a parent play a board game with a winding orange path; the child holds a die while the parent watches.
+      zh-hans: 孩子和家长在桌上玩棋盘游戏，棋盘上有一条弯弯的橙色小路，孩子拿着骰子，家长在旁边看。
+      zh-hant: 孩子和家長在桌上玩桌遊，棋盤上有一條彎彎的橘色小路，孩子拿著骰子，家長在旁邊看。
     size: '4:3'
   - id: learning-7-10-years
     page: learning/7-10-years
     prompt: An older child sits at a tidy desk by a window quizzing themselves with blank index cards, flipping one over, while a parent nearby looks over with an encouraging smile.
     alt:
-      en: An older child at a desk quizzes themselves with flash cards while a parent nearby smiles encouragingly.
-      zh-hans: 大一点的孩子坐在窗边的书桌前用卡片自我测验，家长在旁边鼓励地笑着。
-      zh-hant: 大一點的孩子坐在窗邊的書桌前用卡片自我測驗，家長在旁邊鼓勵地笑著。
+      en: An older child holds up a card to quiz themselves at a table while a parent beside them smiles and helps.
+      zh-hans: 大一点的孩子在桌前拿着卡片自我测验，家长在旁边笑着帮忙。
+      zh-hant: 大一點的孩子在桌前拿著卡片自我測驗，家長在旁邊笑著幫忙。
     size: '4:3'
 
   # Toolbox
@@ -199,7 +200,7 @@ images:
     size: '4:3'
   - id: tool-clear-expectations
     page: tool/clear-expectations
-    prompt: A parent kneels at a young child's eye level in an entryway, calmly pointing to a pair of small shoes by the door, the child listening and nodding.
+    prompt: In a home entryway, a parent kneels at a young child's eye level, face to face, and calmly points to a pair of small shoes by the door; the child faces the parent, listening and nodding.
     alt:
       en: A parent kneels at a child's eye level in the entryway and points to the shoes by the door; the child nods.
       zh-hans: 家长在玄关蹲到孩子的高度，平静地指着门边的小鞋，孩子边听边点头。
@@ -223,7 +224,7 @@ images:
     size: '4:3'
   - id: tool-redirection
     page: tool/redirection
-    prompt: A crawling baby reaches for a power cord behind a sofa while a parent gently scoops the baby up and turns them toward a basket of soft toys.
+    prompt: A single crawling baby on a living room floor reaches toward a power cord near the wall, and a parent kneels and gently turns the baby toward a basket of soft toys. Exactly one baby and one adult.
     alt:
       en: A parent gently lifts a crawling baby away from a cord behind the sofa and turns them toward a basket of soft toys.
       zh-hans: 宝宝爬去够沙发后的电线，家长轻轻抱起他，转向一篮软玩具。
@@ -231,7 +232,7 @@ images:
     size: '4:3'
   - id: tool-choices
     page: tool/choices
-    prompt: A parent holds up two small shirts, one red and one blue, for a toddler to choose, the toddler pointing at the blue one with a pleased face.
+    prompt: A parent holds up two small shirts, one red and one blue, for a toddler to choose, and the toddler points at the blue one with a pleased face.
     alt:
       en: A parent holds up a red shirt and a blue shirt; the toddler happily points to the blue one.
       zh-hans: 家长拿着一件红衣服和一件蓝衣服让学步儿选，孩子开心地指着蓝色那件。
@@ -239,7 +240,7 @@ images:
     size: '4:3'
   - id: tool-when-then
     page: tool/when-then
-    prompt: A child eagerly puts away the last toy into a box while a parent stands at the open front door holding a ball, with a sunny park visible outside.
+    prompt: A child eagerly puts the last toy into a toy box on the floor while a parent stands at the open front door holding a ball, with a sunny park visible outside. Side view, both people fully visible.
     alt:
       en: A child puts away the last toy while a parent waits at the open door with a ball, a sunny park outside.
       zh-hans: 孩子把最后一个玩具收进箱子，家长拿着球站在敞开的门口，门外是阳光下的公园。
@@ -247,7 +248,7 @@ images:
     size: '4:3'
   - id: tool-natural-consequences
     page: tool/natural-consequences
-    prompt: A child looks at a slightly drooping potted plant on a windowsill with a thoughtful face, while a parent stands beside them holding a watering can and offering it.
+    prompt: A child looks at a slightly drooping potted plant on a windowsill with a thoughtful face, while a parent stands beside the child holding out a watering can. Exactly one adult and one child, simple clean faces.
     alt:
       en: A child looks thoughtfully at a drooping plant on the windowsill as a parent offers a watering can.
       zh-hans: 孩子若有所思地看着窗台上有点蔫的盆栽，家长站在旁边递上浇水壶。
@@ -263,7 +264,7 @@ images:
     size: '4:3'
   - id: tool-time-in
     page: tool/time-in
-    prompt: A parent and a young child sit together on a large floor cushion in a cozy corner, the parent's arm around the child, both breathing slowly and calming down.
+    prompt: A parent and one young child sit close together on a large floor cushion in a cozy corner, the parent's arm around the child; both breathe slowly with calm faces. Exactly one adult and one child, plain wall without shadows of people.
     alt:
       en: A parent and child sit together on a floor cushion in a cozy corner, the parent's arm around the child, calming down.
       zh-hans: 家长和孩子一起坐在角落的大坐垫上，家长搂着孩子，两人慢慢平静下来。
@@ -273,9 +274,9 @@ images:
     page: tool/time-out
     prompt: A young child sits calmly on a small chair on a soft rug in a quiet corner of a living room, while a parent stands a few steps away folding laundry and glancing over kindly.
     alt:
-      en: A child sits calmly on a small chair in a quiet corner while a parent folds laundry a few steps away.
-      zh-hans: 孩子安静地坐在客厅角落的小椅子上，家长在几步外叠衣服，温和地看着他。
-      zh-hant: 孩子安靜地坐在客廳角落的小椅子上，家長在幾步外摺衣服，溫和地看著他。
+      en: A child sits calmly in a small armchair in a quiet corner while two adults nearby carry on with chores.
+      zh-hans: 孩子安静地坐在角落的小扶手椅上，两位大人在旁边继续做家务。
+      zh-hant: 孩子安靜地坐在角落的小扶手椅上，兩位大人在旁邊繼續做家事。
     size: '4:3'
   - id: tool-privilege-removal
     page: tool/privilege-removal
@@ -287,7 +288,7 @@ images:
     size: '4:3'
   - id: tool-problem-solving
     page: tool/problem-solving
-    prompt: A parent and a school-age child sit side by side at a table drawing simple sketches of ideas on a large sheet of paper with colored pencils, both thinking together.
+    prompt: A parent and a child about eight years old sit side by side at a table, drawing simple sketches of ideas on a large sheet of paper with colored pencils; the child is clearly much smaller than the adult. Exactly one adult and one child.
     alt:
       en: A parent and a child sit side by side sketching ideas together on a large sheet of paper.
       zh-hans: 家长和孩子并排坐在桌旁，用彩色铅笔在大纸上画出各自的想法，一起想办法。
@@ -295,7 +296,7 @@ images:
     size: '4:3'
   - id: tool-routines
     page: tool/routines
-    prompt: A child brushes their teeth at a bathroom sink beside a wall chart made only of simple pictures in a row, a toothbrush, a shirt and a bowl, while a parent smiles in the doorway.
+    prompt: A child brushes their teeth at a bathroom sink; on the wall beside the mirror hangs a picture chart showing only three small drawings in a row, a toothbrush, a shirt and a bowl, with no numbers or writing; a parent smiles from the doorway.
     alt:
       en: A child brushes their teeth beside a picture chart of morning steps while a parent smiles in the doorway.
       zh-hans: 孩子在洗手台前刷牙，墙上贴着用图画排出的早晨流程表，家长在门口微笑。
@@ -305,9 +306,9 @@ images:
     page: tool/family-meetings
     prompt: A family of four sits around a kitchen table having a friendly talk, one child raising a hand to speak while the others listen, a bowl of fruit in the middle.
     alt:
-      en: A family of four talks around the kitchen table; one child raises a hand to speak while the others listen.
-      zh-hans: 一家四口围坐在餐桌旁开家庭会议，一个孩子举手发言，其他人认真听。
-      zh-hant: 一家四口圍坐在餐桌旁開家庭會議，一個孩子舉手發言，其他人專心聽。
+      en: A family of four talks around a table with a fruit bowl; a child and a parent raise their hands to speak.
+      zh-hans: 一家四口围坐在放着水果的桌旁开家庭会议，一个孩子和一位家长举手发言。
+      zh-hant: 一家四口圍坐在放著水果的桌旁開家庭會議，一個孩子和一位家長舉手發言。
     size: '4:3'
   - id: tool-repair
     page: tool/repair
@@ -329,7 +330,7 @@ images:
     size: '4:3'
   - id: situation-public-meltdowns
     page: situation/public-meltdowns
-    prompt: In a grocery store aisle of plain unlabeled fruit and vegetable bins, a young child cries beside a shopping cart while a parent crouches down beside them, calm and close.
+    prompt: In a grocery store aisle lined with bins of fruit and vegetables, with no labels or signs anywhere, a young child stands crying beside a shopping cart while a parent crouches down at the child's level, calm and close. Exactly one adult and one child.
     alt:
       en: In a grocery store produce aisle, a parent crouches calmly beside a crying child next to a shopping cart.
       zh-hans: 超市的果蔬区里，孩子在购物车旁大哭，家长平静地蹲在他身边。
@@ -345,7 +346,7 @@ images:
     size: '4:3'
   - id: situation-sibling-fighting
     page: situation/sibling-fighting
-    prompt: Two siblings tug on the same stuffed bear while a parent kneels between them with open hands, calmly helping them talk.
+    prompt: Two young siblings stand facing each other, both pulling on the same teddy bear, while a parent kneels beside them with open hands, calm, helping them talk. Exactly one adult and two children, all with complete bodies.
     alt:
       en: Two siblings tug on the same stuffed bear while a parent kneels between them with open hands.
       zh-hans: 两个孩子抢同一只玩具熊，家长蹲在他们中间，摊开双手，平静地帮他们沟通。
@@ -355,9 +356,9 @@ images:
     page: situation/bedtime
     prompt: A parent sits on the edge of a bed reading a story to a sleepy child under a quilt, a small warm lamp glowing on the nightstand.
     alt:
-      en: A parent reads a bedtime story to a sleepy child under a quilt by the glow of a small lamp.
-      zh-hans: 家长坐在床边给盖着被子、睡眼惺忪的孩子讲故事，床头小灯发出暖光。
-      zh-hant: 家長坐在床邊為蓋著被子、睡眼惺忪的孩子講故事，床頭小燈發出暖光。
+      en: A parent lies in bed beside a sleepy child, reading a bedtime story by the glow of a small lamp.
+      zh-hans: 家长躺在睡眼惺忪的孩子身边，借着床头小灯的暖光讲睡前故事。
+      zh-hant: 家長躺在睡眼惺忪的孩子身邊，藉著床頭小燈的暖光講睡前故事。
     size: '4:3'
   - id: situation-mealtime
     page: situation/mealtime
@@ -369,7 +370,7 @@ images:
     size: '4:3'
   - id: situation-screens
     page: situation/screens
-    prompt: A family living room where closed tablets and phones rest in a woven basket on a side table, while a parent and a child build a block castle together on the rug.
+    prompt: "A family living room: on a side table a woven basket holds a closed tablet and a phone, switched off and put away; on the rug a parent and a child build a castle out of wooden blocks together, and no one is holding any device."
     alt:
       en: Closed tablets and phones rest in a basket while a parent and child build a block castle on the rug.
       zh-hans: 合上的平板和手机放在边桌的篮子里，家长和孩子在地毯上一起搭积木城堡。
@@ -377,7 +378,7 @@ images:
     size: '4:3'
   - id: situation-lying
     page: situation/lying
-    prompt: A parent and a child sit across from each other at a kitchen table having a quiet, honest talk, a broken cup resting on the counter in the background.
+    prompt: A parent and a young child about six years old sit across from each other at a kitchen table having a quiet, honest talk; the child looks down a little guiltily and the parent listens kindly. A broken cup rests on the counter in the background. Exactly one adult and one child.
     alt:
       en: A parent and child have a quiet, honest talk at the kitchen table, a broken cup on the counter behind them.
       zh-hans: 家长和孩子面对面坐在餐桌旁，平静坦诚地谈话，身后的台面上放着一个摔破的杯子。
@@ -411,15 +412,15 @@ images:
     page: situation/grandparents
     prompt: A grandmother, a parent and a young child sit at a dining table, the grandmother offering the child a small sweet while the parent smiles and joins the conversation.
     alt:
-      en: At the dining table, a grandmother offers a child a small sweet while the parent smiles and joins the conversation.
-      zh-hans: 奶奶、家长和孩子坐在餐桌旁，奶奶递给孩子一块小点心，家长笑着加入聊天。
-      zh-hant: 阿嬤、家長和孩子坐在餐桌旁，阿嬤遞給孩子一塊小點心，家長笑著加入聊天。
+      en: At a low table, a grandmother offers a child food with chopsticks while the parent sits beside them, smiling.
+      zh-hans: 矮桌旁，奶奶用筷子喂孩子吃东西，家长坐在一旁微笑。
+      zh-hant: 矮桌旁，阿嬤用筷子餵孩子吃東西，家長坐在一旁微笑。
     size: '4:3'
 
   # Printables
   - id: printable-age-finder
     page: printables/age-finder
-    prompt: Five children of clearly different ages sitting in a row on a long rug, from a baby on the left to a ten-year-old on the right, all smiling.
+    prompt: "Five children sitting in a row on a long rug, all of them children and no adults: a baby on the far left, then a toddler, a preschooler, a six-year-old, and a ten-year-old on the far right, each a little taller than the last, all smiling."
     alt:
       en: Five children of different ages sit in a row on a rug, from a baby to a ten-year-old.
       zh-hans: 五个年龄不同的孩子并排坐在地毯上，从宝宝到十岁左右的大孩子。
@@ -427,7 +428,7 @@ images:
     size: '4:3'
   - id: printable-calm-down
     page: printables/calm-down-plan
-    prompt: A child sits in a cozy corner full of cushions, hugging a stuffed animal and taking a slow deep breath, with a soft blanket and a few picture books nearby.
+    prompt: A child sits in a cozy corner full of cushions, hugging a stuffed animal and taking a slow deep breath, with a soft blanket and a closed picture book with a plain cover nearby.
     alt:
       en: A child sits in a cozy cushioned corner hugging a stuffed animal and taking a slow, deep breath.
       zh-hans: 孩子坐在铺满靠垫的小角落里，抱着毛绒玩具，慢慢地深呼吸。
