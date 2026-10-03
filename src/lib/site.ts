@@ -63,6 +63,7 @@ export const STUDY_TYPES = [
   'experiment',
   'longitudinal',
   'cross-sectional',
+  'pilot',
   'review',
   'position-statement',
   'book',
