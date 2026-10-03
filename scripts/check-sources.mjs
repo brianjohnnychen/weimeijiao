@@ -453,11 +453,12 @@ async function checkHelplines(fileArg) {
     }
     // Only lines the site publishes can fail the job (they guard the About page against stale
     // numbers, re-checked weekly). Candidates are still being researched: report and search.
-    if (!ok && h.status === 'published') failures++;
-    if (!ok && h.status !== 'published') {
-      report(`    ${h.id}: candidate, not confirmed yet (not published on the site)`);
-      for (const q of h.search ?? []) await searchHint(q);
+    if (!ok && h.status === 'published') {
+      failures++;
+      report(`    ${h.id}: PUBLISHED line not confirmed by any source: update or remove it on the About page`);
     }
+    if (!ok && h.status !== 'published') report(`    ${h.id}: candidate, not confirmed yet (not published on the site)`);
+    if (!ok) for (const q of h.search ?? []) await searchHint(q);
   }
   return failures;
 }

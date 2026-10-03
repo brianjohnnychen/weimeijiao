@@ -15,8 +15,10 @@
     - https://www.12355.net/
     - http://www.12355.net/
     - https://www.gqt.org.cn/
+  search:
+    - { q: "12355 青少年服务台 共青团", mkt: zh-CN }
 - id: cn-12356
-  status: candidate
+  status: published
   region: mainland-china
   phone: "12356"
   name_en: "12356 national psychological assistance hotline"
@@ -35,18 +37,21 @@
   name_zh_hans: "12338 妇女维权公益服务热线"
   expect: ["12338"]
   sources:
+    - http://www.bjwomen.gov.cn/flgz/ymlm/wqga/12338rx/index.html
     - https://www.women.org.cn/
     - http://www.women.org.cn/
   search:
     - { q: "12338 妇女维权公益服务热线 全国妇联", mkt: zh-CN }
 - id: tw-113
-  status: candidate
+  status: published
   region: taiwan
   phone: "113"
   name_en: "113 protection hotline (Ministry of Health and Welfare)"
   name_zh_hant: "113 保護專線"
   expect: ["113", "保護專線"]
   sources:
+    - https://dep.mohw.gov.tw/DOPS/np-1183-105.html
+    - https://www.mohw.gov.tw/cp-3568-38697-1.html
     - https://dep.mohw.gov.tw/DOPS/
     - https://www.mohw.gov.tw/
     - https://www.sfaa.gov.tw/
@@ -54,13 +59,15 @@
     - { q: "113保護專線 衛生福利部", mkt: zh-TW }
     - { q: "Taiwan 113 protection hotline Ministry of Health and Welfare", mkt: en-US }
 - id: tw-1925
-  status: candidate
+  status: published
   region: taiwan
   phone: "1925"
   name_en: "1925 mental health support line (Ministry of Health and Welfare)"
   name_zh_hant: "1925 安心專線"
   expect: ["1925", "安心專線"]
   sources:
+    - https://dep.mohw.gov.tw/DOMHAOH/cp-4906-54077-107.html
+    - https://www.mohw.gov.tw/cp-16-48244-1.html
     - https://dep.mohw.gov.tw/DOMHAOH/
     - https://dep.mohw.gov.tw/DOMH/
     - https://www.mohw.gov.tw/
