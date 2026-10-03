@@ -20,7 +20,8 @@ Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Tradition
 | weimeijiao.com | 301 → `https://xn--3ys368f86s.com` + same path, query kept | Cloudflare Registrar + Cloudflare redirect rule |
 | 魏美嬌.com (`xn--k6s926f86s.com`) | 301 → primary, same path | Dynadot + Cloudflare redirect rule |
 
-- Hosting: **GitHub Pages**, built and deployed by GitHub Actions (`.github/workflows/deploy.yml`, `actions/deploy-pages`) on push to `main`. Repo is public, so Actions minutes are free.
+- Hosting: **GitHub Pages**, built and deployed by GitHub Actions (`.github/workflows/deploy.yml`, `actions/deploy-pages`). Repo is public, so Actions minutes are free.
+- **Deploys are manual.** The custom domain is already attached to Pages, so any deploy is public. `deploy.yml` runs only on `workflow_dispatch` and Brian triggers it after the final QA pass (run on a different model). Code sessions never run it; they preview and test locally and with Playwright, and CI (`ci.yml`) builds and tests every push without deploying.
 - Publish a `CNAME` file in the built output containing exactly `xn--3ys368f86s.com`.
 - After the first successful deploy, Brian/Cowork sets Pages source = GitHub Actions, custom domain and Enforce HTTPS in repo settings. If your session's token can call the Pages API (`PUT /repos/{owner}/{repo}/pages`), do it yourself and log it in docs/STATUS.md.
 - Canonical URLs, sitemap, hreflang and Open Graph all use `https://xn--3ys368f86s.com`.
@@ -29,7 +30,8 @@ Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Tradition
 
 - Static site generator: **Astro** (preferred) or Eleventy. Zero client JS by default; small islands only where interactivity is needed (language switcher memory, age finder quiz, print buttons).
 - Content in Markdown/MDX per language, one source tree per locale, shared components.
-- Fonts: carry over showtellshare's pairing (Lora + DM Sans) for Latin; add Noto Serif SC / Noto Serif TC (headings) and Noto Sans SC / TC (body) for Chinese, subset or loaded per locale via Google Fonts.
+- Fonts: carry over showtellshare's pairing (Lora + DM Sans) for Latin; add Noto Serif SC / Noto Serif TC (headings) and Noto Sans SC / TC (body) for Chinese. Every font is self-hosted: woff2 only, `font-display: swap`, CJK split into unicode-range subsets (Google's slicing, from the @fontsource packages) with each range trimmed to the characters the site actually uses, SC loaded only on zh-Hans pages and TC only on zh-Hant pages (`scripts/fonts.mjs` builds them on every build).
+- No third-party assets (mainland China is a core audience and Google services are blocked there): load nothing from Google Fonts, gstatic, Google Analytics, reCAPTCHA, YouTube embeds, jsDelivr, unpkg or any other external service. Every script, stylesheet, font, image and frame comes from our own domain. Outbound links (DOIs, sister site) are fine. `scripts/qa.mjs` fails the build if any page references an external asset.
 - Colour tokens: start from showtellshare's `:root` (cream #FAF7F2, warm-white #FFFDF9, green-dark #2D4A2D, green-mid #4A7C4A, green-light #D4E8C2, green-pale #EEF5E6, orange #C85A1E, orange-light #F5E6DC, text-dark #1E1E1A, text-mid #4A4A44, text-light #7A7A70, border #E0DBD0). Give this site its own identity by shifting the primary hue (for example a calm blue-teal or plum family) while keeping the warm neutrals so the two sites feel related. Support dark mode.
 - Accessibility: WCAG 2.2 AA, semantic headings, alt text in all three languages, keyboard nav, reduced motion.
 - Analytics: none. No trackers, no cookies.
@@ -73,7 +75,7 @@ Three locales, full parity (every page exists in all three):
 - Warm, direct, non-judgmental, short sentences. Parents arrive stressed; the first screen of every page answers "what do I do now?".
 - Every factual claim about outcomes cites a source on the Research page (footnote-style links). No invented statistics, studies or quotes. If you cannot verify a source, leave the claim out.
 - Sources are academic and scientific only. Allowed: peer-reviewed journal articles, systematic reviews and meta-analyses, Cochrane reviews, university-press books, and policy statements of scientific or medical bodies published in peer-reviewed journals (e.g., AAP in *Pediatrics*). Not allowed: blogs, news, magazines, advocacy sites, parenting websites, opinion pieces, and organisation web pages or fact sheets that are not published in a peer-reviewed journal. Any source that fails this is dropped, along with the claims that depended on it.
-- Record every source used in `content/sources.yml` (id, authors, year, title, venue, DOI/URL, one-line finding, accessed date, evidence level). Evidence level is one of: meta-analysis, systematic review, RCT, experiment, longitudinal, cross-sectional, review, position statement, book.
+- Record every source used in `content/sources.yml` (id, authors, year, title, venue, DOI/URL, one-line finding, accessed date, evidence level). Evidence level is one of: meta-analysis, systematic review, RCT, experiment, longitudinal, cross-sectional, pilot, review, position statement, book.
 - Scripts and examples are written natively in each language, not translated word for word.
 - No em dashes in any user-facing copy in any language.
 - Children in examples are generic; never use Brian's daughters' names outside the About page.
@@ -124,6 +126,10 @@ Every page other than About gets illustrations generated by AI, never photos of 
 - All pages in §5 (including the best-proven approach with edge cases, the little-time guide and the Encouraging learning section) exist in all three locales with real, cited content from academic sources only; no lorem ipsum, no TODOs in user-facing copy.
 - Lighthouse ≥ 95 for performance, accessibility, best practices, SEO on mobile and desktop for Home, one phase page and Physical discipline.
 - Verified at 375px and 1280px widths in all three locales (screenshots in `docs/screenshots/`).
-- Builds and deploys from `main` via Actions; `CNAME` present; sitemap, robots.txt, hreflang, OG images in place.
+- Builds via Actions (CI on every push; deploy only by manual dispatch); `CNAME` present; sitemap, robots.txt, hreflang, OG images in place.
+- Every in-content link and button goes to the exact section it refers to: anchor ids on every heading, card, edge case and source entry; deep links such as `/toolbox/#time-out`; citation markers link to the exact entry on the Research page, which links back to each place it is cited. Never just the top of a page.
+- An automated link test (`scripts/link-test.mjs`) checks that every internal link resolves to an existing page and element id in all three locales; it runs in CI and its latest results are recorded in docs/QA.md.
+- docs/QA.md keeps the QA checklist: fact-check per claim, UI/UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, and the link test results.
+- When the build is done, docs/STATUS.md says it is ready for the final QA pass; Brian deploys after that pass.
 - `content/sources.yml` complete, academic sources only, each with an evidence level; every citation link resolves.
 - docs/STATUS.md and docs/RUNLOG.md updated.
