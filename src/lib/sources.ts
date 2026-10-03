@@ -54,16 +54,23 @@ export function getSource(id: string): Source {
   return s;
 }
 
-/** Citation ids in a page body, in order of first appearance. */
-export function citeIdsIn(body: string | undefined): string[] {
-  if (!body) return [];
+/** Citation ids in MDX source or frontmatter text, in order of first appearance.
+ *  Matches <Cite id="..."> in MDX and [[cite:...]] in frontmatter strings. */
+export function citeIdsIn(text: string | undefined): string[] {
+  if (!text) return [];
   const ids: string[] = [];
-  for (const m of body.matchAll(/<Cite\s+id=["']([^"']+)["']/g)) {
-    const id = m[1];
+  for (const m of text.matchAll(/<Cite\s+id=["']([^"']+)["']|\[\[cite:([a-z0-9-]+)\]\]/g)) {
+    const id = m[1] ?? m[2];
     getSource(id);
     if (!ids.includes(id)) ids.push(id);
   }
   return ids;
+}
+
+/** Everything in a content entry that can carry citations: frontmatter strings, then the body. */
+export function entryText(entry: { body?: string; data: unknown } | undefined): string {
+  if (!entry) return '';
+  return `${JSON.stringify(entry.data)}\n${entry.body ?? ''}`;
 }
 
 /** Year label for a citation, e.g. "2016" or "2026, updated". */

@@ -31,6 +31,7 @@ const icon = iconFor[entry.page.split('/')[0]] ?? 'heart';
     src={asset}
     alt={entry.alt[locale]}
     formats={['avif', 'webp']}
+    fallbackFormat="jpg"
     width={width}
     height={height}
     fit="cover"

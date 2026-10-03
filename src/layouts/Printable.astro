@@ -1,0 +1,40 @@
+---
+// One-page printable: on screen it sits inside the site with Print and PDF buttons; in print
+// only the sheet shows (A4 or Letter, one page). PDFs are rendered from these pages at build.
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import AiImage from '../components/AiImage.astro';
+import { LOCALE_META, type Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import { href, paths } from '../lib/routes';
+import type { Printable as PrintableSlug } from '../lib/site';
+
+interface Props { locale: Locale; slug: PrintableSlug; title: string; description: string; lede?: string; image?: string; sheetClass?: string }
+const { locale, slug, title, description, lede, image, sheetClass } = Astro.props;
+const ui = t(locale);
+const printablesTitle = ui.nav.printables;
+---
+<Base locale={locale} title={title} description={description} bodyClass="printable-page">
+  <div class="container printable-wrap">
+    <Breadcrumbs locale={locale} trail={[{ label: printablesTitle, path: paths.printables() }, { label: title }]} />
+    <div class="print-actions" id="actions">
+      <button type="button" class="btn" data-print>{ui.print.print}</button>
+      <a class="btn btn-secondary" href={href(locale, paths.printablePdf(slug))} download>{ui.print.pdf}</a>
+      <span class="muted">{ui.print.printHint}</span>
+    </div>
+    <article class:list={['sheet', sheetClass]} id="sheet" aria-labelledby="sheet-title">
+      <header class="sheet-head">
+        <div>
+          <h1 id="sheet-title">{title}</h1>
+          {lede && <p class="sheet-lede">{lede}</p>}
+        </div>
+        {image && <div class="sheet-art screen-only"><AiImage id={image} locale={locale} width={320} sizes="160px" /></div>}
+      </header>
+      <slot />
+      <footer class="sheet-foot">{LOCALE_META[locale].siteName} · 魏美娇.com{href(locale, paths.printable(slug))}</footer>
+    </article>
+  </div>
+</Base>
+<script>
+  document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+</script>

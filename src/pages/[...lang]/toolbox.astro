@@ -1,0 +1,136 @@
+---
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import AiImage from '../../components/AiImage.astro';
+import Evidence from '../../components/Evidence.astro';
+import RichText from '../../components/RichText.astro';
+import { mdxComponents } from '../../components/mdx';
+import { localeStaticPaths, type Locale } from '../../i18n/locales';
+import { t } from '../../i18n/ui';
+import { EVIDENCE_LEVELS, PHASES, TOOLS } from '../../lib/site';
+import { getPage, getTools, getSituation, assertParity } from '../../lib/content';
+import { href, paths } from '../../lib/routes';
+import { setupCites } from '../../lib/page';
+import { pageSources } from '../../lib/cites';
+import { entryText } from '../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+await assertParity();
+const ui = t(locale);
+const page = await getPage(locale, 'toolbox');
+const tools = await getTools(locale);
+setupCites(Astro.locals, locale);
+const { Content } = await render(page);
+const rendered = await Promise.all(tools.map(async (tool) => ({ tool, slug: tool.id.split('/')[1], Body: (await render(tool)).Content })));
+const sources = pageSources([entryText(page), ...tools.map((tl) => entryText(tl))]);
+const situationTitles = new Map<string, string>();
+for (const tool of tools) {
+  for (const s of tool.data.situations) {
+    if (!situationTitles.has(s)) situationTitles.set(s, (await getSituation(locale, s)).data.title);
+  }
+}
+const toolTitle = new Map(rendered.map((r) => [r.slug, r.tool.data.title]));
+const toc = rendered.map((r) => ({ id: r.slug, text: r.tool.data.title }));
+const filterLabel = { 'zh-hans': '按年龄筛选', 'zh-hant': '依年齡篩選', en: 'Filter by age' }[locale];
+const showing = { 'zh-hans': '显示全部', 'zh-hant': '顯示全部', en: 'Show all' }[locale];
+---
+<Article
+  locale={locale}
+  title={page.data.title}
+  description={page.data.description}
+  lede={page.data.lede}
+  image={page.data.image}
+  trail={[{ label: page.data.title }]}
+  sources={sources}
+  toc={toc}
+  bodyClass="page-toolbox"
+>
+  <Content components={mdxComponents} />
+
+  <section class="evidence-legend" id="evidence-levels" aria-labelledby="evidence-levels-heading">
+    <h2 id="evidence-levels-heading">{ui.evidence.label}</h2>
+    <dl>
+      {EVIDENCE_LEVELS.map((level) => (
+        <div id={`evidence-${level}`}>
+          <dt><Evidence level={level} locale={locale} withLabel={false} /></dt>
+          <dd>{ui.evidence.explain[level]}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <div class="filter" data-age-filter hidden>
+    <span class="filter-label" id="age-filter-label">{filterLabel}</span>
+    <div class="filter-buttons" role="group" aria-labelledby="age-filter-label">
+      <button type="button" class="chip-btn" data-age="all" aria-pressed="true">{showing}</button>
+      {PHASES.map((p) => <button type="button" class="chip-btn" data-age={p} aria-pressed="false">{ui.phaseAge[p]}</button>)}
+    </div>
+  </div>
+
+  <div class="tool-list">
+    {rendered.map(({ tool, slug, Body }) => (
+      <article class="tool-card" id={slug} data-ages={tool.data.ages.join(' ')} aria-labelledby={`${slug}-title`}>
+        <div class="tool-head">
+          <div class="tool-head-text">
+            <h2 id={`${slug}-title`}><a class="anchor" href={`#${slug}`}>{tool.data.title}</a></h2>
+            <p class="tool-summary"><RichText text={tool.data.summary} /></p>
+            <div class="tool-meta">
+              <Evidence level={tool.data.evidence} locale={locale} />
+              <ul class="chips" aria-label={ui.ages}>
+                {tool.data.ages.map((a) => <li><span class="chip">{ui.phaseAge[a]}</span></li>)}
+              </ul>
+            </div>
+          </div>
+          <div class="tool-media"><AiImage id={tool.data.image} locale={locale} width={480} sizes="(min-width: 860px) 240px, 100vw" /></div>
+        </div>
+        <h3 id={`${slug}-how`}>{ui.tool.how}</h3>
+        <ol>{tool.data.how.map((step) => <li><RichText text={step} /></li>)}</ol>
+        <h3 id={`${slug}-ages`}>{ui.tool.ages}</h3>
+        <p><RichText text={tool.data.agesNote} /></p>
+        <h3 id={`${slug}-evidence`}>{ui.tool.evidence}{locale === 'en' ? ': ' : '：'}{ui.evidence[tool.data.evidence]}</h3>
+        <div class="tool-evidence"><Body components={mdxComponents} /></div>
+        <h3 id={`${slug}-mistakes`}>{ui.tool.mistakes}</h3>
+        <ul>{tool.data.mistakes.map((m) => <li><RichText text={m} /></li>)}</ul>
+        <h3 id={`${slug}-say`}>{ui.tool.say}</h3>
+        {tool.data.say.map((line) => <div class="say"><q><RichText text={line} /></q></div>)}
+        {(tool.data.related.length > 0 || tool.data.situations.length > 0) && (
+          <div class="tool-related">
+            {tool.data.related.length > 0 && (
+              <p><strong>{ui.tool.related}{locale === 'en' ? ': ' : '：'}</strong>{tool.data.related.map((r, i) => <>{i > 0 && (locale === 'en' ? ', ' : '、')}<a href={`#${r}`}>{toolTitle.get(r)}</a></>)}</p>
+            )}
+            {tool.data.situations.length > 0 && (
+              <p><strong>{ui.tool.relatedSituations}{locale === 'en' ? ': ' : '：'}</strong>{tool.data.situations.map((s, i) => <>{i > 0 && (locale === 'en' ? ', ' : '、')}<a href={`${href(locale, paths.situations())}#${s}`}>{situationTitles.get(s)}</a></>)}</p>
+            )}
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+</Article>
+
+<script>
+  // Progressive enhancement: filter tool cards by age. Without JS every card shows.
+  const root = document.querySelector<HTMLElement>('[data-age-filter]');
+  if (root) {
+    root.hidden = false;
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>('button[data-age]')];
+    const cards = [...document.querySelectorAll<HTMLElement>('.tool-card')];
+    const toc = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
+    buttons.forEach((b) =>
+      b.addEventListener('click', () => {
+        const age = b.dataset.age!;
+        buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        cards.forEach((c) => {
+          const show = age === 'all' || (c.dataset.ages ?? '').split(' ').includes(age);
+          c.hidden = !show;
+          const link = toc.find((a) => a.getAttribute('href') === `#${c.id}`);
+          if (link?.parentElement) link.parentElement.hidden = !show;
+        });
+      }),
+    );
+  }
+</script>

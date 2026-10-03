@@ -1,0 +1,39 @@
+---
+import { render } from 'astro:content';
+import Article from '../../../layouts/Article.astro';
+import Card from '../../../components/Card.astro';
+import { mdxComponents } from '../../../components/mdx';
+import { localeStaticPaths, type Locale } from '../../../i18n/locales';
+import { t } from '../../../i18n/ui';
+import { PHASES } from '../../../lib/site';
+import { getPage, getPhases, assertParity } from '../../../lib/content';
+import { href, paths } from '../../../lib/routes';
+import { setupCites, headingsIn } from '../../../lib/page';
+import { pageSources } from '../../../lib/cites';
+import { entryText } from '../../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+const { locale } = Astro.props as { locale: Locale };
+await assertParity();
+const ui = t(locale);
+const page = await getPage(locale, 'by-age');
+const phases = await getPhases(locale);
+setupCites(Astro.locals, locale);
+const { Content } = await render(page);
+const sources = pageSources([entryText(page)]);
+const toc = [{ id: 'phases', text: page.data.title }, ...headingsIn(page.body)];
+---
+<Article locale={locale} title={page.data.title} description={page.data.description} lede={page.data.lede} image={page.data.image} trail={[{ label: page.data.title }]} sources={sources} toc={toc}>
+  <section id="phases" aria-label={page.data.title}>
+    <ul class="card-grid">
+      {PHASES.map((p, i) => (
+        <li id={`phase-${p}`}>
+          <Card locale={locale} title={`${ui.phaseName[p]} (${ui.phaseAge[p]})`} href={href(locale, paths.phase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} />
+        </li>
+      ))}
+    </ul>
+  </section>
+  <Content components={mdxComponents} />
+</Article>

@@ -1,0 +1,71 @@
+---
+import { render } from 'astro:content';
+import Article from '../../../layouts/Article.astro';
+import { mdxComponents } from '../../../components/mdx';
+import { LOCALES, paramFromLocale, type Locale } from '../../../i18n/locales';
+import { t } from '../../../i18n/ui';
+import { PHASES, type Phase } from '../../../lib/site';
+import { getPhase, getTool, getSituation, assertParity } from '../../../lib/content';
+import { href, paths } from '../../../lib/routes';
+import { setupCites, headingsIn } from '../../../lib/page';
+import { pageSources } from '../../../lib/cites';
+import { entryText } from '../../../lib/sources';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((locale) => PHASES.map((phase) => ({ params: { lang: paramFromLocale(locale), phase }, props: { locale, phase } })));
+}
+
+const { locale, phase } = Astro.props as { locale: Locale; phase: Phase };
+await assertParity();
+const ui = t(locale);
+const entry = await getPhase(locale, phase);
+setupCites(Astro.locals, locale);
+const { Content } = await render(entry);
+const toc = headingsIn(entry.body);
+const sources = pageSources([entryText(entry)]);
+const tools = await Promise.all(entry.data.tools.map((s) => getTool(locale, s)));
+const situations = await Promise.all(entry.data.situations.map((s) => getSituation(locale, s)));
+const i = PHASES.indexOf(phase);
+const prev = i > 0 ? PHASES[i - 1] : undefined;
+const next = i < PHASES.length - 1 ? PHASES[i + 1] : undefined;
+const title = `${ui.phaseName[phase]} (${ui.phaseAge[phase]})`;
+---
+<Article
+  locale={locale}
+  title={title}
+  description={entry.data.description}
+  eyebrow={ui.nav.byAge}
+  lede={entry.data.lede}
+  image={entry.data.image}
+  trail={[{ label: ui.nav.byAge, path: paths.byAge() }, { label: title }]}
+  start={entry.data.start}
+  toc={toc}
+  sources={sources}
+>
+  <Content components={mdxComponents} />
+
+  <section class="related" id="printable" aria-labelledby="printable-heading">
+    <h2 id="printable-heading">{ui.phase.printable}</h2>
+    <p><a class="btn" href={href(locale, paths.printable(`summary-${phase}` as const))}>{ui.phase.printableCta}</a></p>
+  </section>
+
+  <nav class="pager" aria-label={ui.nav.byAge}>
+    {prev ? <a class="prev" href={href(locale, paths.phase(prev))}><small>{ui.phase.prev}</small>{ui.phaseName[prev]} ({ui.phaseAge[prev]})</a> : <span />}
+    {next ? <a class="next" href={href(locale, paths.phase(next))}><small>{ui.phase.next}</small>{ui.phaseName[next]} ({ui.phaseAge[next]})</a> : <span />}
+  </nav>
+
+  <Fragment slot="aside">
+    <nav class="aside-box" aria-labelledby="phase-tools-heading">
+      <h2 id="phase-tools-heading">{ui.phase.tools}</h2>
+      <ul>{tools.map((tool) => <li><a href={`${href(locale, paths.toolbox())}#${tool.id.split('/')[1]}`}>{tool.data.title}</a></li>)}</ul>
+    </nav>
+    <nav class="aside-box" aria-labelledby="phase-situations-heading">
+      <h2 id="phase-situations-heading">{ui.phase.situations}</h2>
+      <ul>{situations.map((s) => <li><a href={`${href(locale, paths.situations())}#${s.id.split('/')[1]}`}>{s.data.title}</a></li>)}</ul>
+    </nav>
+    <nav class="aside-box" aria-labelledby="phase-learning-heading">
+      <h2 id="phase-learning-heading">{ui.nav.learning}</h2>
+      <ul><li><a href={href(locale, paths.learningPhase(phase))}>{ui.learning.byAge}: {ui.phaseAge[phase]}</a></li></ul>
+    </nav>
+  </Fragment>
+</Article>

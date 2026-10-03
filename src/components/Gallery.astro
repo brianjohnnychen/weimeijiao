@@ -1,0 +1,102 @@
+---
+// Family photo gallery with an accessible lightbox (native <dialog>, arrow keys, Esc).
+// Photos come from showtellshare.org's About page; alt text kept and translated (SPEC §8).
+import { Picture, getImage } from 'astro:assets';
+import type { Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import p1 from '../assets/family/personal-1.jpg';
+import p2 from '../assets/family/personal-2.jpg';
+import p3 from '../assets/family/personal-3.jpg';
+import p4 from '../assets/family/personal-4.jpg';
+import p5 from '../assets/family/personal-5.jpg';
+import p6 from '../assets/family/personal-6.jpg';
+import p7 from '../assets/family/personal-7.jpg';
+import p8 from '../assets/family/personal-8.jpg';
+import p9 from '../assets/family/personal-9.jpg';
+import p10 from '../assets/family/personal-10.jpg';
+import p11 from '../assets/family/personal-11.jpg';
+import p12 from '../assets/family/personal-12.jpg';
+
+const locale = (Astro.locals.cites?.locale ?? 'zh-hans') as Locale;
+const ui = t(locale);
+const photos = [
+  { src: p1, alt: { en: 'Naomi preparing dumpling filling', 'zh-hans': 'Naomi 在准备饺子馅', 'zh-hant': 'Naomi 在準備餃子餡' } },
+  { src: p2, alt: { en: 'Two girls folding dumplings', 'zh-hans': '两个女孩在包饺子', 'zh-hant': '兩個女孩在包餃子' } },
+  { src: p3, alt: { en: 'Toddler pressing dough', 'zh-hans': '幼儿在压面团', 'zh-hant': '幼兒在壓麵糰' } },
+  { src: p4, alt: { en: 'Girls eating dumplings', 'zh-hans': '女孩们在吃饺子', 'zh-hant': '女孩們在吃餃子' } },
+  { src: p5, alt: { en: 'Zoe and Naomi making wontons', 'zh-hans': 'Zoe 和 Naomi 在包馄饨', 'zh-hant': 'Zoe 和 Naomi 在包餛飩' } },
+  { src: p6, alt: { en: 'Children cooking', 'zh-hans': '孩子们在做饭', 'zh-hant': '孩子們在做菜' } },
+  { src: p7, alt: { en: 'Zoe and daughters baking', 'zh-hans': 'Zoe 和女儿们在烘焙', 'zh-hant': 'Zoe 和女兒們在烘焙' } },
+  { src: p8, alt: { en: 'Naomi and Kelsea with vegetables', 'zh-hans': 'Naomi 和 Kelsea 拿着蔬菜', 'zh-hant': 'Naomi 和 Kelsea 拿著蔬菜' } },
+  { src: p9, alt: { en: 'Two girls shelling beans', 'zh-hans': '两个女孩在剥豆子', 'zh-hant': '兩個女孩在剝豆子' } },
+  { src: p10, alt: { en: 'Family baking cookies', 'zh-hans': '一家人在烤饼干', 'zh-hant': '一家人在烤餅乾' } },
+  { src: p11, alt: { en: 'Kelsea helping at the stove', 'zh-hans': 'Kelsea 在灶台边帮忙', 'zh-hant': 'Kelsea 在爐台邊幫忙' } },
+  { src: p12, alt: { en: 'Zoe and Kelsea whisking', 'zh-hans': 'Zoe 和 Kelsea 用打蛋器搅拌', 'zh-hant': 'Zoe 和 Kelsea 用打蛋器攪拌' } },
+];
+const large = await Promise.all(
+  photos.map(async (p) => {
+    const webp = await getImage({ src: p.src, format: 'webp', width: Math.min(1600, p.src.width) });
+    return webp.src;
+  }),
+);
+const galleryLabel = { 'zh-hans': '家庭照片', 'zh-hant': '家庭照片', en: 'Family photos' }[locale];
+---
+<section class="gallery" id="photos" aria-label={galleryLabel}>
+  <ul class="gallery-grid">
+    {photos.map((p, i) => (
+      <li id={`photo-${i + 1}`}>
+        <button type="button" class="gallery-thumb" data-index={i} data-full={large[i]} data-alt={p.alt[locale]} aria-label={`${ui.gallery.open}: ${p.alt[locale]}`}>
+          <Picture src={p.src} alt={p.alt[locale]} formats={['avif', 'webp']} fallbackFormat="jpg" width={360} height={360} fit="cover" position="top" sizes="(min-width: 860px) 180px, 45vw" />
+        </button>
+      </li>
+    ))}
+  </ul>
+  <dialog class="lightbox" aria-label={galleryLabel} data-of={ui.gallery.of}>
+    <figure>
+      <img alt="" decoding="async" />
+      <figcaption><span class="lb-caption"></span> <span class="lb-count"></span></figcaption>
+    </figure>
+    <button type="button" class="lb-btn lb-prev" aria-label={ui.gallery.prev}>‹</button>
+    <button type="button" class="lb-btn lb-next" aria-label={ui.gallery.next}>›</button>
+    <button type="button" class="lb-btn lb-close" aria-label={ui.gallery.close}>×</button>
+  </dialog>
+</section>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.lightbox');
+  const thumbs = [...document.querySelectorAll<HTMLButtonElement>('.gallery-thumb')];
+  if (dialog && thumbs.length) {
+    const img = dialog.querySelector('img')!;
+    const caption = dialog.querySelector('.lb-caption')!;
+    const count = dialog.querySelector('.lb-count')!;
+    const of = dialog.dataset.of ?? '/';
+    let index = 0;
+    let opener: HTMLButtonElement | null = null;
+    const show = (i: number) => {
+      index = (i + thumbs.length) % thumbs.length;
+      const t = thumbs[index];
+      img.src = t.dataset.full!;
+      img.alt = t.dataset.alt!;
+      caption.textContent = t.dataset.alt!;
+      count.textContent = `${index + 1} ${of} ${thumbs.length}`;
+    };
+    thumbs.forEach((t, i) =>
+      t.addEventListener('click', () => {
+        opener = t;
+        show(i);
+        dialog.showModal();
+      }),
+    );
+    dialog.querySelector('.lb-prev')!.addEventListener('click', () => show(index - 1));
+    dialog.querySelector('.lb-next')!.addEventListener('click', () => show(index + 1));
+    dialog.querySelector('.lb-close')!.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(index - 1);
+      if (e.key === 'ArrowRight') show(index + 1);
+    });
+    dialog.addEventListener('close', () => opener?.focus());
+  }
+</script>

@@ -1,0 +1,54 @@
+---
+// Source pages for the 1200x630 Open Graph images. scripts/postbuild.mjs screenshots each one
+// to /og/<key>.png and then deletes this folder from the build output.
+import '../../styles/global.css';
+import AiImage from '../../components/AiImage.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import { LOCALES, LOCALE_META, localizePath, type Locale } from '../../i18n/locales';
+import { t } from '../../i18n/ui';
+import { pageList } from '../../lib/pages-index';
+import { ogImagePath } from '../../lib/routes';
+
+export async function getStaticPaths() {
+  const pages = await pageList();
+  return pages.flatMap((page) =>
+    LOCALES.map((locale) => {
+      const key = ogImagePath(localizePath(locale, page.path)).replace(/^\/og\//, '').replace(/\.png$/, '');
+      return { params: { key }, props: { locale, title: page.title[locale], image: page.image } };
+    }),
+  );
+}
+const { locale, title, image } = Astro.props as { locale: Locale; title: string; image?: string };
+const meta = LOCALE_META[locale];
+const ui = t(locale);
+---
+<!doctype html>
+<html lang={meta.lang} data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>{title}</title>
+    {meta.fontCss && <link rel="stylesheet" href={meta.fontCss} />}
+    <style>
+      html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+      .og { display: grid; grid-template-columns: 1fr 520px; width: 1200px; height: 630px; background: var(--cream); }
+      .og-text { padding: 64px 56px; display: flex; flex-direction: column; justify-content: space-between; }
+      .og-brand { display: flex; align-items: center; gap: 14px; color: var(--teal-800); font-family: var(--font-head); font-size: 34px; font-weight: 600; }
+      .og-brand svg { width: 56px; height: 56px; }
+      .og-title { font-family: var(--font-head); font-size: 58px; line-height: 1.2; color: var(--ink); margin: 0; }
+      .og-tag { font-size: 26px; color: var(--ink-2); margin: 0; }
+      .og-art { height: 630px; overflow: hidden; }
+      .og-art :is(img, .ai-placeholder) { width: 520px; height: 630px; object-fit: cover; border-radius: 0; }
+    </style>
+  </head>
+  <body>
+    <div class="og">
+      <div class="og-text">
+        <div class="og-brand"><BrandMark class="og-mark" />{meta.siteName}</div>
+        <h1 class="og-title">{title}</h1>
+        <p class="og-tag">{ui.tagline} · 魏美娇.com</p>
+      </div>
+      <div class="og-art">{image && <AiImage id={image} locale={locale} width={1040} sizes="520px" priority />}</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+import Printable from '../../../layouts/Printable.astro';
+import { localeStaticPaths, type Locale } from '../../../i18n/locales';
+import { getPage } from '../../../lib/content';
+import { setupCites } from '../../../lib/page';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+const { locale } = Astro.props as { locale: Locale };
+setupCites(Astro.locals, locale);
+const page = await getPage(locale, 'family-rules');
+const d = page.data as unknown as { title: string; description: string; lede: string; image?: string; posterTitle: string; rules: string[]; blankRules: number; howTitle: string; how: string[]; signLabel: string };
+---
+<Printable locale={locale} slug="family-rules" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-rules">
+  <section class="poster" id="poster" aria-labelledby="poster-h">
+    <h2 id="poster-h">{d.posterTitle}</h2>
+    <ol class="rules-list">
+      {d.rules.map((r) => <li>{r}</li>)}
+      {Array.from({ length: d.blankRules }).map(() => <li class="blank-rule"><span class="line" aria-hidden="true"></span></li>)}
+    </ol>
+    <p class="fill-line"><span>{d.signLabel}</span><span class="line" aria-hidden="true"></span></p>
+  </section>
+  <section class="rules-how" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">{d.howTitle}</h2>
+    <ul>{d.how.map((h) => <li>{h}</li>)}</ul>
+  </section>
+</Printable>

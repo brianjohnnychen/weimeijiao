@@ -1,0 +1,70 @@
+---
+// Phase summaries (summary-<phase>) and learning one-pagers (learning-<phase>).
+import Printable from '../../../layouts/Printable.astro';
+import RichText from '../../../components/RichText.astro';
+import { LOCALES, paramFromLocale, type Locale } from '../../../i18n/locales';
+import { t } from '../../../i18n/ui';
+import { PHASES, type Phase } from '../../../lib/site';
+import { getPhase, getLearning, getPage } from '../../../lib/content';
+import { setupCites } from '../../../lib/page';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((locale) =>
+    PHASES.flatMap((phase) => [
+      { params: { lang: paramFromLocale(locale), slug: `summary-${phase}` }, props: { locale, phase, kind: 'summary' as const } },
+      { params: { lang: paramFromLocale(locale), slug: `learning-${phase}` }, props: { locale, phase, kind: 'learning' as const } },
+    ]),
+  );
+}
+
+const { locale, phase, kind } = Astro.props as { locale: Locale; phase: Phase; kind: 'summary' | 'learning' };
+const ui = t(locale);
+setupCites(Astro.locals, locale);
+const labels = {
+  'zh-hans': { learnEveryday: '每天可以做的事', learnTalk: '可以这样聊', learnAvoid: '少做这些' },
+  'zh-hant': { learnEveryday: '每天可以做的事', learnTalk: '可以這樣聊', learnAvoid: '少做這些' },
+  en: { learnEveryday: 'Every day', learnTalk: 'Things to talk about', learnAvoid: 'Go easy on' },
+}[locale];
+const phaseTitle = `${ui.phaseName[phase]} (${ui.phaseAge[phase]})`;
+let title = '';
+let description = '';
+let image = '';
+let sections: { id: string; heading: string; items: string[]; say?: boolean }[] = [];
+if (kind === 'summary') {
+  const e = await getPhase(locale, phase);
+  title = `${ui.phase.printable}: ${phaseTitle}`;
+  description = e.data.description;
+  image = e.data.image;
+  sections = [
+    { id: 'normal', heading: ui.phase.normal, items: e.data.summary.normal },
+    { id: 'works', heading: ui.phase.works, items: e.data.summary.works },
+    { id: 'backfires', heading: ui.phase.backfires, items: e.data.summary.backfires },
+    { id: 'say', heading: ui.phase.say, items: e.data.summary.say, say: true },
+  ];
+} else {
+  const e = await getLearning(locale, phase);
+  const hub = await getPage(locale, 'learning');
+  title = `${ui.learning.printable}: ${phaseTitle}`;
+  description = e.data.description;
+  image = e.data.image;
+  sections = [
+    { id: 'everyday', heading: labels.learnEveryday, items: e.data.summary.everyday },
+    { id: 'talk', heading: labels.learnTalk, items: e.data.summary.talk, say: true },
+    { id: 'avoid', heading: labels.learnAvoid, items: e.data.summary.avoid },
+  ];
+  void hub;
+}
+const slug = `${kind}-${phase}` as const;
+---
+<Printable locale={locale} slug={slug} title={title} description={description} image={image} sheetClass="sheet-summary">
+  <div class="summary-grid">
+    {sections.map((s) => (
+      <section class="summary-box" id={s.id} aria-labelledby={`${s.id}-h`}>
+        <h2 id={`${s.id}-h`}>{s.heading}</h2>
+        <ul class:list={[s.say && 'say-list']}>
+          {s.items.map((item) => <li>{s.say ? <q><RichText text={item} /></q> : <RichText text={item} />}</li>)}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Printable>

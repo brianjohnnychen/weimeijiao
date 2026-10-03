@@ -1,0 +1,41 @@
+---
+// A page whose content is one MDX entry in the pages collection (approach, little-time,
+// physical-discipline, about, research intro...). Headings with explicit ids feed "On this page".
+import { render } from 'astro:content';
+import Article from '../layouts/Article.astro';
+import { mdxComponents } from './mdx';
+import type { Locale } from '../i18n/locales';
+import { getPage, assertParity } from '../lib/content';
+import { setupCites, headingsIn } from '../lib/page';
+import { pageSources } from '../lib/cites';
+import { entryText } from '../lib/sources';
+
+interface Props { locale: Locale; slug: string; eyebrow?: string; tocLevels?: number[]; bodyClass?: string }
+const { locale, slug, eyebrow, tocLevels = [2], bodyClass } = Astro.props;
+await assertParity();
+const page = await getPage(locale, slug);
+setupCites(Astro.locals, locale);
+const { Content } = await render(page);
+const data = page.data as { title: string; description: string; lede?: string; image?: string; start?: string[]; startTitle?: string };
+const toc = headingsIn(page.body, tocLevels);
+const sources = pageSources([entryText(page)]);
+---
+<Article
+  locale={locale}
+  title={data.title}
+  description={data.description}
+  eyebrow={eyebrow}
+  lede={data.lede}
+  image={data.image}
+  trail={[{ label: data.title }]}
+  start={data.start}
+  startTitle={data.startTitle}
+  toc={toc}
+  sources={sources}
+  bodyClass={bodyClass}
+>
+  <slot name="before" />
+  <Content components={mdxComponents} />
+  <slot />
+  <Fragment slot="aside"><slot name="aside" /></Fragment>
+</Article>

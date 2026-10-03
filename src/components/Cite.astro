@@ -1,19 +1,23 @@
 ---
-// <Cite id="source-id" /> in MDX: a numbered footnote marker. Numbers follow the order of
-// first appearance on the page (the page computes the order and puts it in Astro.locals.cites).
-import { getSource, sourceAnchor } from '../lib/sources';
+// <Cite id="source-id" /> in MDX: a footnote marker. The number is the source's site-wide
+// number; the link goes to its exact entry on the Research page, which links back here
+// (the first marker for each source on a page gets id cite-<id>-1).
+import { getSource } from '../lib/sources';
+import { citeNumber, researchHref } from '../lib/cites';
 import { t } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
 
 interface Props { id: string }
 const { id } = Astro.props;
-getSource(id);
+const source = getSource(id);
 const ctx = Astro.locals.cites;
 if (!ctx) throw new Error(`<Cite id="${id}"> rendered on a page that did not set up citations`);
-const n = ctx.ids.indexOf(id) + 1;
-if (n === 0) throw new Error(`<Cite id="${id}"> is not in this page's citation list`);
+const n = citeNumber(id);
 ctx.seen[id] = (ctx.seen[id] ?? 0) + 1;
-const backId = `cite-${id}-${ctx.seen[id]}`;
-const target = ctx.mode === 'bibliography' ? `#${sourceAnchor(id)}` : `#ref-${id}`;
-const ui = t(ctx.locale);
+const locale = ctx.locale as Locale;
+const ui = t(locale);
+const firstAuthor = source.authors.split(/,|&/)[0].trim();
+const label = `${ui.citeLabel} ${n}: ${firstAuthor} ${source.year ?? ''}`.trim();
+const hrefTarget = ctx.mode === 'bibliography' ? `#src-${id}` : researchHref(locale, id);
 ---
-<sup class="cite"><a href={target} id={backId} aria-label={`${ui.citeLabel} ${n}`}>{n}</a></sup>
+<sup class="cite"><a href={hrefTarget} id={`cite-${id}-${ctx.seen[id]}`} aria-label={label} title={label}>{n}</a></sup>

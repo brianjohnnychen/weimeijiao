@@ -1,0 +1,89 @@
+---
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import AiImage from '../../components/AiImage.astro';
+import RichText from '../../components/RichText.astro';
+import { mdxComponents } from '../../components/mdx';
+import { localeStaticPaths, type Locale } from '../../i18n/locales';
+import { t } from '../../i18n/ui';
+import { getPage, getSituations, getTool, assertParity } from '../../lib/content';
+import { href, paths } from '../../lib/routes';
+import { setupCites } from '../../lib/page';
+import { pageSources } from '../../lib/cites';
+import { entryText } from '../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+await assertParity();
+const ui = t(locale);
+const page = await getPage(locale, 'situations');
+const situations = await getSituations(locale);
+setupCites(Astro.locals, locale);
+const { Content } = await render(page);
+const rendered = await Promise.all(situations.map(async (s) => ({ s, slug: s.id.split('/')[1], Body: (await render(s)).Content })));
+const sources = pageSources([entryText(page), ...situations.map((s) => entryText(s))]);
+const toolTitles = new Map<string, string>();
+for (const s of situations) {
+  for (const tl of s.data.tools) if (!toolTitles.has(tl)) toolTitles.set(tl, (await getTool(locale, tl)).data.title);
+}
+const situationTitle = new Map(rendered.map((r) => [r.slug, r.s.data.title]));
+const toc = rendered.map((r) => ({ id: r.slug, text: r.s.data.title }));
+const sep = locale === 'en' ? ', ' : '、';
+const colon = locale === 'en' ? ': ' : '：';
+const alsoLabel = { 'zh-hans': '相关难题', 'zh-hant': '相關難題', en: 'Related situations' }[locale];
+---
+<Article
+  locale={locale}
+  title={page.data.title}
+  description={page.data.description}
+  lede={page.data.lede}
+  image={page.data.image}
+  trail={[{ label: page.data.title }]}
+  sources={sources}
+  toc={toc}
+  bodyClass="page-situations"
+>
+  <Content components={mdxComponents} />
+
+  <nav class="jump-grid" aria-label={ui.approach.onThisPage}>
+    <ul>
+      {rendered.map(({ s, slug }) => <li><a href={`#${slug}`}>{s.data.title}</a></li>)}
+    </ul>
+  </nav>
+
+  {rendered.map(({ s, slug, Body }) => (
+    <article class="situation" id={slug} aria-labelledby={`${slug}-title`}>
+      <div class="tool-head">
+        <div class="tool-head-text">
+          <h2 id={`${slug}-title`}><a class="anchor" href={`#${slug}`}>{s.data.title}</a></h2>
+          <p class="tool-summary"><RichText text={s.data.summary} /></p>
+          <ul class="chips" aria-label={ui.ages}>
+            {s.data.ages.map((a) => <li><span class="chip">{ui.phaseAge[a]}</span></li>)}
+          </ul>
+        </div>
+        <div class="tool-media"><AiImage id={s.data.image} locale={locale} width={480} sizes="(min-width: 860px) 240px, 100vw" /></div>
+      </div>
+      <div class="now-box">
+        <h3 id={`${slug}-now`}>{ui.situation.now}</h3>
+        <ol>{s.data.now.map((step) => <li><RichText text={step} /></li>)}</ol>
+      </div>
+      <h3 id={`${slug}-why`}>{ui.situation.why}</h3>
+      <Body components={mdxComponents} />
+      <h3 id={`${slug}-say`}>{ui.situation.say}</h3>
+      {s.data.say.map((line) => <div class="say"><q><RichText text={line} /></q></div>)}
+      <h3 id={`${slug}-prevent`}>{ui.situation.prevent}</h3>
+      <ul>{s.data.prevent.map((p) => <li><RichText text={p} /></li>)}</ul>
+      <h3 id={`${slug}-help`}>{ui.situation.help}</h3>
+      <ul>{s.data.help.map((p) => <li><RichText text={p} /></li>)}</ul>
+      <div class="tool-related">
+        <p><strong>{ui.situation.tools}{colon}</strong>{s.data.tools.map((tl, i) => <>{i > 0 && sep}<a href={`${href(locale, paths.toolbox())}#${tl}`}>{toolTitles.get(tl)}</a></>)}</p>
+        {s.data.related.length > 0 && (
+          <p><strong>{alsoLabel}{colon}</strong>{s.data.related.map((r, i) => <>{i > 0 && sep}<a href={`#${r}`}>{situationTitle.get(r)}</a></>)}</p>
+        )}
+      </div>
+    </article>
+  ))}
+</Article>

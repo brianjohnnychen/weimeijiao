@@ -1,0 +1,8 @@
+---
+// Marks a finding whose evidence is weak or mixed (SPEC §5a).
+import { t } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+const locale = (Astro.locals.cites?.locale ?? 'zh-hans') as Locale;
+const ui = t(locale);
+---
+<span class="mixed" title={ui.mixed.explain}><span aria-hidden="true">≈</span> {ui.mixed.label}</span>

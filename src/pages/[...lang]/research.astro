@@ -1,0 +1,96 @@
+---
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import Citation from '../../components/Citation.astro';
+import { mdxComponents } from '../../components/mdx';
+import { localeStaticPaths, type Locale } from '../../i18n/locales';
+import { t } from '../../i18n/ui';
+import { getPage, assertParity } from '../../lib/content';
+import { setupCites, headingsIn } from '../../lib/page';
+import { BIBLIOGRAPHY, citeNumber, citedIn } from '../../lib/cites';
+import { sourceLink } from '../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+await assertParity();
+const ui = t(locale);
+const page = await getPage(locale, 'research');
+setupCites(Astro.locals, locale, 'bibliography');
+const { Content } = await render(page);
+const cited = await citedIn(locale);
+const data = page.data as unknown as {
+  title: string;
+  description: string;
+  lede?: string;
+  image?: string;
+  bibliographyTitle: string;
+  bibliographyIntro: string;
+  groups: Record<string, string>;
+  citedIn: string;
+  notCited: string;
+  pubmed: string;
+  back: string;
+};
+const toc = [...headingsIn(page.body), { id: 'bibliography', text: data.bibliographyTitle }, ...BIBLIOGRAPHY.map((g) => ({ id: `group-${g.key}`, text: data.groups[g.key], depth: 3 }))];
+const sep = locale === 'en' ? ', ' : '、';
+const colon = locale === 'en' ? ': ' : '：';
+---
+<Article locale={locale} title={data.title} description={data.description} lede={data.lede} image={data.image} trail={[{ label: data.title }]} toc={toc} bodyClass="page-research">
+  <Content components={mdxComponents} />
+
+  <section class="bibliography" id="bibliography" aria-labelledby="bibliography-heading">
+    <h2 id="bibliography-heading">{data.bibliographyTitle}</h2>
+    <p>{data.bibliographyIntro}</p>
+    {BIBLIOGRAPHY.map((group) => (
+      <section id={`group-${group.key}`} aria-labelledby={`group-${group.key}-heading`}>
+        <h3 id={`group-${group.key}-heading`}>{data.groups[group.key]}</h3>
+        <ol class="bib-list">
+          {group.sources.map((s) => {
+            const link = sourceLink(s);
+            const where = cited.get(s.id) ?? [];
+            return (
+              <li id={`src-${s.id}`} value={citeNumber(s.id)} class="bib-entry">
+                <p class="bib-citation"><Citation source={s} locale={locale} /></p>
+                <p class="bib-meta">
+                  <span class="chip">{ui.studyType[s.evidence_level]}</span>
+                  <a href={link.href} rel="noopener" lang="en">{link.label}</a>
+                  {s.pmid && <a href={`https://pubmed.ncbi.nlm.nih.gov/${s.pmid}/`} rel="noopener">{data.pubmed} {s.pmid}</a>}
+                </p>
+                <p class="bib-finding">{s.finding[locale]}</p>
+                <p class="bib-cited">
+                  {where.length > 0 ? (
+                    <>
+                      <strong>{data.citedIn}{colon}</strong>
+                      {where.map((w, i) => <>{i > 0 && sep}<a href={w.href}>{w.label}</a></>)}
+                    </>
+                  ) : (
+                    <span class="muted">{data.notCited}</span>
+                  )}
+                </p>
+              </li>
+            );
+          })}
+        </ol>
+      </section>
+    ))}
+  </section>
+
+  <a class="btn back-float" href="#bibliography" data-back hidden>↩ {data.back}</a>
+</Article>
+
+<script>
+  // Arriving from a citation marker on another page of this site: offer a one-tap way back
+  // to the exact spot (history.back keeps the scroll position).
+  const back = document.querySelector<HTMLAnchorElement>('[data-back]');
+  const internal = document.referrer && new URL(document.referrer).origin === location.origin && !document.referrer.includes('/research/');
+  if (back && internal && location.hash.startsWith('#src-')) {
+    back.hidden = false;
+    back.addEventListener('click', (e) => {
+      e.preventDefault();
+      history.back();
+    });
+  }
+</script>

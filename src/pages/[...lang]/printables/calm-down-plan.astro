@@ -1,0 +1,31 @@
+---
+import Printable from '../../../layouts/Printable.astro';
+import { localeStaticPaths, type Locale } from '../../../i18n/locales';
+import { getPage } from '../../../lib/content';
+import { setupCites } from '../../../lib/page';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+interface Prompt { id: string; label: string; examples: string[] }
+const { locale } = Astro.props as { locale: Locale };
+setupCites(Astro.locals, locale);
+const page = await getPage(locale, 'calm-down-plan');
+const d = page.data as unknown as { title: string; description: string; lede: string; image?: string; nameLabel: string; prompts: Prompt[]; grownUpTitle: string; grownUp: string[] };
+---
+<Printable locale={locale} slug="calm-down-plan" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-calm">
+  <p class="fill-line"><span>{d.nameLabel}</span><span class="line" aria-hidden="true"></span></p>
+  <div class="calm-grid">
+    {d.prompts.map((p) => (
+      <section class="calm-box" id={p.id} aria-labelledby={`${p.id}-h`}>
+        <h2 id={`${p.id}-h`}>{p.label}</h2>
+        <ul class="check-list">{p.examples.map((e) => <li><span class="box" aria-hidden="true"></span>{e}</li>)}</ul>
+        <p class="write-lines" aria-hidden="true"><span></span><span></span></p>
+      </section>
+    ))}
+  </div>
+  <section class="calm-adult" id="grown-up" aria-labelledby="grown-up-h">
+    <h2 id="grown-up-h">{d.grownUpTitle}</h2>
+    <ul>{d.grownUp.map((g) => <li>{g}</li>)}</ul>
+  </section>
+</Printable>

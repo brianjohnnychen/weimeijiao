@@ -1,0 +1,62 @@
+---
+// Standard content page: hero (title, lede, illustration), a "start here" box that answers
+// "what do I do now?", the body, an aside with "On this page" links, and the page's sources.
+import Base from './Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Footnotes from '../components/Footnotes.astro';
+import RichText from '../components/RichText.astro';
+import type { Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  eyebrow?: string;
+  lede?: string;
+  image?: string;
+  trail?: { label: string; path?: string }[];
+  start?: string[];
+  startTitle?: string;
+  toc?: { id: string; text: string; depth?: number }[];
+  sources?: string[];
+  bodyClass?: string;
+}
+
+const { locale, title, description, eyebrow, lede, image, trail, start, startTitle, toc = [], sources = [], bodyClass } = Astro.props;
+const ui = t(locale);
+const hasAside = toc.length > 0 || Astro.slots.has('aside');
+---
+<Base locale={locale} title={title} description={description} bodyClass={bodyClass}>
+  <PageHero locale={locale} title={title} eyebrow={eyebrow} lede={lede} image={image} trail={trail}>
+    {start && start.length > 0 && (
+      <section class="start-box" id="start" aria-labelledby="start-heading">
+        <h2 id="start-heading">{startTitle ?? ui.phase.start}</h2>
+        <ol>
+          {start.map((item) => <li><RichText text={item} /></li>)}
+        </ol>
+      </section>
+    )}
+  </PageHero>
+  <div class="container article">
+    <div class:list={['article-grid', hasAside && 'has-aside']}>
+      <div class="prose" data-content>
+        <slot />
+        <Footnotes locale={locale} ids={sources} />
+      </div>
+      {hasAside && (
+        <aside class="article-aside">
+          {toc.length > 0 && (
+            <nav class="aside-box toc" aria-labelledby="toc-heading">
+              <h2 id="toc-heading">{ui.approach.onThisPage}</h2>
+              <ul>
+                {toc.map((h) => <li class:list={[h.depth === 3 && 'toc-sub']}><a href={`#${h.id}`}>{h.text}</a></li>)}
+              </ul>
+            </nav>
+          )}
+          <slot name="aside" />
+        </aside>
+      )}
+    </div>
+  </div>
+</Base>

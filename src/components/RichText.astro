@@ -1,0 +1,12 @@
+---
+// Renders a frontmatter string that may contain citation markers written as [[cite:source-id]].
+import Cite from './Cite.astro';
+
+interface Props { text: string }
+const { text } = Astro.props;
+const parts = text.split(/(\[\[cite:[a-z0-9-]+\]\])/g).filter(Boolean);
+---
+{parts.map((part) => {
+  const m = /^\[\[cite:([a-z0-9-]+)\]\]$/.exec(part);
+  return m ? <Cite id={m[1]} /> : <Fragment set:text={part} />;
+})}

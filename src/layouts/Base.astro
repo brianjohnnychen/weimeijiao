@@ -16,12 +16,14 @@ interface Props {
   type?: 'website' | 'article';
   noindex?: boolean;
   bodyClass?: string;
+  /** Path used for the language switcher and alternates (404 uses '/'). */
+  alternatesPath?: string;
 }
 
-const { locale, title, description, bareTitle = false, type = 'article', noindex = false, bodyClass } = Astro.props;
+const { locale, title, description, bareTitle = false, type = 'article', noindex = false, bodyClass, alternatesPath } = Astro.props;
 const meta = LOCALE_META[locale];
 const ui = t(locale);
-const pathname = Astro.url.pathname;
+const pathname = alternatesPath ?? Astro.url.pathname;
 const canonical = absolute(pathname);
 const alts = alternates(pathname);
 const fullTitle = bareTitle ? title : `${title} | ${meta.siteName}`;
@@ -36,9 +38,9 @@ const isRootHome = pathname === '/';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {alts.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
-    <link rel="alternate" hreflang="x-default" href={xDefault} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {!noindex && alts.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={xDefault} />}
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#fffdf9" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1f1e1b" media="(prefers-color-scheme: dark)" />

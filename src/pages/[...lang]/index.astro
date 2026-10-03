@@ -1,0 +1,121 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import AiImage from '../../components/AiImage.astro';
+import Footnotes from '../../components/Footnotes.astro';
+import { mdxComponents } from '../../components/mdx';
+import { localeStaticPaths, LOCALE_META, type Locale } from '../../i18n/locales';
+import { t } from '../../i18n/ui';
+import { PHASES } from '../../lib/site';
+import { getPage, getPhases, assertParity } from '../../lib/content';
+import { href, paths } from '../../lib/routes';
+import { setupCites } from '../../lib/page';
+import { pageSources } from '../../lib/cites';
+import { entryText } from '../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+
+interface Entry { title: string; text: string }
+interface HomeData {
+  title: string;
+  description: string;
+  lede: string;
+  coreIdea: string;
+  ctaAge: string;
+  ctaProblem: string;
+  agesTitle: string;
+  agesLede: string;
+  entriesTitle: string;
+  entries: { approach: Entry; problem: Entry; littleTime: Entry; toolbox: Entry; learning: Entry; physical: Entry; research: Entry; printables: Entry };
+  aboutTitle: string;
+}
+
+const { locale } = Astro.props as { locale: Locale };
+await assertParity();
+const ui = t(locale);
+const page = await getPage(locale, 'home');
+const data = page.data as unknown as HomeData;
+const phases = await getPhases(locale);
+setupCites(Astro.locals, locale);
+const { Content } = await render(page);
+const sources = pageSources([entryText(page)]);
+const entryLinks: { key: keyof HomeData['entries']; path: string }[] = [
+  { key: 'approach', path: paths.approach() },
+  { key: 'problem', path: paths.situations() },
+  { key: 'littleTime', path: paths.littleTime() },
+  { key: 'toolbox', path: paths.toolbox() },
+  { key: 'learning', path: paths.learning() },
+  { key: 'physical', path: paths.physical() },
+  { key: 'research', path: paths.research() },
+  { key: 'printables', path: paths.printables() },
+];
+---
+<Base locale={locale} title={`${LOCALE_META[locale].siteName} | ${ui.tagline}`} description={data.description} bareTitle type="website">
+  <section class="home-hero" aria-labelledby="home-title">
+    <div class="container home-hero-grid">
+      <div>
+        <p class="eyebrow">{LOCALE_META[locale].siteName} · {ui.tagline}</p>
+        <h1 id="home-title">{data.title}</h1>
+        <p class="lede">{data.lede}</p>
+        <div class="hero-actions">
+          <a class="btn" href="#ages">{data.ctaAge}</a>
+          <a class="btn btn-secondary" href={href(locale, paths.situations())}>{data.ctaProblem}</a>
+        </div>
+      </div>
+      <div class="page-hero-media">
+        <AiImage id="home-hero" locale={locale} priority width={960} sizes="(min-width: 900px) 45vw, 100vw" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="core-idea" aria-label={data.coreIdea}>
+    <div class="container">
+      <p class="core-idea">{data.coreIdea}</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="ages" aria-labelledby="ages-title">
+    <div class="container">
+      <h2 id="ages-title">{data.agesTitle}</h2>
+      <p class="lede">{data.agesLede}</p>
+      <ul class="phase-strip">
+        {PHASES.map((p, i) => (
+          <li>
+            <div class="phase-tile" id={`age-${p}`}>
+              <span class="age">{ui.phaseAge[p]}</span>
+              <h3><a href={href(locale, paths.phase(p))}>{ui.phaseName[p]}</a></h3>
+              <p>{phases[i].data.lede}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="muted"><a href={href(locale, paths.printable('age-finder'))}>{ui.nav.printables}: {(await getPage(locale, 'age-finder')).data.title}</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="start-here" aria-labelledby="entries-title">
+    <div class="container">
+      <h2 id="entries-title">{data.entriesTitle}</h2>
+      <ul class="entry-grid">
+        {entryLinks.map((e) => (
+          <li>
+            <div class="entry" id={`entry-${e.key}`}>
+              <h3><a href={href(locale, e.path)}>{data.entries[e.key].title}</a></h3>
+              <p>{data.entries[e.key].text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="about-this-site" aria-labelledby="about-title">
+    <div class="container prose" data-content>
+      <h2 id="about-title">{data.aboutTitle}</h2>
+      <Content components={mdxComponents} />
+      <Footnotes locale={locale} ids={sources} />
+    </div>
+  </section>
+</Base>
