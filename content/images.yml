@@ -28,7 +28,7 @@ images:
     page: by-age
     prompt: A family walking together along a park path in soft afternoon light, a parent carrying a baby, a toddler holding the other parent's hand, and two older children walking ahead, each child a different age.
     alt:
-      en: "A family walks along a park path: one parent carries two babies, the other holds a toddler's hand, and two older children walk between them."
+      en: "A family walks along a park path: one parent carries two babies, the other holds a toddler’s hand, and two older children walk between them."
       zh-hans: 一家人走在公园小路上，一位家长抱着两个宝宝，另一位家长牵着学步儿，两个大一点的孩子走在中间。
       zh-hant: 一家人走在公園小路上，一位家長抱著兩個寶寶，另一位家長牽著學步兒，兩個大一點的孩子走在中間。
     size: '4:3'
@@ -76,7 +76,7 @@ images:
     page: physical
     prompt: A parent sits cross-legged on the floor facing a young child who also sits cross-legged, at the same eye level, beside a sunny window; the parent's hands are open and relaxed and both have calm, serious faces. Exactly one adult and one child, both with complete bodies.
     alt:
-      en: A parent sits on the floor at a child's eye level by a window, hands open, talking calmly with the child.
+      en: A parent sits on the floor at a child’s eye level by a window, hands open, talking calmly with the child.
       zh-hans: 家长坐在窗边的地板上，和孩子视线平齐，双手摊开，平静地和孩子谈话。
       zh-hant: 家長坐在窗邊的地板上，和孩子視線平齊，雙手攤開，平靜地和孩子談話。
     size: '4:3'
@@ -100,7 +100,7 @@ images:
     page: printables
     prompt: A parent lifts a young child up to place a star sticker on a chart taped to a refrigerator door; the chart is a simple grid of colored squares and small picture icons with no writing at all, next to a few of the child's crayon drawings.
     alt:
-      en: A parent lifts a child to put a star sticker on a picture chart on the fridge, among the child's drawings.
+      en: A parent lifts a child to put a star sticker on a picture chart on the fridge, among the child’s drawings.
       zh-hans: 冰箱门上贴着孩子的画和图画表，家长抱起孩子，让他在表上贴一颗星星贴纸。
       zh-hant: 冰箱門上貼著孩子的畫和圖畫表，家長抱起孩子，讓他在表上貼一顆星星貼紙。
     size: '4:3'
@@ -168,7 +168,7 @@ images:
     page: learning/3-5-years
     prompt: A preschool child about four years old sits on a parent's lap with a large open picture book showing a friendly fox; the child points at the fox and the parent smiles warmly at the child. Both faces relaxed and happy. Exactly one adult and one child.
     alt:
-      en: A preschooler on a parent's lap points at a fox in a picture book while the parent asks a question.
+      en: A preschooler on a parent’s lap points at a fox in a picture book while the parent asks a question.
       zh-hans: 孩子坐在家长腿上看绘本，兴奋地指着书里的狐狸，家长好奇地向他提问。
       zh-hant: 孩子坐在家長腿上看繪本，興奮地指著書裡的狐狸，家長好奇地向他提問。
     size: '4:3'
@@ -194,7 +194,7 @@ images:
     page: tool/connection-time
     prompt: A parent lies on a living room rug playing with toy cars, following a young child's lead along a pretend road made of blocks, both absorbed and happy.
     alt:
-      en: A parent lies on the rug playing toy cars with a child, following the child's lead along a pretend road of blocks.
+      en: A parent lies on the rug playing toy cars with a child, following the child’s lead along a pretend road of blocks.
       zh-hans: 家长趴在地毯上陪孩子玩小汽车，跟着孩子的想法沿着积木搭的小路开车。
       zh-hant: 家長趴在地毯上陪孩子玩小汽車，跟著孩子的想法沿著積木搭的小路開車。
     size: '4:3'
@@ -202,7 +202,7 @@ images:
     page: tool/clear-expectations
     prompt: In a home entryway, a parent kneels at a young child's eye level, face to face, and calmly points to a pair of small shoes by the door; the child faces the parent, listening and nodding.
     alt:
-      en: A parent kneels at a child's eye level in the entryway and points to the shoes by the door; the child nods.
+      en: A parent kneels at a child’s eye level in the entryway and points to the shoes by the door; the child nods.
       zh-hans: 家长在玄关蹲到孩子的高度，平静地指着门边的小鞋，孩子边听边点头。
       zh-hant: 家長在玄關蹲到孩子的高度，平靜地指著門邊的小鞋，孩子邊聽邊點頭。
     size: '4:3'
@@ -266,7 +266,7 @@ images:
     page: tool/time-in
     prompt: A parent and one young child sit close together on a large floor cushion in a cozy corner, the parent's arm around the child; both breathe slowly with calm faces. Exactly one adult and one child, plain wall without shadows of people.
     alt:
-      en: A parent and child sit together on a floor cushion in a cozy corner, the parent's arm around the child, calming down.
+      en: A parent and child sit together on a floor cushion in a cozy corner, the parent’s arm around the child, calming down.
       zh-hans: 家长和孩子一起坐在角落的大坐垫上，家长搂着孩子，两人慢慢平静下来。
       zh-hant: 家長和孩子一起坐在角落的大坐墊上，家長摟著孩子，兩人慢慢平靜下來。
     size: '4:3'
@@ -340,7 +340,7 @@ images:
     page: situation/hitting-biting
     prompt: Two toddlers at a low play table with blocks. A parent kneels and gently holds one toddler's raised hand, speaking calmly, while the other toddler looks on.
     alt:
-      en: A parent kneels and gently holds a toddler's raised hand at a play table while another toddler looks on.
+      en: A parent kneels and gently holds a toddler’s raised hand at a play table while another toddler looks on.
       zh-hans: 两个学步儿在矮桌旁玩积木，家长蹲下来轻轻握住其中一个孩子举起的手，平静地说话。
       zh-hant: 兩個學步兒在矮桌旁玩積木，家長蹲下來輕輕握住其中一個孩子舉起的手，平靜地說話。
     size: '4:3'
@@ -396,7 +396,7 @@ images:
     page: situation/whining
     prompt: A young child tugs at a parent's sleeve in a kitchen while the parent kneels down to the child's level, listening attentively.
     alt:
-      en: A child tugs at a parent's sleeve in the kitchen and the parent kneels down to listen.
+      en: A child tugs at a parent’s sleeve in the kitchen and the parent kneels down to listen.
       zh-hans: 孩子在厨房里拉着家长的袖子，家长蹲下来专心听他说话。
       zh-hant: 孩子在廚房裡拉著家長的袖子，家長蹲下來專心聽他說話。
     size: '4:3'

@@ -1,21 +1,23 @@
 # QA
 
-The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test and the anchor test on every push.
+The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test, the anchor test and the behavior test on every push.
 
-Latest full run: 2026-10-03 (UTC) on the build session's last commit. Times below are UTC.
+Latest full run: 2026-10-03 22:40-23:10 UTC, the final QA pass (section 9). Times below are UTC.
 
 ## At a glance
 
 | Check | How to rerun | Latest result |
 |---|---|---|
-| Content lint | `node scripts/check-content.mjs` | 159 MDX files, 0 errors, 0 warnings |
-| Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 105 pages (35 per locale), 0 errors, 0 warnings; 42 PDFs; 105 Open Graph images |
-| Link test | `node scripts/link-test.mjs --write` | 14,127 internal links, 9,010 of them to an anchor, 0 broken (block at the end) |
+| Content lint | `node scripts/check-content.mjs` | 159 MDX files, 0 errors, 0 warnings (now also rejects two links joined by 和/and when a link name contains 和/and) |
+| Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 105 pages (35 per locale), 0 errors, 0 warnings; 42 PDFs; 105 Open Graph images; 34 unused built files (4.49 MiB) pruned |
+| Link test | `node scripts/link-test.mjs --write` | 14,353 internal links, 9,202 of them to an anchor, 0 broken (block at the end) |
 | Anchor test | `node scripts/anchor-test.mjs` | 26 of 26 deep links land on their target (13 kinds of target, 375px and 1280px) |
 | UI check | `node scripts/ui-check.mjs` | 129 page views, no problems ([report](screenshots/ui-check.md)) |
+| Behavior test | `node scripts/behavior-test.mjs` | 81 of 81 checks pass: age finder scoring and flow, lightbox, toolbox filter, language banner, theme, language switcher, no-JavaScript fallbacks, 404, 320px reflow, dark-mode sheets, menu, Research back link, landmarks (section 9) |
+| Accessibility audit | axe-core 4.13 (WCAG 2.2 AA and best practice) and html-validate 11.16, final pass | 0 axe violations in 326 page runs; html-validate leaves only cosmetic or deliberate messages (section 9) |
 | Printables | page limits in `scripts/postbuild.mjs` | 39 one-page sheets and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
-| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians 95 or higher: performance 98-100 on mobile and 100 on desktop; accessibility, best practices and SEO 100 everywhere ([lighthouse.md](lighthouse.md), section 7) |
+| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians 95 or higher: performance 95-100 on mobile and 100 on desktop; accessibility, best practices and SEO 100 everywhere ([lighthouse.md](lighthouse.md), section 7) |
 | Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 146 entries: every DOI registered, metadata matches, every link resolves; 0 failures (Actions run 37147001796) |
 | Help lines | same workflow, `helplines` job | all 14 numbers found on their official pages (run 37147001796) |
 
@@ -78,33 +80,58 @@ What was changed to reach the target on Chinese pages: the Noto web fonts load o
 
 The sources workflow is the site's permanent link checker. On every change to `content/sources.yml` or `content/helplines.yml`, every Monday, and on demand, it checks every DOI against the DOI registry and Crossref (title, year, first author), every link (with headless Chrome for sites that block scripts) and every PMID, and confirms each help-line number still appears on its official page. Pages that only show a bot check count as unreachable, which is a warning, not a pass.
 
-## 9. Open issues
+## 9. Final QA pass (2026-10-03, 21:31-23:10 UTC)
+
+Run by the build session on its current model, because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three independent reviews read the built site, then every finding was fixed or explicitly accepted below, and every check was run again.
+
+**Reviews.** (a) Interactive behaviour in all three locales at both widths: language switcher and banner, theme, menu, age finder (all 2,560,000 answer combinations checked against the printed key), gallery, printables, Research back link, a crawl of all 106 pages plus missing URLs, and the site without JavaScript. (b) Rendered text of all 106 pages: visible text, alt and label text, titles and descriptions, with seven pages read in full in all three locales, Chinese typography and vocabulary per locale, US English and a spell check. (c) HTML, accessibility and SEO: html-validate on all 106 files, axe-core on every page at 375px light and dark and at 1280px, the banner states, the open menu, lightbox and quiz, plus SEO, security and page weight.
+
+**Fixed.**
+- Open Graph images: the brand mark, illustration and long titles were laid out wrongly on all 105 cards (scoped styles did not reach the image or icon); now global styles, a smaller size for long titles and no break after a hyphen.
+- Dark mode: the white printable sheets now use the whole light colour set, so table headers, the focus ring, hover colours and the age finder's radio buttons are readable, and printing from dark mode gives a light page.
+- Language banner: it no longer covers the end of the page, focused links or the Research back button (the page reserves its height); it sits in a labelled landmark; it reads the browser's whole language list and the script subtag (zh-Hans-HK suggests Simplified); closing it moves focus to the content and no longer counts as a language choice.
+- 404 page: no longer sends returning visitors to a home page, marks nothing as current and shows no banner. The home page no longer bounces the reader forward when they press Back.
+- Without JavaScript: the Chinese font fallback now applies; the theme toggle, Print and quiz buttons are hidden; gallery thumbnails open the large photo.
+- Mobile menu: scrolls on short screens, closes when focus leaves it or on a tap outside. Language switcher: the focus ring is no longer clipped, and switching language keeps the #section.
+- Age finder: scoring is exact (whole sixths of a point), so the 1.5-point rule and ties match the printed key in every case; unanswered questions are flagged where they are; the result is announced and focused; smooth scrolling respects reduced motion; question numbers sit beside the question; the key table has full rows; the hint says it prints on two pages.
+- Lightbox: no `<img>` without a source; the page behind does not scroll; a click on the dark area closes it; focus starts on Close; the count no longer runs into the caption.
+- Toolbox: a link to a tool hidden by the age filter shows all tools first; the filter announces how many tools it shows.
+- Research: the back button returns to the exact citation marker, also in a new tab and after using the page's table of contents.
+- Landmarks: unique names everywhere (header and footer navigation, the Situations jump list); notes are notes, not unnamed complementary landmarks; /by-age/ has its missing h2.
+- Text: 24 pairs of links joined by 和/and where a name already contained 和/and; Chinese punctuation in generated labels, citation labels, the footer and bold leads; first-mention glosses for time-out and program names; zh-Hant vocabulary (稱讚, 橫斷面研究, 早期讀寫能力, 幼兒園); US English (spank, store, candy, elementary and high school); digits used consistently; clearer wording on several pages; printables and their pages no longer share descriptions; 12 English descriptions trimmed to 160 characters or fewer; curly quotes in English alt text and descriptions (the QA script now checks attribute and meta text too); English sheets print weimeijiao.com, which English keyboards can type.
+- Smaller items: page heroes no longer jump the download queue on phones and printable art loads eagerly; phone numbers never break across lines; the Mixed evidence label links to its explanation; the weekly chart and quiz key fit a 320px screen; robots.txt no longer names a folder that does not ship; unused built files are pruned; Chinese pages skip the 1-2 MB of web-font slices when the browser asks to save data or is on a 2G/3G-class connection. The site script grew past Vite's 4 KB inline limit during these fixes and became a separate request, which pushed the simulated Speed Index of the Chinese home page on mobile from 1.5 s to about 2.5 s; page scripts are now always inlined, and it is back to 1.5 s.
+
+**Re-run results.** Content lint, build and QA, link test, anchor test, UI check and Lighthouse: see the table at the top. axe-core 4.13 with WCAG 2.2 AA and best-practice rules (with `content-visibility` forced visible, as reviewer (c) showed its off-screen boxes give false target-size alarms): 0 violations on all 106 pages at 375px light, 375px dark and 1280px, and in the 8 banner states. html-validate: the 248 duplicate-landmark and 3 missing-`src` messages are gone; what remains is 81 inline `aspect-ratio` styles on illustration placeholders (they go when the last illustrations are generated), 30 telephone numbers flagged for not using `&nbsp;` (they are kept on one line with CSS instead) and `role="list"` on the quiz list (kept on purpose: Safari drops list semantics when the numbers are drawn by CSS). The behavior test (`scripts/behavior-test.mjs`, new in this pass) checks the fixed behaviour and runs in CI.
+
+**Accepted as is.** Seven English titles are 61-70 characters, so a search result may cut the site name at the end; the page name comes first. The tagline writes 十 (ten) as a character, as Chinese taglines usually do.
+
+## 10. Open issues
 
 See docs/STATUS.md for the current list and who it is waiting on.
 
 <!-- link-test:start -->
-Link test run 2026-10-03 20:11 UTC over dist/ (106 HTML pages).
+Link test run 2026-10-03 23:08 UTC over dist/ (106 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 36 | 4737 | 3004 | 0 |
-| zh-hant | 35 | 4695 | 3003 | 0 |
-| en | 35 | 4695 | 3003 | 0 |
-| all | 106 | 14127 | 9010 | 0 |
+| zh-hans | 36 | 4811 | 3068 | 0 |
+| zh-hant | 35 | 4771 | 3067 | 0 |
+| en | 35 | 4771 | 3067 | 0 |
+| all | 106 | 14353 | 9202 | 0 |
 
 In-content links to a whole page (no #anchor), for review: 72 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
-- /printables/summary-0-12-months/ <- /by-age/0-12-months/ ("打印本阶段的一页总结"); /printables/ ("宝宝 (0-12 个月)"); /printables/ ("打印")
-- /by-age/1-3-years/ <- /by-age/0-12-months/ ("下一个阶段学步儿 (1-3 岁)"); /by-age/3-5-years/ ("上一个阶段学步儿 (1-3 岁)"); /by-age/ ("学步儿 (1-3 岁)")
-- /printables/summary-1-3-years/ <- /by-age/1-3-years/ ("打印本阶段的一页总结"); /printables/ ("学步儿 (1-3 岁)"); /printables/ ("打印")
-- /by-age/0-12-months/ <- /by-age/1-3-years/ ("上一个阶段宝宝 (0-12 个月)"); /by-age/ ("宝宝 (0-12 个月)")
-- /by-age/3-5-years/ <- /by-age/1-3-years/ ("下一个阶段学龄前 (3-5 岁)"); /by-age/5-7-years/ ("上一个阶段学龄前 (3-5 岁)"); /by-age/ ("学龄前 (3-5 岁)")
+- /printables/summary-0-12-months/ <- /by-age/0-12-months/ ("打印本阶段的一页总结"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
+- /by-age/1-3-years/ <- /by-age/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /by-age/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /by-age/ ("学步儿（1-3 岁）")
+- /printables/summary-1-3-years/ <- /by-age/1-3-years/ ("打印本阶段的一页总结"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
+- /by-age/0-12-months/ <- /by-age/1-3-years/ ("上一个阶段宝宝（0-12 个月）"); /by-age/ ("宝宝（0-12 个月）")
+- /by-age/3-5-years/ <- /by-age/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /by-age/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /by-age/ ("学龄前（3-5 岁）")
 - /printables/routine-chart/ <- /by-age/3-5-years/ ("作息表"); /little-time/ ("日常作息表"); /printables/ ("早晚作息表"); +3 more
-- /printables/summary-3-5-years/ <- /by-age/3-5-years/ ("打印本阶段的一页总结"); /printables/ ("学龄前 (3-5 岁)"); /printables/ ("打印")
-- /by-age/5-7-years/ <- /by-age/3-5-years/ ("下一个阶段幼小衔接 (5-7 岁)"); /by-age/7-10-years/ ("上一个阶段幼小衔接 (5-7 岁)"); /by-age/ ("幼小衔接 (5-7 岁)")
-- /printables/summary-5-7-years/ <- /by-age/5-7-years/ ("打印本阶段的一页总结"); /printables/ ("幼小衔接 (5-7 岁)"); /printables/ ("打印")
-- /by-age/7-10-years/ <- /by-age/5-7-years/ ("下一个阶段小学生 (7-10 岁)"); /by-age/ ("小学生 (7-10 岁)")
-- /printables/summary-7-10-years/ <- /by-age/7-10-years/ ("打印本阶段的一页总结"); /printables/ ("小学生 (7-10 岁)"); /printables/ ("打印")
+- /printables/summary-3-5-years/ <- /by-age/3-5-years/ ("打印本阶段的一页总结"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
+- /by-age/5-7-years/ <- /by-age/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /by-age/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /by-age/ ("幼小衔接（5-7 岁）")
+- /printables/summary-5-7-years/ <- /by-age/5-7-years/ ("打印本阶段的一页总结"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
+- /by-age/7-10-years/ <- /by-age/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /by-age/ ("小学生（7-10 岁）")
+- /printables/summary-7-10-years/ <- /by-age/7-10-years/ ("打印本阶段的一页总结"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
 - /printables/age-finder/ <- /by-age/ ("年龄小测验"); /printables/ ("年龄小测验"); /printables/ ("打印")
 - /en/printables/family-rules/ <- /en/approach/ ("family rules poster"); /en/by-age/3-5-years/ ("family rules poster"); /en/printables/ ("Family rules poster"); +3 more
 - /en/printables/summary-0-12-months/ <- /en/by-age/0-12-months/ ("Print the one-page summary for this age"); /en/printables/ ("Babies (0-12 months)"); /en/printables/ ("Print")
@@ -130,27 +157,27 @@ In-content links to a whole page (no #anchor), for review: 72 target page(s).
 - /en/learning/7-10-years/ <- /en/learning/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/learning/ ("School age (7-10 years)")
 - /en/printables/learning-7-10-years/ <- /en/learning/7-10-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("School age (7-10 years)"); /en/printables/ ("Print")
 - /en/printables/calm-down-plan/ <- /en/printables/ ("My calm-down plan"); /en/printables/ ("Print"); /en/situations/ ("calm-down plan"); +1 more
-- /printables/learning-0-12-months/ <- /learning/0-12-months/ ("打印本阶段的学习一页纸"); /printables/ ("宝宝 (0-12 个月)"); /printables/ ("打印")
-- /learning/1-3-years/ <- /learning/0-12-months/ ("下一个阶段学步儿 (1-3 岁)"); /learning/3-5-years/ ("上一个阶段学步儿 (1-3 岁)"); /learning/ ("学步儿 (1-3 岁)")
-- /printables/learning-1-3-years/ <- /learning/1-3-years/ ("打印本阶段的学习一页纸"); /printables/ ("学步儿 (1-3 岁)"); /printables/ ("打印")
-- /learning/0-12-months/ <- /learning/1-3-years/ ("上一个阶段宝宝 (0-12 个月)"); /learning/ ("宝宝 (0-12 个月)")
-- /learning/3-5-years/ <- /learning/1-3-years/ ("下一个阶段学龄前 (3-5 岁)"); /learning/5-7-years/ ("上一个阶段学龄前 (3-5 岁)"); /learning/ ("学龄前 (3-5 岁)")
-- /printables/learning-3-5-years/ <- /learning/3-5-years/ ("打印本阶段的学习一页纸"); /printables/ ("学龄前 (3-5 岁)"); /printables/ ("打印")
-- /learning/5-7-years/ <- /learning/3-5-years/ ("下一个阶段幼小衔接 (5-7 岁)"); /learning/7-10-years/ ("上一个阶段幼小衔接 (5-7 岁)"); /learning/ ("幼小衔接 (5-7 岁)")
-- /printables/learning-5-7-years/ <- /learning/5-7-years/ ("打印本阶段的学习一页纸"); /printables/ ("幼小衔接 (5-7 岁)"); /printables/ ("打印")
-- /learning/7-10-years/ <- /learning/5-7-years/ ("下一个阶段小学生 (7-10 岁)"); /learning/ ("小学生 (7-10 岁)")
-- /printables/learning-7-10-years/ <- /learning/7-10-years/ ("打印本阶段的学习一页纸"); /printables/ ("小学生 (7-10 岁)"); /printables/ ("打印")
+- /printables/learning-0-12-months/ <- /learning/0-12-months/ ("打印本阶段的学习一页纸"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
+- /learning/1-3-years/ <- /learning/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /learning/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /learning/ ("学步儿（1-3 岁）")
+- /printables/learning-1-3-years/ <- /learning/1-3-years/ ("打印本阶段的学习一页纸"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
+- /learning/0-12-months/ <- /learning/1-3-years/ ("上一个阶段宝宝（0-12 个月）"); /learning/ ("宝宝（0-12 个月）")
+- /learning/3-5-years/ <- /learning/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /learning/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /learning/ ("学龄前（3-5 岁）")
+- /printables/learning-3-5-years/ <- /learning/3-5-years/ ("打印本阶段的学习一页纸"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
+- /learning/5-7-years/ <- /learning/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /learning/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /learning/ ("幼小衔接（5-7 岁）")
+- /printables/learning-5-7-years/ <- /learning/5-7-years/ ("打印本阶段的学习一页纸"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
+- /learning/7-10-years/ <- /learning/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /learning/ ("小学生（7-10 岁）")
+- /printables/learning-7-10-years/ <- /learning/7-10-years/ ("打印本阶段的学习一页纸"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
 - /printables/calm-down-plan/ <- /printables/ ("我的冷静计划"); /printables/ ("打印"); /situations/ ("冷静计划"); +1 more
 - /zh-hant/printables/family-rules/ <- /zh-hant/approach/ ("家規海報"); /zh-hant/by-age/3-5-years/ ("家規海報"); /zh-hant/printables/ ("家規海報"); +3 more
-- /zh-hant/printables/summary-0-12-months/ <- /zh-hant/by-age/0-12-months/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("寶寶 (0-12 個月)"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/1-3-years/ <- /zh-hant/by-age/0-12-months/ ("下一個階段學步兒 (1-3 歲)"); /zh-hant/by-age/3-5-years/ ("上一個階段學步兒 (1-3 歲)"); /zh-hant/by-age/ ("學步兒 (1-3 歲)")
-- /zh-hant/printables/summary-1-3-years/ <- /zh-hant/by-age/1-3-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學步兒 (1-3 歲)"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/0-12-months/ <- /zh-hant/by-age/1-3-years/ ("上一個階段寶寶 (0-12 個月)"); /zh-hant/by-age/ ("寶寶 (0-12 個月)")
-- /zh-hant/by-age/3-5-years/ <- /zh-hant/by-age/1-3-years/ ("下一個階段學齡前 (3-5 歲)"); /zh-hant/by-age/5-7-years/ ("上一個階段學齡前 (3-5 歲)"); /zh-hant/by-age/ ("學齡前 (3-5 歲)")
+- /zh-hant/printables/summary-0-12-months/ <- /zh-hant/by-age/0-12-months/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("寶寶（0-12 個月）"); /zh-hant/printables/ ("列印")
+- /zh-hant/by-age/1-3-years/ <- /zh-hant/by-age/0-12-months/ ("下一個階段學步兒（1-3 歲）"); /zh-hant/by-age/3-5-years/ ("上一個階段學步兒（1-3 歲）"); /zh-hant/by-age/ ("學步兒（1-3 歲）")
+- /zh-hant/printables/summary-1-3-years/ <- /zh-hant/by-age/1-3-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學步兒（1-3 歲）"); /zh-hant/printables/ ("列印")
+- /zh-hant/by-age/0-12-months/ <- /zh-hant/by-age/1-3-years/ ("上一個階段寶寶（0-12 個月）"); /zh-hant/by-age/ ("寶寶（0-12 個月）")
+- /zh-hant/by-age/3-5-years/ <- /zh-hant/by-age/1-3-years/ ("下一個階段學齡前（3-5 歲）"); /zh-hant/by-age/5-7-years/ ("上一個階段學齡前（3-5 歲）"); /zh-hant/by-age/ ("學齡前（3-5 歲）")
 - /zh-hant/printables/routine-chart/ <- /zh-hant/by-age/3-5-years/ ("作息表"); /zh-hant/little-time/ ("作息表"); /zh-hant/printables/ ("早晚作息表"); +3 more
-- /zh-hant/printables/summary-3-5-years/ <- /zh-hant/by-age/3-5-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學齡前 (3-5 歲)"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/5-7-years/ <- /zh-hant/by-age/3-5-years/ ("下一個階段幼小銜接 (5-7 歲)"); /zh-hant/by-age/7-10-years/ ("上一個階段幼小銜接 (5-7 歲)"); /zh-hant/by-age/ ("幼小銜接 (5-7 歲)")
-- /zh-hant/printables/summary-5-7-years/ <- /zh-hant/by-age/5-7-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("幼小銜接 (5-7 歲)"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/7-10-years/ <- /zh-hant/by-age/5-7-years/ ("下一個階段國小學童 (7-10 歲)"); /zh-hant/by-age/ ("國小學童 (7-10 歲)")
-- /zh-hant/printables/summary-7-10-years/ <- /zh-hant/by-age/7-10-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("國小學童 (7-10 歲)"); /zh-hant/printables/ ("列印")
+- /zh-hant/printables/summary-3-5-years/ <- /zh-hant/by-age/3-5-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學齡前（3-5 歲）"); /zh-hant/printables/ ("列印")
+- /zh-hant/by-age/5-7-years/ <- /zh-hant/by-age/3-5-years/ ("下一個階段幼小銜接（5-7 歲）"); /zh-hant/by-age/7-10-years/ ("上一個階段幼小銜接（5-7 歲）"); /zh-hant/by-age/ ("幼小銜接（5-7 歲）")
+- /zh-hant/printables/summary-5-7-years/ <- /zh-hant/by-age/5-7-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("幼小銜接（5-7 歲）"); /zh-hant/printables/ ("列印")
+- /zh-hant/by-age/7-10-years/ <- /zh-hant/by-age/5-7-years/ ("下一個階段國小學童（7-10 歲）"); /zh-hant/by-age/ ("國小學童（7-10 歲）")
+- /zh-hant/printables/summary-7-10-years/ <- /zh-hant/by-age/7-10-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("國小學童（7-10 歲）"); /zh-hant/printables/ ("列印")
 <!-- link-test:end -->

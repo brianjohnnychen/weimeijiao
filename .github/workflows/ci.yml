@@ -42,5 +42,10 @@ jobs:
           CHROME_PATH: /usr/bin/google-chrome
         run: node scripts/anchor-test.mjs
 
+      - name: Behavior test (age finder, lightbox, filter, banner, theme, no-JS fallbacks, menu, landmarks)
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: node scripts/behavior-test.mjs
+
       - name: Check CNAME
         run: test "$(cat dist/CNAME)" = "xn--3ys368f86s.com"

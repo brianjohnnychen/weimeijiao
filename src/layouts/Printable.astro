@@ -9,18 +9,21 @@ import { t } from '../i18n/ui';
 import { href, paths } from '../lib/routes';
 import type { Printable as PrintableSlug } from '../lib/site';
 
-interface Props { locale: Locale; slug: PrintableSlug; title: string; description: string; lede?: string; image?: string; sheetClass?: string }
-const { locale, slug, title, description, lede, image, sheetClass } = Astro.props;
+interface Props { locale: Locale; slug: PrintableSlug; title: string; description: string; lede?: string; image?: string; sheetClass?: string; printHint?: string }
+const { locale, slug, title, description, lede, image, sheetClass, printHint } = Astro.props;
 const ui = t(locale);
 const printablesTitle = ui.nav.printables;
+// The address printed on paper is the one each reader can type: the Traditional and Latin
+// domains redirect to the same path on the primary domain (SPEC §2).
+const domain = { 'zh-hans': '魏美娇.com', 'zh-hant': '魏美嬌.com', en: 'weimeijiao.com' }[locale];
 ---
 <Base locale={locale} title={title} description={description} bodyClass="printable-page">
   <div class="container printable-wrap">
     <Breadcrumbs locale={locale} trail={[{ label: printablesTitle, path: paths.printables() }, { label: title }]} />
     <div class="print-actions" id="actions">
-      <button type="button" class="btn" data-print>{ui.print.print}</button>
+      <button type="button" class="btn js-only" data-print>{ui.print.print}</button>
       <a class="btn btn-secondary" href={href(locale, paths.printablePdf(slug))} download>{ui.print.pdf}</a>
-      <span class="muted">{ui.print.printHint}</span>
+      <span class="muted">{printHint ?? ui.print.printHint}</span>
     </div>
     <article class:list={['sheet', sheetClass]} id="sheet" aria-labelledby="sheet-title">
       <header class="sheet-head">
@@ -28,10 +31,10 @@ const printablesTitle = ui.nav.printables;
           <h1 id="sheet-title">{title}</h1>
           {lede && <p class="sheet-lede">{lede}</p>}
         </div>
-        {image && <div class="sheet-art screen-only"><AiImage id={image} locale={locale} width={320} sizes="160px" /></div>}
+        {image && <div class="sheet-art screen-only"><AiImage id={image} locale={locale} eager width={320} sizes="160px" /></div>}
       </header>
       <slot />
-      <footer class="sheet-foot">{LOCALE_META[locale].siteName} · 魏美娇.com{href(locale, paths.printable(slug))} · {ui.print.sources} 魏美娇.com{href(locale, paths.research())}</footer>
+      <footer class="sheet-foot">{LOCALE_META[locale].siteName} · {domain}{href(locale, paths.printable(slug))} · {ui.print.sources} {domain}{href(locale, paths.research())}</footer>
     </article>
     {Astro.slots.has('notes') && (
       <section class="printable-notes screen-only prose" data-content aria-label={ui.print.notes}>

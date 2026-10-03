@@ -17,6 +17,9 @@ export default defineConfig({
     responsiveStyles: true,
   },
   devToolbar: { enabled: false },
+  // Inline the page scripts (the site script is about 5 KB): no extra request before the banner,
+  // theme label and menu are ready. Other assets keep Vite's default 4 KB limit.
+  vite: { build: { assetsInlineLimit: (file, content) => (file.endsWith('.js') ? content.length < 16384 : undefined) } },
   // Static site: no advanced-routing entrypoint.
   fetchFile: null,
 });

@@ -4,7 +4,7 @@
 // (the first marker for each source on a page gets id cite-<id>-1).
 import { getSource } from '../lib/sources';
 import { citeNumber, researchHref } from '../lib/cites';
-import { t } from '../i18n/ui';
+import { t, withColon } from '../i18n/ui';
 import type { Locale } from '../i18n/locales';
 
 interface Props { id: string }
@@ -17,7 +17,7 @@ ctx.seen[id] = (ctx.seen[id] ?? 0) + 1;
 const locale = ctx.locale as Locale;
 const ui = t(locale);
 const firstAuthor = source.authors.split(/,|&/)[0].trim();
-const label = `${ui.citeLabel} ${n}: ${firstAuthor} ${source.year ?? ''}`.trim();
+const label = withColon(locale, `${ui.citeLabel} ${n}`, `${firstAuthor} ${source.year ?? ''}`.trim());
 const hrefTarget = ctx.mode === 'bibliography' ? `#src-${id}` : researchHref(locale, id);
 ---
 <sup class="cite"><a href={hrefTarget} id={`cite-${id}-${ctx.seen[id]}`} aria-label={label} title={label}>{n}</a></sup>

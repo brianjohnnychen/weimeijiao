@@ -26,6 +26,20 @@ const labels = {
   en: { learnEveryday: 'Every day', learnTalk: 'Things to talk about', learnAvoid: 'Go easy on' },
 }[locale];
 const phaseTitle = phaseLabel(locale, phase);
+const age = ui.phaseAge[phase];
+// Each sheet describes itself (what is on the paper), so its description differs from the page it summarizes.
+const descriptions = {
+  summary: {
+    'zh-hans': `可打印的一页总结，适合 ${age}的孩子：这个阶段的正常表现、有效的做法、容易适得其反的做法，以及可以怎么说。`,
+    'zh-hant': `可列印的一頁摘要，適合 ${age}的孩子：這個階段的正常表現、有效的做法、容易適得其反的做法，以及可以怎麼說。`,
+    en: `A one-page summary to print, for children aged ${age}: what is normal, what works, what backfires and what to say.`,
+  },
+  learning: {
+    'zh-hans': `可打印的在家学习一页纸，适合 ${age}的孩子：每天可以做的事、可以聊的话题，以及要少做的事。`,
+    'zh-hant': `可列印的在家學習一頁紙，適合 ${age}的孩子：每天可以做的事、可以聊的話題，以及要少做的事。`,
+    en: `A one-page sheet to print on learning at home, for children aged ${age}: everyday ideas, things to talk about and what to go easy on.`,
+  },
+};
 let title = '';
 let description = '';
 let image = '';
@@ -33,7 +47,7 @@ let sections: { id: string; heading: string; items: string[]; say?: boolean }[] 
 if (kind === 'summary') {
   const e = await getPhase(locale, phase);
   title = withColon(locale, ui.phase.printable, phaseTitle);
-  description = e.data.description;
+  description = descriptions.summary[locale];
   image = e.data.image;
   sections = [
     { id: 'normal', heading: ui.phase.normal, items: e.data.summary.normal },
@@ -45,7 +59,7 @@ if (kind === 'summary') {
   const e = await getLearning(locale, phase);
   const hub = await getPage(locale, 'learning');
   title = withColon(locale, ui.learning.printable, phaseTitle);
-  description = e.data.description;
+  description = descriptions.learning[locale];
   image = e.data.image;
   sections = [
     { id: 'everyday', heading: labels.learnEveryday, items: e.data.summary.everyday },

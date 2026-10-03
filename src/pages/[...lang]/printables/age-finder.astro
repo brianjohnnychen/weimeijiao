@@ -31,14 +31,16 @@ if (d.questions.length !== 10) throw new Error(`age-finder (${locale}) must have
 for (const q of d.questions) for (const o of q.options) for (const p of o.phases) if (!PHASES.includes(p)) throw new Error(`Unknown phase ${p} in age-finder ${q.id}`);
 const phaseLinks = Object.fromEntries(PHASES.map((p) => [p, { href: href(locale, paths.phase(p)), label: phaseLabel(locale, p) }]));
 const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+const maxOptions = Math.max(...d.questions.map((q) => q.options.length));
 ---
-<Printable locale={locale} slug="age-finder" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-quiz">
+<Printable locale={locale} slug="age-finder" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-quiz" printHint={ui.print.printHintTwo}>
   <form class="quiz" id="quiz" data-quiz data-phases={JSON.stringify(phaseLinks)} data-labels={JSON.stringify({ incomplete: ui.quiz.incomplete, result: ui.quiz.result, also: ui.quiz.also, read: ui.quiz.read, colon: locale === 'en' ? ': ' : '：' })}>
-    <ol class="quiz-list">
-      {d.questions.map((q, qi) => (
+    <ol class="quiz-list" role="list">
+      {d.questions.map((q) => (
         <li id={`q-${q.id}`}>
           <fieldset data-weight={q.weight ?? 1}>
             <legend><RichText text={q.text} /></legend>
+            <p class="quiz-missing" id={`q-${q.id}-missing`} hidden>{ui.quiz.unanswered}</p>
             {q.options.map((o, oi) => (
               <label class="quiz-option">
                 <input type="radio" name={q.id} value={o.phases.join(' ')} />
@@ -50,21 +52,21 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
         </li>
       ))}
     </ol>
-    <div class="quiz-actions screen-only">
+    <div class="quiz-actions screen-only js-only">
       <button type="submit" class="btn">{ui.quiz.see}</button>
       <button type="reset" class="btn btn-secondary">{ui.quiz.restart}</button>
     </div>
-    <div class="quiz-result" id="result" role="status" aria-live="polite" hidden></div>
+    <div class="quiz-result" id="result" role="status" aria-live="polite" tabindex="-1"></div>
   </form>
   <section class="quiz-key" id="scoring" aria-labelledby="scoring-h">
     <h2 id="scoring-h">{ui.quiz.scoring}</h2>
     <noscript><p>{ui.quiz.noJs}</p></noscript>
     <ol>{d.scoringSteps.map((s) => <li>{s}</li>)}</ol>
     <table class="key-table">
-      <thead><tr><th scope="col">#</th>{letters.slice(0, Math.max(...d.questions.map((q) => q.options.length))).map((l) => <th scope="col">{l}</th>)}</tr></thead>
+      <thead><tr><th scope="col">#</th>{letters.slice(0, maxOptions).map((l) => <th scope="col">{l}</th>)}</tr></thead>
       <tbody>
         {d.questions.map((q, qi) => (
-          <tr><th scope="row">{qi + 1}</th>{q.options.map((o) => <td>{o.phases.map((p) => ui.phaseAge[p]).join(' / ')}</td>)}</tr>
+          <tr><th scope="row">{qi + 1}</th>{q.options.map((o) => <td>{o.phases.map((p) => ui.phaseAge[p]).join(' / ')}</td>)}{Array.from({ length: maxOptions - q.options.length }, () => <td />)}</tr>
         ))}
       </tbody>
     </table>
@@ -83,29 +85,47 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
     const labels = JSON.parse(form.dataset.labels!) as Record<string, string>;
     const order = Object.keys(phases);
     const result = form.querySelector<HTMLElement>('#result')!;
+    const fieldsets = [...form.querySelectorAll<HTMLFieldSetElement>('fieldset')];
+    const scrollBehavior = (): ScrollBehavior => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+    // A question flagged as unanswered shows a note until it gets an answer.
+    const flag = (fs: HTMLFieldSetElement, missing: boolean) => {
+      const note = fs.querySelector<HTMLElement>('.quiz-missing');
+      if (note) note.hidden = !missing;
+      fs.classList.toggle('is-missing', missing);
+      if (missing && note) fs.setAttribute('aria-describedby', note.id);
+      else fs.removeAttribute('aria-describedby');
+    };
+    form.addEventListener('change', (e) => {
+      const fs = (e.target as Element).closest('fieldset');
+      if (fs) flag(fs, false);
+    });
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const fieldsets = [...form.querySelectorAll<HTMLFieldSetElement>('fieldset')];
+      // Points are counted in sixths, so splitting a point between two or three ages stays an
+      // exact whole number and ties and the 1.5-point rule (9 sixths) match the printed key.
       const scores: Record<string, number> = Object.fromEntries(order.map((p) => [p, 0]));
-      let answered = 0;
+      const missing: HTMLFieldSetElement[] = [];
       for (const fs of fieldsets) {
         const checked = fs.querySelector<HTMLInputElement>('input:checked');
-        if (!checked) continue;
-        answered++;
+        flag(fs, !checked);
+        if (!checked) {
+          missing.push(fs);
+          continue;
+        }
         const ps = checked.value.split(' ');
         const w = Number(fs.dataset.weight || 1);
-        for (const p of ps) scores[p] += w / ps.length;
+        for (const p of ps) scores[p] += Math.round((6 * w) / ps.length);
       }
-      result.hidden = false;
       result.replaceChildren();
-      if (answered < fieldsets.length) {
+      if (missing.length) {
         const p = document.createElement('p');
         p.textContent = labels.incomplete;
         result.append(p);
-        const first = fieldsets.find((fs) => !fs.querySelector('input:checked'));
-        first?.querySelector('input')?.focus();
+        missing[0].scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
+        missing[0].querySelector('input')?.focus({ preventScroll: true });
         return;
       }
+      // Highest score first; on a tie the younger age comes first.
       const ranked = [...order].sort((a, b) => scores[b] - scores[a] || order.indexOf(a) - order.indexOf(b));
       const best = ranked[0];
       const second = ranked[1];
@@ -117,7 +137,7 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
       a.href = phases[best].href;
       a.textContent = `${labels.read}${labels.colon}${phases[best].label}`;
       result.append(h, a);
-      if (scores[second] > 0 && scores[best] - scores[second] <= 1.5) {
+      if (scores[second] > 0 && scores[best] - scores[second] <= 9) {
         const also = document.createElement('p');
         also.append(`${labels.also}${labels.colon}`);
         const a2 = document.createElement('a');
@@ -126,12 +146,12 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
         also.append(a2);
         result.append(also);
       }
-      result.focus?.();
-      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      result.focus({ preventScroll: true });
+      result.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
     });
     form.addEventListener('reset', () => {
-      result.hidden = true;
       result.replaceChildren();
+      fieldsets.forEach((fs) => flag(fs, false));
     });
   }
 </script>

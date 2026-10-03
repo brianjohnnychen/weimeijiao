@@ -45,7 +45,7 @@ const hasAside = toc.length > 0 || Astro.slots.has('aside');
         <Footnotes locale={locale} ids={sources} />
       </div>
       {hasAside && (
-        <aside class="article-aside">
+        <div class="article-aside">
           {toc.length > 0 && (
             <nav class="aside-box toc" aria-labelledby="toc-heading">
               <h2 id="toc-heading">{ui.approach.onThisPage}</h2>
@@ -55,7 +55,7 @@ const hasAside = toc.length > 0 || Astro.slots.has('aside');
             </nav>
           )}
           <slot name="aside" />
-        </aside>
+        </div>
       )}
     </div>
   </div>

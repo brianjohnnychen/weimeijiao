@@ -37,6 +37,8 @@ const toolTitle = new Map(rendered.map((r) => [r.slug, r.tool.data.title]));
 const toc = rendered.map((r) => ({ id: r.slug, text: r.tool.data.title }));
 const filterLabel = { 'zh-hans': '按年龄筛选', 'zh-hant': '依年齡篩選', en: 'Filter by age' }[locale];
 const showing = { 'zh-hans': '显示全部', 'zh-hant': '顯示全部', en: 'Show all' }[locale];
+// {n} and {total} are filled in by the filter script.
+const countText = { 'zh-hans': '显示 {n} 个工具，共 {total} 个', 'zh-hant': '顯示 {n} 個工具，共 {total} 個', en: 'Showing {n} of {total} tools' }[locale];
 ---
 <Article
   locale={locale}
@@ -69,6 +71,7 @@ const showing = { 'zh-hans': '显示全部', 'zh-hant': '顯示全部', en: 'Sho
       <button type="button" class="chip-btn" data-age="all" aria-pressed="true">{showing}</button>
       {PHASES.map((p) => <button type="button" class="chip-btn" data-age={p} aria-pressed="false">{ui.phaseAge[p]}</button>)}
     </div>
+    <p class="filter-count" role="status" aria-live="polite" data-count-text={countText}></p>
   </div>
 
   <div class="tool-list">
@@ -100,10 +103,10 @@ const showing = { 'zh-hans': '显示全部', 'zh-hant': '顯示全部', en: 'Sho
         {(tool.data.related.length > 0 || tool.data.situations.length > 0) && (
           <div class="tool-related">
             {tool.data.related.length > 0 && (
-              <p><strong>{ui.tool.related}{locale === 'en' ? ': ' : '：'}</strong>{tool.data.related.map((r, i) => <>{i > 0 && (locale === 'en' ? ', ' : '、')}<a href={`#${r}`}>{toolTitle.get(r)}</a></>)}</p>
+              <p><strong>{ui.tool.related}{locale === 'en' ? ': ' : '：'}</strong>{tool.data.related.map((r, i) => <>{i > 0 && (locale === 'en' ? ', ' : '；')}<a href={`#${r}`}>{toolTitle.get(r)}</a></>)}</p>
             )}
             {tool.data.situations.length > 0 && (
-              <p><strong>{ui.tool.relatedSituations}{locale === 'en' ? ': ' : '：'}</strong>{tool.data.situations.map((s, i) => <>{i > 0 && (locale === 'en' ? ', ' : '、')}<a href={`${href(locale, paths.situations())}#${s}`}>{situationTitles.get(s)}</a></>)}</p>
+              <p><strong>{ui.tool.relatedSituations}{locale === 'en' ? ': ' : '：'}</strong>{tool.data.situations.map((s, i) => <>{i > 0 && (locale === 'en' ? ', ' : '；')}<a href={`${href(locale, paths.situations())}#${s}`}>{situationTitles.get(s)}</a></>)}</p>
             )}
           </div>
         )}
@@ -118,19 +121,38 @@ const showing = { 'zh-hans': '显示全部', 'zh-hant': '顯示全部', en: 'Sho
   if (root) {
     root.hidden = false;
     const buttons = [...root.querySelectorAll<HTMLButtonElement>('button[data-age]')];
+    const count = root.querySelector<HTMLElement>('.filter-count')!;
     const cards = [...document.querySelectorAll<HTMLElement>('.tool-card')];
     const toc = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
-    buttons.forEach((b) =>
-      b.addEventListener('click', () => {
-        const age = b.dataset.age!;
-        buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-        cards.forEach((c) => {
-          const show = age === 'all' || (c.dataset.ages ?? '').split(' ').includes(age);
-          c.hidden = !show;
-          const link = toc.find((a) => a.getAttribute('href') === `#${c.id}`);
-          if (link?.parentElement) link.parentElement.hidden = !show;
-        });
-      }),
+    const apply = (b: HTMLButtonElement) => {
+      const age = b.dataset.age!;
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      let shown = 0;
+      cards.forEach((c) => {
+        const show = age === 'all' || (c.dataset.ages ?? '').split(' ').includes(age);
+        c.hidden = !show;
+        if (show) shown++;
+        const link = toc.find((a) => a.getAttribute('href') === `#${c.id}`);
+        if (link?.parentElement) link.parentElement.hidden = !show;
+      });
+      count.textContent = (count.dataset.countText ?? '').replace('{n}', String(shown)).replace('{total}', String(cards.length));
+    };
+    buttons.forEach((b) => b.addEventListener('click', () => apply(b)));
+    // A link to a tool the filter has hidden (a related tool, a deep link) shows all tools first,
+    // so the browser can scroll to it.
+    const reveal = (hash: string) => {
+      if (hash.length < 2) return;
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (target?.closest<HTMLElement>('.tool-card')?.hidden) apply(buttons[0]);
+    };
+    document.addEventListener(
+      'click',
+      (e) => {
+        const a = (e.target as Element | null)?.closest?.('a[href*="#"]') as HTMLAnchorElement | null;
+        if (a && a.pathname === location.pathname) reveal(a.hash);
+      },
+      true,
     );
+    window.addEventListener('hashchange', () => reveal(location.hash));
   }
 </script>

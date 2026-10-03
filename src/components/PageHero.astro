@@ -25,7 +25,7 @@ const { locale, title, eyebrow, lede, image, trail } = Astro.props;
       </div>
       {image && (
         <div class="page-hero-media">
-          <AiImage id={image} locale={locale} priority width={960} sizes="(min-width: 860px) 44vw, 100vw" />
+          <AiImage id={image} locale={locale} eager width={960} sizes="(min-width: 860px) 44vw, 100vw" />
         </div>
       )}
     </div>

@@ -68,7 +68,7 @@
   url: https://doi.org/10.1007/s10802-007-9201-9
   lang: en
   finding:
-    en: Across 77 published evaluations of parent training programs for children aged 0 to 7, programs that taught positive parent-child interaction and emotional communication, time out and parenting consistency, and that had parents practice new skills with their child during sessions had larger effects.
+    en: Across 77 published evaluations of parent training programs for children aged 0 to 7, programs that taught positive parent-child interaction and emotional communication, time-out and parenting consistency, and that had parents practice new skills with their child during sessions had larger effects.
     zh-hans: 在 77 项针对 0 至 7 岁儿童家长培训课程的已发表评估中，教授积极亲子互动与情绪沟通、教授暂停法（time-out）与教养一致性，并让家长在课程中和孩子一起练习新技能的课程，效果更大。
     zh-hant: 在 77 項針對 0 至 7 歲兒童親職訓練課程的已發表評估中，教導正向親子互動與情緒溝通、教導暫停法（time-out）與管教一致性，並讓家長在課程中和孩子一起練習新技巧的課程，效果較大。
   key_facts:
@@ -213,7 +213,7 @@
   url: https://doi.org/10.1007/s10826-010-9371-x
   lang: en
   finding:
-    en: This review weighs the criticisms of time out and concludes that its judicious use within parent training programs is justified and beneficial for many children with conduct problems, while setting out what affects its effectiveness and when it should not be used.
+    en: This review weighs the criticisms of time-out and concludes that its judicious use within parent training programs is justified and beneficial for many children with conduct problems, while setting out what affects its effectiveness and when it should not be used.
     zh-hans: 这篇综述权衡了对暂停法的各种批评，结论是在家长培训课程中审慎使用暂停法是合理的，对许多有品行问题的孩子有益；文中也说明了影响效果的因素和不宜使用的情况。
     zh-hant: 這篇文獻回顧權衡了對暫停法的各種批評，結論是在親職訓練課程中審慎使用暫停法是合理的，對許多有行為規範問題的孩子有益；文中也說明了影響效果的因素和不宜使用的情況。
   key_facts:
@@ -236,8 +236,8 @@
   lang: en
   finding:
     en: A meta-analysis of 101 studies with 16,099 families found significant short- and long-term effects of the Triple P system on child and parent outcomes, including a short-term effect of d = 0.473 on children's social, emotional and behavioral outcomes.
-    zh-hans: 一项纳入 101 项研究、16,099 个家庭的荟萃分析发现，Triple P（3P 正向教养）体系对孩子和家长的结果都有显著的短期和长期效果，对孩子社交、情绪和行为结果的短期效果量为 d = 0.473。
-    zh-hant: 一項納入 101 項研究、16,099 個家庭的統合分析發現，Triple P（3P 正向教養）體系對孩子和家長的結果都有顯著的短期與長期效果，對孩子社交、情緒和行為結果的短期效果量為 d = 0.473。
+    zh-hans: 一项纳入 101 项研究、16,099 个家庭的荟萃分析发现，3P 正向教养课程（Triple P）体系对孩子和家长的结果都有显著的短期和长期效果，对孩子社交、情绪和行为结果的短期效应量为 d = 0.473。
+    zh-hant: 一項納入 101 項研究、16,099 個家庭的統合分析發現，3P 正向教養課程（Triple P）體系對孩子和家長的結果都有顯著的短期與長期效果，對孩子社交、情緒和行為結果的短期效果量為 d = 0.473。
   key_facts:
     - 116 eligible studies over a 33-year period; 101 studies comprising 16,099 families analyzed quantitatively.
     - Seven outcome variables and 15 moderator variables were evaluated.
@@ -259,8 +259,8 @@
   lang: en
   finding:
     en: A meta-analysis of 50 studies found that Incredible Years parent training reduced disruptive child behavior (d = .27 across informants), with larger effects in treatment studies and for children with more severe problems.
-    zh-hans: 一项纳入 50 项研究的荟萃分析发现，Incredible Years（不可思议的岁月）家长培训减少了孩子的破坏性行为（各类报告人综合效果量 d = .27），在治疗性研究和问题较严重的孩子中效果更大。
-    zh-hant: 一項納入 50 項研究的統合分析發現，Incredible Years（不可思議的歲月）親職訓練減少了孩子的干擾行為（各類報告者綜合效果量 d = .27），在治療性研究和問題較嚴重的孩子中效果較大。
+    zh-hans: 一项纳入 50 项研究的荟萃分析发现，“不可思议的岁月”（Incredible Years）家长培训减少了孩子的破坏性行为（各类报告人综合效应量 d = .27），在治疗性研究和问题较严重的孩子中效果更大。
+    zh-hant: 一項納入 50 項研究的統合分析發現，「不可思議的歲月」（Incredible Years）親職訓練減少了孩子的干擾行為（各類報告者綜合效果量 d = .27），在治療性研究和問題較嚴重的孩子中效果較大。
   key_facts:
     - 50 studies comparing an Incredible Years parent training group with a comparison group immediately after intervention.
     - "Mean effect on disruptive child behavior across informants: d = .27."
@@ -661,9 +661,9 @@
   url: https://doi.org/10.1016/j.jaac.2012.10.001
   lang: en
   finding:
-    en: A meta-analysis of 36 controlled trials with 3,042 young children (mean age 4.7 years) found that psychosocial treatments had a large and sustained effect on early disruptive behavior problems (Hedges' g = 0.82), with the largest effects for behavioral treatments (g = 0.88).
-    zh-hans: 一项纳入 36 项对照试验、3,042 名幼儿（平均 4.7 岁）的荟萃分析发现，心理社会治疗对幼儿早期的破坏性行为问题有大而持久的效果（Hedges' g = 0.82），其中行为治疗的效果最大（g = 0.88）。
-    zh-hant: 一項納入 36 項對照試驗、3,042 名幼兒（平均 4.7 歲）的統合分析發現，心理社會治療對幼兒早期的干擾行為問題有大且持久的效果（Hedges' g = 0.82），其中行為治療的效果最大（g = 0.88）。
+    en: A meta-analysis of 36 controlled trials with 3,042 young children (mean age 4.7 years) found that psychosocial treatments had a large and sustained effect on early disruptive behavior problems (Hedges’ g = 0.82), with the largest effects for behavioral treatments (g = 0.88).
+    zh-hans: 一项纳入 36 项对照试验、3,042 名幼儿（平均 4.7 岁）的荟萃分析发现，心理社会治疗对幼儿早期的破坏性行为问题有大而持久的效果（Hedges’ g = 0.82），其中行为治疗的效果最大（g = 0.88）。
+    zh-hant: 一項納入 36 項對照試驗、3,042 名幼兒（平均 4.7 歲）的統合分析發現，心理社會治療對幼兒早期的干擾行為問題有大且持久的效果（Hedges’ g = 0.82），其中行為治療的效果最大（g = 0.88）。
   key_facts:
     - '"Thirty-six controlled trials, evaluating 3,042 children, met selection criteria (mean sample age, 4.7 years; 72.0% male; 33.1% minority youth)."'
     - "\"Psychosocial treatments collectively demonstrated a large and sustained effect on early disruptive behavior problems (Hedges' g = 0.82)\""
@@ -710,8 +710,8 @@
   lang: en
   finding:
     en: A review and meta-analysis of 24 studies of caregivers and 3- to 12-year-olds found that both Parent-Child Interaction Therapy (PCIT) and Triple P reduced parent-reported child behavior and parenting problems, with large parent-reported effects for PCIT (moderate for Abbreviated PCIT) and moderate to large effects for all forms of Triple P except Media Triple P (small).
-    zh-hans: 一项纳入 24 项研究、对象为照顾者和 3 至 12 岁孩子的综述与荟萃分析发现，亲子互动治疗（PCIT）和 Triple P（3P 正向教养）都减少了家长报告的孩子行为问题和教养问题；按家长报告，PCIT 效果大（简化版 PCIT 为中等），除媒体版 Triple P 效果小以外，各种形式的 Triple P 效果都在中等到大之间。
-    zh-hant: 一項納入 24 項研究、對象為照顧者和 3 至 12 歲孩子的文獻回顧與統合分析發現，親子互動治療（PCIT）和 Triple P（3P 正向教養）都減少了家長回報的孩子行為問題和教養問題；依家長回報，PCIT 效果大（簡化版 PCIT 為中等），除媒體版 Triple P 效果小以外，各種形式的 Triple P 效果都在中等到大之間。
+    zh-hans: 一项纳入 24 项研究、对象为照顾者和 3 至 12 岁孩子的综述与荟萃分析发现，亲子互动治疗（PCIT）和 3P 正向教养课程（Triple P）都减少了家长报告的孩子行为问题和教养问题；按家长报告，PCIT 效果大（简化版 PCIT 为中等），除媒体版 Triple P 效果小以外，各种形式的 Triple P 效果都在中等到大之间。
+    zh-hant: 一項納入 24 項研究、對象為照顧者和 3 至 12 歲孩子的文獻回顧與統合分析發現，親子互動治療（PCIT）和 3P 正向教養課程（Triple P）都減少了家長回報的孩子行為問題和教養問題；依家長回報，PCIT 效果大（簡化版 PCIT 為中等），除媒體版 Triple P 效果小以外，各種形式的 Triple P 效果都在中等到大之間。
   key_facts:
     - '"Participants in all studies were caregivers and 3- to 12-year-old children."'
     - '"Both interventions reduced parent-reported child behavior and parenting problems."'
@@ -971,7 +971,7 @@
   lang: en
   finding:
     en: A meta-analytic review of parent training studies for child externalizing problems published from 1980 to 2004 found that low family income was the only predictor of treatment response with a large effect size, while low education or occupation, more severe pretreatment child problems and maternal psychopathology had moderate effect sizes.
-    zh-hans: 一项针对 1980 至 2004 年间发表、以孩子外化行为问题为对象的家长培训研究所做的荟萃分析发现，家庭低收入是唯一具有大效果量的疗效预测因素；教育程度或职业层级低、孩子治疗前问题较严重以及母亲的精神心理问题，则为中等效果量。
+    zh-hans: 一项针对 1980 至 2004 年间发表、以孩子外化行为问题为对象的家长培训研究所做的荟萃分析发现，家庭低收入是唯一具有大效应量的疗效预测因素；教育程度或职业层级低、孩子治疗前问题较严重以及母亲的精神心理问题，则为中等效应量。
     zh-hant: 一項針對 1980 至 2004 年間發表、以孩子外化行為問題為對象的親職訓練研究所做的統合分析發現，家庭低收入是唯一具有大效果量的療效預測因子；教育程度或職業層級低、孩子治療前問題較嚴重以及母親的精神心理問題，則為中等效果量。
   key_facts:
     - '"A literature review was conducted spanning articles published from 1980 to 2004 of indicated prevention (children with symptoms) and treatment (children with diagnosis) studies."'
@@ -1208,7 +1208,7 @@
   lang: en
   finding:
     en: A meta-analysis of 59 studies found that coparenting (cooperation, agreement, conflict and triangulation) was associated with children's adjustment, with generally small effect sizes that remained significant after controlling for individual parenting or marital quality, and coparenting predicted change in child adjustment.
-    zh-hans: 一项纳入 59 项研究的荟萃分析发现，共同养育（合作、一致、冲突和三角化）与孩子的适应状况相关，效果量总体较小，但在控制父母各自的教养方式或婚姻质量后仍然显著，而且共同养育能预测孩子适应状况的变化。
+    zh-hans: 一项纳入 59 项研究的荟萃分析发现，共同养育（合作、一致、冲突和三角化）与孩子的适应状况相关，效应量总体较小，但在控制父母各自的教养方式或婚姻质量后仍然显著，而且共同养育能预测孩子适应状况的变化。
     zh-hant: 一項納入 59 項研究的統合分析發現，共親職（合作、一致、衝突和三角化）與孩子的適應狀況有關，效果量整體偏小，但在控制父母各自的教養方式或婚姻品質後仍然顯著，而且共親職能預測孩子適應狀況的變化。
   key_facts:
     - '"The authors integrate 59 studies and differentiate among cooperation, agreement, conflict, and triangulation as dimensions of coparenting."'
@@ -1231,8 +1231,8 @@
   lang: en
   finding:
     en: In a randomized controlled trial with 54 grandparents caring for grandchildren aged 2 to 9, Grandparent Triple P significantly improved grandparent-reported child behavior problems, parenting confidence, grandparent depression, anxiety and stress, and the grandparent-parent relationship in the short term; parents, who did not take part, also reported fewer child behavior problems, and effects were mostly maintained at six months.
-    zh-hans: 一项纳入 54 位祖父母（照顾 2 至 9 岁孙辈）的随机对照试验发现，Grandparent Triple P（祖父母版 3P 正向教养）在短期内显著改善了祖父母报告的孩子行为问题、教养信心，以及祖父母的抑郁、焦虑和压力，并改善了祖父母与孩子父母的关系；没有参加课程的父母也报告孩子行为问题减少，大部分效果在 6 个月追踪时仍然维持。
-    zh-hant: 一項納入 54 位祖父母（照顧 2 至 9 歲孫子女）的隨機對照試驗發現，Grandparent Triple P（祖父母版 3P 正向教養）在短期內顯著改善了祖父母回報的孩子行為問題、教養信心，以及祖父母的憂鬱、焦慮和壓力，並改善了祖父母與孩子父母的關係；沒有參加課程的父母也回報孩子行為問題減少，大部分效果在 6 個月追蹤時仍然維持。
+    zh-hans: 一项纳入 54 位祖父母（照顾 2 至 9 岁孙辈）的随机对照试验发现，祖父母版 3P 正向教养课程（Grandparent Triple P）在短期内显著改善了祖父母报告的孩子行为问题、教养信心，以及祖父母的抑郁、焦虑和压力，并改善了祖父母与孩子父母的关系；没有参加课程的父母也报告孩子行为问题减少，大部分效果在 6 个月追踪时仍然维持。
+    zh-hant: 一項納入 54 位祖父母（照顧 2 至 9 歲孫子女）的隨機對照試驗發現，祖父母版 3P 正向教養課程（Grandparent Triple P）在短期內顯著改善了祖父母回報的孩子行為問題、教養信心，以及祖父母的憂鬱、焦慮和壓力，並改善了祖父母與孩子父母的關係；沒有參加課程的父母也回報孩子行為問題減少，大部分效果在 6 個月追蹤時仍然維持。
   key_facts:
     - '"Fifty-four grandparents (M = 60.89) and 48 parents (M = 34.52) participated in the evaluation."'
     - '"Grandparents predominantly provided between 12 and 20 h of care per week (64.81%), to a grandchild (62% male) aged between 2 and 9 years (M = 4.42)."'
@@ -2669,7 +2669,7 @@
   finding:
     en: A meta-analysis of studies on how often parents read to preschoolers found that parent-preschooler reading was related to language growth, emergent literacy and reading achievement, with an overall effect size of d = .59 (about 8% of the variance), not dependent on family socioeconomic status, although the effect seemed to become smaller once children could read on their own.
     zh-hans: 这项荟萃分析汇总了关于家长给学龄前儿童读书频率的研究，发现亲子共读与语言发展、早期读写能力和阅读成绩相关，总体效应量为 d = .59（约可解释结果差异的 8%），且不受家庭社会经济地位影响；不过孩子能够自己阅读后，这种效果似乎会变小。
-    zh-hant: 這項統合分析彙整了家長為學齡前兒童讀書頻率的研究，發現親子共讀與語言發展、萌發讀寫能力和閱讀成就有關，整體效果量為 d = .59（約可解釋結果變異量的 8%），且不受家庭社經地位影響；不過孩子能自己閱讀之後，這種效果似乎會變小。
+    zh-hant: 這項統合分析彙整了家長為學齡前兒童讀書頻率的研究，發現親子共讀與語言發展、早期讀寫能力和閱讀成就有關，整體效果量為 d = .59（約可解釋結果變異量的 8%），且不受家庭社經地位影響；不過孩子能自己閱讀之後，這種效果似乎會變小。
   key_facts:
     - '"we focused on studies examining the frequency of book reading to preschoolers"'
     - '"The results support the hypothesis that parent-preschooler reading is related to outcome measures such as language growth, emergent literacy, and reading achievement."'
@@ -2983,7 +2983,7 @@
   url: https://doi.org/10.1038/s41586-019-1466-y
   lang: en
   finding:
-    en: In a nationally representative sample of US secondary school students, a short (under one hour) online growth mindset intervention improved grades among lower-achieving students and increased overall enrollment in advanced mathematics courses, and it changed grades in schools where peer norms aligned with its messages.
+    en: In a nationally representative sample of US high school students, a short (under one hour) online growth mindset intervention improved grades among lower-achieving students and increased overall enrollment in advanced mathematics courses, and it changed grades in schools where peer norms aligned with its messages.
     zh-hans: 在一个具有全国代表性的美国中学生样本中，一次不到一小时的在线成长型思维干预提高了成绩较差学生的成绩，也让整体上有更多学生选修高阶数学课程；研究还发现，在同伴规范与干预理念一致的学校里，干预改变了学生的成绩。
     zh-hant: 在一個具全國代表性的美國中學生樣本中，一次不到一小時的線上成長型思維介入提升了成績較差學生的成績，也讓整體上有更多學生選修進階數學課程；研究也發現，在同儕規範與介入理念一致的學校裡，介入改變了學生的成績。
   key_facts:

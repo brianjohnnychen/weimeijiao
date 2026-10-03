@@ -30,8 +30,8 @@ export interface UiStrings {
   phase: { start: string; normal: string; works: string; backfires: string; say: string; printable: string; printableCta: string; tools: string; situations: string; prev: string; next: string };
   tool: { how: string; ages: string; evidence: string; mistakes: string; say: string; related: string; relatedSituations: string };
   situation: { now: string; why: string; say: string; prevent: string; help: string; tools: string };
-  print: { print: string; pdf: string; printHint: string; fromSite: string; sources: string; notes: string };
-  quiz: { see: string; restart: string; result: string; also: string; read: string; answered: string; incomplete: string; noJs: string; scoring: string };
+  print: { print: string; pdf: string; printHint: string; printHintTwo: string; fromSite: string; sources: string; notes: string };
+  quiz: { see: string; restart: string; result: string; also: string; read: string; answered: string; unanswered: string; incomplete: string; noJs: string; scoring: string };
   gallery: { open: string; close: string; prev: string; next: string; of: string };
   breadcrumbHome: string;
   readMore: string;
@@ -110,7 +110,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: '怎么做', ages: '适用年龄', evidence: '证据强度', mistakes: '常见错误', say: '可以这样说', related: '相关工具', relatedSituations: '适用的难题' },
     situation: { now: '现在就做', why: '为什么会这样', say: '可以这样说', prevent: '预防下一次', help: '什么时候需要求助', tools: '可以用到的工具' },
-    print: { print: '打印', pdf: '下载 PDF', printHint: '用 A4 或 Letter 纸打印，一页即可。', fromSite: '来自 魏美娇.com', sources: '研究依据见', notes: '使用说明' },
+    print: { print: '打印', pdf: '下载 PDF', printHint: '用 A4 或 Letter 纸打印，一页即可。', printHintTwo: '用 A4 或 Letter 纸打印，共两页。', fromSite: '来自 魏美娇.com', sources: '研究依据见', notes: '使用说明' },
     quiz: {
       see: '看结果',
       restart: '重新开始',
@@ -118,6 +118,7 @@ export const UI: Record<Locale, UiStrings> = {
       also: '也可以看看',
       read: '去读这一页',
       answered: '已回答',
+      unanswered: '这题还没回答。',
       incomplete: '还有题目没回答。没把握的题，选最接近的答案就好。',
       noJs: '需要启用 JavaScript 才能自动计分。也可以打印出来，按下面的计分方法自己算。',
       scoring: '计分方法',
@@ -198,7 +199,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: '怎麼做', ages: '適用年齡', evidence: '證據強度', mistakes: '常見錯誤', say: '可以這樣說', related: '相關工具', relatedSituations: '適用的難題' },
     situation: { now: '現在就做', why: '為什麼會這樣', say: '可以這樣說', prevent: '預防下一次', help: '什麼時候需要求助', tools: '可以用到的工具' },
-    print: { print: '列印', pdf: '下載 PDF', printHint: '用 A4 或 Letter 紙張列印，一頁就好。', fromSite: '來自 魏美嬌.com', sources: '研究依據見', notes: '使用說明' },
+    print: { print: '列印', pdf: '下載 PDF', printHint: '用 A4 或 Letter 紙張列印，一頁就好。', printHintTwo: '用 A4 或 Letter 紙張列印，共兩頁。', fromSite: '來自 魏美嬌.com', sources: '研究依據見', notes: '使用說明' },
     quiz: {
       see: '看結果',
       restart: '重新開始',
@@ -206,6 +207,7 @@ export const UI: Record<Locale, UiStrings> = {
       also: '也可以看看',
       read: '前往這一頁',
       answered: '已回答',
+      unanswered: '這題還沒回答。',
       incomplete: '還有題目沒回答。沒把握的題目，選最接近的答案就好。',
       noJs: '需要啟用 JavaScript 才能自動計分。也可以列印出來，依照下面的計分方式自己算。',
       scoring: '計分方式',
@@ -286,7 +288,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: 'How to do it', ages: 'Ages it fits', evidence: 'Evidence strength', mistakes: 'Common mistakes', say: 'Things you can say', related: 'Related tools', relatedSituations: 'Situations it helps with' },
     situation: { now: 'Right now', why: 'Why it happens', say: 'Things you can say', prevent: 'Preventing the next one', help: 'When to get help', tools: 'Tools that help' },
-    print: { print: 'Print', pdf: 'Download PDF', printHint: 'Prints on one A4 or Letter page.', fromSite: 'From weimeijiao (魏美娇.com)', sources: 'Sources:', notes: 'How to use this sheet' },
+    print: { print: 'Print', pdf: 'Download PDF', printHint: 'Prints on one A4 or Letter page.', printHintTwo: 'Prints on two A4 or Letter pages.', fromSite: 'From weimeijiao (魏美娇.com)', sources: 'Sources:', notes: 'How to use this sheet' },
     quiz: {
       see: 'See the result',
       restart: 'Start over',
@@ -294,6 +296,7 @@ export const UI: Record<Locale, UiStrings> = {
       also: 'Also worth reading',
       read: 'Read this page',
       answered: 'answered',
+      unanswered: 'Not answered yet.',
       incomplete: 'Some questions are still blank. If you are not sure, pick the closest answer.',
       noJs: 'Automatic scoring needs JavaScript. You can also print this page and score it by hand with the key below.',
       scoring: 'How to score it',

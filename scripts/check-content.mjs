@@ -34,7 +34,7 @@ const TEMPLATE_ANCHORS = {
   '/situations/': SITUATIONS.flatMap((s) => [s, `${s}-title`, `${s}-now`, `${s}-why`, `${s}-say`, `${s}-prevent`, `${s}-help`]),
   '/research/': ['bibliography', 'bibliography-heading', ...['programs', 'techniques', 'physical', 'development', 'everyday', 'learning'].map((g) => `group-${g}`), ...[...sources].map((id) => `src-${id}`)],
   '/printables/': ['quiz', 'summaries', 'learning', 'tools', ...PRINTABLES.map((p) => `printable-${p}`)],
-  '/by-age/': ['phases', ...PHASES.map((p) => `phase-${p}`)],
+  '/by-age/': ['phases', 'phases-title', ...PHASES.map((p) => `phase-${p}`)],
   '/learning/': ['by-age', ...PHASES.map((p) => `learning-${p}`)],
   '/about/': ['photos', ...Array.from({ length: 12 }, (_, i) => `photo-${i + 1}`)],
 };
@@ -196,6 +196,14 @@ function checkText(f, locale, text, where) {
   } else if (/[一-鿿]/.test(plain.replace(/魏美娇|魏美嬌/g, ''))) warn(f, `${where}: Chinese characters in English copy`);
   for (const m of text.matchAll(/\[\[cite:([^\]]+)\]\]/g)) if (!sources.has(m[1])) err(f, `${where}: unknown source id "${m[1]}" (not in content/sources.yml)`);
   for (const m of text.matchAll(/\[([^\]]+)\]\(([^)\s]+)\)/g)) checkLink(f, m[2], where);
+  // Two links joined by 和/and read as one long name when either name has 和/and in it
+  // ("routines and visual schedules and bedtime battles"): join them with ，以及 / ", and".
+  const LINK = String.raw`(?:<L\s+to="[^"]*">([^<]*)</L>|\[([^\]]+)\]\([^)\s]+\))`;
+  for (const m of text.matchAll(new RegExp(`${LINK}\\s*(和|与|與|及|and)\\s*${LINK}`, 'g'))) {
+    const [a, b, join] = [m[1] ?? m[2], m[4] ?? m[5], m[3]];
+    const has = (name) => (join === 'and' ? /\band\b/.test(name) : /[和与與及]/.test(name));
+    if (has(a) || has(b)) err(f, `${where}: links "${a}" ${join} "${b}" read as one name; join them with ${locale === 'en' ? '", and"' : '"，以及"'}`);
+  }
 }
 
 for (const f of selected) {

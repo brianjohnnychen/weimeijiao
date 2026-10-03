@@ -4,7 +4,8 @@
 //   - every h1-h3 in <main> and every card / list entry has an anchor id
 //   - no third-party assets (scripts, styles, fonts, images, frames) anywhere
 //   - no em or en dashes, no draft markers in visible text or alt/title/aria/meta text
-//   - no unrendered markup (**bold**, [text](/link), [[cite:id]]); no straight quotes in English text
+//   - no unrendered markup (**bold**, [text](/link), [[cite:id]]); no straight quotes in English text,
+//     alt and label text, titles, descriptions or share-card text
 //   - zh-Hant pages: no mainland vocabulary or non-Taiwan character forms (OpenCC t->twp + list)
 //   - zh-Hans pages: no Traditional characters (OpenCC t->cn) and no Taiwan-only vocabulary
 // Text inside elements marked with another lang (e.g. a citation title) is checked for that language only.
@@ -194,6 +195,19 @@ for (let i = 0; i < files.length; i++) {
     const t = decode(text);
     const m = /["']/.exec(t);
     if (m) err(page, `straight quote in English text: "...${t.slice(Math.max(0, m.index - 30), m.index + 30).replace(/\s+/g, ' ')}..."`);
+  }
+  // Text the reader meets outside the page body too: alt and label text, the title, and the
+  // description and share-card text that search results and chat apps show.
+  if (htmlLang === 'en') {
+    const shown = decode(
+      [
+        ...doc.querySelectorAll('[alt], [title], [aria-label]').map((el) => [el.getAttribute('alt'), el.getAttribute('title'), el.getAttribute('aria-label')].filter(Boolean).join(' | ')),
+        ...doc.querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"], meta[property="og:image:alt"]').map((el) => el.getAttribute('content') ?? ''),
+        doc.querySelector('title')?.text ?? '',
+      ].join(' | '),
+    );
+    const m = /["']/.exec(shown);
+    if (m) err(page, `straight quote in English attribute or meta text: "...${shown.slice(Math.max(0, m.index - 30), m.index + 30).replace(/\s+/g, ' ')}..."`);
   }
 }
 

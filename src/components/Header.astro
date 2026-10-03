@@ -5,8 +5,8 @@ import { LOCALES, LOCALE_META, splitLocale, type Locale } from '../i18n/locales'
 import { t } from '../i18n/ui';
 import { alternates, href, paths } from '../lib/routes';
 
-interface Props { locale: Locale; pathname: string }
-const { locale, pathname } = Astro.props;
+interface Props { locale: Locale; pathname: string; noCurrent?: boolean }
+const { locale, pathname, noCurrent = false } = Astro.props;
 const ui = t(locale);
 const { path } = splitLocale(pathname);
 
@@ -22,13 +22,15 @@ const items = [
   { label: ui.nav.printables, path: paths.printables() },
   { label: ui.nav.about, path: paths.about() },
 ];
-const current = (p: string) => (path === p ? 'page' : path.startsWith(p) ? 'true' : undefined);
+// The 404 page is not any of these pages, so it marks none of them as current.
+const current = (p: string) => (noCurrent ? undefined : path === p ? 'page' : path.startsWith(p) ? 'true' : undefined);
+const mainNavLabel = { 'zh-hans': '主导航', 'zh-hant': '主選單', en: 'Main' }[locale];
 const short: Record<Locale, string> = { 'zh-hans': '简', 'zh-hant': '繁', en: 'EN' };
 const alts = alternates(pathname);
 ---
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href={href(locale, paths.home())} aria-label={`${LOCALE_META[locale].siteName}, ${ui.nav.home}`}>
+    <a class="brand" href={href(locale, paths.home())} aria-label={`${LOCALE_META[locale].siteName}${locale === 'en' ? ', ' : '，'}${ui.nav.home}`}>
       <BrandMark />
       <span class="brand-text">
         <span class="brand-name">{LOCALE_META[locale].siteName}</span>
@@ -54,7 +56,7 @@ const alts = alternates(pathname);
           );
         })}
       </ul>
-      <button class="icon-btn theme-toggle" type="button" data-theme-toggle data-label-dark={ui.theme.toDark} data-label-light={ui.theme.toLight} aria-label={ui.theme.toDark}>
+      <button class="icon-btn theme-toggle js-only" type="button" data-theme-toggle data-label-dark={ui.theme.toDark} data-label-light={ui.theme.toLight} aria-label={ui.theme.toDark}>
         <Icon name="moon" class="icon-moon" />
         <Icon name="sun" class="icon-sun" />
       </button>
@@ -65,7 +67,7 @@ const alts = alternates(pathname);
         </summary>
         <nav class="menu-panel" aria-label={ui.menu}>
           <ul>
-            <li><a class="nav-link" href={href(locale, paths.home())} aria-current={path === '/' ? 'page' : undefined}>{ui.nav.home}</a></li>
+            <li><a class="nav-link" href={href(locale, paths.home())} aria-current={!noCurrent && path === '/' ? 'page' : undefined}>{ui.nav.home}</a></li>
             {items.map((item) => (
               <li><a class="nav-link" href={href(locale, item.path)} aria-current={current(item.path)}>{item.label}</a></li>
             ))}
@@ -74,7 +76,7 @@ const alts = alternates(pathname);
       </details>
     </div>
   </div>
-  <nav class="nav-desktop" aria-label={ui.footer.sections}>
+  <nav class="nav-desktop" aria-label={mainNavLabel}>
     <div class="container">
       <ul>
         {items.map((item) => (

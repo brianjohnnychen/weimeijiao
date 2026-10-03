@@ -3,6 +3,8 @@
 type Locale = 'zh-hans' | 'zh-hant' | 'en';
 const LOCALE_KEY = 'wmj-locale';
 const THEME_KEY = 'wmj-theme';
+/** Which suggestion the visitor closed. Closing the banner is not a language choice. */
+const BANNER_KEY = 'wmj-banner-closed';
 
 function read(key: string): string | null {
   try {
@@ -24,12 +26,24 @@ function isLocale(v: string | null): v is Locale {
   return v === 'zh-hans' || v === 'zh-hant' || v === 'en';
 }
 
-/** Best guess from the browser's language list; only used to suggest, never to redirect. */
+/** The site locale a browser language tag maps to; the script subtag wins over the region. */
+function localeOfTag(tag: string): Locale | null {
+  const t = tag.toLowerCase();
+  if (t === 'zh' || t.startsWith('zh-')) {
+    if (/-hant(-|$)/.test(t)) return 'zh-hant';
+    if (/-hans(-|$)/.test(t)) return 'zh-hans';
+    return /-(tw|hk|mo)(-|$)/.test(t) ? 'zh-hant' : 'zh-hans';
+  }
+  return t === 'en' || t.startsWith('en-') ? 'en' : null;
+}
+
+/** Best guess from the browser's whole language list (first supported language wins); only
+ *  used to suggest, never to redirect. Visitors who read none of the three get English. */
 function browserLocale(): Locale {
   const langs = navigator.languages?.length ? navigator.languages : [navigator.language || 'en'];
-  const first = (langs[0] || 'en').toLowerCase();
-  if (first.startsWith('zh')) {
-    return /hant|-tw|-hk|-mo/.test(first) ? 'zh-hant' : 'zh-hans';
+  for (const tag of langs) {
+    const l = localeOfTag(tag || '');
+    if (l) return l;
   }
   return 'en';
 }
@@ -38,17 +52,27 @@ function initTheme() {
   const root = document.documentElement;
   const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
   if (!button) return;
-  const isDark = () =>
-    root.dataset.theme === 'dark' || (!root.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  const label = () => {
+  const system = window.matchMedia('(prefers-color-scheme: dark)');
+  const isDark = () => root.dataset.theme === 'dark' || (!root.dataset.theme && system.matches);
+  // The browser's toolbar colour follows a manual choice too, not only the system setting.
+  const metas = [...document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')];
+  const colors = metas.map((m) => m.content);
+  const darkColor = metas.find((m) => m.media.includes('dark'))?.content;
+  const lightColor = metas.find((m) => !m.media.includes('dark'))?.content;
+  const sync = () => {
     button.setAttribute('aria-label', isDark() ? button.dataset.labelLight || '' : button.dataset.labelDark || '');
+    const chosen = root.dataset.theme;
+    metas.forEach((m, i) => {
+      m.content = (chosen === 'dark' ? darkColor : chosen === 'light' ? lightColor : colors[i]) ?? colors[i];
+    });
   };
-  label();
+  sync();
+  system.addEventListener?.('change', sync);
   button.addEventListener('click', () => {
     const next = isDark() ? 'light' : 'dark';
     root.dataset.theme = next;
     write(THEME_KEY, next);
-    label();
+    sync();
   });
 }
 
@@ -59,6 +83,8 @@ function initLocale() {
     a.addEventListener('click', () => {
       const l = a.dataset.setLocale ?? null;
       if (isLocale(l)) write(LOCALE_KEY, l);
+      // Section ids are the same in every language, so switching keeps the reader's place.
+      if (location.hash.length > 1 && !a.hash) a.hash = location.hash;
     });
   });
 
@@ -66,19 +92,39 @@ function initLocale() {
   if (!banner) return;
   const saved = read(LOCALE_KEY);
   const suggest = isLocale(saved) ? saved : browserLocale();
-  if (suggest === page) return;
+  if (suggest === page || read(BANNER_KEY) === suggest) return;
   const variant = banner.querySelector<HTMLElement>(`[data-banner-for="${suggest}"]`);
   if (!variant) return;
   variant.hidden = false;
   banner.hidden = false;
+  // The banner is fixed to the bottom of the screen: reserve its height so it never covers the
+  // end of the page or a focused link. A ResizeObserver reports the height once the browser has
+  // laid the page out anyway (no forced layout while the page loads) and again whenever it changes.
+  const reserve = (height: number) => {
+    const h = banner.hidden ? 0 : Math.ceil(height);
+    document.body.style.paddingBottom = h ? `${h}px` : '';
+    document.documentElement.style.scrollPaddingBottom = h ? `${h}px` : '';
+    document.documentElement.style.setProperty('--banner-h', `${h}px`);
+  };
+  const measure = () => reserve(banner.getBoundingClientRect().height);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver((entries) => reserve(entries[0].borderBoxSize?.[0]?.blockSize ?? entries[0].contentRect.height)).observe(banner);
+  } else {
+    measure();
+    window.addEventListener('resize', measure);
+  }
   variant.querySelector('[data-banner-dismiss]')?.addEventListener('click', () => {
-    write(LOCALE_KEY, page);
+    write(BANNER_KEY, suggest);
     banner.hidden = true;
+    reserve(0);
+    // The focused button is gone: continue from the page content instead of the top of the document.
+    document.getElementById('main')?.focus({ preventScroll: true });
   });
 }
 
 function initMenu() {
-  // Close the mobile menu after following an in-page link or pressing Escape.
+  // Close the mobile menu on Escape, when focus moves out of it (so it never hides the focused
+  // element) and on a tap or click outside it.
   const menu = document.querySelector<HTMLDetailsElement>('details.menu');
   if (!menu) return;
   document.addEventListener('keydown', (e) => {
@@ -86,6 +132,13 @@ function initMenu() {
       menu.open = false;
       menu.querySelector('summary')?.focus();
     }
+  });
+  menu.addEventListener('focusout', (e) => {
+    const next = (e as FocusEvent).relatedTarget as Node | null;
+    if (menu.open && next && !menu.contains(next)) menu.open = false;
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
   });
 }
 
@@ -120,10 +173,16 @@ function keepPlace(change: () => void) {
   root.style.overflowAnchor = '';
 }
 
+/** Data saver on, or a 2G/3G-class connection: the system fonts stay (the Noto slices run 1-2 MB). */
+function lightData(): boolean {
+  const c = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  return !!c && (c.saveData === true || /(^|-)(2g|3g)$/.test(c.effectiveType ?? ''));
+}
+
 function initCjkFonts() {
   const root = document.documentElement;
   const lang = root.lang;
-  if (!lang.startsWith('zh') || !('fonts' in document)) return;
+  if (!lang.startsWith('zh') || !('fonts' in document) || lightData()) return;
   const tc = lang === 'zh-Hant';
   const sans = tc ? 'Noto Sans TC' : 'Noto Sans SC';
   const serif = tc ? 'Noto Serif TC' : 'Noto Serif SC';
@@ -156,9 +215,21 @@ function initCjkFonts() {
   else window.addEventListener('load', idle, { once: true });
 }
 
+/** Remember which citation marker was followed, so the Research page can link back to it. */
+function initCiteMemory() {
+  document.addEventListener('click', (e) => {
+    const a = (e.target as Element | null)?.closest?.('sup.cite a') as HTMLAnchorElement | null;
+    if (!a?.id || !a.hash.startsWith('#src-')) return;
+    try {
+      sessionStorage.setItem('wmj-cite-back', JSON.stringify({ from: `${location.pathname}#${a.id}`, src: decodeURIComponent(a.hash.slice(5)) }));
+    } catch {}
+  });
+}
+
 export function initSite() {
   initTheme();
   initLocale();
   initMenu();
   initCjkFonts();
+  initCiteMemory();
 }

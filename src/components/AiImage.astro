@@ -13,10 +13,13 @@ interface Props {
   /** Display width the layout reserves, used for srcset generation. */
   width?: number;
   sizes?: string;
+  /** Fetch first and decode with the page: only for the image that leads the first screen on every device. */
   priority?: boolean;
+  /** Load without waiting for it to scroll near: for images that may be on the first screen. */
+  eager?: boolean;
   class?: string;
 }
-const { id, locale, width = 960, sizes = '(min-width: 860px) 45vw, 100vw', priority = false, class: className } = Astro.props;
+const { id, locale, width = 960, sizes = '(min-width: 860px) 45vw, 100vw', priority = false, eager = false, class: className } = Astro.props;
 const entry = getImageEntry(id);
 const asset = getAiAsset(id);
 const ratio = aspect(entry.size);
@@ -39,6 +42,7 @@ const icon = iconFor[entry.page.split('/')[0]] ?? 'heart';
     layout="constrained"
     sizes={sizes}
     priority={priority}
+    loading={!priority && eager ? 'eager' : undefined}
     class={className}
   />
 ) : (

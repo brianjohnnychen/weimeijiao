@@ -31,7 +31,8 @@ for (const s of situations) {
 }
 const situationTitle = new Map(rendered.map((r) => [r.slug, r.s.data.title]));
 const toc = rendered.map((r) => ({ id: r.slug, text: r.s.data.title }));
-const sep = locale === 'en' ? ', ' : '、';
+// Item names can contain 、 themselves (对着干、说“不”), so Chinese lists of names use ；.
+const sep = locale === 'en' ? ', ' : '；';
 const colon = locale === 'en' ? ': ' : '：';
 const alsoLabel = { 'zh-hans': '相关难题', 'zh-hant': '相關難題', en: 'Related situations' }[locale];
 ---
@@ -48,7 +49,7 @@ const alsoLabel = { 'zh-hans': '相关难题', 'zh-hant': '相關難題', en: 'R
 >
   <Content components={mdxComponents} />
 
-  <nav class="jump-grid" aria-label={ui.approach.onThisPage}>
+  <nav class="jump-grid" aria-label={ui.nav.situations}>
     <ul>
       {rendered.map(({ s, slug }) => <li><a href={`#${slug}`}>{s.data.title}</a></li>)}
     </ul>

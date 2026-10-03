@@ -1,8 +1,10 @@
 ---
-// Marks a finding whose evidence is weak or mixed (SPEC §5a).
+// Marks a finding whose evidence is weak or mixed (SPEC §5a). It links to the Research page's
+// explanation of the labels, so the meaning is one tap away on touch screens too, not only on hover.
 import { t } from '../i18n/ui';
 import type { Locale } from '../i18n/locales';
+import { href, paths } from '../lib/routes';
 const locale = (Astro.locals.cites?.locale ?? 'zh-hans') as Locale;
 const ui = t(locale);
 ---
-<span class="mixed" title={ui.mixed.explain}><span aria-hidden="true">≈</span> {ui.mixed.label}</span>
+<a class="mixed" href={`${href(locale, paths.research())}#evidence-levels`} title={ui.mixed.explain}><span aria-hidden="true">≈</span> {ui.mixed.label}</a><span class="visually-hidden">{locale === 'en' ? '. ' : '。'}</span>

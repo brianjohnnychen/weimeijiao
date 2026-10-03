@@ -61,8 +61,7 @@ const colon = locale === 'en' ? ': ' : '：';
                 </p>
                 <p class="bib-finding">{s.finding[locale]}</p>
                 <p class="bib-cited">
-                  <strong>{data.citedIn}{colon}</strong>
-                  {where.map((w, i) => <>{i > 0 && sep}<a href={w.href}>{w.label}</a></>)}
+                  <strong>{data.citedIn}{colon}</strong>{where.map((w, i) => <>{i > 0 && sep}<a href={w.href}>{w.label}</a></>)}
                 </p>
               </li>
             );
@@ -76,15 +75,22 @@ const colon = locale === 'en' ? ': ' : '：';
 </Article>
 
 <script>
-  // Arriving from a citation marker on another page of this site: offer a one-tap way back
-  // to the exact spot (history.back keeps the scroll position).
+  // Arriving from a citation marker on another page of this site: offer a one-tap way back to
+  // that exact marker. site.ts remembers which marker was clicked (works in a new tab and after
+  // moving around this page); without storage, fall back to the referring page's first marker.
   const back = document.querySelector<HTMLAnchorElement>('[data-back]');
-  const internal = document.referrer && new URL(document.referrer).origin === location.origin && !document.referrer.includes('/research/');
-  if (back && internal && location.hash.startsWith('#src-')) {
+  const src = location.hash.startsWith('#src-') ? decodeURIComponent(location.hash.slice(5)) : '';
+  let target = '';
+  try {
+    const saved = JSON.parse(sessionStorage.getItem('wmj-cite-back') ?? 'null') as { from?: string; src?: string } | null;
+    if (saved?.from && saved.src === src) target = saved.from;
+  } catch {}
+  if (!target && src && document.referrer) {
+    const ref = new URL(document.referrer);
+    if (ref.origin === location.origin && !ref.pathname.includes('/research/')) target = `${ref.pathname}#cite-${src}-1`;
+  }
+  if (back && src && target) {
+    back.href = target;
     back.hidden = false;
-    back.addEventListener('click', (e) => {
-      e.preventDefault();
-      history.back();
-    });
   }
 </script>

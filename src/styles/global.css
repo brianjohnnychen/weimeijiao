@@ -594,10 +594,19 @@ th {
   display: flex;
   border: 1px solid var(--border);
   border-radius: 999px;
-  overflow: hidden;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+/* The pill's ends are rounded on the links themselves (no overflow clipping), so the keyboard
+   focus ring shows in full. */
+.lang-switch li:first-child a {
+  border-radius: 999px 0 0 999px;
+}
+
+.lang-switch li:last-child a {
+  border-radius: 0 999px 999px 0;
 }
 
 .lang-switch li {
@@ -693,6 +702,10 @@ th {
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow);
   padding: 0.5rem var(--gutter) 1rem;
+  /* Short screens (phones in landscape): the panel scrolls on its own so every link stays reachable. */
+  max-height: calc(100dvh - var(--header-h) - var(--banner-h, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .menu-panel ul {
@@ -1648,6 +1661,17 @@ main:focus {
   outline: none;
 }
 
+/* Controls that only work with the script (theme toggle, Print, quiz buttons) stay out of the
+   way when it does not run. */
+html:not(.js) .js-only {
+  display: none !important;
+}
+
+/* A phone number never breaks across lines. */
+a[href^='tel:'] {
+  white-space: nowrap;
+}
+
 /* Mixed-evidence marker and effort chip */
 .mixed {
   display: inline-flex;
@@ -1662,6 +1686,15 @@ main:focus {
   color: var(--ev-emerging-text);
   white-space: nowrap;
   vertical-align: 0.08em;
+  text-decoration: none;
+}
+
+a.mixed {
+  min-height: 24px;
+}
+
+a.mixed:hover {
+  text-decoration: underline;
 }
 
 .effort {
@@ -1778,6 +1811,18 @@ a.anchor:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+}
+
+.filter-count {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-2);
+}
+
+/* Out of the flex flow while empty (no extra gap) but still in the page, so the first count is announced. */
+.filter-count:empty {
+  position: absolute;
 }
 
 .chip-btn {
@@ -1998,7 +2043,7 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
 .back-float {
   position: fixed;
   right: 1rem;
-  bottom: 1rem;
+  bottom: calc(1rem + var(--banner-h, 0px));
   z-index: 50;
   box-shadow: var(--shadow);
 }
@@ -2045,23 +2090,51 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
   margin: 1rem 0;
 }
 
+/* A printable sheet is paper: the whole light colour set applies inside it in every theme
+   (table headers, focus ring, notes and evidence chips included). */
 .sheet {
   background: #ffffff;
   color: #1e1e1a;
+  color-scheme: light;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: clamp(1rem, 3vw, 2rem);
   max-width: 210mm;
   box-shadow: var(--shadow);
-  --heading: #1e1e1a;
+  --bg: var(--cream);
+  --surface: #ffffff;
+  --surface-2: var(--sand);
+  --text: var(--ink);
   --text-2: #47473f;
   --text-3: #66665d;
+  --heading: #1e1e1a;
+  --brand: var(--teal-800);
+  --link: var(--teal-700);
+  --link-hover: var(--teal-900);
+  --accent: var(--orange-700);
+  --accent-bg: var(--orange-100);
+  --btn-bg: var(--teal-700);
+  --btn-bg-hover: var(--teal-900);
+  --btn-text: #ffffff;
+  --chip-bg: var(--teal-100);
+  --chip-text: var(--teal-900);
+  --say-bg: var(--teal-100);
+  --say-border: var(--teal-200);
+  --note-bg: var(--orange-100);
+  --note-border: #ecd2c1;
+  --focus: #1c4f58;
+  --ev-strong-bg: var(--teal-100);
+  --ev-strong-text: var(--teal-900);
+  --ev-moderate-bg: var(--slate-100);
+  --ev-moderate-text: var(--slate-700);
+  --ev-emerging-bg: var(--amber-100);
+  --ev-emerging-text: var(--amber-700);
+  --ev-contested-bg: var(--plum-100);
+  --ev-contested-text: var(--plum-700);
+  --placeholder-a: #d7ebe9;
+  --placeholder-b: #f3e2d4;
+  --placeholder-icon: #23606a;
   --border: #d9d3c7;
-  --say-bg: #e5f1f0;
-  --say-border: #c6e0df;
-  --chip-bg: #e5f1f0;
-  --chip-text: #163d44;
-  --link: #23606a;
 }
 
 .sheet h1 {
@@ -2271,13 +2344,33 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
   font-size: 0.93rem;
 }
 
-/* Quiz */
+/* Quiz: the question number is drawn in the legend so it sits beside the question, not beside
+   option A (a legend is not on the list item's first line). */
 .quiz-list {
-  padding-left: 1.4em;
+  list-style: none;
+  padding-left: 0;
+  counter-reset: quiz;
 }
 
 .quiz-list > li {
   margin-top: 0.9rem;
+  counter-increment: quiz;
+}
+
+.quiz-list legend::before {
+  content: counter(quiz) ". ";
+}
+
+.quiz fieldset.is-missing {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.6rem;
+}
+
+.quiz-missing {
+  margin: 0 0 0.2rem;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .quiz fieldset {
@@ -2333,6 +2426,17 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
   background: #e5f1f0;
 }
 
+/* Kept in the page while empty so screen readers announce the result when it appears. */
+.quiz-result:empty {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.quiz-result p:last-child {
+  margin-bottom: 0;
+}
+
 .quiz-result-title {
   font-weight: 700;
   margin: 0 0 0.5rem;
@@ -2353,6 +2457,22 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
 
 .quiz-note {
   color: #47473f;
+}
+
+/* The narrowest phones (320px): the weekly chart and the age finder key still fit without sideways scrolling. */
+@media screen and (max-width: 359px) {
+  .sheet {
+    padding: 0.75rem;
+  }
+  .routine-table th,
+  .routine-table td,
+  .key-table th,
+  .key-table td {
+    padding: 0.3rem 0.15rem;
+  }
+  .routine-icon {
+    margin-right: 0.15em;
+  }
 }
 
 /* ------------------------------------------------------------------
@@ -2410,6 +2530,11 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
   background: rgb(0 0 0 / 0.88);
 }
 
+/* The page behind an open photo does not scroll. */
+html:has(dialog.lightbox[open]) {
+  overflow: hidden;
+}
+
 .lightbox figure {
   margin: 0;
   height: 100%;
@@ -2432,6 +2557,14 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
   color: #f4efe6;
   font-size: 0.95rem;
   text-align: center;
+}
+
+.lb-count {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  color: #d9d3c7;
+  white-space: nowrap;
 }
 
 .lb-btn {
@@ -2486,6 +2619,45 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
     size: A4;
     margin: 12mm;
   }
+  /* Paper is always light, whatever the screen theme. */
+  :root,
+  :root[data-theme='dark'],
+  :root:not([data-theme='light']) {
+    --bg: var(--cream);
+    --surface: #ffffff;
+    --surface-2: var(--sand);
+    --text: var(--ink);
+    --text-2: #47473f;
+    --text-3: #66665d;
+    --heading: #1e1e1a;
+    --brand: var(--teal-800);
+    --link: var(--teal-700);
+    --link-hover: var(--teal-900);
+    --accent: var(--orange-700);
+    --accent-bg: var(--orange-100);
+    --btn-bg: var(--teal-700);
+    --btn-bg-hover: var(--teal-900);
+    --btn-text: #ffffff;
+    --chip-bg: var(--teal-100);
+    --chip-text: var(--teal-900);
+    --say-bg: var(--teal-100);
+    --say-border: var(--teal-200);
+    --note-bg: var(--orange-100);
+    --note-border: #ecd2c1;
+    --focus: #1c4f58;
+    --ev-strong-bg: var(--teal-100);
+    --ev-strong-text: var(--teal-900);
+    --ev-moderate-bg: var(--slate-100);
+    --ev-moderate-text: var(--slate-700);
+    --ev-emerging-bg: var(--amber-100);
+    --ev-emerging-text: var(--amber-700);
+    --ev-contested-bg: var(--plum-100);
+    --ev-contested-text: var(--plum-700);
+    --placeholder-a: #d7ebe9;
+    --placeholder-b: #f3e2d4;
+    --placeholder-icon: #23606a;
+    --border: var(--line);
+  }
   /* Citation markers are links to the Research page: on paper the footer points there instead. */
   .sheet sup.cite {
     display: none;
@@ -2523,6 +2695,10 @@ main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
   }
   .printable-page main {
     padding: 0;
+  }
+  .sheet-foot {
+    margin-top: 0.5rem;
+    padding-top: 0.3rem;
   }
   .printable-page .container {
     padding: 0;

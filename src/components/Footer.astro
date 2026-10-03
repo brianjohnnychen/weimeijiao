@@ -25,7 +25,7 @@ const links = [
     <div>
       <h2>{LOCALE_META[locale].siteName}</h2>
       <p>{ui.footer.disclaimer}</p>
-      <p>{ui.footer.privacy} {ui.illustrationNote}</p>
+      <p>{ui.footer.privacy}{locale === 'en' ? ' ' : ''}{ui.illustrationNote}</p>
     </div>
     <nav aria-label={ui.footer.sections}>
       <h2>{ui.footer.sections}</h2>

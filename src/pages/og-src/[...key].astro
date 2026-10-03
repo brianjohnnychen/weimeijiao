@@ -21,6 +21,12 @@ export async function getStaticPaths() {
 const { locale, title, image } = Astro.props as { locale: Locale; title: string; image?: string };
 const meta = LOCALE_META[locale];
 const ui = t(locale);
+// Long titles get a smaller size so the card never cuts them off (3 to 4 lines at most).
+const isLong = locale === 'en' ? title.length > 38 : title.length > 14;
+// Words with a hyphen ("one-pager", "(5-7") stay on one line instead of breaking after the hyphen.
+const titleParts = title.split(/([\w(（]*\w-\w[\w)）]*)/).filter(Boolean);
+// The address each reader can type (the other two redirect to the primary domain, SPEC §2).
+const domain = { 'zh-hans': '魏美娇.com', 'zh-hant': '魏美嬌.com', en: 'weimeijiao.com' }[locale];
 ---
 <!doctype html>
 <html lang={meta.lang} data-theme="light">
@@ -29,24 +35,27 @@ const ui = t(locale);
     <meta name="robots" content="noindex" />
     <title>{title}</title>
     {meta.fontCss && <link rel="stylesheet" href={meta.fontCss} />}
-    <style>
+    <style is:global>
       html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
       .og { display: grid; grid-template-columns: 1fr 520px; width: 1200px; height: 630px; background: var(--cream); }
       .og-text { padding: 64px 56px; display: flex; flex-direction: column; justify-content: space-between; }
       .og-brand { display: flex; align-items: center; gap: 14px; color: var(--teal-800); font-family: var(--font-head); font-size: 34px; font-weight: 600; }
       .og-brand svg { width: 56px; height: 56px; }
-      .og-title { font-family: var(--font-head); font-size: 58px; line-height: 1.2; color: var(--ink); margin: 0; }
+      .og-title { font-family: var(--font-head); font-size: 58px; line-height: 1.2; color: var(--ink); margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+      .og-title.long { font-size: 46px; }
+      .og-title .nobr { white-space: nowrap; }
       .og-tag { font-size: 26px; color: var(--ink-2); margin: 0; }
       .og-art { height: 630px; overflow: hidden; }
-      .og-art :is(img, .ai-placeholder) { width: 520px; height: 630px; object-fit: cover; border-radius: 0; }
+      .og-art picture { display: block; width: 520px; height: 630px; }
+      .og-art :is(img, .ai-placeholder) { display: block; width: 520px; height: 630px; max-width: none; object-fit: cover; border-radius: 0; }
     </style>
   </head>
   <body>
     <div class="og">
       <div class="og-text">
         <div class="og-brand"><BrandMark class="og-mark" />{meta.siteName}</div>
-        <h1 class="og-title">{title}</h1>
-        <p class="og-tag">{ui.tagline} · 魏美娇.com</p>
+        <h1 class:list={['og-title', { long: isLong }]}>{titleParts.map((part) => (/\w-\w/.test(part) ? <span class="nobr">{part}</span> : part))}</h1>
+        <p class="og-tag">{ui.tagline} · {domain}</p>
       </div>
       <div class="og-art">{image && <AiImage id={image} locale={locale} width={1040} sizes="520px" priority />}</div>
     </div>

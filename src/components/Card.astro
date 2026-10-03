@@ -2,14 +2,14 @@
 import AiImage from './AiImage.astro';
 import type { Locale } from '../i18n/locales';
 
-interface Props { locale: Locale; title: string; href: string; summary?: string; image?: string; kicker?: string; headingLevel?: 2 | 3; headingId?: string }
-const { locale, title, href, summary, image, kicker, headingLevel = 3, headingId } = Astro.props;
+interface Props { locale: Locale; title: string; href: string; summary?: string; image?: string; kicker?: string; headingLevel?: 2 | 3; headingId?: string; eager?: boolean }
+const { locale, title, href, summary, image, kicker, headingLevel = 3, headingId, eager = false } = Astro.props;
 const H = `h${headingLevel}` as 'h2' | 'h3';
 ---
 <article class="card">
   {image && (
     <div class="card-media">
-      <AiImage id={image} locale={locale} width={640} sizes="(min-width: 1080px) 340px, (min-width: 640px) 45vw, 100vw" />
+      <AiImage id={image} locale={locale} eager={eager} width={640} sizes="(min-width: 1080px) 340px, (min-width: 640px) 45vw, 100vw" />
     </div>
   )}
   <div class="card-body">

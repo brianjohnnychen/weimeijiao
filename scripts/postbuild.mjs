@@ -1,8 +1,8 @@
 // After `astro build`: render printable PDFs and Open Graph images with headless Chrome, then
-// remove the OG source pages from the output. Chrome comes from CHROME_PATH (CI uses the
-// runner's google-chrome) or the local Playwright Chromium.
+// remove the OG source pages from the output and any built asset no page uses any more. Chrome
+// comes from CHROME_PATH (CI uses the runner's google-chrome) or the local Playwright Chromium.
 import { existsSync } from 'node:fs';
-import { mkdir, readdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -108,4 +108,40 @@ server.close();
 if (failures) {
   console.error(`postbuild: ${failures} failure(s)`);
   process.exit(1);
+}
+
+// Built assets nothing links to: originals Astro copies alongside the resized images, variants
+// only the (now removed) OG source pages used, images imported but not shown. A file stays if a
+// page, stylesheet or script in the site refers to it, directly or through another kept file.
+async function files(dir, out = []) {
+  for (const e of await readdir(dir, { withFileTypes: true })) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) await files(p, out);
+    else out.push(p);
+  }
+  return out;
+}
+const astroDir = join(dist, '_astro');
+if (existsSync(astroDir)) {
+  const TEXT = /\.(html|css|js|mjs|json|xml|txt|svg|webmanifest)$/;
+  const assets = new Map((await files(astroDir)).map((f) => [relative(astroDir, f).split('\\').join('/'), f]));
+  const kept = new Set();
+  let queue = [];
+  for (const f of await files(dist)) if (!f.startsWith(astroDir) && TEXT.test(f)) queue.push(await readFile(f, 'utf8'));
+  while (queue.length) {
+    const text = queue.join('\n');
+    queue = [];
+    for (const [name, file] of assets) {
+      if (kept.has(name) || !text.includes(name)) continue;
+      kept.add(name);
+      if (TEXT.test(name)) queue.push(await readFile(file, 'utf8'));
+    }
+  }
+  let bytes = 0;
+  const unused = [...assets].filter(([name]) => !kept.has(name));
+  for (const [, file] of unused) {
+    bytes += (await readFile(file)).length;
+    await rm(file);
+  }
+  console.log(`postbuild: removed ${unused.length} unused built asset(s), ${(bytes / 1048576).toFixed(2)} MiB`);
 }
