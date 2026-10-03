@@ -4,4 +4,12 @@
 #   { search }              Bing and DuckDuckGo results with snippets
 # Remove entries once the question is settled; the job prints matching sentences only.
 # Last batch (2026-10-03, run 37147001796) is recorded in each entry's verified_via.
-[]
+# 2026-10-03 pre-launch probe (not a source): what the domains serve before the first deploy.
+- url: https://xn--3ys368f86s.com/
+  pattern: "."
+- url: http://xn--3ys368f86s.com/
+  pattern: "."
+- url: https://weimeijiao.com/en/toolbox/?smoke=1
+  pattern: "."
+- url: https://xn--k6s926f86s.com/en/
+  pattern: "."
