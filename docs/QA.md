@@ -15,7 +15,7 @@ Latest full run: 2026-10-03 (UTC) on the build session's last commit. Times belo
 | UI check | `node scripts/ui-check.mjs` | 129 page views, no problems ([report](screenshots/ui-check.md)) |
 | Printables | page limits in `scripts/postbuild.mjs` | 39 one-page sheets and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
-| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | see [lighthouse.md](lighthouse.md) and section 7 |
+| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians 95 or higher: performance 98-100 on mobile and 100 on desktop; accessibility, best practices and SEO 100 everywhere ([lighthouse.md](lighthouse.md), section 7) |
 | Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 146 entries: every DOI registered, metadata matches, every link resolves; 0 failures (Actions run 37147001796) |
 | Help lines | same workflow, `helplines` job | all 14 numbers found on their official pages (run 37147001796) |
 
