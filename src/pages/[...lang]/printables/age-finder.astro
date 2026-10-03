@@ -1,4 +1,9 @@
 ---
+import { render } from 'astro:content';
+import Footnotes from '../../../components/Footnotes.astro';
+import { mdxComponents } from '../../../components/mdx';
+import { pageSources } from '../../../lib/cites';
+import { entryText } from '../../../lib/sources';
 // Age finder: 10 questions point to the phase page to start with. Works as an interactive
 // quiz (small script) and as a printable sheet with a scoring key (no script needed).
 import Printable from '../../../layouts/Printable.astro';
@@ -19,6 +24,8 @@ const { locale } = Astro.props as { locale: Locale };
 setupCites(Astro.locals, locale);
 const ui = t(locale);
 const page = await getPage(locale, 'age-finder');
+const { Content: Notes } = await render(page);
+const noteSources = pageSources([page.body]);
 const d = page.data as unknown as { title: string; description: string; lede: string; image?: string; questions: Question[]; note: string; scoringSteps: string[] };
 if (d.questions.length !== 10) throw new Error(`age-finder (${locale}) must have exactly 10 questions`);
 for (const q of d.questions) for (const o of q.options) for (const p of o.phases) if (!PHASES.includes(p)) throw new Error(`Unknown phase ${p} in age-finder ${q.id}`);
@@ -63,6 +70,10 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
     </table>
     <p class="quiz-note">{d.note}</p>
   </section>
+  <Fragment slot="notes">
+    <Notes components={mdxComponents} />
+    <Footnotes locale={locale} ids={noteSources} />
+  </Fragment>
 </Printable>
 
 <script>

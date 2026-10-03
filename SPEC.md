@@ -87,7 +87,7 @@ Brian chose to cover physical discipline by presenting both sides, with the weig
 7.1 **Separate two things up front.** Physical *intervention* for safety (grabbing a child running into the street, holding a child to stop them hurting someone, removing a child from danger) is appropriate and necessary at every age; explain how to do it calmly. Physical *punishment* (spanking, smacking, hitting with objects) is the contested topic the rest of the page covers.
 
 7.2 **What the research says (majority view).** Summarize at minimum, with citations:
-- Gershoff & Grogan-Kaylor (2016), *Journal of Family Psychology*, meta-analysis of ~75 studies / ~160,000 children: spanking associated with more detrimental outcomes and not with better compliance.
+- Gershoff & Grogan-Kaylor (2016), *Journal of Family Psychology*: meta-analyses of 111 effect sizes representing 160,927 children; 13 of 17 mean effect sizes were significant, all linking spanking with more detrimental outcomes (verified against the abstract, which does not give the number of studies or a separate compliance result, so the site does not state those).
 - AAP policy statement "Effective Discipline to Raise Healthy Children" (Sege & Siegel, *Pediatrics*, 2018): recommends against spanking and harsh verbal discipline.
 - Other peer-reviewed meta-analyses, reviews and journal-published policy statements as verified. (The WHO fact sheet and the APA 2019 resolution are not journal publications, so under §6 they are not cited.)
 

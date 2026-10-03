@@ -33,6 +33,11 @@ const printablesTitle = ui.nav.printables;
       <slot />
       <footer class="sheet-foot">{LOCALE_META[locale].siteName} · 魏美娇.com{href(locale, paths.printable(slug))} · {ui.print.sources} 魏美娇.com{href(locale, paths.research())}</footer>
     </article>
+    {Astro.slots.has('notes') && (
+      <section class="printable-notes screen-only prose" data-content aria-label={ui.print.notes}>
+        <slot name="notes" />
+      </section>
+    )}
   </div>
 </Base>
 <script>

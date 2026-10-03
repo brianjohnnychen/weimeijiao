@@ -155,6 +155,7 @@ const str = (f, v, name, { min = 1, max = Infinity } = {}) => {
 };
 
 function checkLink(f, to, where) {
+  if (/^tel:\+?[0-9-]+$/.test(to)) return; // tap-to-call links for help lines
   if (/^https?:\/\//.test(to)) {
     if (!/^https:\/\/(showtellshare\.org|doi\.org)\b/.test(to)) warn(f, `${where}: external link ${to} (only DOIs and showtellshare.org are expected in copy)`);
     return;

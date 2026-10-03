@@ -69,9 +69,14 @@ async function citingPages(locale: Locale): Promise<CitingPage[]> {
   const ui = t(locale);
   const phaseLabel = (p: (typeof PHASES)[number]) => `${ui.phaseName[p]} (${ui.phaseAge[p]})`;
   const list: CitingPage[] = [];
+  // Only what each page actually renders: phase and learning pages show `start` and the body;
+  // their `summary` lists appear on the printable one-pagers instead.
+  const startAndBody = (e: { body?: string; data: unknown } | undefined) =>
+    e ? [JSON.stringify((e.data as { start?: unknown }).start ?? []), e.body ?? ''] : [];
+  const summaryOf = (e: { data: unknown } | undefined) => (e ? [JSON.stringify((e.data as { summary?: unknown }).summary ?? {})] : []);
   for (const p of PHASES) {
     const e = phases.get(p);
-    list.push({ path: paths.phase(p), label: `${ui.nav.byAge}: ${phaseLabel(p)}`, bodies: [entryText(e)] });
+    list.push({ path: paths.phase(p), label: `${ui.nav.byAge}: ${phaseLabel(p)}`, bodies: startAndBody(e) });
   }
   list.push({ path: paths.approach(), label: title('approach'), bodies: [entryText(pages.get('approach'))] });
   list.push({ path: paths.toolbox(), label: title('toolbox'), bodies: [entryText(pages.get('toolbox')), ...TOOLS.map((t) => entryText(tools.get(t)))] });
@@ -80,7 +85,15 @@ async function citingPages(locale: Locale): Promise<CitingPage[]> {
   list.push({ path: paths.physical(), label: title('physical-discipline'), bodies: [entryText(pages.get('physical-discipline'))] });
   for (const p of PHASES) {
     const e = learning.get(p);
-    list.push({ path: paths.learningPhase(p), label: `${ui.nav.learning}: ${phaseLabel(p)}`, bodies: [entryText(e)] });
+    list.push({ path: paths.learningPhase(p), label: `${ui.nav.learning}: ${phaseLabel(p)}`, bodies: startAndBody(e) });
+  }
+  for (const p of PHASES) {
+    list.push({ path: paths.printable(`summary-${p}` as const), label: `${ui.nav.printables}: ${ui.phase.printable} (${ui.phaseAge[p]})`, bodies: summaryOf(phases.get(p)) });
+    list.push({ path: paths.printable(`learning-${p}` as const), label: `${ui.nav.printables}: ${ui.learning.printable} (${ui.phaseAge[p]})`, bodies: summaryOf(learning.get(p)) });
+  }
+  for (const slug of ['age-finder', 'routine-chart', 'calm-down-plan', 'family-rules'] as const) {
+    const e = pages.get(slug);
+    if (e) list.push({ path: paths.printable(slug), label: `${ui.nav.printables}: ${title(slug)}`, bodies: [e.body, slug === 'age-finder' ? JSON.stringify((e.data as { questions?: unknown }).questions ?? []) : ''] });
   }
   for (const slug of ['home', 'by-age', 'learning', 'about', 'printables']) {
     const e = pages.get(slug);
