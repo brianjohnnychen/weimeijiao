@@ -416,7 +416,8 @@ async function chromeText(url) {
 }
 
 // Help lines (About page): each entry lists the official page(s) that publish the number and the
-// strings that must appear there. A line is published on the site only if one source shows it.
+// strings that must appear there. status: published lines are on the site and fail the job if no
+// source shows them any more; status: candidate lines are looked up (with search hints) only.
 async function checkHelplines(fileArg) {
   const list = YAML.parse(readFileSync(join(root, fileArg), 'utf8')) ?? [];
   let failures = 0;
@@ -450,8 +451,11 @@ async function checkHelplines(fileArg) {
       }
       await sleep(400);
     }
-    if (!ok) {
-      failures++;
+    // Only lines the site publishes can fail the job (they guard the About page against stale
+    // numbers, re-checked weekly). Candidates are still being researched: report and search.
+    if (!ok && h.status === 'published') failures++;
+    if (!ok && h.status !== 'published') {
+      report(`    ${h.id}: candidate, not confirmed yet (not published on the site)`);
       for (const q of h.search ?? []) await searchHint(q);
     }
   }
