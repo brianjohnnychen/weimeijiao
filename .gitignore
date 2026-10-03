@@ -1,0 +1,17 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# generated at build time by scripts/fonts.mjs
+public/fonts/
+
+# local tooling
+.lighthouseci/
+*.log
+.DS_Store
+.env
+.env.*
+src/styles/fonts/

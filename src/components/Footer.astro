@@ -1,0 +1,45 @@
+---
+import { LOCALE_META, type Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import { href, paths } from '../lib/routes';
+import { SISTER_SITE } from '../lib/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const ui = t(locale);
+const links = [
+  { label: ui.nav.byAge, path: paths.byAge() },
+  { label: ui.nav.approach, path: paths.approach() },
+  { label: ui.nav.toolbox, path: paths.toolbox() },
+  { label: ui.nav.situations, path: paths.situations() },
+  { label: ui.nav.littleTime, path: paths.littleTime() },
+  { label: ui.nav.physical, path: paths.physical() },
+  { label: ui.nav.learning, path: paths.learning() },
+  { label: ui.nav.research, path: paths.research() },
+  { label: ui.nav.printables, path: paths.printables() },
+  { label: ui.nav.about, path: paths.about() },
+];
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2>{LOCALE_META[locale].siteName}</h2>
+      <p>{ui.footer.disclaimer}</p>
+      <p>{ui.footer.privacy} {ui.illustrationNote}</p>
+    </div>
+    <nav aria-label={ui.footer.sections}>
+      <h2>{ui.footer.sections}</h2>
+      <ul>
+        {links.map((l) => <li><a href={href(locale, l.path)}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2>{ui.footer.sister}</h2>
+      <p><a href={SISTER_SITE} lang="en">showtellshare.org</a><br />{ui.footer.sisterLabel}</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>{ui.footer.copyright}</span>
+    <span><a href={href(locale, paths.about())}>{ui.nav.about}</a></span>
+  </div>
+</footer>

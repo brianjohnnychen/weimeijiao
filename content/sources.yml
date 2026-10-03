@@ -1,0 +1,4 @@
+# Every source the site cites. Fields per SPEC §6: id, authors, year, title, venue, DOI/URL,
+# one-line finding (in all three languages), accessed date. verified_via records how each entry
+# was checked against the source's own page. Never add an entry you have not opened and verified.
+[]

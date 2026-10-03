@@ -1,0 +1,9 @@
+---
+// A script a parent can say, shown as a speech bubble. Quote marks come from CSS per language.
+interface Props { context?: string }
+const { context } = Astro.props;
+---
+<div class="say">
+  {context && <span class="say-context">{context}</span>}
+  <q><slot /></q>
+</div>

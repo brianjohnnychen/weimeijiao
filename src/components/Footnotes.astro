@@ -1,0 +1,33 @@
+---
+import Citation from './Citation.astro';
+import { getSource, sourceAnchor, sourceLink } from '../lib/sources';
+import { href, paths } from '../lib/routes';
+import { t } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+
+interface Props { locale: Locale; ids: string[] }
+const { locale, ids } = Astro.props;
+const ui = t(locale);
+---
+{ids.length > 0 && (
+  <section class="footnotes" aria-labelledby="sources-heading">
+    <h2 id="sources-heading">{ui.sources}</h2>
+    <p class="muted">{ui.sourcesIntro}</p>
+    <ol>
+      {ids.map((id) => {
+        const s = getSource(id);
+        const link = sourceLink(s);
+        return (
+          <li id={`ref-${id}`}>
+            <Citation source={s} locale={locale} />
+            <span class="ref-links">
+              <a href={link.href} rel="noopener" lang="en">{link.label}</a>
+              <a href={`${href(locale, paths.research())}#${sourceAnchor(id)}`}>{ui.researchLink}</a>
+              <a href={`#cite-${id}-1`}>{ui.backToText}</a>
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  </section>
+)}

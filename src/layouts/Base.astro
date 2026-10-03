@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LangBanner from '../components/LangBanner.astro';
+import { LOCALES, LOCALE_META, type Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import { absolute, alternates, ogImagePath } from '../lib/routes';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  /** Leave the site name out of <title> (home page). */
+  bareTitle?: boolean;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  bodyClass?: string;
+}
+
+const { locale, title, description, bareTitle = false, type = 'article', noindex = false, bodyClass } = Astro.props;
+const meta = LOCALE_META[locale];
+const ui = t(locale);
+const pathname = Astro.url.pathname;
+const canonical = absolute(pathname);
+const alts = alternates(pathname);
+const fullTitle = bareTitle ? title : `${title} | ${meta.siteName}`;
+const ogImage = absolute(ogImagePath(pathname));
+const xDefault = alts.find((a) => a.locale === 'zh-hans')!.url;
+const isRootHome = pathname === '/';
+---
+<!doctype html>
+<html lang={meta.lang} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alts.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#fffdf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1f1e1b" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={meta.siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${title} | ${meta.siteName}`} />
+    <meta property="og:locale" content={meta.og} />
+    {LOCALES.filter((l) => l !== locale).map((l) => <meta property="og:locale:alternate" content={LOCALE_META[l].og} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    {meta.fontCss && <link rel="stylesheet" href={meta.fontCss} />}
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('wmj-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    {isRootHome && (
+      <script is:inline>
+        (function () {
+          try {
+            var saved = localStorage.getItem('wmj-locale');
+            var internal = document.referrer && document.referrer.indexOf(location.origin) === 0;
+            if (!internal && (saved === 'en' || saved === 'zh-hant')) location.replace('/' + saved + '/');
+          } catch (e) {}
+        })();
+      </script>
+    )}
+    <slot name="head" />
+  </head>
+  <body class={bodyClass} data-locale={locale}>
+    <a class="skip-link" href="#main">{ui.skipToContent}</a>
+    <LangBanner locale={locale} pathname={pathname} />
+    <Header locale={locale} pathname={pathname} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script>
+      import { initSite } from '../scripts/site';
+      initSite();
+    </script>
+  </body>
+</html>

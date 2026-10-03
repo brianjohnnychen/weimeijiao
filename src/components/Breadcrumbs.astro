@@ -1,0 +1,20 @@
+---
+import type { Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import { href, paths } from '../lib/routes';
+
+interface Props { locale: Locale; trail: { label: string; path?: string }[] }
+const { locale, trail } = Astro.props;
+const ui = t(locale);
+const items = [{ label: ui.breadcrumbHome, path: paths.home() }, ...trail];
+const label = { 'zh-hans': '当前位置', 'zh-hant': '目前位置', en: 'Breadcrumb' }[locale];
+---
+<nav class="breadcrumbs" aria-label={label}>
+  <ol>
+    {items.map((item, i) => (
+      <li>
+        {item.path && i < items.length - 1 ? <a href={href(locale, item.path)}>{item.label}</a> : <span aria-current="page">{item.label}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>

@@ -1,0 +1,19 @@
+---
+// <Cite id="source-id" /> in MDX: a numbered footnote marker. Numbers follow the order of
+// first appearance on the page (the page computes the order and puts it in Astro.locals.cites).
+import { getSource, sourceAnchor } from '../lib/sources';
+import { t } from '../i18n/ui';
+
+interface Props { id: string }
+const { id } = Astro.props;
+getSource(id);
+const ctx = Astro.locals.cites;
+if (!ctx) throw new Error(`<Cite id="${id}"> rendered on a page that did not set up citations`);
+const n = ctx.ids.indexOf(id) + 1;
+if (n === 0) throw new Error(`<Cite id="${id}"> is not in this page's citation list`);
+ctx.seen[id] = (ctx.seen[id] ?? 0) + 1;
+const backId = `cite-${id}-${ctx.seen[id]}`;
+const target = ctx.mode === 'bibliography' ? `#${sourceAnchor(id)}` : `#ref-${id}`;
+const ui = t(ctx.locale);
+---
+<sup class="cite"><a href={target} id={backId} aria-label={`${ui.citeLabel} ${n}`}>{n}</a></sup>

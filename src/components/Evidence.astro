@@ -1,0 +1,18 @@
+---
+import type { EvidenceLevel } from '../lib/site';
+import type { Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+
+interface Props { level: EvidenceLevel; locale: Locale; withLabel?: boolean }
+const { level, locale, withLabel = true } = Astro.props;
+const ui = t(locale);
+const bars = { strong: 3, moderate: 2, emerging: 1, contested: 0 }[level];
+---
+<span class={`evidence evidence-${level}`} title={ui.evidence.explain[level]}>
+  <svg viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+    {level === 'contested'
+      ? <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+      : [0, 1, 2].map((i) => <rect x={1 + i * 4.5} y={9 - i * 3} width="3" height={4 + i * 3} rx="1" fill="currentColor" opacity={i < bars ? 1 : 0.25} />)}
+  </svg>
+  {withLabel ? `${ui.evidence.label}${locale === 'en' ? ': ' : '：'}${ui.evidence[level]}` : ui.evidence[level]}
+</span>
