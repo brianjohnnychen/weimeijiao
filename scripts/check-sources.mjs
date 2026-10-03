@@ -211,6 +211,37 @@ function wrap(text, width = 110, indent = '    ') {
   return out.join('\n');
 }
 
+async function semanticScholarAbstract(doi) {
+  // Real abstracts only (never the machine-generated TLDR).
+  const r = await get(`https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(doi)}?fields=title,abstract`, { json: true });
+  return clean(r.body?.abstract ?? '');
+}
+
+async function publisherAbstract(doi) {
+  try {
+    if (!browserPromise) await chromeStatus('about:blank');
+    const browser = await browserPromise;
+    if (!browser) return '';
+    const page = await browser.newPage({ userAgent: UA_BROWSER });
+    try {
+      await page.goto(`https://doi.org/${doi}`, { waitUntil: 'domcontentloaded', timeout: 40000 });
+      await page.waitForTimeout(3000);
+      const text = await page.evaluate(() => {
+        const meta = (n) => document.querySelector(`meta[name="${n}"], meta[property="${n}"]`)?.getAttribute('content') ?? '';
+        const fromMeta = meta('citation_abstract') || meta('dc.description') || meta('DC.Description') || meta('og:description') || meta('description');
+        const section = document.querySelector('#abstracts, .abstract, #abstract, section.Abstract, div.Abstracts, [class*="abstract" i]');
+        const fromSection = section ? section.textContent : '';
+        return fromSection && fromSection.length > fromMeta.length ? fromSection : fromMeta;
+      });
+      return clean(text);
+    } finally {
+      await page.close();
+    }
+  } catch {
+    return '';
+  }
+}
+
 async function abstractFor(doi, pmid) {
   let pm = pmid;
   let abs = '';
@@ -230,6 +261,17 @@ async function abstractFor(doi, pmid) {
   if (!abs && doi) {
     abs = await openAlexAbstract(doi);
     if (abs) source = 'OpenAlex';
+  }
+  if (!abs && doi) {
+    abs = await semanticScholarAbstract(doi);
+    if (abs) source = 'Semantic Scholar';
+  }
+  if (!abs && doi) {
+    const pub = await publisherAbstract(doi);
+    if (pub && pub.length > 120) {
+      abs = pub;
+      source = 'publisher page';
+    }
   }
   return { abstract: abs, source, pmid: pm };
 }
