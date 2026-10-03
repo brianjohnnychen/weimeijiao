@@ -1922,13 +1922,13 @@ a.anchor:hover {
    off screen until they are scrolled near. Anchors, find-in-page and screen readers still work. */
 .bib-entry {
   content-visibility: auto;
-  contain-intrinsic-size: auto 220px;
+  contain-intrinsic-block-size: auto 220px;
 }
 
 .tool-card,
 .situation {
   content-visibility: auto;
-  contain-intrinsic-size: auto 1400px;
+  contain-intrinsic-block-size: auto 1400px;
 }
 
 .bib-meta {
