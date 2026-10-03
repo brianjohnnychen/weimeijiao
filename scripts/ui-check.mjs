@@ -47,7 +47,9 @@ const rows = [];
 const problems = [];
 
 async function check(locale, name, path, width, scheme) {
-  const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce' });
+  // Browser language matches the page, as for a typical reader (so the "also available in" banner stays hidden).
+  const browserLocale = { 'zh-hans': 'zh-CN', 'zh-hant': 'zh-TW', en: 'en-US' }[locale];
+  const ctx = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, colorScheme: scheme, reducedMotion: 'reduce', locale: browserLocale });
   const page = await ctx.newPage();
   const errors = [];
   page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));

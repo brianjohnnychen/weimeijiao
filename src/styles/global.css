@@ -2444,11 +2444,13 @@ a.anchor:hover {
   }
   :root {
     color-scheme: light;
+    /* rem-based headings and spacing come out a little tighter on paper */
+    font-size: 15px;
   }
   body {
     background: #ffffff;
     color: #1e1e1a;
-    font-size: 11pt;
+    font-size: 10.5pt;
   }
   .site-header,
   .site-footer,
@@ -2496,6 +2498,78 @@ a.anchor:hover {
   }
   .quiz-option {
     min-height: 0;
-    padding: 0.1rem 0.4rem;
+    padding: 0.05rem 0.35rem;
+    margin-top: 0.15rem;
+    font-size: 9pt;
+    line-height: 1.3;
+  }
+  .quiz-option input {
+    margin-top: 0.15em;
+  }
+  /* Age finder on paper: options in two columns so the questions and the scoring key fit on
+     two pages (one sheet, both sides). */
+  .quiz fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.4rem;
+  }
+  .quiz legend {
+    margin-bottom: 0.1rem;
+    font-size: 10pt;
+  }
+  .quiz-list > li {
+    margin-top: 0.35rem;
+    break-inside: avoid;
+  }
+  .quiz-key {
+    margin-top: 0.6rem;
+    font-size: 9pt;
+    break-inside: avoid;
+  }
+  .quiz-key h2 {
+    font-size: 12pt;
+  }
+  .quiz-key ol {
+    margin: 0.2rem 0 0.4rem;
+  }
+  .key-table th,
+  .key-table td {
+    font-size: 8pt;
+    padding: 0.1rem 0.25rem;
+    line-height: 1.25;
+  }
+  /* Calm-down plan on one page. */
+  .calm-grid {
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .calm-box {
+    padding: 0.4rem 0.7rem;
+  }
+  .write-lines span {
+    height: 1.35em;
+  }
+  .calm-adult {
+    margin-top: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 9.5pt;
+    line-height: 1.35;
+  }
+  .calm-adult h2 {
+    margin-bottom: 0.15rem;
+  }
+  .calm-adult ul {
+    margin: 0;
+  }
+  .calm-adult li,
+  .calm-adult li + li {
+    margin: 0;
+  }
+  .calm-box h2 {
+    font-size: 11.5pt;
+    margin-bottom: 0.2rem;
+  }
+  .check-list li {
+    line-height: 1.4;
   }
 }

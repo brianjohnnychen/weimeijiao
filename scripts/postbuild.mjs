@@ -13,6 +13,10 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const PRINTABLES = ['age-finder', 'summary-0-12-months', 'summary-1-3-years', 'summary-3-5-years', 'summary-5-7-years', 'summary-7-10-years', 'learning-0-12-months', 'learning-1-3-years', 'learning-3-5-years', 'learning-5-7-years', 'learning-7-10-years', 'routine-chart', 'calm-down-plan', 'family-rules'];
 const PREFIXES = ['', '/zh-hant', '/en'];
+// Page limits: every printable is a one-page sheet except the age finder (one sheet, both sides).
+const MAX_PAGES = { 'age-finder': 2 };
+// Chrome's PDFs keep the page tree uncompressed: the root /Pages node carries the page count.
+const pageCount = (pdf) => Math.max(0, ...[...pdf.toString('latin1').matchAll(/\/Type\s*\/Pages\b[^>]*?\/Count\s+(\d+)|\/Count\s+(\d+)[^>]*?\/Type\s*\/Pages\b/g)].map((m) => Number(m[1] ?? m[2])));
 
 function chromePath() {
   const candidates = [process.env.CHROME_PATH, '/opt/pw-browsers/chromium-1194/chrome-linux/chrome', '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium', '/usr/bin/chromium-browser'];
@@ -76,7 +80,17 @@ await pool(jobs, 4, async ({ prefix, slug }) => {
     await page.goto(`${url}${prefix}/printables/${slug}/`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
     await page.emulateMedia({ media: 'print' });
-    const pdf = await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true });
+    // If a sheet runs over its page limit, shrink it slightly (never below 86%) until it fits.
+    const max = MAX_PAGES[slug] ?? 1;
+    let scale = 1;
+    let pdf = await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true, scale });
+    while (pageCount(pdf) > max && scale > 0.87) {
+      scale = Math.round((scale - 0.02) * 100) / 100;
+      pdf = await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true, scale });
+    }
+    const pages = pageCount(pdf);
+    if (pages > max) throw new Error(`${pages} pages at ${Math.round(scale * 100)}% (limit ${max}); shorten the sheet`);
+    if (scale < 1) console.log(`postbuild: ${prefix || '/'} ${slug} scaled to ${Math.round(scale * 100)}% to fit ${max} page(s)`);
     const outDir = join(dist, prefix.replace(/^\//, ''), 'printables');
     await mkdir(outDir, { recursive: true });
     await writeFile(join(outDir, `${slug}.pdf`), pdf);
