@@ -5,7 +5,7 @@ import AiImage from '../../components/AiImage.astro';
 import Footnotes from '../../components/Footnotes.astro';
 import { mdxComponents } from '../../components/mdx';
 import { localeStaticPaths, LOCALE_META, type Locale } from '../../i18n/locales';
-import { t } from '../../i18n/ui';
+import { t, withColon } from '../../i18n/ui';
 import { PHASES } from '../../lib/site';
 import { getPage, getPhases, assertParity } from '../../lib/content';
 import { href, paths } from '../../lib/routes';
@@ -91,7 +91,7 @@ const entryLinks: { key: keyof HomeData['entries']; path: string }[] = [
           </li>
         ))}
       </ul>
-      <p class="muted"><a href={href(locale, paths.printable('age-finder'))}>{ui.nav.printables}: {(await getPage(locale, 'age-finder')).data.title}</a></p>
+      <p class="muted"><a href={href(locale, paths.printable('age-finder'))}>{withColon(locale, ui.nav.printables, (await getPage(locale, 'age-finder')).data.title)}</a></p>
     </div>
   </section>
 

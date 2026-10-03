@@ -1,7 +1,7 @@
 // Every page of the site (locale-neutral path, plus title and illustration per locale).
 // Used by the sitemap, the OG image sources and the QA scripts.
 import { LOCALES, type Locale } from '../i18n/locales';
-import { t } from '../i18n/ui';
+import { t, withColon, phaseLabel } from '../i18n/ui';
 import { PHASES, PRINTABLES } from './site';
 import { paths } from './routes';
 import { getPage, getPhase, getLearning } from './content';
@@ -30,7 +30,7 @@ export async function pageList(): Promise<PageInfo[]> {
   await titled(paths.byAge(), 'by-age');
   for (const p of PHASES) {
     const img = (await getPhase('en', p)).data.image;
-    list.push({ path: paths.phase(p), title: byLocale((l) => `${t(l).phaseName[p]} (${t(l).phaseAge[p]})`), image: img });
+    list.push({ path: paths.phase(p), title: byLocale((l) => phaseLabel(l, p)), image: img });
   }
   await titled(paths.approach(), 'approach');
   await titled(paths.toolbox(), 'toolbox');
@@ -41,7 +41,7 @@ export async function pageList(): Promise<PageInfo[]> {
   for (const p of PHASES) {
     const img = (await getLearning('en', p)).data.image;
     const hub = byLocale((l) => t(l).nav.learning);
-    list.push({ path: paths.learningPhase(p), title: byLocale((l) => `${hub[l]}: ${t(l).phaseName[p]} (${t(l).phaseAge[p]})`), image: img });
+    list.push({ path: paths.learningPhase(p), title: byLocale((l) => withColon(l, hub[l], phaseLabel(l, p))), image: img });
   }
   await titled(paths.research(), 'research');
   await titled(paths.printables(), 'printables');
@@ -52,7 +52,7 @@ export async function pageList(): Promise<PageInfo[]> {
       const img = kind === 'summary' ? (await getPhase('en', p)).data.image : (await getLearning('en', p)).data.image;
       list.push({
         path: paths.printable(slug),
-        title: byLocale((l) => `${kind === 'summary' ? t(l).phase.printable : t(l).learning.printable}: ${t(l).phaseName[p]} (${t(l).phaseAge[p]})`),
+        title: byLocale((l) => withColon(l, kind === 'summary' ? t(l).phase.printable : t(l).learning.printable, phaseLabel(l, p))),
         image: img,
       });
     } else {

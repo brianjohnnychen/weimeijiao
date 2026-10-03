@@ -3,7 +3,7 @@ import { render } from 'astro:content';
 import Article from '../../../layouts/Article.astro';
 import { mdxComponents } from '../../../components/mdx';
 import { localeStaticPaths, type Locale } from '../../../i18n/locales';
-import { t } from '../../../i18n/ui';
+import { t, phaseLabel } from '../../../i18n/ui';
 import { PHASES, PRINTABLES } from '../../../lib/site';
 import { getPage, getPhase, getLearning } from '../../../lib/content';
 import { href, paths } from '../../../lib/routes';
@@ -24,11 +24,11 @@ const d = page.data as unknown as { title: string; description: string; lede?: s
 const titleOf = async (slug: (typeof PRINTABLES)[number]) => {
   if (slug.startsWith('summary-')) {
     const p = slug.replace('summary-', '') as (typeof PHASES)[number];
-    return { title: `${ui.phaseName[p]} (${ui.phaseAge[p]})`, text: (await getPhase(locale, p)).data.lede };
+    return { title: phaseLabel(locale, p), text: (await getPhase(locale, p)).data.lede };
   }
   if (slug.startsWith('learning-')) {
     const p = slug.replace('learning-', '') as (typeof PHASES)[number];
-    return { title: `${ui.phaseName[p]} (${ui.phaseAge[p]})`, text: (await getLearning(locale, p)).data.lede };
+    return { title: phaseLabel(locale, p), text: (await getLearning(locale, p)).data.lede };
   }
   const e = await getPage(locale, slug);
   return { title: e.data.title, text: e.data.description };

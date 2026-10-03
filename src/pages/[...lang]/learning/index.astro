@@ -4,7 +4,7 @@ import Article from '../../../layouts/Article.astro';
 import Card from '../../../components/Card.astro';
 import { mdxComponents } from '../../../components/mdx';
 import { localeStaticPaths, type Locale } from '../../../i18n/locales';
-import { t } from '../../../i18n/ui';
+import { t, phaseLabel } from '../../../i18n/ui';
 import { PHASES } from '../../../lib/site';
 import { getPage, getLearningPhases, assertParity } from '../../../lib/content';
 import { href, paths } from '../../../lib/routes';
@@ -32,7 +32,7 @@ const data = page.data as { title: string; description: string; lede?: string; i
     <ul class="card-grid">
       {PHASES.map((p, i) => (
         <li id={`learning-${p}`}>
-          <Card locale={locale} title={`${ui.phaseName[p]} (${ui.phaseAge[p]})`} href={href(locale, paths.learningPhase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} headingId={`learning-${p}-title`} />
+          <Card locale={locale} title={phaseLabel(locale, p)} href={href(locale, paths.learningPhase(p))} summary={phases[i].data.lede} image={phases[i].data.image} kicker={ui.phaseAge[p]} headingId={`learning-${p}-title`} />
         </li>
       ))}
     </ul>

@@ -9,7 +9,7 @@ import { entryText } from '../../../lib/sources';
 import Printable from '../../../layouts/Printable.astro';
 import RichText from '../../../components/RichText.astro';
 import { localeStaticPaths, type Locale } from '../../../i18n/locales';
-import { t } from '../../../i18n/ui';
+import { t, phaseLabel } from '../../../i18n/ui';
 import { PHASES, type Phase } from '../../../lib/site';
 import { getPage } from '../../../lib/content';
 import { href, paths } from '../../../lib/routes';
@@ -29,11 +29,11 @@ const noteSources = pageSources([page.body]);
 const d = page.data as unknown as { title: string; description: string; lede: string; image?: string; questions: Question[]; note: string; scoringSteps: string[] };
 if (d.questions.length !== 10) throw new Error(`age-finder (${locale}) must have exactly 10 questions`);
 for (const q of d.questions) for (const o of q.options) for (const p of o.phases) if (!PHASES.includes(p)) throw new Error(`Unknown phase ${p} in age-finder ${q.id}`);
-const phaseLinks = Object.fromEntries(PHASES.map((p) => [p, { href: href(locale, paths.phase(p)), label: `${ui.phaseName[p]} (${ui.phaseAge[p]})` }]));
+const phaseLinks = Object.fromEntries(PHASES.map((p) => [p, { href: href(locale, paths.phase(p)), label: phaseLabel(locale, p) }]));
 const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
 ---
 <Printable locale={locale} slug="age-finder" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-quiz">
-  <form class="quiz" id="quiz" data-quiz data-phases={JSON.stringify(phaseLinks)} data-labels={JSON.stringify({ incomplete: ui.quiz.incomplete, result: ui.quiz.result, also: ui.quiz.also, read: ui.quiz.read })}>
+  <form class="quiz" id="quiz" data-quiz data-phases={JSON.stringify(phaseLinks)} data-labels={JSON.stringify({ incomplete: ui.quiz.incomplete, result: ui.quiz.result, also: ui.quiz.also, read: ui.quiz.read, colon: locale === 'en' ? ': ' : '：' })}>
     <ol class="quiz-list">
       {d.questions.map((q, qi) => (
         <li id={`q-${q.id}`}>
@@ -115,11 +115,11 @@ const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
       const a = document.createElement('a');
       a.className = 'btn';
       a.href = phases[best].href;
-      a.textContent = `${labels.read}: ${phases[best].label}`;
+      a.textContent = `${labels.read}${labels.colon}${phases[best].label}`;
       result.append(h, a);
       if (scores[second] > 0 && scores[best] - scores[second] <= 1.5) {
         const also = document.createElement('p');
-        also.append(`${labels.also}: `);
+        also.append(`${labels.also}${labels.colon}`);
         const a2 = document.createElement('a');
         a2.href = phases[second].href;
         a2.textContent = phases[second].label;

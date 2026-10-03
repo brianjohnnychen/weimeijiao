@@ -6,7 +6,7 @@ import { SOURCES, citeIdsIn, entryText, getSource, type Source } from './sources
 import type { Locale } from '../i18n/locales';
 import { TOOLS, SITUATIONS, PHASES } from './site';
 import { href, paths } from './routes';
-import { t } from '../i18n/ui';
+import { t, withColon, inBrackets, phaseLabel as phaseLabelFor } from '../i18n/ui';
 
 /** Research page sections, in display order. A source goes in the first section whose topic it has. */
 export const RESEARCH_GROUPS = [
@@ -72,7 +72,7 @@ async function citingPages(locale: Locale): Promise<CitingPage[]> {
   ]);
   const title = (slug: string) => (pages.get(slug)?.data as { title?: string } | undefined)?.title ?? slug;
   const ui = t(locale);
-  const phaseLabel = (p: (typeof PHASES)[number]) => `${ui.phaseName[p]} (${ui.phaseAge[p]})`;
+  const phaseLabel = (p: (typeof PHASES)[number]) => phaseLabelFor(locale, p);
   const list: CitingPage[] = [];
   // Only what each page actually renders: phase and learning pages show `start` and the body;
   // their `summary` lists appear on the printable one-pagers instead.
@@ -93,8 +93,8 @@ async function citingPages(locale: Locale): Promise<CitingPage[]> {
     list.push({ path: paths.learningPhase(p), label: `${ui.nav.learning}: ${phaseLabel(p)}`, bodies: startAndBody(e) });
   }
   for (const p of PHASES) {
-    list.push({ path: paths.printable(`summary-${p}` as const), label: `${ui.nav.printables}: ${ui.phase.printable} (${ui.phaseAge[p]})`, bodies: summaryOf(phases.get(p)) });
-    list.push({ path: paths.printable(`learning-${p}` as const), label: `${ui.nav.printables}: ${ui.learning.printable} (${ui.phaseAge[p]})`, bodies: summaryOf(learning.get(p)) });
+    list.push({ path: paths.printable(`summary-${p}` as const), label: withColon(locale, ui.nav.printables, `${ui.phase.printable}${locale === 'en' ? ' ' : ''}${inBrackets(locale, ui.phaseAge[p])}`), bodies: summaryOf(phases.get(p)) });
+    list.push({ path: paths.printable(`learning-${p}` as const), label: withColon(locale, ui.nav.printables, `${ui.learning.printable}${locale === 'en' ? ' ' : ''}${inBrackets(locale, ui.phaseAge[p])}`), bodies: summaryOf(learning.get(p)) });
   }
   for (const slug of ['age-finder', 'routine-chart', 'calm-down-plan', 'family-rules'] as const) {
     const e = pages.get(slug);

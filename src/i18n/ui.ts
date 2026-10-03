@@ -310,3 +310,21 @@ export const UI: Record<Locale, UiStrings> = {
 export function t(locale: Locale): UiStrings {
   return UI[locale];
 }
+
+/** Label and value joined with the locale's colon: "Printables: Age finder" in English,
+ *  full-width "打印资料：年龄小测验" in Chinese. */
+export function withColon(locale: Locale, label: string, value: string): string {
+  return locale === 'en' ? `${label}: ${value}` : `${label}：${value}`;
+}
+
+/** A phase with its age range, punctuated for the locale: "Toddlers (1-3 years)",
+ *  "学步儿（1-3 岁）". */
+export function phaseLabel(locale: Locale, phase: Phase): string {
+  const ui = t(locale);
+  return locale === 'en' ? `${ui.phaseName[phase]} (${ui.phaseAge[phase]})` : `${ui.phaseName[phase]}（${ui.phaseAge[phase]}）`;
+}
+
+/** An age range in brackets, punctuated for the locale: "(1-3 years)", "（1-3 岁）". */
+export function inBrackets(locale: Locale, text: string): string {
+  return locale === 'en' ? `(${text})` : `（${text}）`;
+}

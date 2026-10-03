@@ -3,7 +3,7 @@ import { render } from 'astro:content';
 import Article from '../../../layouts/Article.astro';
 import { mdxComponents } from '../../../components/mdx';
 import { LOCALES, paramFromLocale, type Locale } from '../../../i18n/locales';
-import { t } from '../../../i18n/ui';
+import { t, withColon, phaseLabel } from '../../../i18n/ui';
 import { PHASES, type Phase } from '../../../lib/site';
 import { getPhase, getTool, getSituation, assertParity } from '../../../lib/content';
 import { href, paths } from '../../../lib/routes';
@@ -28,7 +28,7 @@ const situations = await Promise.all(entry.data.situations.map((s) => getSituati
 const i = PHASES.indexOf(phase);
 const prev = i > 0 ? PHASES[i - 1] : undefined;
 const next = i < PHASES.length - 1 ? PHASES[i + 1] : undefined;
-const title = `${ui.phaseName[phase]} (${ui.phaseAge[phase]})`;
+const title = phaseLabel(locale, phase);
 ---
 <Article
   locale={locale}
@@ -50,8 +50,8 @@ const title = `${ui.phaseName[phase]} (${ui.phaseAge[phase]})`;
   </section>
 
   <nav class="pager" aria-label={ui.nav.byAge}>
-    {prev ? <a class="prev" href={href(locale, paths.phase(prev))}><small>{ui.phase.prev}</small>{ui.phaseName[prev]} ({ui.phaseAge[prev]})</a> : <span />}
-    {next ? <a class="next" href={href(locale, paths.phase(next))}><small>{ui.phase.next}</small>{ui.phaseName[next]} ({ui.phaseAge[next]})</a> : <span />}
+    {prev ? <a class="prev" href={href(locale, paths.phase(prev))}><small>{ui.phase.prev}</small>{phaseLabel(locale, prev)}</a> : <span />}
+    {next ? <a class="next" href={href(locale, paths.phase(next))}><small>{ui.phase.next}</small>{phaseLabel(locale, next)}</a> : <span />}
   </nav>
 
   <Fragment slot="aside">
@@ -65,7 +65,7 @@ const title = `${ui.phaseName[phase]} (${ui.phaseAge[phase]})`;
     </nav>
     <nav class="aside-box" aria-labelledby="phase-learning-heading">
       <h2 id="phase-learning-heading">{ui.nav.learning}</h2>
-      <ul><li><a href={href(locale, paths.learningPhase(phase))}>{ui.learning.byAge}: {ui.phaseAge[phase]}</a></li></ul>
+      <ul><li><a href={href(locale, paths.learningPhase(phase))}>{withColon(locale, ui.learning.byAge, ui.phaseAge[phase])}</a></li></ul>
     </nav>
   </Fragment>
 </Article>

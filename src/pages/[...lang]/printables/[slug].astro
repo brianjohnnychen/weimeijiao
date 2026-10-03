@@ -3,7 +3,7 @@
 import Printable from '../../../layouts/Printable.astro';
 import RichText from '../../../components/RichText.astro';
 import { LOCALES, paramFromLocale, type Locale } from '../../../i18n/locales';
-import { t } from '../../../i18n/ui';
+import { t, withColon, phaseLabel } from '../../../i18n/ui';
 import { PHASES, type Phase } from '../../../lib/site';
 import { getPhase, getLearning, getPage } from '../../../lib/content';
 import { setupCites } from '../../../lib/page';
@@ -25,14 +25,14 @@ const labels = {
   'zh-hant': { learnEveryday: '每天可以做的事', learnTalk: '可以這樣聊', learnAvoid: '少做這些' },
   en: { learnEveryday: 'Every day', learnTalk: 'Things to talk about', learnAvoid: 'Go easy on' },
 }[locale];
-const phaseTitle = `${ui.phaseName[phase]} (${ui.phaseAge[phase]})`;
+const phaseTitle = phaseLabel(locale, phase);
 let title = '';
 let description = '';
 let image = '';
 let sections: { id: string; heading: string; items: string[]; say?: boolean }[] = [];
 if (kind === 'summary') {
   const e = await getPhase(locale, phase);
-  title = `${ui.phase.printable}: ${phaseTitle}`;
+  title = withColon(locale, ui.phase.printable, phaseTitle);
   description = e.data.description;
   image = e.data.image;
   sections = [
@@ -44,7 +44,7 @@ if (kind === 'summary') {
 } else {
   const e = await getLearning(locale, phase);
   const hub = await getPage(locale, 'learning');
-  title = `${ui.learning.printable}: ${phaseTitle}`;
+  title = withColon(locale, ui.learning.printable, phaseTitle);
   description = e.data.description;
   image = e.data.image;
   sections = [
