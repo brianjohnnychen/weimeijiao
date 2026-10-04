@@ -47,7 +47,7 @@ jobs:
           CHROME_PATH: /usr/bin/google-chrome
         run: node scripts/behavior-test.mjs
 
-      - name: Keyboard test (375px: skip link, header controls, menu, theme, contents links, lightbox, quiz)
+      - name: Keyboard test (375px skip link, header controls, menu, theme, contents links, lightbox, quiz)
         env:
           CHROME_PATH: /usr/bin/google-chrome
         run: node scripts/keyboard-test.mjs
