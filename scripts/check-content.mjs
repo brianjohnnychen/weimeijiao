@@ -19,7 +19,7 @@ const LOCALES = ['zh-hans', 'zh-hant', 'en'];
 const PHASES = ['0-12-months', '1-3-years', '3-5-years', '5-7-years', '7-10-years', '10-12-years'];
 const TOOLS = ['connection-time', 'clear-expectations', 'specific-praise', 'planned-ignoring', 'redirection', 'choices', 'when-then', 'natural-consequences', 'logical-consequences', 'time-in', 'time-out', 'privilege-removal', 'problem-solving', 'routines', 'family-meetings', 'repair'];
 const SITUATIONS = ['tantrums', 'public-meltdowns', 'hitting-biting', 'sibling-fighting', 'bedtime', 'mealtime', 'screens', 'lying', 'defiance', 'whining', 'homework', 'grandparents'];
-const EDGE_CASES = ['refuses-time-out', 'aggression', 'public-places', 'siblings', 'caregivers-disagree', 'grandparents', 'dangerous-behavior', 'developmental-differences', 'not-working'];
+const EDGE_CASES = ['refuses-time-out', 'aggression', 'public-places', 'siblings', 'caregivers-disagree', 'grandparents', 'dangerous-behavior', 'developmental-differences', 'preteens', 'not-working'];
 const EVIDENCE = ['strong', 'moderate', 'emerging', 'contested'];
 const ICONS = ['wake', 'toilet', 'wash', 'teeth', 'dress', 'breakfast', 'shoes', 'backpack', 'play', 'dinner', 'bath', 'pajamas', 'book', 'sleep', 'tidy', 'homework'];
 const PRINTABLES = ['age-finder', ...PHASES.map((p) => `summary-${p}`), ...PHASES.map((p) => `learning-${p}`), 'routine-chart', 'calm-down-plan', 'family-rules'];
@@ -37,6 +37,7 @@ const TEMPLATE_ANCHORS = {
   '/by-age/': ['phases', 'phases-title', ...PHASES.map((p) => `phase-${p}`)],
   '/learning/': ['by-age', ...PHASES.map((p) => `learning-${p}`)],
   '/about/': ['photos', ...Array.from({ length: 12 }, (_, i) => `photo-${i + 1}`)],
+  '/sources/': ['all', 'all-heading', ...['programs', 'techniques', 'physical', 'development', 'everyday', 'learning'].map((g) => `group-${g}`), ...[...sources].map((id) => `src-${id}`)],
 };
 for (const p of PHASES) {
   TEMPLATE_ANCHORS[`/by-age/${p}/`] = ['start', 'printable'];
@@ -58,6 +59,7 @@ const PLANNED = {
   '/physical-discipline/': ['safety-vs-punishment', 'safety-holds', 'majority-view', 'minority-view', 'agreement', 'disagreement', 'major-bodies', 'decide', 'warning-signs', 'instead', 'repair', 'law'],
   '/research/': ['how-to-read', 'study-types', 'correlation', 'effect-sizes', 'evidence-levels', 'limits'],
   '/about/': ['story', 'why', 'sister-site', 'disclaimer', 'get-help', 'help-lines'],
+  '/sources/': ['intro'],
   '/toolbox/': ['intro', 'how-to-use'],
   '/situations/': ['intro', 'first-aid'],
   '/by-age/': ['intro', 'how-to-use'],
@@ -69,7 +71,7 @@ for (const p of PHASES) {
   PLANNED[`/by-age/${p}/`] = ['normal', 'works', 'backfires', 'say'];
   PLANNED[`/learning/${p}/`] = ['talk', 'read', 'play', 'praise', 'motivation', 'focus', 'numbers', 'sleep-screens', 'homework', 'study', 'evidence'];
 }
-const ROUTES = new Set(['/', '/by-age/', ...PHASES.map((p) => `/by-age/${p}/`), '/approach/', '/toolbox/', '/situations/', '/little-time/', '/physical-discipline/', '/learning/', ...PHASES.map((p) => `/learning/${p}/`), '/research/', '/printables/', ...PRINTABLES.map((p) => `/printables/${p}/`), '/about/']);
+const ROUTES = new Set(['/', '/by-age/', ...PHASES.map((p) => `/by-age/${p}/`), '/approach/', '/toolbox/', '/situations/', '/little-time/', '/physical-discipline/', '/learning/', ...PHASES.map((p) => `/learning/${p}/`), '/research/', '/printables/', ...PRINTABLES.map((p) => `/printables/${p}/`), '/about/', '/sources/']);
 
 const toTw = OpenCC.Converter({ from: 't', to: 'tw' });
 const toCn = OpenCC.Converter({ from: 't', to: 'cn' });
@@ -110,7 +112,7 @@ const routeOf = (collection, slug) => {
   if (collection === 'learning') return `/learning/${slug}/`;
   if (collection === 'tools') return '/toolbox/';
   if (collection === 'situations') return '/situations/';
-  const map = { home: '/', 'by-age': '/by-age/', approach: '/approach/', toolbox: '/toolbox/', situations: '/situations/', 'little-time': '/little-time/', 'physical-discipline': '/physical-discipline/', learning: '/learning/', research: '/research/', printables: '/printables/', about: '/about/', 'age-finder': '/printables/age-finder/', 'routine-chart': '/printables/routine-chart/', 'calm-down-plan': '/printables/calm-down-plan/', 'family-rules': '/printables/family-rules/' };
+  const map = { home: '/', 'by-age': '/by-age/', approach: '/approach/', toolbox: '/toolbox/', situations: '/situations/', 'little-time': '/little-time/', 'physical-discipline': '/physical-discipline/', learning: '/learning/', research: '/research/', printables: '/printables/', about: '/about/', sources: '/sources/', 'age-finder': '/printables/age-finder/', 'routine-chart': '/printables/routine-chart/', 'calm-down-plan': '/printables/calm-down-plan/', 'family-rules': '/printables/family-rules/' };
   return map[slug];
 };
 const parsed = new Map();
