@@ -114,6 +114,8 @@ function crossrefSummary(m) {
     type: m?.type,
     publisher: m?.publisher,
     abstract: clean(m?.abstract),
+    resourceUrl: m?.resource?.primary?.URL,
+    altIds: (m?.['alternative-id'] ?? []).map(String),
   };
 }
 
@@ -226,8 +228,8 @@ const WRONG_PAGE = /^(home|homepage|search|search results|log ?in|sign ?in|error
 
 /** The publisher's URL for a DOI usually embeds the DOI (psycnet.apa.org/doiLanding?doi=..., onlinelibrary.wiley.com/doi/...),
  *  so a final URL that carries the cited DOI is that work's page even when the body cannot be read. doi.org itself does not count. */
-function urlCarriesDoi(url, doi) {
-  if (!url || !doi) return false;
+function urlCarriesWork(url, work) {
+  if (!url || !work) return false;
   let u = String(url);
   try {
     u = decodeURIComponent(u);
@@ -237,11 +239,24 @@ function urlCarriesDoi(url, doi) {
   } catch {
     return false;
   }
-  return u.toLowerCase().includes(String(doi).toLowerCase());
+  const low = u.toLowerCase();
+  if (work.doi && low.includes(String(work.doi).toLowerCase())) return 'the cited DOI';
+  // Crossref's alternative-id is the publisher's own id for the work (Elsevier's PII, for example).
+  for (const id of work.altIds ?? []) if (id.length >= 6 && /\d/.test(id) && low.includes(id.toLowerCase())) return `the publisher's id for this work (${id})`;
+  const norm = (x) => {
+    try {
+      const v = new URL(x);
+      return (v.hostname.replace(/^www\./, '') + v.pathname.replace(/\/$/, '')).toLowerCase();
+    } catch {
+      return '';
+    }
+  };
+  if (work.resourceUrl && norm(u) && norm(u) === norm(work.resourceUrl)) return 'the landing URL Crossref registers for this DOI';
+  return false;
 }
 
 /** Does the landing page carry the cited work? By its DOI in the page metadata, by its title, or by its URL. */
-function landingMatch(s, link) {
+function landingMatch(s, link, work = { doi: s.doi }) {
   const doi = String(s.doi ?? '').toLowerCase();
   const pageDois = (link.metas?.doi ?? []).map((d) => String(d).toLowerCase().replace(/^(doi:|https?:\/\/(dx\.)?doi\.org\/)/, ''));
   if (doi && pageDois.includes(doi)) return { ok: true, how: 'DOI in page metadata' };
@@ -249,7 +264,8 @@ function landingMatch(s, link) {
   let best = 0;
   for (const t of titles) best = Math.max(best, titleScore(t, s.title), titleScore(t.replace(/\s*[|:-]\s*[^|:-]*$/, ''), s.title));
   if (best >= 0.5) return { ok: true, how: `title matches (${best.toFixed(2)})` };
-  if (doi && urlCarriesDoi(link.finalUrl, doi)) return { ok: true, how: `final URL carries the cited DOI (${link.finalUrl})` };
+  const carried = urlCarriesWork(link.finalUrl, work);
+  if (carried) return { ok: true, how: `final URL carries ${carried} (${link.finalUrl})` };
   const host = (() => { try { return new URL(link.finalUrl ?? s.url).pathname; } catch { return ''; } })();
   const looksWrong = WRONG_PAGE.test(clean(link.title ?? '')) || host === '/' || /\/search\b|\/login\b|\/error\b/i.test(host);
   return { ok: false, how: looksWrong ? `landing page is not the work (title "${(link.title ?? '').slice(0, 80)}", path ${host})` : `title does not match (best ${best.toFixed(2)}: "${(link.title ?? '').slice(0, 80)}")` };
@@ -344,15 +360,17 @@ async function checkSources(details) {
   let failures = 0;
   let warnings = 0;
   const landing = { byDoi: 0, byTitle: 0, byUrl: 0, byUrlBlocked: 0, blocked: 0, wrong: 0, notDoiLink: 0 };
+  const lists = { byUrlBlocked: [], blocked: [], wrong: [] };
   report(`Checking ${sources.length} sources in content/sources.yml\n`);
   summary.push('| id | DOI / metadata | link | notes |', '|---|---|---|---|');
   for (const s of sources) {
     const notes = [];
     let doiCell = 'n/a';
     let doiOk = false;
+    let cr = null;
     if (s.doi) {
       const registered = await doiRegistered(s.doi);
-      const cr = await crossrefWork(s.doi);
+      cr = await crossrefWork(s.doi);
       if (!registered && !cr) {
         doiCell = 'FAIL: DOI not found';
         failures++;
@@ -388,16 +406,17 @@ async function checkSources(details) {
         failures++;
       }
     }
+    const work = { doi: s.doi, altIds: cr?.altIds ?? [], resourceUrl: cr?.resourceUrl };
     let link = await urlStatus(s.url);
     let linkCell;
     if (link.ok) {
-      let m = landingMatch(s, link);
+      let m = landingMatch(s, link, work);
       if (!m.ok && link.via === 'fetch') {
         // A 200 whose HTML is only a script shell or a bot check: let a real browser render the page.
         const c = await chromeStatus(s.url);
         if (c.status >= 200 && c.status < 400) {
           const rendered = { ok: true, status: c.status, via: 'chrome', title: c.title, finalUrl: c.finalUrl, metas: c.metas };
-          const m2 = landingMatch(s, rendered);
+          const m2 = landingMatch(s, rendered, work);
           if (m2.ok) {
             link = rendered;
             m = m2;
@@ -412,24 +431,29 @@ async function checkSources(details) {
         // not let us read its title or metadata: usually a bot check served with status 200.
         linkCell = `warn ${link.status} (${link.via}): page unreadable, ${m.how}; DOI verified`;
         landing.blocked++;
+        lists.blocked.push(s.id);
         warnings++;
       } else {
         linkCell = `FAIL ${link.status} (${link.via}): ${m.how}`;
         landing.wrong++;
+        lists.wrong.push(s.id);
         failures++;
       }
-    } else if (doiOk && urlCarriesDoi(link.finalUrl, s.doi)) {
-      // The DOI resolved to the publisher's page for this very DOI; the publisher then refused the automated reader.
-      linkCell = `warn ${link.status}: resolves to the publisher page for this DOI (${link.finalUrl}), which refuses automated readers; DOI verified`;
+    } else if (doiOk && urlCarriesWork(link.finalUrl, work)) {
+      // The DOI resolved to the publisher's page for this very work; the publisher then refused the automated reader.
+      linkCell = `warn ${link.status}: resolves to the publisher page for this work (final URL carries ${urlCarriesWork(link.finalUrl, work)}: ${link.finalUrl}), which refuses automated readers; DOI verified`;
       landing.byUrlBlocked++;
+      lists.byUrlBlocked.push(s.id);
       warnings++;
     } else if (doiOk) {
-      linkCell = `warn ${link.status}: site refuses automated access; DOI verified`;
+      linkCell = `warn ${link.status}: site refuses automated access${link.finalUrl ? ` (final URL ${link.finalUrl})` : ''}; DOI verified`;
       landing.blocked++;
+      lists.blocked.push(s.id);
       warnings++;
     } else {
       linkCell = `FAIL ${link.status} ${link.error ?? ''}`.trim();
       landing.wrong++;
+      lists.wrong.push(s.id);
       failures++;
     }
     if (s.doi && !/^https:\/\/doi\.org\//.test(s.url)) {
@@ -449,6 +473,8 @@ async function checkSources(details) {
   }
   report(`\n${sources.length} sources, ${failures} failure(s), ${warnings} warning(s).`);
   report(`Landing pages: ${landing.byDoi} carry the cited DOI in their metadata, ${landing.byTitle} match by title, ${landing.byUrl} resolve to a publisher URL that carries the cited DOI, ${landing.byUrlBlocked} resolve to such a URL but the publisher refuses automated readers, ${landing.blocked} could not be read at all (DOI verified in the registry and Crossref), ${landing.wrong} do not land on the cited work, ${landing.notDoiLink} entries use a link other than the DOI.`);
+  if (lists.blocked.length) report(`Could not be read at all (registry and Crossref only): ${lists.blocked.join(', ')}`);
+  if (lists.wrong.length) report(`Do not land on the cited work: ${lists.wrong.join(', ')}`);
   summary.push('', `Landing pages: ${landing.byDoi} by DOI metadata, ${landing.byTitle} by title, ${landing.byUrl} by URL, ${landing.byUrlBlocked} by URL (body blocked), ${landing.blocked} unreadable (DOI verified), ${landing.wrong} wrong, ${landing.notDoiLink} not DOI links.`);
   return failures;
 }

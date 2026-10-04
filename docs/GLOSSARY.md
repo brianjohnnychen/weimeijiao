@@ -163,7 +163,10 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | Once they start school (agesNote label) | 上学以后： | 上國小以後： | |
 | school-age children (lay) | 上了小学的孩子 | 上國小的孩子 | |
 | preschoolers | 学龄前孩子 (lay) / 学龄前儿童 (research sentences) | 學齡前孩子 / 學齡前兒童 | |
-| group chat | 群聊 | 群組 | |
+| group chat | 群聊 | 群組 / 群組聊天 | |
+| device (phone or tablet) | 设备 | 裝置 | |
+| arithmetic | 算术 | 算術 | zh-Hant 算數 means to count or to be valid. |
+| Family Media Use Plan (AAP) / family media plan | 家庭媒体使用计划 | 家庭媒體使用計畫 | |
 | gym clothes | 运动服 | 體育服 | |
 | activity / hobby class | 兴趣班 | 才藝班 / 社團 | |
 
@@ -200,6 +203,8 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | American Academy of Pediatrics (AAP) | 美国儿科学会 | 美國兒科醫學會 | |
 | American Academy of Sleep Medicine | 美国睡眠医学会 | 美國睡眠醫學會 | |
 | intervention | 干预 | 介入 | |
+| behavioral treatment | 行为治疗 | 行為治療 | Never 行为疗法. |
+| Early Head Start | “早期开端计划”（Early Head Start） | 「早期啟蒙計畫」（Early Head Start） | |
 | consensus statement | 共识声明 | 共識聲明 | |
 | clinical report (AAP) | 临床报告 | 臨床報告 | |
 | endorsed by (a statement endorsed by the AAP) | 认可 | 背書 | |
@@ -247,6 +252,8 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 - zh-Hant must not use mainland terms: 質量 (for quality), 視頻, 屏幕, 數據, 互聯網, 信息, 短信, 打印, 默認, 軟件, 網絡, 鼠標, 博客, 激活, 優化, 程序員, 早教, 點擊, 登錄, 賬號, 用戶, 幼兒園大班, 課外班, 學前班, 小學生, 寶媽, 奶爸, 荟萃 / 薈萃.
 - Traditional character forms are Taiwan standard (the lint runs OpenCC t→tw). One-to-many conversions to check by eye: 頭髮 not 頭發, 麵 (noodles) not 面, 乾 / 幹 not 干, 後 not 后, 裡 not 里 (inside), 隻 (animals) not 只, 發 / 髮, 鬆 / 松, 製 / 制, 誌 / 志, 遊 / 游, 週 / 周, 準 / 准, 復 / 複 / 覆, 佈 / 布, 鹹 / 咸, 採 / 采, 捲 / 卷, 睏 / 困, 迴 / 回, 並 / 併, 雲 / 云, 鬥 / 斗, 豐 / 丰, 穀 / 谷, 幾 / 几, 跡 / 蹟, 傑 / 杰, 歷 / 曆, 瞭 / 了, 麼 / 么, 籤 / 簽, 纖 / 縴, 嚮 / 向, 餘 / 余, 鬱 / 郁, 禦 / 御, 願 / 愿, 嶽 / 岳, 徵 / 征, 癥 / 症, 緻 / 致, 鐘 / 鍾, 種 / 种, 築 / 筑, 莊 / 庄, 薑 / 姜, 託 / 托, 係 / 繫 / 系, 術 / 术, 葉 / 叶, 諮 / 咨, 蕩 / 荡, 範 / 范, 颳 / 刮, 桿 / 杆, 鬍 / 胡, 劃 / 划, 夥 / 伙, 傢 / 家, 藉 / 借, 蠟 / 蜡, 纍 / 累, 樑 / 梁, 矇 / 蒙, 僕 / 仆, 樸 / 朴, 捨 / 舍, 瀋 / 沈, 臺 / 台 (台 is fine in Taiwan), 壇 / 坛, 體 / 体, 塗 / 涂, 團 / 团, 輓 / 挽, 鏇 / 旋, 於 / 于, 籲 / 吁, 慾 / 欲, 髒 / 脏, 紮 / 扎, 佔 / 占, 摺 / 折, 註 / 注.
 - zh-Hant: 扎實 (solid), never 紮實 (紮 is for 包紮); 佔 for occupy (佔上風, 獨佔); 計畫 for plan.
+- Numbers: digits for ages, counts and measurements with a thousands separator from 1,000 up (2,441 名孩子; 1,435 studies), in running text and in sources.yml findings. Idiomatic approximate quantities stay in characters (两三个 / 兩三個, 头一两周 / 頭一兩週).
+- Links to the preteen phase page: "the Preteens page" / 青春期前（10-12 岁）页面 / 青春期前（10-12 歲）頁面; a section of it quotes the heading: “<heading>”一节 / 「<heading>」一節. zh-Hant 規定 is acceptable for a house rule alongside 規矩 / 規則.
 - English is US English (elementary school, check off, Simon Says). House forms kept site-wide: back-up (noun), afterwards, say sorry, carry on. Page names keep their capital in running text (the By age page, the Physical discipline page); topics are lowercase (see mealtime struggles).
 - No em dashes (—, ——), no en dashes (–) in any locale; ranges use a hyphen (3-5 岁) or 到 / 至 in Chinese prose.
 - No personal names outside the About page; no spelling of the English brand other than WeiMeiJiao.
