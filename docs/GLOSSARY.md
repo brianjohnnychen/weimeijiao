@@ -158,6 +158,14 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | (health) education materials | 教育材料 | 衛教材料 | |
 | medical bodies / professional bodies | 医学机构 / 专业机构 | 醫學機構 / 專業機構 | Not 组织 / 組織. |
 | one clear warning (the time-out step) | 警告 | 警告 | A procedural warning, not the everyday 提醒. |
+| mediation / mediator (children's disputes) | 调解 / 调解人 | 調解 / 調解人 | |
+| toddlerhood | 学步期 | 學步期 | |
+| Once they start school (agesNote label) | 上学以后： | 上國小以後： | |
+| school-age children (lay) | 上了小学的孩子 | 上國小的孩子 | |
+| preschoolers | 学龄前孩子 (lay) / 学龄前儿童 (research sentences) | 學齡前孩子 / 學齡前兒童 | |
+| group chat | 群聊 | 群組 | |
+| gym clothes | 运动服 | 體育服 | |
+| activity / hobby class | 兴趣班 | 才藝班 / 社團 | |
 
 ## Research terms
 
@@ -202,6 +210,18 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | confounding / residual confounding | 混杂 / 残余混杂 | 干擾（因素）/ 殘餘干擾 | |
 | majority view / minority view; proponents | 多数观点 / 少数观点；支持者 | 多數觀點 / 少數觀點；支持者 | |
 | peer-reviewed | 同行评审 | 同儕審查 | |
+| parent management training (generic PMT) | 家长管理训练 | 親職管理訓練 | |
+| Collaborative & Proactive Solutions (CPS) | 协作与主动解决方案（CPS） | 合作與主動解決方案（CPS） | Lay phrase: 协作式解决问题的方法 / 合作式解決問題的方法. |
+| problem-solving skills training | 问题解决技能训练 | 問題解決技巧訓練 | |
+| effective instruction delivery | 有效下指令 | 有效下指令 | |
+| high-probability request sequences | 高概率指令序列 | 高機率指令序列 | |
+| intrinsic motivation | 内在动机 | 內在動機 | |
+| internalization | 内化 | 內化 | |
+| tangible reward | 物质奖励 | 實質獎勵 | |
+| person praise / process praise | 人格表扬 / 过程表扬 (research sentences); 夸孩子这个人 / 夸努力或做法 (lay) | 人格稱讚 / 過程稱讚; 誇孩子這個人 / 誇努力或做法 | |
+| labeled / unlabeled praise | 说出具体行为的表扬 / 笼统的表扬 | 說出具體行為的稱讚 / 籠統的稱讚 | |
+| waitlist (lay) | 等待名单 | 候補名單 | |
+| control families (comparison group in a trial) | 对照家庭 | 對照家庭 | English says control families when the source does. |
 
 ## Interface and printables
 
