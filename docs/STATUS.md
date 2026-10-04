@@ -1,6 +1,6 @@
 # STATUS
 
-## DEPLOYED; WAITING ON DNS FOR 魏美娇.com
+## DEPLOYED; DNS FIXED, WAITING ON HTTPS CERTIFICATES
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
 
@@ -16,7 +16,7 @@ The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC)
 - **Enforce HTTPS:** not turned on. This session has no token for the Pages API, and GitHub can only enforce HTTPS after it has issued the certificate, which needs 魏美娇.com to resolve first (open issue 3).
 - **Illustrations:** the site went live with the designed placeholders on the 21 pages whose illustrations are not generated yet, because Cloudflare still reported its free daily allocation as used up (open issue 2). A second deploy adds them once they are generated and reviewed.
 
-**What makes the site public:** the deployed site is in place on GitHub Pages. Once Cowork activates the two Cloudflare zones (open issue 1), 魏美娇.com serves it with no further deploy, GitHub issues the certificate, and weimeijiao.com's existing redirect starts landing on the site. After that, run `smoke.yml` (Actions → "Smoke test (live site)" → Run workflow) to confirm, then tick Enforce HTTPS.
+**Where it stands:** Cowork fixed the DNS cause at about 01:45 UTC (open issue 1). Since then 魏美娇.com resolves and serves the deployed site over plain HTTP. HTTPS waits on two certificates: GitHub's for 魏美娇.com and Cloudflare's for 魏美嬌.com. When both are issued, the smoke test passes with no further deploy. Then Enforce HTTPS can be ticked in Settings → Pages.
 
 ### QA results (how to rerun: docs/QA.md)
 
@@ -44,11 +44,18 @@ The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC)
 
 ### Open issues
 
-1. **魏美娇.com and 魏美嬌.com do not resolve (DNS). Waiting on: Cowork (Cloudflare).** Public DNS lookups from GitHub's runners on 2026-10-03 at 21:52 and again at 23:26 UTC (Google's resolver, plus the .com registry's RDAP record) show the same:
+1. **魏美娇.com and 魏美嬌.com do not resolve (DNS). Cause found and fixed by Cowork; waiting on Cloudflare's activation check.**
+   - Cowork's update (2026-10-04, about 01:45 UTC): both zones were stuck at "initializing" in Cloudflare because no plan had been selected. They are now on the Free plan, status "pending", with all records intact and an activation check queued. The registry delegation already points to earl and lila (REVIEWER-CHANGES.md).
+   - **Smoke test right after Cowork's fix** ([run 37169040870](https://github.com/brianjohnnychen/weimeijiao/actions/runs/37169040870), 01:46 UTC): both domains now resolve.
+     - weimeijiao.com still redirects correctly.
+     - 魏美娇.com answers over plain HTTP (200), but every HTTPS check fails with ERR_TLS_CERT_ALTNAME_INVALID. GitHub Pages is still serving its default certificate because it has not issued one for the custom domain yet. GitHub's documentation says this can take up to about an hour. If it stays stuck, removing the custom domain in Settings → Pages and saving it again restarts the certificate request. The domain was saved on 2026-10-03, while it did not resolve, so that may be needed (Brian or Cowork, as it is a GitHub setting).
+     - 魏美嬌.com fails the TLS handshake at Cloudflare's edge, because its Universal SSL certificate is not issued yet. Cloudflare's documentation gives 15 minutes to 24 hours after activation.
+   - This session re-runs the smoke test until every check passes and records the result here.
+   - Earlier findings: public DNS lookups from GitHub's runners on 2026-10-03 at 21:52 and again at 23:26 UTC (Google's resolver, plus the .com registry's RDAP record) show the same:
    - weimeijiao.com works: Cloudflare's nameservers (earl and lila) answer, and it resolves to Cloudflare's proxy.
    - xn--3ys368f86s.com (魏美娇.com) and xn--k6s926f86s.com (魏美嬌.com) fail with SERVFAIL. The .com registry sends both to the same Cloudflare nameservers that answer for weimeijiao.com, but those nameservers reply REFUSED for these two names ("lame delegation").
    - Both are registered at Dynadot with no registry hold (status: client transfer prohibited only).
-   - What it means: Cloudflare is not serving these two zones yet. Usually a zone is still "pending" activation, or it was added under a different nameserver pair from the one set at Dynadot. To check: in the Cloudflare dashboard, open each zone's Overview. It must say Active, and its two assigned nameservers must match the ones set at Dynadot (earl and lila). If it is pending and they match, "Check nameservers" re-runs the activation check.
+   - What it meant: Cloudflare was not serving these two zones; the cause turned out to be the missing plan (above).
    - Until then 魏美娇.com does not load, GitHub cannot issue its HTTPS certificate, and weimeijiao.com (which redirects to 魏美娇.com) cannot show the site either. The smoke test after the deploy (00:38 UTC) confirmed it: weimeijiao.com's redirect works, 魏美娇.com and 魏美嬌.com do not resolve. The site is already deployed; once the zones are active, it appears with no further step. This session does not change DNS (CLAUDE.md).
 2. **21 AI illustrations still to generate.** Cloudflare Workers AI's free daily allocation (10,000 neurons) ran out on 2026-10-03. Cloudflare's pricing page says the limits reset daily at 00:00 UTC, but the images workflow still got "you have used up your daily free allocation" at 00:22 and 00:24 UTC on 2026-10-04 (Actions run 37161742742, attempts 2 and 3) and again at 01:31 UTC (run 37168281018). Why is not known from here; one possibility is other Workers AI use on the same Cloudflare account, another is that the allocation runs for 24 hours from when it ran out (about 17:45 UTC on 2026-10-03). The next retry is scheduled for 18:05 UTC on 2026-10-04; when the images arrive it reviews every one, commits them and deploys again. Until then those pages show the designed placeholder (a paid plan would cost money, so it was not used).
 3. **Enforce HTTPS.** This session has no token for the Pages API, and GitHub can only enforce HTTPS once the certificate exists (after open issue 1 is fixed). The checkbox (repo Settings → Pages) is for Brian or the Cowork routine. Note: the Cowork "Weimeijiao build watch" routine's prompt still says not to run deploy.yml; the go-live deploy above ran under Brian's later instruction (SPEC §2, REVIEWER-CHANGES.md).
@@ -59,7 +66,7 @@ The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC)
 ### Next step
 
 - 18:05 UTC check-in (2026-10-04): retry the 21 illustrations (the 00:22, 00:24 and 01:31 UTC attempts hit the used-up allocation). When they arrive, review every one, merge them to `main` through a pull request, and run `deploy.yml` again.
-- Cowork: activate the two Cloudflare zones (open issue 1), then run `smoke.yml` and tick Enforce HTTPS.
+- Until both Cloudflare zones turn active (open issue 1): this session runs `smoke.yml` and records the result here. Once GitHub has issued the certificate, Brian or Cowork ticks Enforce HTTPS.
 
 ## Earlier notes
 
