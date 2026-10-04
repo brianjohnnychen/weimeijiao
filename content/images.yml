@@ -109,9 +109,9 @@ images:
     page: printables
     prompt: "A parent and a six-year-old sitting side by side at a kitchen table in a Taipei apartment on a quiet afternoon, the child drawing a big sun with crayons on a blank sheet of paper, a small stack of plain white paper, a cup of pencils and a roll of tape within reach, the parent holding up another blank sheet ready for the next drawing, soft daylight from a window"
     alt:
-      en: "A parent and a five-year-old press a sticker onto a chart on a fridge door covered with children’s drawings."
-      zh-hans: "家长和五岁的孩子一起往贴满孩子画作的冰箱门上的表格贴贴纸。"
-      zh-hant: "家長和五歲的孩子一起往貼滿孩子畫作的冰箱門上的表格貼貼紙。"
+      en: "A parent and a six-year-old sit side by side at a kitchen table; the child draws a big sun with crayons while the parent holds up a blank sheet for the next drawing."
+      zh-hans: "家长和六岁的孩子并排坐在餐桌前，孩子用蜡笔在白纸上画一个大太阳，家长举着另一张白纸等着画下一张。"
+      zh-hant: "家長和六歲的孩子並排坐在餐桌前，孩子用蠟筆在白紙上畫一個大太陽，家長舉著另一張白紙等著畫下一張。"
     size: '4:3'
   # By age
   - id: phase-0-12-months
