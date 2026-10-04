@@ -1,6 +1,7 @@
-// AI illustrations. content/images.yml lists every image (id, page, prompt, trilingual alt, size).
-// The images workflow writes src/assets/ai/<id>.png; until a file exists, <AiImage> renders a
-// placeholder. No code changes are needed when images land.
+// AI photographs (SPEC §9). content/images.yml lists every image (id, page, prompt, trilingual alt, size).
+// The images workflow writes src/assets/ai/<id>.jpg (the first style's illustrations were <id>.png and
+// stay until their photograph passes review); until a file exists, <AiImage> renders a placeholder.
+// No code changes are needed when images land.
 import YAML from 'yaml';
 import { z } from 'astro/zod';
 import type { ImageMetadata } from 'astro';
@@ -24,7 +25,7 @@ for (const img of file.images) {
   byId.set(img.id, img);
 }
 
-const assets = import.meta.glob<ImageMetadata>('/src/assets/ai/*.png', { eager: true, import: 'default' });
+const assets = import.meta.glob<ImageMetadata>('/src/assets/ai/*.{jpg,png}', { eager: true, import: 'default' });
 
 export function getImageEntry(id: string): ImageEntry {
   const entry = byId.get(id);
@@ -33,7 +34,7 @@ export function getImageEntry(id: string): ImageEntry {
 }
 
 export function getAiAsset(id: string): ImageMetadata | undefined {
-  return assets[`/src/assets/ai/${id}.png`];
+  return assets[`/src/assets/ai/${id}.jpg`] ?? assets[`/src/assets/ai/${id}.png`];
 }
 
 export function aspect(size: ImageEntry['size']): number {
