@@ -186,7 +186,8 @@ async function chromeStatus(url) {
       const metas = await page
         .evaluate(() => {
           const get = (n) => [...document.querySelectorAll(`meta[name="${n}" i], meta[property="${n}" i]`)].map((m) => m.getAttribute('content') ?? '');
-          return { doi: [...get('citation_doi'), ...get('dc.identifier'), ...get('DC.Identifier'), ...get('prism.doi')], title: [...get('citation_title'), ...get('dc.title'), ...get('og:title')] };
+          const h1 = [...document.querySelectorAll('h1')].map((h) => (h.textContent ?? '').trim()).filter(Boolean).slice(0, 3);
+          return { doi: [...get('citation_doi'), ...get('dc.identifier'), ...get('DC.Identifier'), ...get('prism.doi')], title: [...get('citation_title'), ...get('dc.title'), ...get('og:title'), ...h1] };
         })
         .catch(() => ({ doi: [], title: [] }));
       return { status: res?.status() ?? 0, title, finalUrl: page.url(), metas };
@@ -204,7 +205,7 @@ async function urlStatus(url) {
   if (r.status >= 200 && r.status < 400) return { ok: true, status: r.status, via: 'fetch', title: titleOf(r.body), finalUrl: r.url, metas: metasOf(r.body) };
   const c = await chromeStatus(url);
   if (c.status >= 200 && c.status < 400) return { ok: true, status: c.status, via: 'chrome', title: c.title, finalUrl: c.finalUrl, metas: c.metas };
-  return { ok: false, status: c.status || r.status, via: c.status ? 'chrome' : 'fetch', error: c.error ?? r.error };
+  return { ok: false, status: c.status || r.status, via: c.status ? 'chrome' : 'fetch', error: c.error ?? r.error, finalUrl: c.finalUrl ?? r.url };
 }
 
 /** Citation metadata a landing page declares (Highwire, Dublin Core, PRISM, Open Graph). */
@@ -223,7 +224,23 @@ function metasOf(html) {
 
 const WRONG_PAGE = /^(home|homepage|search|search results|log ?in|sign ?in|error|not found|page not found|access denied|forbidden|just a moment|attention required|request rejected|\s*)$/i;
 
-/** Does the landing page carry the cited work? By its DOI in the page metadata, or by its title. */
+/** The publisher's URL for a DOI usually embeds the DOI (psycnet.apa.org/doiLanding?doi=..., onlinelibrary.wiley.com/doi/...),
+ *  so a final URL that carries the cited DOI is that work's page even when the body cannot be read. doi.org itself does not count. */
+function urlCarriesDoi(url, doi) {
+  if (!url || !doi) return false;
+  let u = String(url);
+  try {
+    u = decodeURIComponent(u);
+  } catch {}
+  try {
+    if (/(^|\.)doi\.org$/i.test(new URL(url).hostname)) return false;
+  } catch {
+    return false;
+  }
+  return u.toLowerCase().includes(String(doi).toLowerCase());
+}
+
+/** Does the landing page carry the cited work? By its DOI in the page metadata, by its title, or by its URL. */
 function landingMatch(s, link) {
   const doi = String(s.doi ?? '').toLowerCase();
   const pageDois = (link.metas?.doi ?? []).map((d) => String(d).toLowerCase().replace(/^(doi:|https?:\/\/(dx\.)?doi\.org\/)/, ''));
@@ -232,6 +249,7 @@ function landingMatch(s, link) {
   let best = 0;
   for (const t of titles) best = Math.max(best, titleScore(t, s.title), titleScore(t.replace(/\s*[|:-]\s*[^|:-]*$/, ''), s.title));
   if (best >= 0.5) return { ok: true, how: `title matches (${best.toFixed(2)})` };
+  if (doi && urlCarriesDoi(link.finalUrl, doi)) return { ok: true, how: `final URL carries the cited DOI (${link.finalUrl})` };
   const host = (() => { try { return new URL(link.finalUrl ?? s.url).pathname; } catch { return ''; } })();
   const looksWrong = WRONG_PAGE.test(clean(link.title ?? '')) || host === '/' || /\/search\b|\/login\b|\/error\b/i.test(host);
   return { ok: false, how: looksWrong ? `landing page is not the work (title "${(link.title ?? '').slice(0, 80)}", path ${host})` : `title does not match (best ${best.toFixed(2)}: "${(link.title ?? '').slice(0, 80)}")` };
@@ -325,7 +343,7 @@ async function checkSources(details) {
   const sources = YAML.parse(readFileSync(file, 'utf8')) ?? [];
   let failures = 0;
   let warnings = 0;
-  const landing = { byDoi: 0, byTitle: 0, blocked: 0, wrong: 0, notDoiLink: 0 };
+  const landing = { byDoi: 0, byTitle: 0, byUrl: 0, byUrlBlocked: 0, blocked: 0, wrong: 0, notDoiLink: 0 };
   report(`Checking ${sources.length} sources in content/sources.yml\n`);
   summary.push('| id | DOI / metadata | link | notes |', '|---|---|---|---|');
   for (const s of sources) {
@@ -370,13 +388,25 @@ async function checkSources(details) {
         failures++;
       }
     }
-    const link = await urlStatus(s.url);
+    let link = await urlStatus(s.url);
     let linkCell;
     if (link.ok) {
-      const m = landingMatch(s, link);
+      let m = landingMatch(s, link);
+      if (!m.ok && link.via === 'fetch') {
+        // A 200 whose HTML is only a script shell or a bot check: let a real browser render the page.
+        const c = await chromeStatus(s.url);
+        if (c.status >= 200 && c.status < 400) {
+          const rendered = { ok: true, status: c.status, via: 'chrome', title: c.title, finalUrl: c.finalUrl, metas: c.metas };
+          const m2 = landingMatch(s, rendered);
+          if (m2.ok) {
+            link = rendered;
+            m = m2;
+          }
+        }
+      }
       if (m.ok) {
         linkCell = `ok ${link.status} (${link.via}): ${m.how}`;
-        landing[m.how.startsWith('DOI') ? 'byDoi' : 'byTitle']++;
+        landing[m.how.startsWith('DOI') ? 'byDoi' : m.how.startsWith('final URL') ? 'byUrl' : 'byTitle']++;
       } else if (doiOk && /doi\.org\//.test(s.url)) {
         // The DOI resolved (registry and Crossref agree on the work) but the publisher's page did
         // not let us read its title or metadata: usually a bot check served with status 200.
@@ -388,6 +418,11 @@ async function checkSources(details) {
         landing.wrong++;
         failures++;
       }
+    } else if (doiOk && urlCarriesDoi(link.finalUrl, s.doi)) {
+      // The DOI resolved to the publisher's page for this very DOI; the publisher then refused the automated reader.
+      linkCell = `warn ${link.status}: resolves to the publisher page for this DOI (${link.finalUrl}), which refuses automated readers; DOI verified`;
+      landing.byUrlBlocked++;
+      warnings++;
     } else if (doiOk) {
       linkCell = `warn ${link.status}: site refuses automated access; DOI verified`;
       landing.blocked++;
@@ -413,8 +448,8 @@ async function checkSources(details) {
     await sleep(300);
   }
   report(`\n${sources.length} sources, ${failures} failure(s), ${warnings} warning(s).`);
-  report(`Landing pages: ${landing.byDoi} carry the cited DOI in their metadata, ${landing.byTitle} match by title, ${landing.blocked} could not be read (publisher blocks automated access; DOI verified in the registry and Crossref), ${landing.wrong} do not land on the cited work, ${landing.notDoiLink} entries use a link other than the DOI.`);
-  summary.push('', `Landing pages: ${landing.byDoi} by DOI metadata, ${landing.byTitle} by title, ${landing.blocked} unreadable (DOI verified), ${landing.wrong} wrong, ${landing.notDoiLink} not DOI links.`);
+  report(`Landing pages: ${landing.byDoi} carry the cited DOI in their metadata, ${landing.byTitle} match by title, ${landing.byUrl} resolve to a publisher URL that carries the cited DOI, ${landing.byUrlBlocked} resolve to such a URL but the publisher refuses automated readers, ${landing.blocked} could not be read at all (DOI verified in the registry and Crossref), ${landing.wrong} do not land on the cited work, ${landing.notDoiLink} entries use a link other than the DOI.`);
+  summary.push('', `Landing pages: ${landing.byDoi} by DOI metadata, ${landing.byTitle} by title, ${landing.byUrl} by URL, ${landing.byUrlBlocked} by URL (body blocked), ${landing.blocked} unreadable (DOI verified), ${landing.wrong} wrong, ${landing.notDoiLink} not DOI links.`);
   return failures;
 }
 

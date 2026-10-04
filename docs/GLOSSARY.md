@@ -101,8 +101,9 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | working memory | 工作记忆 | 工作記憶 | |
 | attention | 注意力 | 專注力 / 注意力 | |
 | physical aggression | 肢体攻击 | 肢體攻擊 | "hitting" in lay sentences is fine where the body text uses the exact term. |
-| compliance / noncompliance | 服从 / 不服从 | 服從 / 不服從 | |
-| disruptive behavior / conduct problems | 破坏性行为 / 行为问题 | 干擾行為 / 行為問題 | zh-Hant 干擾行為 for disruptive behavior; 品行問題 for conduct problems is acceptable. |
+| compliance (the child doing as asked) | 配合度；noncompliance 不服从 | 配合度；noncompliance 不服從 | 配合度 is the lay form for the compliance-plos-2018 finding on every page; 服从 only in the fixed terms 不服从 and 即时服从 (immediate compliance). |
+| disruptive behavior / conduct problems | 破坏性行为 / 行为问题 | 干擾行為 / 行為問題 | Never 品行问题 / 品行問題 / 行為規範問題. |
+| disruptive behavior disorder | 破坏性行为障碍 | 干擾行為障礙 | |
 | oppositional defiant disorder (ODD) | 对立违抗障碍（ODD） | 對立反抗症（ODD） | |
 | ADHD | 注意缺陷多动障碍（ADHD） | 注意力不足過動症（ADHD） | |
 | autism (autism spectrum disorder) | 孤独症谱系障碍（自闭症） | 自閉症類群障礙（自閉症） | |
@@ -128,6 +129,35 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | sleep (recommended hours) | 睡眠 | 睡眠 | Ages 6-12: 9-12 小时 / 小時 a day. |
 | chores | 家务 | 家事 | |
 | allowance / pocket money | 零花钱 | 零用錢 | |
+| yelling | 吼叫 | 吼叫 | Not 吼罵 / 吼骂. |
+| insults (the AAP list: threats, insults, shaming) | 侮辱 | 侮辱 | Not 辱骂 / 辱罵. |
+| bedtime routine | 睡前程序 | 睡前流程 | |
+| safety-proofing / baby-proofing | 居家安全防护 | 居家安全防護 | |
+| responsive parenting | 回应式育儿 | 回應式教養 | |
+| positive parenting (the genre of books and courses) | 正向教养 | 正向教養 | Never 正面教养. |
+| positive reinforcement | 正向强化 | 正向增強 | |
+| well-child visit | 儿童保健检查 | 兒童健檢 | |
+| child protective services | 儿童保护机构 | 兒童保護服務 | |
+| co-parenting | 共同养育 | 共親職 | |
+| daycare | 托育机构 | 托育機構 | |
+| growth mindset / fixed mindset | 成长型思维 / 固定型思维 | 成長型思維 / 固定型思維 | |
+| dialogic reading | 对话式阅读 | 對話式閱讀 | |
+| guided play | 引导式游戏 | 引導式遊戲 | |
+| practice testing / self-quizzing | 练习测试 / 自测 | 練習測驗 / 自我測驗 | |
+| spaced (distributed) practice | 间隔练习 | 間隔練習 | |
+| Simon Says | “我说你做” | 「老師說」 | |
+| Red Light Green Light (statues) | “一二三木头人” | 「一二三木頭人」 | |
+| board game | 棋盘游戏 | 桌遊 | |
+| brain-training apps | 脑力训练 App | 大腦訓練 App | |
+| engagement (platform design) | 用户参与度 | 使用者黏著度 | |
+| back-up (for leaving time-out) | 后备手段 | 後備手段 | |
+| customary spanking / conditional spanking | 惯常打屁股 / 有条件打屁股 | 慣常打屁股 / 有條件打屁股 | |
+| verbal abuse; abusive head trauma | 言语虐待；虐待性头部创伤 | 言語虐待；虐待性頭部外傷 | |
+| help line | 求助热线 | 求助專線 | |
+| warning signs | 警示信号 | 警訊 | |
+| (health) education materials | 教育材料 | 衛教材料 | |
+| medical bodies / professional bodies | 医学机构 / 专业机构 | 醫學機構 / 專業機構 | Not 组织 / 組織. |
+| one clear warning (the time-out step) | 警告 | 警告 | A procedural warning, not the everyday 提醒. |
 
 ## Research terms
 
@@ -161,6 +191,17 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | PMTO | 俄勒冈家长管理训练（PMTO） | 奧勒岡親職管理訓練（PMTO） | |
 | American Academy of Pediatrics (AAP) | 美国儿科学会 | 美國兒科醫學會 | |
 | American Academy of Sleep Medicine | 美国睡眠医学会 | 美國睡眠醫學會 | |
+| intervention | 干预 | 介入 | |
+| consensus statement | 共识声明 | 共識聲明 | |
+| clinical report (AAP) | 临床报告 | 臨床報告 | |
+| endorsed by (a statement endorsed by the AAP) | 认可 | 背書 | |
+| Cochrane review | Cochrane 系统综述 | Cochrane 系統性回顧 | |
+| publication bias | 发表偏倚 | 發表偏誤 | |
+| natural experiment | 自然实验 | 自然實驗 | |
+| quasi-experimental / prospective study | 准实验研究 / 前瞻性研究 | 準實驗研究 / 前瞻性研究 | |
+| confounding / residual confounding | 混杂 / 残余混杂 | 干擾（因素）/ 殘餘干擾 | |
+| majority view / minority view; proponents | 多数观点 / 少数观点；支持者 | 多數觀點 / 少數觀點；支持者 | |
+| peer-reviewed | 同行评审 | 同儕審查 | |
 
 ## Interface and printables
 
@@ -178,11 +219,14 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | Sources (on this page) | 参考资料 | 參考資料 |
 | Back to the text | 回到正文 | 回到內文 |
 | Open the source | 打开原文 | 開啟原文 |
+| See … (cross-reference verb) | 参见 | 請看 |
 
 ## Banned forms (the lint enforces most of these)
 
 - zh-Hans must not use Taiwan terms: 软体, 网路, 列印, 萤幕, 国小, 安亲班, 资讯, 品质, 影片, 幼稚园, 冷气, 计程车, 点选, 登入, 帐号, 使用者, 阿嬷, 阿公, 统合分析, 效果量, 亲职.
 - zh-Hant must not use mainland terms: 質量 (for quality), 視頻, 屏幕, 數據, 互聯網, 信息, 短信, 打印, 默認, 軟件, 網絡, 鼠標, 博客, 激活, 優化, 程序員, 早教, 點擊, 登錄, 賬號, 用戶, 幼兒園大班, 課外班, 學前班, 小學生, 寶媽, 奶爸, 荟萃 / 薈萃.
 - Traditional character forms are Taiwan standard (the lint runs OpenCC t→tw). One-to-many conversions to check by eye: 頭髮 not 頭發, 麵 (noodles) not 面, 乾 / 幹 not 干, 後 not 后, 裡 not 里 (inside), 隻 (animals) not 只, 發 / 髮, 鬆 / 松, 製 / 制, 誌 / 志, 遊 / 游, 週 / 周, 準 / 准, 復 / 複 / 覆, 佈 / 布, 鹹 / 咸, 採 / 采, 捲 / 卷, 睏 / 困, 迴 / 回, 並 / 併, 雲 / 云, 鬥 / 斗, 豐 / 丰, 穀 / 谷, 幾 / 几, 跡 / 蹟, 傑 / 杰, 歷 / 曆, 瞭 / 了, 麼 / 么, 籤 / 簽, 纖 / 縴, 嚮 / 向, 餘 / 余, 鬱 / 郁, 禦 / 御, 願 / 愿, 嶽 / 岳, 徵 / 征, 癥 / 症, 緻 / 致, 鐘 / 鍾, 種 / 种, 築 / 筑, 莊 / 庄, 薑 / 姜, 託 / 托, 係 / 繫 / 系, 術 / 术, 葉 / 叶, 諮 / 咨, 蕩 / 荡, 範 / 范, 颳 / 刮, 桿 / 杆, 鬍 / 胡, 劃 / 划, 夥 / 伙, 傢 / 家, 藉 / 借, 蠟 / 蜡, 纍 / 累, 樑 / 梁, 矇 / 蒙, 僕 / 仆, 樸 / 朴, 捨 / 舍, 瀋 / 沈, 臺 / 台 (台 is fine in Taiwan), 壇 / 坛, 體 / 体, 塗 / 涂, 團 / 团, 輓 / 挽, 鏇 / 旋, 於 / 于, 籲 / 吁, 慾 / 欲, 髒 / 脏, 紮 / 扎, 佔 / 占, 摺 / 折, 註 / 注.
+- zh-Hant: 扎實 (solid), never 紮實 (紮 is for 包紮); 佔 for occupy (佔上風, 獨佔); 計畫 for plan.
+- English is US English (elementary school, check off, Simon Says). House forms kept site-wide: back-up (noun), afterwards, say sorry, carry on. Page names keep their capital in running text (the By age page, the Physical discipline page); topics are lowercase (see mealtime struggles).
 - No em dashes (—, ——), no en dashes (–) in any locale; ranges use a hyphen (3-5 岁) or 到 / 至 in Chinese prose.
 - No personal names outside the About page; no spelling of the English brand other than WeiMeiJiao.

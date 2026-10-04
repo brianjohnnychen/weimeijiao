@@ -214,8 +214,8 @@
   lang: en
   finding:
     en: This review weighs the criticisms of time-out and concludes that its judicious use within parent training programs is justified and beneficial for many children with conduct problems, while setting out what affects its effectiveness and when it should not be used.
-    zh-hans: 这篇综述权衡了对暂停法的各种批评，结论是在家长培训课程中审慎使用暂停法是合理的，对许多有品行问题的孩子有益；文中也说明了影响效果的因素和不宜使用的情况。
-    zh-hant: 這篇文獻回顧權衡了對暫停法的各種批評，結論是在親職訓練課程中審慎使用暫停法是合理的，對許多有行為規範問題的孩子有益；文中也說明了影響效果的因素和不宜使用的情況。
+    zh-hans: 这篇综述权衡了对暂停法的各种批评，结论是在家长培训课程中审慎使用暂停法是合理的，对许多有行为问题的孩子有益；文中也说明了影响效果的因素和不宜使用的情况。
+    zh-hant: 這篇文獻回顧權衡了對暫停法的各種批評，結論是在親職訓練課程中審慎使用暫停法是合理的，對許多有行為問題的孩子有益；文中也說明了影響效果的因素和不宜使用的情況。
   key_facts:
     - Examines the controversy over time out as a strategy for reducing disruptive and oppositional behavior in young children.
     - Concludes that judicious use of time out in parent training programs is justified and beneficial for many children with conduct problems.
@@ -783,8 +783,8 @@
   lang: en
   finding:
     en: A meta-analysis of 28 randomized controlled trials found a significant overall advantage for parent management training (PMT) over waitlist control for child disruptive behavior, with no clear evidence that delivering it under real-world conditions (non-specialist therapists, clinic-referred children, routine settings and services) reduced its effect.
-    zh-hans: 一项纳入 28 项随机对照试验的荟萃分析发现，在改善孩子破坏性行为方面，家长管理训练（PMT）总体上明显优于候补对照组；也没有明确证据表明，在真实世界条件下实施（由非专科治疗师执行、对象为转介来诊的孩子、在常规机构和服务中开展）会削弱其效果。
-    zh-hant: 一項納入 28 項隨機對照試驗的統合分析發現，在改善孩子干擾行為方面，親職管理訓練（PMT）整體上明顯優於候補對照組；也沒有明確證據顯示，在真實世界條件下實施（由非專科治療師執行、對象為轉介就診的孩子、在一般機構和服務中進行）會削弱其效果。
+    zh-hans: 一项纳入 28 项随机对照试验的荟萃分析发现，在改善孩子破坏性行为方面，家长管理训练（PMT）总体上明显优于等待名单对照组；也没有明确证据表明，在真实世界条件下实施（由非专科治疗师执行、对象为转介来诊的孩子、在常规机构和服务中开展）会削弱其效果。
+    zh-hant: 一項納入 28 項隨機對照試驗的統合分析發現，在改善孩子干擾行為方面，親職管理訓練（PMT）整體上明顯優於候補名單對照組；也沒有明確證據顯示，在真實世界條件下實施（由非專科治療師執行、對象為轉介就診的孩子、在一般機構和服務中進行）會削弱其效果。
   key_facts:
     - '"We identified 28 relevant randomized controlled trials"'
     - '"Meta-analysis revealed a significant overall advantage for PMT compared with waitlist control conditions."'
@@ -854,8 +854,8 @@
   lang: en
   finding:
     en: A Cochrane review of 13 trials (1078 participants) found that behavioral and cognitive-behavioral group-based parenting programs significantly reduced conduct problems in children aged 3 to 12, whether rated by parents (SMD -0.53) or independently assessed (SMD -0.44), and also improved parents' mental health and positive parenting skills.
-    zh-hans: 一项纳入 13 项试验（1078 名参与者）的 Cochrane 系统综述发现，行为和认知行为取向的团体家长培训显著减少了 3 至 12 岁孩子的品行问题，无论由家长评定（SMD -0.53）还是独立评估（SMD -0.44）都是如此，同时也改善了家长的心理健康和正向教养技巧。
-    zh-hant: 一項納入 13 項試驗（1078 名參與者）的 Cochrane 系統性回顧發現，行為和認知行為取向的團體親職訓練顯著減少了 3 至 12 歲孩子的行為規範問題，無論由家長評定（SMD -0.53）或獨立評估（SMD -0.44）皆是如此，同時也改善了家長的心理健康和正向教養技巧。
+    zh-hans: 一项纳入 13 项试验（1078 名参与者）的 Cochrane 系统综述发现，行为和认知行为取向的团体家长培训显著减少了 3 至 12 岁孩子的行为问题，无论由家长评定（SMD -0.53）还是独立评估（SMD -0.44）都是如此，同时也改善了家长的心理健康和正向教养技巧。
+    zh-hant: 一項納入 13 項試驗（1078 名參與者）的 Cochrane 系統性回顧發現，行為和認知行為取向的團體親職訓練顯著減少了 3 至 12 歲孩子的行為問題，無論由家長評定（SMD -0.53）或獨立評估（SMD -0.44）皆是如此，同時也改善了家長的心理健康和正向教養技巧。
   key_facts:
     - '"This review includes 13 trials (10 RCTs and three quasi-randomised trials), as well as two economic evaluations based on two of the trials."'
     - '"Overall, there were 1078 participants (646 in the intervention group; 432 in the control group)."'
@@ -922,8 +922,8 @@
   lang: en
   finding:
     en: A systematic review of 57 randomized controlled trials of parenting programs for children up to age 18 with conduct problems found significant benefits on both parent reports (SMD -0.67) and independent reports (SMD -0.44), but insufficient evidence to tell which way of delivering the programs works best.
-    zh-hans: 一项纳入 57 项随机对照试验的系统综述发现，针对 18 岁以内有品行问题孩子的家长课程，无论按家长报告（SMD -0.67）还是独立报告（SMD -0.44）都有显著效果，但现有证据不足以判断哪种实施方式效果最好。
-    zh-hant: 一項納入 57 項隨機對照試驗的系統性回顧發現，針對 18 歲以內有行為規範問題孩子的親職課程，無論依家長回報（SMD -0.67）或獨立回報（SMD -0.44）都有顯著效果，但現有證據不足以判斷哪種實施方式效果最好。
+    zh-hans: 一项纳入 57 项随机对照试验的系统综述发现，针对 18 岁以内有行为问题孩子的家长课程，无论按家长报告（SMD -0.67）还是独立报告（SMD -0.44）都有显著效果，但现有证据不足以判断哪种实施方式效果最好。
+    zh-hant: 一項納入 57 項隨機對照試驗的系統性回顧發現，針對 18 歲以內有行為問題孩子的親職課程，無論依家長回報（SMD -0.67）或獨立回報（SMD -0.44）都有顯著效果，但現有證據不足以判斷哪種實施方式效果最好。
   key_facts:
     - '"57 RCTs were included. Studies were small with an average group size of 21."'
     - '"for parents/carers of children up to the age of 18 with a conduct problem"'
@@ -1160,8 +1160,8 @@
   lang: en
   finding:
     en: In an evaluation of the More Fun With Sisters and Brothers Program with 4- to 8-year-old siblings from 95 families, sibling relationship quality and emotion regulation improved for program participants (n = 55) compared with a wait-list group (n = 40), and participating children needed less parental direction to control negative emotions.
-    zh-hans: 一项针对 More Fun With Sisters and Brothers（兄弟姐妹相处更开心）项目的评估纳入 95 个家庭中 4 至 8 岁的兄弟姐妹，与候补组（n = 40）相比，参加项目的孩子（n = 55）兄弟姐妹关系质量和情绪调节都有改善，控制负面情绪时也更少需要父母引导。
-    zh-hant: 一項針對 More Fun With Sisters and Brothers（手足相處更開心）方案的評估納入 95 個家庭中 4 至 8 歲的手足，與候補組（n = 40）相比，參加方案的孩子（n = 55）手足關係品質和情緒調節都有改善，控制負面情緒時也較不需要父母引導。
+    zh-hans: 一项针对 More Fun With Sisters and Brothers（兄弟姐妹相处更开心）项目的评估纳入 95 个家庭中 4 至 8 岁的兄弟姐妹，与等待名单对照组（n = 40）相比，参加项目的孩子（n = 55）兄弟姐妹关系质量和情绪调节都有改善，控制负面情绪时也更少需要父母引导。
+    zh-hant: 一項針對 More Fun With Sisters and Brothers（手足相處更開心）方案的評估納入 95 個家庭中 4 至 8 歲的手足，與候補名單對照組（n = 40）相比，參加方案的孩子（n = 55）手足關係品質和情緒調節都有改善，控制負面情緒時也較不需要父母引導。
   key_facts:
     - '"4- to 8-year-old siblings from 95 families were taught emotional and social competencies"'
     - '"Parents reported on SRQ and ER, and sibling interactions were observed in homes."'
@@ -1355,8 +1355,8 @@
   lang: en
   finding:
     en: A meta-analysis of 16 studies with 1,003 children aged 2.5 to 6 with ADHD or ADHD symptoms found moderate parent-rated effects of parent training on ADHD symptoms (g = 0.51), conduct problems (g = 0.4) and negative parenting (g = 0.63), sustained at follow-ups of 3 to 12 months, but on independent assessment only negative parenting improved significantly.
-    zh-hans: 一项纳入 16 项研究、1,003 名 2.5 至 6 岁患有注意缺陷多动障碍（ADHD）或有 ADHD 症状儿童的荟萃分析发现，按家长评定，家长培训对 ADHD 症状（g = 0.51）、品行问题（g = 0.4）和负面教养（g = 0.63）有中等效果，并在 3 至 12 个月的追踪中维持，但按独立评估，只有负面教养的改善达到显著。
-    zh-hant: 一項納入 16 項研究、1,003 名 2.5 至 6 歲患有注意力不足過動症（ADHD）或有 ADHD 症狀兒童的統合分析發現，依家長評定，親職訓練對 ADHD 症狀（g = 0.51）、行為規範問題（g = 0.4）和負面教養（g = 0.63）有中等效果，並在 3 至 12 個月的追蹤中維持，但依獨立評估，只有負面教養的改善達到顯著。
+    zh-hans: 一项纳入 16 项研究、1,003 名 2.5 至 6 岁患有注意缺陷多动障碍（ADHD）或有 ADHD 症状儿童的荟萃分析发现，按家长评定，家长培训对 ADHD 症状（g = 0.51）、行为问题（g = 0.4）和负面教养（g = 0.63）有中等效果，并在 3 至 12 个月的追踪中维持，但按独立评估，只有负面教养的改善达到显著。
+    zh-hant: 一項納入 16 項研究、1,003 名 2.5 至 6 歲患有注意力不足過動症（ADHD）或有 ADHD 症狀兒童的統合分析發現，依家長評定，親職訓練對 ADHD 症狀（g = 0.51）、行為問題（g = 0.4）和負面教養（g = 0.63）有中等效果，並在 3 至 12 個月的追蹤中維持，但依獨立評估，只有負面教養的改善達到顯著。
   key_facts:
     - '"Sixteen studies including 1,003 children were analyzed."'
     - "\"Parent-rated outcomes revealed moderate effect sizes (ESs; Hedges' g) of 0.51 for ADHD symptoms, 0.4 for conduct problems, and 0.63 for negative parenting.\""
@@ -1380,8 +1380,8 @@
   lang: en
   finding:
     en: A meta-analysis of 32 randomized controlled trials of behavioral interventions for children and adolescents with ADHD found that, on probably blinded assessments, they improved parenting (SMD 0.63 for positive and 0.43 for negative parenting) and reduced conduct problems (SMD 0.31), while blinded evidence of fewer ADHD symptoms was lacking.
-    zh-hans: 一项纳入 32 项随机对照试验的荟萃分析发现，在可能为盲评的评估中，针对注意缺陷多动障碍（ADHD）儿童青少年的行为干预改善了父母教养（正向教养 SMD 0.63，负面教养 SMD 0.43），也减少了品行问题（SMD 0.31），但缺乏盲评证据显示 ADHD 症状减少。
-    zh-hant: 一項納入 32 項隨機對照試驗的統合分析發現，在可能為盲評的評估中，針對注意力不足過動症（ADHD）兒童青少年的行為介入改善了親職教養（正向教養 SMD 0.63，負面教養 SMD 0.43），也減少了行為規範問題（SMD 0.31），但缺乏盲評證據顯示 ADHD 症狀減少。
+    zh-hans: 一项纳入 32 项随机对照试验的荟萃分析发现，在可能为盲评的评估中，针对注意缺陷多动障碍（ADHD）儿童青少年的行为干预改善了父母教养（正向教养 SMD 0.63，负面教养 SMD 0.43），也减少了行为问题（SMD 0.31），但缺乏盲评证据显示 ADHD 症状减少。
+    zh-hant: 一項納入 32 項隨機對照試驗的統合分析發現，在可能為盲評的評估中，針對注意力不足過動症（ADHD）兒童青少年的行為介入改善了親職教養（正向教養 SMD 0.63，負面教養 SMD 0.43），也減少了行為問題（SMD 0.31），但缺乏盲評證據顯示 ADHD 症狀減少。
   key_facts:
     - '"Thirty-two of 2,057 nonduplicate screened records were analyzed."'
     - '"For assessments made by individuals closest to the treatment setting (usually unblinded), there were significant improvements in parenting quality (standardized mean difference [SMD] for positive parenting 0.68; SMD for negative parenting 0.57), parenting self-concept (SMD 0.37), and child ADHD (SMD 0.35), conduct problems (SMD 0.26), social skills (SMD 0.47), and academic performance (SMD 0.28)."'
@@ -1601,8 +1601,8 @@
   lang: en
   finding:
     en: This meta-analysis of longitudinal studies found small but non-trivial simple correlations between spanking or corporal punishment and later externalizing problems, internalizing problems and lower cognitive performance, but once children's earlier levels of each outcome were controlled, links with externalizing and internalizing problems were statistically significant but trivial (partial r of .07 to .10) and the link with cognitive performance was near the threshold of trivial (-.11, corporal punishment only), and the author concludes the impact is minimal.
-    zh-hans: 这项针对纵向研究的荟萃分析发现，打屁股或体罚与日后的外化问题、内化问题及较低的认知表现之间存在虽小但不可忽视的简单相关；然而在控制孩子此前在同一指标上的水平后，与外化和内化问题的关联虽有统计显著性，却小到可以忽略（偏相关 .07 至 .10），与认知表现的关联则接近可忽略的门槛（-.11，仅有体罚的数据），作者据此认为其影响极小。
-    zh-hant: 這項針對縱貫研究的統合分析發現，打屁股或體罰與日後的外化問題、內化問題及較低的認知表現之間，有雖小但不可忽視的簡單相關；然而在控制孩子先前在同一指標上的程度後，與外化和內化問題的關聯雖達統計顯著，卻小到可以忽略（偏相關 .07 至 .10），與認知表現的關聯則接近可忽略的門檻（-.11，僅有體罰的資料），作者因此認為其影響極小。
+    zh-hans: 这项针对纵向研究的荟萃分析发现，打屁股或体罚与日后的外化问题、内化问题及较低的认知表现之间存在虽小但不可忽视的简单相关；然而在控制孩子此前在同一指标上的水平后，与外化和内化问题的关联虽然有统计学意义，却小到可以忽略（偏相关 .07 至 .10），与认知表现的关联则接近可忽略的门槛（-.11，仅有体罚的数据），作者据此认为其影响极小。
+    zh-hant: 這項針對縱貫研究的統合分析發現，打屁股或體罰與日後的外化問題、內化問題及較低的認知表現之間，有雖小但不可忽視的簡單相關；然而在控制孩子先前在同一指標上的程度後，與外化和內化問題的關聯雖達到統計顯著，卻小到可以忽略（偏相關 .07 至 .10），與認知表現的關聯則接近可忽略的門檻（-.11，僅有體罰的資料），作者因此認為其影響極小。
   key_facts:
     - '"Spanking and CP correlated .14 and .18 respectively with externalizing problems, .12 and .21 with internalizing problems and -.09 and -.18 with cognitive performance."'
     - '"results were statistically significant but trivial (at or below pr = .10) for externalizing (.07 for spanking, .08 for CP) and internalizing behaviors (.10 for spanking, insufficient studies for CP)"'
@@ -1733,8 +1733,8 @@
   lang: en
   finding:
     en: In 976 two-parent families, mothers' and fathers' harsh verbal discipline at age 13 predicted increases in adolescents' conduct problems and depressive symptoms between ages 13 and 14, these links were not moderated by parental warmth, and adolescents' misconduct at 13 also predicted increases in parents' harsh verbal discipline.
-    zh-hans: 在 976 个双亲家庭中，孩子 13 岁时父母严厉的言语管教，预测孩子在 13 至 14 岁之间品行问题和抑郁症状增加，且这些关联不因父母温暖程度不同而改变；同时，孩子 13 岁时的不当行为也预测父母严厉的言语管教随后增加。
-    zh-hant: 在 976 個雙親家庭中，孩子 13 歲時父母嚴厲的言語管教，預測孩子在 13 至 14 歲之間行為規範問題和憂鬱症狀增加，且這些關聯不因父母溫暖程度不同而改變；同時，孩子 13 歲時的不當行為，也預測父母嚴厲的言語管教隨後增加。
+    zh-hans: 在 976 个双亲家庭中，孩子 13 岁时父母严厉的言语管教，预测孩子在 13 至 14 岁之间行为问题和抑郁症状增加，且这些关联不因父母温暖程度不同而改变；同时，孩子 13 岁时的不当行为也预测父母严厉的言语管教随后增加。
+    zh-hant: 在 976 個雙親家庭中，孩子 13 歲時父母嚴厲的言語管教，預測孩子在 13 至 14 歲之間行為問題和憂鬱症狀增加，且這些關聯不因父母溫暖程度不同而改變；同時，孩子 13 歲時的不當行為，也預測父母嚴厲的言語管教隨後增加。
   key_facts:
     - '"Data were from a sample of 976 two-parent families and their children (51% males; 54% European American, 40% African American)."'
     - "\"Mothers' and fathers' harsh verbal discipline at age 13 predicted an increase in adolescent conduct problems and depressive symptoms between ages 13 and 14.\""
@@ -2223,8 +2223,8 @@
   lang: en
   finding:
     en: In a randomized trial with 81 Chinese parents in Shanghai, parents who took Group Triple P reported fewer child adjustment problems, better parenting practices, better parental adjustment and more confidence as parents than a wait-list group, plus more satisfaction with their children's academic achievement and fewer academic problem behaviors, with all effects maintained at 6-month follow-up.
-    zh-hans: 在上海进行的一项随机试验中，81 位中国家长被分为干预组和候补对照组。参加团体版 3P 正向教养课程（Group Triple P）的家长报告，孩子的适应问题减少，教养方式、家长自身状态和教养自信都有改善，对孩子学业成绩更满意，孩子与学习有关的问题行为也减少了；所有效果在 6 个月随访时仍然保持。
-    zh-hant: 在上海進行的一項隨機試驗中，81 位中國家長被分為介入組和候補對照組。參加團體版 3P 正向教養課程（Group Triple P）的家長表示，孩子的適應問題減少，教養方式、家長自身狀態和教養自信都有改善，對孩子的學業表現更滿意，孩子與學習有關的問題行為也減少了；所有效果在 6 個月追蹤時仍然維持。
+    zh-hans: 在上海进行的一项随机试验中，81 位中国家长被分为干预组和等待名单对照组。参加团体版 3P 正向教养课程（Group Triple P）的家长报告，孩子的适应问题减少，教养方式、家长自身状态和教养自信都有改善，对孩子学业成绩更满意，孩子与学习有关的问题行为也减少了；所有效果在 6 个月随访时仍然保持。
+    zh-hant: 在上海進行的一項隨機試驗中，81 位中國家長被分為介入組和候補名單對照組。參加團體版 3P 正向教養課程（Group Triple P）的家長表示，孩子的適應問題減少，教養方式、家長自身狀態和教養自信都有改善，對孩子的學業表現更滿意，孩子與學習有關的問題行為也減少了；所有效果在 6 個月追蹤時仍然維持。
   key_facts:
     - '"Participants were 81 Chinese parents and their children in Shanghai, who were randomly allocated to an intervention group or wait-list control group."'
     - '"parents in the intervention group reported significant improvements in child adjustment problems, parenting practices, parental adjustment, and parenting self-efficacy at post-assessment"'
@@ -2247,8 +2247,8 @@
   lang: en
   finding:
     en: In a randomized trial with 91 Hong Kong Chinese parents of 3- to 7-year-olds with early conduct problems, parents who took Triple P reported fewer child behavior problems, less dysfunctional parenting and a greater sense of competence than wait-list parents.
-    zh-hans: 在香港一项随机试验中，91 位孩子 3 至 7 岁、出现早期品行问题的华人家长被随机分组。与候补组相比，参加 3P 正向教养课程（Triple P）的家长报告孩子的行为问题更少、不良教养方式更少，自己作为家长的胜任感更强。
-    zh-hant: 在香港一項隨機試驗中，91 位孩子 3 至 7 歲、出現早期品行問題的華人家長被隨機分組。與候補組相比，參加 3P 正向教養課程（Triple P）的家長表示孩子的行為問題較少、失功能的教養方式較少，自己身為家長的勝任感更強。
+    zh-hans: 在香港一项随机试验中，91 位孩子 3 至 7 岁、出现早期行为问题的华人家长被随机分组。与等待名单对照组相比，参加 3P 正向教养课程（Triple P）的家长报告孩子的行为问题更少、不良教养方式更少，自己作为家长的胜任感更强。
+    zh-hant: 在香港一項隨機試驗中，91 位孩子 3 至 7 歲、出現早期行為問題的華人家長被隨機分組。與候補名單對照組相比，參加 3P 正向教養課程（Triple P）的家長表示孩子的行為問題較少、失功能的教養方式較少，自己身為家長的勝任感更強。
   key_facts:
     - '"The participants consisted of 91 parents whose children attended maternal and child health centers and child assessment centers for service, and were between three to seven years old."'
     - '"Participants were randomly assigned to the intervention (TP) and a waitlist control group (WL)."'
@@ -2292,8 +2292,8 @@
   lang: en
   finding:
     en: In a randomized trial with 64 Chinese children with ADHD or ADHD features, families offered PCIT showed significant decreases in child behavior and attention problems, parental stress and negative parenting, and an increase in positive parenting, compared with a wait-list group.
-    zh-hans: 在一项纳入 64 名患有 ADHD（注意缺陷多动障碍）或有相关特征的中国儿童的随机试验中，与候补组相比，接受亲子互动治疗（PCIT）的家庭，孩子的行为和注意力问题、家长压力和消极教养都明显减少，积极教养则有所增加。
-    zh-hant: 在一項納入 64 名患有 ADHD（注意力不足過動症）或有相關特徵的華人兒童的隨機試驗中，與候補組相比，接受親子互動治療（PCIT）的家庭，孩子的行為和注意力問題、家長壓力和負向教養都明顯減少，正向教養則有所增加。
+    zh-hans: 在一项纳入 64 名患有 ADHD（注意缺陷多动障碍）或有相关特征的中国儿童的随机试验中，与等待名单对照组相比，接受亲子互动治疗（PCIT）的家庭，孩子的行为和注意力问题、家长压力和消极教养都明显减少，积极教养则有所增加。
+    zh-hant: 在一項納入 64 名患有 ADHD（注意力不足過動症）或有相關特徵的華人兒童的隨機試驗中，與候補名單對照組相比，接受親子互動治療（PCIT）的家庭，孩子的行為和注意力問題、家長壓力和負向教養都明顯減少，正向教養則有所增加。
   key_facts:
     - '"Participants were randomized into either the intervention group (n = 32) and offered PCIT by trained PCIT practitioners or the waitlist control group (n = 32)"'
     - '"The results indicated a significant decrease in child behavior and attention problems, parental stress, and negative parenting practices and an increase in positive parenting practices in the intervention group at postintervention (p ≤ .002 in all cases)."'
@@ -2592,7 +2592,7 @@
   finding:
     en: A review reports that parents' responsiveness to infants' exploratory and communicative behaviors predicts infant word learning, and proposes that responsiveness helps infants understand that language is a tool for sharing intentions and, through its close timing, contingency and multimodal and didactic content, helps them map words to their referents and grow their vocabulary.
     zh-hans: 这篇综述指出，家长对婴儿探索和沟通行为的回应性可以预测婴儿的词汇学习；作者提出，回应能帮助婴儿理解语言是分享意图的工具，而且回应在时间上紧随孩子的行为、与孩子的行为相关联，并带有多感官和教导性的内容，有助于婴儿把词语和所指的事物对应起来，从而扩大词汇量。
-    zh-hant: 這篇回顧文章指出，家長對嬰兒探索和溝通行為的回應性可以預測嬰兒的詞彙學習；作者提出，回應能幫助嬰兒理解語言是分享意圖的工具，而且回應在時間上緊接著孩子的行為、與孩子的行為相呼應，並帶有多感官與教導性的內容，有助於嬰兒把字詞和所指的事物連結起來，進而擴充詞彙量。
+    zh-hant: 這篇文獻回顧指出，家長對嬰兒探索和溝通行為的回應性可以預測嬰兒的詞彙學習；作者提出，回應能幫助嬰兒理解語言是分享意圖的工具，而且回應在時間上緊接著孩子的行為、與孩子的行為相呼應，並帶有多感官與教導性的內容，有助於嬰兒把字詞和所指的事物連結起來，進而擴充詞彙量。
   key_facts:
     - '"Parents’ responsiveness to infants’ exploratory and communicative behaviors predicts infant word learning during early periods of language development."'
     - '"We suggest that responsiveness supports infants’ growing pragmatic understanding that language is a tool that enables intentions to be socially shared."'
@@ -3088,7 +3088,7 @@
   finding:
     en: "A review distinguishes parental autonomy support from permissiveness and independence promotion and reports clear and consistent positive effects across different types of studies: autonomy support was associated with infants' motivation and toddlers' internalization in observation studies, related to children's adjustment at school in parent interview studies, and, as perceived by adolescents, linked to their psychosocial functioning in self-report studies."
     zh-hans: 这篇综述把家长的自主支持与放任或单纯促进独立区分开来，并指出不同类型的研究都显示出清楚一致的正面效果：观察研究发现自主支持与婴儿的动机和幼儿的内化有关，家长访谈研究发现它与孩子在学校的适应有关，自评研究则发现青少年感受到的自主支持与其心理社会功能有关。
-    zh-hant: 這篇回顧文章把家長的自主支持與放任或單純促進獨立區分開來，並指出不同類型的研究都顯示清楚一致的正面效果：觀察研究發現自主支持與嬰兒的動機和幼兒的內化有關，家長訪談研究發現它與孩子在學校的適應有關，自陳研究則發現青少年感受到的自主支持與其心理社會功能有關。
+    zh-hant: 這篇文獻回顧把家長的自主支持與放任或單純促進獨立區分開來，並指出不同類型的研究都顯示清楚一致的正面效果：觀察研究發現自主支持與嬰兒的動機和幼兒的內化有關，家長訪談研究發現它與孩子在學校的適應有關，自陳研究則發現青少年感受到的自主支持與其心理社會功能有關。
   key_facts:
     - '"the authors define parental autonomy support and distinguish it from permissiveness or independence promotion"'
     - '"clear and consistent positive effects arise from different types of studies, conducted with children of various ages"'
@@ -3116,7 +3116,7 @@
   finding:
     en: A review identifies three core executive functions, inhibition (self-control and interference control), working memory and cognitive flexibility, notes that stress, lack of sleep, loneliness or lack of exercise each impair them, and discusses evidence that they can be trained and improved with practice.
     zh-hans: 这篇综述把核心执行功能归纳为三项：抑制控制（自我控制和干扰控制）、工作记忆和认知灵活性；文章指出，压力、睡眠不足、孤独或缺乏运动都会损害执行功能，并讨论了执行功能可以通过练习加以训练和提升的证据。
-    zh-hant: 這篇回顧文章把核心執行功能歸納為三項：抑制控制（自我控制與干擾控制）、工作記憶和認知彈性；文章指出，壓力、睡眠不足、孤單或缺乏運動都會損害執行功能，並討論了執行功能可以透過練習加以訓練和提升的證據。
+    zh-hant: 這篇文獻回顧把核心執行功能歸納為三項：抑制控制（自我控制與干擾控制）、工作記憶和認知彈性；文章指出，壓力、睡眠不足、孤單或缺乏運動都會損害執行功能，並討論了執行功能可以透過練習加以訓練和提升的證據。
   key_facts:
     - "Core EFs named in the abstract: inhibition (response inhibition, or self-control, and interference control), working memory, and cognitive flexibility."
     - '"stress, lack of sleep, loneliness, or lack of exercise each impair EFs"'
@@ -3143,7 +3143,7 @@
   finding:
     en: A review of interventions for children aged 4-12 reports that diverse activities, including computerized training, noncomputerized games, aerobics, martial arts, yoga, mindfulness and school curricula, have improved executive functions, that all successful programs involve repeated practice with progressively increasing challenge, and that children with worse executive functions benefit most.
     zh-hans: 这篇综述梳理了针对 4 至 12 岁儿童的干预，指出电脑化训练、非电脑游戏、有氧运动、武术、瑜伽、正念和学校课程等多种活动都能改善执行功能；所有成功的项目都包含反复练习，并逐步提高对执行功能的挑战；执行功能较弱的孩子获益最大。
-    zh-hant: 這篇回顧文章整理了針對 4 至 12 歲兒童的介入方案，指出電腦化訓練、非電腦遊戲、有氧運動、武術、瑜珈、正念和學校課程等多種活動都能改善執行功能；所有成功的方案都包含反覆練習，並逐步提高對執行功能的挑戰；執行功能較弱的孩子獲益最多。
+    zh-hant: 這篇文獻回顧整理了針對 4 至 12 歲兒童的介入方案，指出電腦化訓練、非電腦遊戲、有氧運動、武術、瑜珈、正念和學校課程等多種活動都能改善執行功能；所有成功的方案都包含反覆練習，並逐步提高對執行功能的挑戰；執行功能較弱的孩子獲益最多。
   key_facts:
     - "\"Diverse activities have been shown to improve children's executive functions: computerized training, noncomputerized games, aerobics, martial arts, yoga, mindfulness, and school curricula.\""
     - '"All successful programs involve repeated practice and progressively increase the challenge to executive functions."'
@@ -3324,7 +3324,7 @@
   finding:
     en: A review of 10 learning techniques gave practice testing and distributed practice high utility ratings, because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks.
     zh-hans: 这篇综述评估了 10 种学习方法，给予练习测试和间隔练习“高实用性”的评价，因为它们对不同年龄和能力的学习者都有益，并且已被证明能在多种评估任务中提升学生的表现。
-    zh-hant: 這篇回顧文章評估了 10 種學習方法，給予練習測驗和間隔練習「高實用性」的評價，因為它們對不同年齡和能力的學習者都有幫助，並且已證實能在多種評量任務中提升學生的表現。
+    zh-hant: 這篇文獻回顧評估了 10 種學習方法，給予練習測驗和間隔練習「高實用性」的評價，因為它們對不同年齡和能力的學習者都有幫助，並且已證實能在多種評量任務中提升學生的表現。
   key_facts:
     - '"The techniques include elaborative interrogation, self-explanation, summarization, highlighting (or underlining), the keyword mnemonic, imagery use for text learning, rereading, practice testing, distributed practice, and interleaved practice."'
     - "\"Practice testing and distributed practice received high utility assessments because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks\""
@@ -3645,8 +3645,8 @@
   lang: en
   finding:
     en: A review of 47 studies published between 2000 and 2010 on parental knowledge and monitoring and children's and adolescents' conduct problems, following the reinterpretation of monitoring as knowledge that is largely driven by what children choose to tell; inadequate monitoring is widely recognized as a risk factor for conduct problems, and the links run in both directions.
-    zh-hans: 这篇综述梳理了 2000 到 2010 年间发表的 47 项关于父母了解程度、监管与儿童青少年品行问题的研究，延续了“监管其实是了解程度，而了解程度主要取决于孩子愿意告诉父母什么”这一新解读；监管不足被普遍视为品行问题的风险因素，而且两者相互影响。
-    zh-hant: 這篇文獻回顧整理了 2000 到 2010 年間發表的 47 項關於父母了解程度、監督與兒童青少年品行問題的研究，延續「監督其實是了解程度，而了解程度主要取決於孩子願意告訴父母什麼」的新解讀；監督不足被普遍視為品行問題的風險因素，而且兩者相互影響。
+    zh-hans: 这篇综述梳理了 2000 到 2010 年间发表的 47 项关于父母了解程度、监管与儿童青少年行为问题的研究，延续了“监管其实是了解程度，而了解程度主要取决于孩子愿意告诉父母什么”这一新解读；监管不足被普遍视为行为问题的风险因素，而且两者相互影响。
+    zh-hant: 這篇文獻回顧整理了 2000 到 2010 年間發表的 47 項關於父母了解程度、監督與兒童青少年行為問題的研究，延續「監督其實是了解程度，而了解程度主要取決於孩子願意告訴父母什麼」的新解讀；監督不足被普遍視為行為問題的風險因素，而且兩者相互影響。
   key_facts:
   - 'Abstract: "Inadequate parental monitoring is widely recognized as a risk factor for the development of child and adolescent conduct problems."'
   - 'Abstract: "Forty-seven studies published between 2000 and 2010 were identified by searching major databases and bibliographies and were included in this review."'

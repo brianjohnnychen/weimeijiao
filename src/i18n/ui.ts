@@ -69,7 +69,7 @@ export const UI: Record<Locale, UiStrings> = {
       emerging: '初步',
       contested: '有争议',
       explain: {
-        strong: '有多项荟萃分析或随机对照试验支持，通常是成熟家长培训课程的核心内容。',
+        strong: '有荟萃分析或多项随机对照试验支持，通常是成熟家长培训课程的核心内容。',
         moderate: '有一些对照研究支持，或作为课程组成部分有一致的证据。',
         emerging: '直接研究还少，依据来自相关研究或专业机构的建议。',
         contested: '可信的研究者对它的益处或害处意见不一。',
@@ -161,7 +161,7 @@ export const UI: Record<Locale, UiStrings> = {
       emerging: '初步',
       contested: '有爭議',
       explain: {
-        strong: '有多項統合分析或隨機對照試驗支持，通常是成熟親職課程的核心內容。',
+        strong: '有統合分析或多項隨機對照試驗支持，通常是成熟親職課程的核心內容。',
         moderate: '有一些對照研究支持，或作為課程組成部分有一致的證據。',
         emerging: '直接研究還不多，依據來自相關研究或專業機構的建議。',
         contested: '可信的研究者對它的益處或害處看法不一。',
