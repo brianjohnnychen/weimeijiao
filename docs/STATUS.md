@@ -1,10 +1,10 @@
 # STATUS
 
-## FINAL QA PASS DONE; GO-LIVE NEXT
+## FINAL QA PASS DONE; GOING LIVE
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
 
-Go-live follows the steps in SPEC §2 once the last 21 illustrations are generated after the 00:00 UTC quota reset (08:00 Taipei): merge PR #1 into `main`, run `deploy.yml` on `main`, check the live site and both redirect domains, record the result here. **Known blocker for the live check: 魏美娇.com and 魏美嬌.com do not resolve yet (open issue 1).**
+Go-live follows the steps in SPEC §2 right after this update: merge PR #1 into `main`, run `deploy.yml` on `main`, check the live site and both redirect domains, and record the result here. The plan was to wait for the last 21 illustrations, but Cloudflare still reported its free daily allocation as used up at 00:22 and 00:24 UTC (open issue 2), so the site goes live with their designed placeholders and a second deploy adds them once they are generated and reviewed. **Known blocker for the live check: 魏美娇.com and 魏美嬌.com do not resolve yet (open issue 1).**
 
 ### QA results (how to rerun: docs/QA.md)
 
@@ -20,7 +20,7 @@ Go-live follows the steps in SPEC §2 once the last 21 illustrations are generat
 | UI check | 129 views in three locales: no overflow, console errors, failed requests or broken images; keyboard and dark mode pass; header fits |
 | Printables | 39 one-page sheets and 3 two-page age finders, all at 100% scale |
 | Lighthouse | All 18 medians (3 runs each) are 95 or higher: performance 95-100 on mobile and 100 on desktop; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md) |
-| Sources and help lines | the sources workflow re-runs on this push (sources.yml changed); its result is recorded here at go-live |
+| Sources and help lines | Actions run 37161742748 (the latest change to sources.yml): 146 sources, 0 failures; all 14 help lines found on their official pages |
 
 ### What is built
 
@@ -32,13 +32,13 @@ Go-live follows the steps in SPEC §2 once the last 21 illustrations are generat
 
 ### Open issues
 
-1. **魏美娇.com and 魏美嬌.com do not resolve (DNS). Waiting on: Cowork (Cloudflare).** Public DNS lookups from GitHub's runners on 2026-10-03 21:52 UTC (Google's resolver, plus the .com registry's RDAP record) show:
+1. **魏美娇.com and 魏美嬌.com do not resolve (DNS). Waiting on: Cowork (Cloudflare).** Public DNS lookups from GitHub's runners on 2026-10-03 at 21:52 and again at 23:26 UTC (Google's resolver, plus the .com registry's RDAP record) show the same:
    - weimeijiao.com works: Cloudflare's nameservers (earl and lila) answer, and it resolves to Cloudflare's proxy.
    - xn--3ys368f86s.com (魏美娇.com) and xn--k6s926f86s.com (魏美嬌.com) fail with SERVFAIL. The .com registry sends both to the same Cloudflare nameservers that answer for weimeijiao.com, but those nameservers reply REFUSED for these two names ("lame delegation").
    - Both are registered at Dynadot with no registry hold (status: client transfer prohibited only).
    - What it means: Cloudflare is not serving these two zones yet. Usually a zone is still "pending" activation, or it was added under a different nameserver pair from the one set at Dynadot. To check: in the Cloudflare dashboard, open each zone's Overview. It must say Active, and its two assigned nameservers must match the ones set at Dynadot (earl and lila). If it is pending and they match, "Check nameservers" re-runs the activation check.
    - Until then 魏美娇.com does not load, GitHub cannot issue its HTTPS certificate, and weimeijiao.com (which redirects to 魏美娇.com) cannot show the site either. The deploy itself does not depend on DNS; once the zones are active, the deployed site appears with no further step. This session does not change DNS (CLAUDE.md).
-2. **21 AI illustrations still to generate.** Cloudflare Workers AI's free daily allocation ran out; it resets at 00:00 UTC. A scheduled check-in at 00:20 UTC runs the images workflow, reviews every image and commits. Until then those pages show the designed placeholder (a paid plan would cost money, so it was not used).
+2. **21 AI illustrations still to generate.** Cloudflare Workers AI's free daily allocation (10,000 neurons) ran out on 2026-10-03. Cloudflare's pricing page says the limits reset daily at 00:00 UTC, but the images workflow still got "you have used up your daily free allocation" at 00:22 and 00:24 UTC on 2026-10-04 (Actions run 37161742742, attempts 2 and 3). Why is not known from here; one possibility is other Workers AI use on the same Cloudflare account. This session retries later; when the images arrive it reviews every one, commits them and deploys again. Until then those pages show the designed placeholder (a paid plan would cost money, so it was not used).
 3. **Go-live needs the code on `main`.** GitHub starts a `workflow_dispatch` workflow only from the default branch, and `main` has no workflows yet, so go-live is: merge PR #1 into `main`, then run `deploy.yml` on `main` (SPEC §2). The Cowork "Weimeijiao build watch" routine's prompt still says not to run deploy.yml; Brian's later instruction (SPEC §2, REVIEWER-CHANGES.md) supersedes it.
 4. **Enforce HTTPS.** This session has no token for the Pages API, and GitHub can only enforce HTTPS once the certificate exists (after open issue 1 is fixed). The checkbox is for Brian or the Cowork routine.
 5. **AAP 2018 discipline statement: reaffirmation status unknown.** AAP policy statements expire after 5 years unless reaffirmed; no notice was found and the article page blocks automated access. Every page says "in its 2018 policy statement". Waiting on: someone opening the article page in a browser.
