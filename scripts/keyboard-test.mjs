@@ -79,15 +79,16 @@ for (const [pre, own, other] of LOCALES) {
   const skip = await describe(page);
   check(skip.name.startsWith('a.skip-link') && skip.visible && skip.ring, `${name} first Tab is the visible skip link`, skip.name);
   await page.keyboard.press('Enter');
-  const onMain = await page.evaluate(() => document.activeElement?.id === 'main');
-  check(onMain, `${name} Enter on the skip link focuses main`);
+  // The fragment navigation and the focus move land a moment after the key event; wait for them.
+  const onMain = await page.waitForFunction(() => document.activeElement?.id === 'main', null, { timeout: 2000 }).then(() => true, () => false);
+  check(onMain, `${name} Enter on the skip link focuses main`, await describe(page).then((d) => d.name));
   // Theme toggle
   await page.locator('[data-theme-toggle]').focus();
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(100);
+  await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark', null, { timeout: 2000 }).catch(() => {});
   const d1 = await page.evaluate(() => [document.documentElement.dataset.theme, getComputedStyle(document.body).backgroundColor, document.querySelector('[data-theme-toggle]').getAttribute('aria-label')]);
   await page.keyboard.press('Enter');
-  await page.waitForTimeout(100);
+  await page.waitForFunction(() => document.documentElement.dataset.theme === 'light', null, { timeout: 2000 }).catch(() => {});
   const d2 = await page.evaluate(() => [document.documentElement.dataset.theme, getComputedStyle(document.body).backgroundColor]);
   check(d1[0] === 'dark' && dark(d1[1]) && d2[0] === 'light' && !dark(d2[1]), `${name} theme button switches to dark and back by keyboard`, `${d1.join(' | ')} -> ${d2.join(' | ')}`);
   // Table of contents link
