@@ -11,14 +11,15 @@
 # To regenerate an image: run the workflow with its id in "ids".
 
 style: >-
-  Polished flat editorial illustration in one consistent picture-book style: clean simplified shapes with
-  a soft paper-grain texture, a warm limited palette of cream, peach, terracotta, muted teal and olive on a
-  pale cream background, soft diffuse daylight and gentle shadows, friendly simplified faces with small
-  calm features, an East Asian family with natural proportions, correct hands with five fingers and
-  correct faces, a cozy slightly imperfect home or everyday place in Taiwan or mainland China, an
-  uncluttered composition with one clear focal action and a little breathing room around it, no text,
-  letters, numbers, logos, signs, speech bubbles, symbols or icons anywhere, no watermark, no caption,
-  no border, no photorealism, no 3D render.
+  Polished flat editorial illustration in one consistent style: a full-bleed scene that fills the entire
+  canvas edge to edge, no frame, no border, no margin, no inset panel, no vignette; flat colour areas
+  with a subtle paper-grain texture and no painterly brushwork; a warm limited palette of cream, peach,
+  terracotta, muted teal and olive on a pale cream background; soft diffuse daylight and gentle shadows;
+  friendly simplified faces with small calm features; an East Asian family with natural proportions,
+  correct hands with five fingers and correct faces; a cozy slightly imperfect home or everyday place in
+  Taiwan or mainland China; an uncluttered composition with one clear focal action; no text, letters,
+  numbers, logos, signs, speech bubbles, symbols or icons anywhere; no watermark, no caption, no
+  photorealism, no 3D render.
 
 images:
   # Home and hubs
@@ -106,7 +107,7 @@ images:
   # Printables
   - id: printables-hero
     page: printables
-    prompt: "A fridge door in a Chengdu apartment kitchen covered with a child's drawings and a blank weekly chart of colored squares held by magnets, a parent and a five-year-old pressing a sticker onto it together, morning light. 35mm lens."
+    prompt: "A parent and a six-year-old sitting side by side at a kitchen table in a Taipei apartment on a quiet afternoon, the child drawing a big sun with crayons on a blank sheet of paper, a small stack of plain white paper, a cup of pencils and a roll of tape within reach, the parent holding up another blank sheet ready for the next drawing, soft daylight from a window"
     alt:
       en: "A parent and a five-year-old press a sticker onto a chart on a fridge door covered with children’s drawings."
       zh-hans: "家长和五岁的孩子一起往贴满孩子画作的冰箱门上的表格贴贴纸。"
