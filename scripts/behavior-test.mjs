@@ -1,5 +1,5 @@
 // Interactive behaviour in all three locales, against the built site: the age finder's scoring
-// (exact, in sixths of a point, compared with an independent count over random answer sets), its
+// (exact, in twelfths of a point, compared with an independent count over random answer sets), its
 // unanswered-question flow and result focus; the photo lightbox (no empty <img>, focus, scroll
 // lock, closing); the toolbox age filter (live count, links to filtered-out tools); the language
 // banner (browser language list, dismiss); the theme toggle; the language switcher keeping the
@@ -42,9 +42,9 @@ for (const pre of PREFIX) {
   const byHref = Object.fromEntries(order.map((p) => [phases[p].href, p]));
   const expected = (ans) => {
     const s = Object.fromEntries(order.map((p) => [p, 0]));
-    ans.forEach((a, qi) => { const ps = qs[qi][a].split(' '); for (const p of ps) s[p] += 6 / ps.length; });
+    ans.forEach((a, qi) => { const ps = qs[qi][a].split(' '); for (const p of ps) s[p] += 12 / ps.length; });
     const r = [...order].sort((a, b) => s[b] - s[a] || order.indexOf(a) - order.indexOf(b));
-    return { best: r[0], also: s[r[1]] > 0 && s[r[0]] - s[r[1]] <= 9 ? r[1] : null };
+    return { best: r[0], also: s[r[1]] > 0 && s[r[0]] - s[r[1]] <= 18 ? r[1] : null };
   };
   const run = (ans) => page.evaluate((ans) => {
     const form = document.querySelector('[data-quiz]');

@@ -69,9 +69,9 @@ English: plain US spelling, sentence-case headings, curly or straight quotes con
 
 ## 6. Glossary (use these names when you name a tool, situation or idea)
 
-Phases (from `src/i18n/ui.ts`): 0-12 months Babies / 宝宝 / 寶寶; 1-3 years Toddlers / 学步儿 / 學步兒; 3-5 years Preschoolers / 学龄前 / 學齡前; 5-7 years Starting school / 幼小衔接 / 幼小銜接; 7-10 years School age / 小学生 / 國小學童.
+Phases (from `src/i18n/ui.ts`): 0-12 months Babies / 宝宝 / 寶寶; 1-3 years Toddlers / 学步儿 / 學步兒; 3-5 years Preschoolers / 学龄前 / 學齡前; 5-7 years Starting school / 幼小衔接 / 幼小銜接; 7-10 years School age / 小学生 / 國小學童; 10-12 years Preteens / 青春期前 / 青春期前 (pre-adolescence, the end of primary school). The site covers birth to age 12.
 
-Sections: Best-proven approach / 证据最强的方法 / 證據最強的方法; Toolbox / 工具箱 / 工具箱; Situations / 常见难题 / 常見難題; When you have little time / 时间不够时 / 時間不夠時; Physical discipline / 关于体罚 / 關於體罰; Encouraging learning / 鼓励学习 / 鼓勵學習; Research / 研究依据 / 研究依據; Printables / 打印资料 / 列印資源; About / 关于本站 / 關於本站.
+Sections: Best-proven approach / 证据最强的方法 / 證據最強的方法; Toolbox / 工具箱 / 工具箱; Situations / 常见难题 / 常見難題; When you have little time / 时间不够时 / 時間不夠時; Physical discipline / 关于体罚 / 關於體罰; Encouraging learning / 鼓励学习 / 鼓勵學習; Research / 研究依据 / 研究依據; Printables / 打印资料 / 列印資源; About / 关于本站 / 關於本站; Sources (the bibliography page, linked from the footer only) / 参考文献 / 參考文獻.
 
 Tools (title in the tool file; use the same words when linking):
 
@@ -122,6 +122,7 @@ Template anchors (always present):
 - Toolbox `/toolbox/`: `#<tool>` (card), `#<tool>-how`, `#<tool>-ages`, `#<tool>-evidence`, `#<tool>-mistakes`, `#<tool>-say`, `#evidence-levels`.
 - Situations `/situations/`: `#<situation>`, `#<situation>-now`, `-why`, `-say`, `-prevent`, `-help`.
 - Research `/research/`: `#src-<source id>` (each bibliography entry), `#bibliography`, `#group-<programs|techniques|physical|development|everyday|learning>`.
+- Sources `/sources/`: `#all`, `#group-<programs|techniques|physical|development|everyday|learning>`, `#src-<source id>` (every entry in `content/sources.yml`, cited or not; each links to its Research entry and lists the pages that cite it).
 - By age `/by-age/`: `#phase-<phase>`. Phase pages `/by-age/<phase>/`: `#start`, `#printable`.
 - Learning `/learning/`: `#learning-<phase>`. Learning phase pages `/learning/<phase>/`: `#start`, `#printable`.
 - Printables `/printables/`: `#quiz`, `#summaries`, `#learning`, `#tools`, `#printable-<slug>`. Printable pages: `/printables/<slug>/` (age-finder, summary-<phase>, learning-<phase>, routine-chart, calm-down-plan, family-rules).
@@ -129,11 +130,12 @@ Template anchors (always present):
 
 Planned content anchors (the writers of these pages create them; others may link to them):
 - `/by-age/<phase>/`: `#normal`, `#works`, `#backfires`, `#say` (h2, required). h3 ids inside them are free.
-- `/approach/`: `#why`, `#core` (h3: `#attention`, `#instructions`, `#ignoring`, `#consequences`, `#follow-through`), `#getting-started`, `#programs`, `#chinese-families`, `#edge-cases` (h3: `#refuses-time-out`, `#aggression`, `#public-places`, `#siblings`, `#caregivers-disagree`, `#grandparents`, `#dangerous-behavior`, `#developmental-differences`, `#not-working`), `#get-help`.
+- `/approach/`: `#why`, `#core` (h3: `#attention`, `#instructions`, `#ignoring`, `#consequences`, `#follow-through`), `#getting-started`, `#programs`, `#chinese-families`, `#edge-cases` (h3: `#refuses-time-out`, `#aggression`, `#public-places`, `#siblings`, `#caregivers-disagree`, `#grandparents`, `#dangerous-behavior`, `#developmental-differences`, `#preteens`, `#not-working`), `#get-help`.
 - `/little-time/`: `#principle`, `#short-time-out`, `#privilege-removal`, `#when-then`, `#planned-ignoring`, `#routines`, `#effort-table`, `#physical-discipline` (h3 `#what-studies-found`), `#bottom-line`.
 - `/physical-discipline/`: `#safety-vs-punishment` (h3 `#safety-holds`), `#majority-view`, `#minority-view`, `#agreement`, `#disagreement`, `#major-bodies`, `#decide`, `#warning-signs`, `#instead`, `#repair`, `#law`.
 - `/learning/<phase>/`: h2 ids from `#talk`, `#read`, `#play`, `#praise`, `#motivation`, `#focus`, `#numbers`, `#sleep-screens`, `#homework`, `#study`, `#evidence` (each phase page uses the ones that fit its age).
 - `/research/`: `#how-to-read` (h3 `#study-types`, `#correlation`, `#effect-sizes`, `#evidence-levels`, `#limits`).
+- `/sources/`: `#intro`.
 - `/about/`: `#story`, `#why`, `#sister-site`, `#disclaimer`, `#get-help`, `#help-lines`.
 - Intro sections on hub pages: `#intro` (toolbox, situations, by-age, learning, printables, home), `#how-to-use`.
 

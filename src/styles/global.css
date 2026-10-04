@@ -2797,3 +2797,22 @@ html:has(dialog.lightbox[open]) {
     line-height: 1.4;
   }
 }
+
+/* Sources page (the full bibliography): unnumbered list with the in-text number shown where one exists. */
+.bib-list-plain {
+  list-style: none;
+  padding-left: 0;
+}
+
+.bib-number {
+  display: inline-block;
+  min-width: 1.6em;
+  margin-right: 0.4em;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+}
+
+.bib-sources-link {
+  margin-left: auto;
+}

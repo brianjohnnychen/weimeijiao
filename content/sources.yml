@@ -95,7 +95,7 @@
   finding:
     en: "Two meta-analyses of randomized parenting program trials found that only three of 26 parenting techniques were linked to stronger effects on disruptive child behavior: positive reinforcement, praise in particular, and natural/logical consequences."
     zh-hans: 两项针对家长课程随机试验的荟萃分析发现，在 26 种教养技巧中，只有 3 种与改善孩子破坏性行为的更强效果相关：正向强化、特别是表扬，以及自然后果和逻辑后果。
-    zh-hant: 兩項針對親職課程隨機試驗的統合分析發現，在 26 種教養技巧中，只有 3 種與改善孩子干擾行為的較強效果有關：正向增強、特別是讚美，以及自然後果與邏輯後果。
+    zh-hant: 兩項針對親職課程隨機試驗的統合分析發現，在 26 種教養技巧中，只有 3 種與改善孩子干擾行為的較強效果有關：正向增強、特別是稱讚，以及自然後果與邏輯後果。
   key_facts:
     - '"Three of 26 parenting techniques were associated with stronger program effects: positive reinforcement, praise in particular, and natural/logical consequences."'
     - Several additional techniques, for example relationship building and parental self-management, were associated with stronger effects in treatment but weaker effects in prevention.
@@ -146,7 +146,7 @@
   finding:
     en: A systematic review of 41 studies of children aged 1.5 to 11 found that reprimands and negative nonverbal responses consistently increased compliance, while praise and positive nonverbal responses had mixed effects.
     zh-hans: 一项涵盖 41 项研究、儿童年龄 1.5 至 11 岁的系统综述发现，口头责备和负面的非语言回应一致地提高了孩子的配合度，而表扬和正面的非语言回应效果不一。
-    zh-hant: 一項涵蓋 41 項研究、兒童年齡 1.5 至 11 歲的系統性回顧發現，口頭責備和負面的非語言回應一致地提高了孩子的配合度，而讚美和正面的非語言回應效果不一。
+    zh-hant: 一項涵蓋 41 項研究、兒童年齡 1.5 至 11 歲的系統性回顧發現，口頭責備和負面的非語言回應一致地提高了孩子的配合度，而稱讚和正面的非語言回應效果不一。
   key_facts:
     - 41 studies; children aged 1.5 to 11 years.
     - '"Reprimand and negative nonverbal responses consistently resulted in greater compliance".'
@@ -214,8 +214,8 @@
   lang: en
   finding:
     en: This review weighs the criticisms of time-out and concludes that its judicious use within parent training programs is justified and beneficial for many children with conduct problems, while setting out what affects its effectiveness and when it should not be used.
-    zh-hans: 这篇综述权衡了对暂停法的各种批评，结论是在家长培训课程中审慎使用暂停法是合理的，对许多有品行问题的孩子有益；文中也说明了影响效果的因素和不宜使用的情况。
-    zh-hant: 這篇文獻回顧權衡了對暫停法的各種批評，結論是在親職訓練課程中審慎使用暫停法是合理的，對許多有行為規範問題的孩子有益；文中也說明了影響效果的因素和不宜使用的情況。
+    zh-hans: 这篇综述权衡了对暂停法的各种批评，结论是在家长培训课程中审慎使用暂停法是合理的，对许多有行为问题的孩子有益；文中也说明了影响效果的因素和不宜使用的情况。
+    zh-hant: 這篇文獻回顧權衡了對暫停法的各種批評，結論是在親職訓練課程中審慎使用暫停法是合理的，對許多有行為問題的孩子有益；文中也說明了影響效果的因素和不宜使用的情況。
   key_facts:
     - Examines the controversy over time out as a strategy for reducing disruptive and oppositional behavior in young children.
     - Concludes that judicious use of time out in parent training programs is justified and beneficial for many children with conduct problems.
@@ -305,7 +305,7 @@
   finding:
     en: "In two experiments with children aged 3 to 9, labeled praise (naming the behavior) showed no advantage over unlabeled praise: only unlabeled praise increased immediate compliance in the first experiment, and in the second, two weeks of labeled praise reduced disruptive behavior about as much as unlabeled praise did."
     zh-hans: 两项针对 3 至 9 岁儿童的实验显示，具体表扬（说出表扬的是哪个行为）并不比笼统表扬更有优势：第一项实验中只有笼统表扬提高了孩子当下的配合度；第二项实验中，持续两周的具体表扬减少了破坏性行为，但幅度与笼统表扬相近。
-    zh-hant: 兩項針對 3 至 9 歲兒童的實驗顯示，具體讚美（說出讚美的是哪個行為）並不比籠統讚美更有優勢：第一項實驗中只有籠統讚美提高了孩子當下的配合度；第二項實驗中，持續兩週的具體讚美減少了干擾行為，但幅度與籠統讚美相近。
+    zh-hant: 兩項針對 3 至 9 歲兒童的實驗顯示，具體稱讚（說出稱讚的是哪個行為）並不比籠統稱讚更有優勢：第一項實驗中只有籠統稱讚提高了孩子當下的配合度；第二項實驗中，持續兩週的具體稱讚減少了干擾行為，但幅度與籠統稱讚相近。
   key_facts:
     - '"Experiment 1 included 161 4 to 8 year-old community sample children and tested immediate effects of praise."'
     - '"Experiment 2 included 132 3 to 9 year-old children with varying levels of disruptive behavior and tested immediate and two-week effects of praise."'
@@ -733,9 +733,9 @@
   url: https://doi.org/10.1542/peds.2017-0352
   lang: en
   finding:
-    en: A meta-analysis of 23 studies (1144 participants) found that Parent-Child Interaction Therapy (PCIT) reduced child externalizing behavior more than control conditions (SMD -0.87), with greater reductions in studies that required skill mastery (SMD -1.09) than in those that did not (SMD -0.51).
-    zh-hans: 一项纳入 23 项研究（1144 名参与者）的荟萃分析发现，亲子互动治疗（PCIT）比对照组更能减少孩子的外化行为（SMD -0.87）；要求达到技能熟练标准的研究，减少幅度（SMD -1.09）大于没有这项要求的研究（SMD -0.51）。
-    zh-hant: 一項納入 23 項研究（1144 名參與者）的統合分析發現，親子互動治療（PCIT）比對照組更能減少孩子的外化行為（SMD -0.87）；要求達到技巧熟練標準的研究，減少幅度（SMD -1.09）大於沒有這項要求的研究（SMD -0.51）。
+    en: A meta-analysis of 23 studies (1,144 participants) found that Parent-Child Interaction Therapy (PCIT) reduced child externalizing behavior more than control conditions (SMD -0.87), with greater reductions in studies that required skill mastery (SMD -1.09) than in those that did not (SMD -0.51).
+    zh-hans: 一项纳入 23 项研究（1,144 名参与者）的荟萃分析发现，亲子互动治疗（PCIT）比对照组更能减少孩子的外化行为（SMD -0.87）；要求达到技能熟练标准的研究，减少幅度（SMD -1.09）大于没有这项要求的研究（SMD -0.51）。
+    zh-hant: 一項納入 23 項研究（1,144 名參與者）的統合分析發現，親子互動治療（PCIT）比對照組更能減少孩子的外化行為（SMD -0.87）；要求達到技巧熟練標準的研究，減少幅度（SMD -1.09）大於沒有這項要求的研究（SMD -0.51）。
   key_facts:
     - '"We included 23 studies (1144 participants)."'
     - '"PCIT was superior to control for reducing child externalizing (standardized mean difference [SMD]: -0.87, 95% confidence interval [CI]:-1.17 to -0.58)."'
@@ -783,8 +783,8 @@
   lang: en
   finding:
     en: A meta-analysis of 28 randomized controlled trials found a significant overall advantage for parent management training (PMT) over waitlist control for child disruptive behavior, with no clear evidence that delivering it under real-world conditions (non-specialist therapists, clinic-referred children, routine settings and services) reduced its effect.
-    zh-hans: 一项纳入 28 项随机对照试验的荟萃分析发现，在改善孩子破坏性行为方面，家长管理训练（PMT）总体上明显优于候补对照组；也没有明确证据表明，在真实世界条件下实施（由非专科治疗师执行、对象为转介来诊的孩子、在常规机构和服务中开展）会削弱其效果。
-    zh-hant: 一項納入 28 項隨機對照試驗的統合分析發現，在改善孩子干擾行為方面，親職管理訓練（PMT）整體上明顯優於候補對照組；也沒有明確證據顯示，在真實世界條件下實施（由非專科治療師執行、對象為轉介就診的孩子、在一般機構和服務中進行）會削弱其效果。
+    zh-hans: 一项纳入 28 项随机对照试验的荟萃分析发现，在改善孩子破坏性行为方面，家长管理训练（PMT）总体上明显优于等待名单对照组；也没有明确证据表明，在真实世界条件下实施（由非专科治疗师执行、对象为转介来诊的孩子、在常规机构和服务中开展）会削弱其效果。
+    zh-hant: 一項納入 28 項隨機對照試驗的統合分析發現，在改善孩子干擾行為方面，親職管理訓練（PMT）整體上明顯優於候補名單對照組；也沒有明確證據顯示，在真實世界條件下實施（由非專科治療師執行、對象為轉介就診的孩子、在一般機構和服務中進行）會削弱其效果。
   key_facts:
     - '"We identified 28 relevant randomized controlled trials"'
     - '"Meta-analysis revealed a significant overall advantage for PMT compared with waitlist control conditions."'
@@ -830,9 +830,9 @@
   url: https://doi.org/10.1002/14651858.cd003680.pub3
   lang: en
   finding:
-    en: A Cochrane review of 22 randomized and two quasi-randomized trials involving 3161 parents of young children (maximum mean age 3 years 11 months) found evidence that group-based behavioral, cognitive-behavioral or videotape-modeling parenting programs reduce children's overall emotional and behavioral problems.
-    zh-hans: 一项 Cochrane 系统综述纳入 22 项随机对照试验和 2 项准随机对照试验，共 3161 位幼儿家长（孩子平均年龄最大为 3 岁 11 个月），发现团体形式的行为、认知行为或录像示范家长课程能减少孩子整体的情绪和行为问题。
-    zh-hant: 一項 Cochrane 系統性回顧納入 22 項隨機對照試驗和 2 項準隨機對照試驗，共 3161 位幼兒家長（孩子平均年齡最大為 3 歲 11 個月），發現團體形式的行為、認知行為或錄影示範親職課程能減少孩子整體的情緒和行為問題。
+    en: A Cochrane review of 22 randomized and two quasi-randomized trials involving 3,161 parents of young children (maximum mean age 3 years 11 months) found evidence that group-based behavioral, cognitive-behavioral or videotape-modeling parenting programs reduce children's overall emotional and behavioral problems.
+    zh-hans: 一项 Cochrane 系统综述纳入 22 项随机对照试验和 2 项准随机对照试验，共 3,161 位幼儿家长（孩子平均年龄最大为 3 岁 11 个月），发现团体形式的行为、认知行为或录像示范家长课程能减少孩子整体的情绪和行为问题。
+    zh-hant: 一項 Cochrane 系統性回顧納入 22 項隨機對照試驗和 2 項準隨機對照試驗，共 3,161 位幼兒家長（孩子平均年齡最大為 3 歲 11 個月），發現團體形式的行為、認知行為或錄影示範親職課程能減少孩子整體的情緒和行為問題。
   key_facts:
     - '"We identified 22 RCTs and two quasi-RCTs evaluating the effectiveness of group-based parenting programmes in improving the emotional and behavioural adjustment of children aged up to three years and 11 months"'
     - '"The total number of participants in the studies were 3161 parents and their young children."'
@@ -853,9 +853,9 @@
   url: https://doi.org/10.1002/14651858.cd008225.pub2
   lang: en
   finding:
-    en: A Cochrane review of 13 trials (1078 participants) found that behavioral and cognitive-behavioral group-based parenting programs significantly reduced conduct problems in children aged 3 to 12, whether rated by parents (SMD -0.53) or independently assessed (SMD -0.44), and also improved parents' mental health and positive parenting skills.
-    zh-hans: 一项纳入 13 项试验（1078 名参与者）的 Cochrane 系统综述发现，行为和认知行为取向的团体家长培训显著减少了 3 至 12 岁孩子的品行问题，无论由家长评定（SMD -0.53）还是独立评估（SMD -0.44）都是如此，同时也改善了家长的心理健康和正向教养技巧。
-    zh-hant: 一項納入 13 項試驗（1078 名參與者）的 Cochrane 系統性回顧發現，行為和認知行為取向的團體親職訓練顯著減少了 3 至 12 歲孩子的行為規範問題，無論由家長評定（SMD -0.53）或獨立評估（SMD -0.44）皆是如此，同時也改善了家長的心理健康和正向教養技巧。
+    en: A Cochrane review of 13 trials (1,078 participants) found that behavioral and cognitive-behavioral group-based parenting programs significantly reduced conduct problems in children aged 3 to 12, whether rated by parents (SMD -0.53) or independently assessed (SMD -0.44), and also improved parents' mental health and positive parenting skills.
+    zh-hans: 一项纳入 13 项试验（1,078 名参与者）的 Cochrane 系统综述发现，行为和认知行为取向的团体家长培训显著减少了 3 至 12 岁孩子的行为问题，无论由家长评定（SMD -0.53）还是独立评估（SMD -0.44）都是如此，同时也改善了家长的心理健康和正向教养技巧。
+    zh-hant: 一項納入 13 項試驗（1,078 名參與者）的 Cochrane 系統性回顧發現，行為和認知行為取向的團體親職訓練顯著減少了 3 至 12 歲孩子的行為問題，無論由家長評定（SMD -0.53）或獨立評估（SMD -0.44）皆是如此，同時也改善了家長的心理健康和正向教養技巧。
   key_facts:
     - '"This review includes 13 trials (10 RCTs and three quasi-randomised trials), as well as two economic evaluations based on two of the trials."'
     - '"Overall, there were 1078 participants (646 in the intervention group; 432 in the control group)."'
@@ -922,8 +922,8 @@
   lang: en
   finding:
     en: A systematic review of 57 randomized controlled trials of parenting programs for children up to age 18 with conduct problems found significant benefits on both parent reports (SMD -0.67) and independent reports (SMD -0.44), but insufficient evidence to tell which way of delivering the programs works best.
-    zh-hans: 一项纳入 57 项随机对照试验的系统综述发现，针对 18 岁以内有品行问题孩子的家长课程，无论按家长报告（SMD -0.67）还是独立报告（SMD -0.44）都有显著效果，但现有证据不足以判断哪种实施方式效果最好。
-    zh-hant: 一項納入 57 項隨機對照試驗的系統性回顧發現，針對 18 歲以內有行為規範問題孩子的親職課程，無論依家長回報（SMD -0.67）或獨立回報（SMD -0.44）都有顯著效果，但現有證據不足以判斷哪種實施方式效果最好。
+    zh-hans: 一项纳入 57 项随机对照试验的系统综述发现，针对 18 岁以内有行为问题孩子的家长课程，无论按家长报告（SMD -0.67）还是独立报告（SMD -0.44）都有显著效果，但现有证据不足以判断哪种实施方式效果最好。
+    zh-hant: 一項納入 57 項隨機對照試驗的系統性回顧發現，針對 18 歲以內有行為問題孩子的親職課程，無論依家長回報（SMD -0.67）或獨立回報（SMD -0.44）都有顯著效果，但現有證據不足以判斷哪種實施方式效果最好。
   key_facts:
     - '"57 RCTs were included. Studies were small with an average group size of 21."'
     - '"for parents/carers of children up to the age of 18 with a conduct problem"'
@@ -946,7 +946,7 @@
   finding:
     en: A multilevel meta-analysis of 19 studies that experimentally manipulated single parenting behaviors found that time-out for noncompliance (ds = 0.84-1.72) and briefly ignoring the child after noncompliance (ds = 0.36-1.77) robustly increased child compliance, verbal reprimands did so only when observed and parent-reported outcomes were combined (d = 0.72), and praise did not increase compliance.
     zh-hans: 一项针对 19 项以实验方式检验单一教养行为的研究所做的多层次荟萃分析发现，孩子不听从时使用暂停法（ds = 0.84 至 1.72）或短暂忽略孩子（ds = 0.36 至 1.77）都能稳定提高孩子的配合度；口头责备只有在合并观察和家长报告结果时才有效（d = 0.72）；表扬则没有提高配合度。
-    zh-hant: 一項針對 19 項以實驗方式檢驗單一教養行為的研究所做的多層次統合分析發現，孩子不聽從時使用暫停法（ds = 0.84 至 1.72）或短暫忽略孩子（ds = 0.36 至 1.77）都能穩定提高孩子的配合度；口頭責備只有在合併觀察與家長回報結果時才有效（d = 0.72）；讚美則沒有提高配合度。
+    zh-hant: 一項針對 19 項以實驗方式檢驗單一教養行為的研究所做的多層次統合分析發現，孩子不聽從時使用暫停法（ds = 0.84 至 1.72）或短暫忽略孩子（ds = 0.36 至 1.77）都能穩定提高孩子的配合度；口頭責備只有在合併觀察與家長回報結果時才有效（d = 0.72）；稱讚則沒有提高配合度。
   key_facts:
     - '"Nineteen studies (75 effect sizes) on four discrete parenting behaviors were included: praise, verbal reprimands, time-out, and ignore."'
     - '"Providing "time-out" for noncompliance robustly increased both observed and parent-reported child compliance (ds = 0.84-1.72; 95% CI 0.30 to 2.54)."'
@@ -1160,8 +1160,8 @@
   lang: en
   finding:
     en: In an evaluation of the More Fun With Sisters and Brothers Program with 4- to 8-year-old siblings from 95 families, sibling relationship quality and emotion regulation improved for program participants (n = 55) compared with a wait-list group (n = 40), and participating children needed less parental direction to control negative emotions.
-    zh-hans: 一项针对 More Fun With Sisters and Brothers（兄弟姐妹相处更开心）项目的评估纳入 95 个家庭中 4 至 8 岁的兄弟姐妹，与候补组（n = 40）相比，参加项目的孩子（n = 55）兄弟姐妹关系质量和情绪调节都有改善，控制负面情绪时也更少需要父母引导。
-    zh-hant: 一項針對 More Fun With Sisters and Brothers（手足相處更開心）方案的評估納入 95 個家庭中 4 至 8 歲的手足，與候補組（n = 40）相比，參加方案的孩子（n = 55）手足關係品質和情緒調節都有改善，控制負面情緒時也較不需要父母引導。
+    zh-hans: 一项针对 More Fun With Sisters and Brothers（兄弟姐妹相处更开心）项目的评估纳入 95 个家庭中 4 至 8 岁的兄弟姐妹，与等待名单对照组（n = 40）相比，参加项目的孩子（n = 55）兄弟姐妹关系质量和情绪调节都有改善，控制负面情绪时也更少需要父母引导。
+    zh-hant: 一項針對 More Fun With Sisters and Brothers（手足相處更開心）方案的評估納入 95 個家庭中 4 至 8 歲的手足，與候補名單對照組（n = 40）相比，參加方案的孩子（n = 55）手足關係品質和情緒調節都有改善，控制負面情緒時也較不需要父母引導。
   key_facts:
     - '"4- to 8-year-old siblings from 95 families were taught emotional and social competencies"'
     - '"Parents reported on SRQ and ER, and sibling interactions were observed in homes."'
@@ -1184,9 +1184,9 @@
   url: https://doi.org/10.1542/peds.2012-3801
   lang: en
   finding:
-    en: In a national probability sample of 3599 children and youth, those aged 0 to 9 and 10 to 17 who had experienced sibling aggression in the past year (psychological, property, or mild or severe physical assault) reported greater mental health distress, and in general sibling and peer aggression each independently predicted worse mental health.
-    zh-hans: 一项全国概率样本研究（n = 3599）发现，过去一年遭受过兄弟姐妹攻击（包括心理攻击、财物侵犯以及轻度或严重的身体攻击）的 0 至 9 岁儿童和 10 至 17 岁青少年，心理健康困扰更严重；而且总体来看，兄弟姐妹攻击和同伴攻击各自独立地预测了更差的心理健康。
-    zh-hant: 一項全國機率樣本研究（n = 3599）發現，過去一年曾遭手足攻擊（包括心理攻擊、財物侵犯以及輕度或嚴重的身體攻擊）的 0 至 9 歲兒童和 10 至 17 歲青少年，心理健康困擾較嚴重；而且整體來看，手足攻擊和同儕攻擊各自獨立預測了較差的心理健康。
+    en: In a national probability sample of 3,599 children and youth, those aged 0 to 9 and 10 to 17 who had experienced sibling aggression in the past year (psychological, property, or mild or severe physical assault) reported greater mental health distress, and in general sibling and peer aggression each independently predicted worse mental health.
+    zh-hans: 一项全国概率样本研究（n = 3,599）发现，过去一年遭受过兄弟姐妹攻击（包括心理攻击、财物侵犯以及轻度或严重的身体攻击）的 0 至 9 岁儿童和 10 至 17 岁青少年，心理健康困扰更严重；而且总体来看，兄弟姐妹攻击和同伴攻击各自独立地预测了更差的心理健康。
+    zh-hant: 一項全國機率樣本研究（n = 3,599）發現，過去一年曾遭手足攻擊（包括心理攻擊、財物侵犯以及輕度或嚴重的身體攻擊）的 0 至 9 歲兒童和 10 至 17 歲青少年，心理健康困擾較嚴重；而且整體來看，手足攻擊和同儕攻擊各自獨立預測了較差的心理健康。
   key_facts:
     - '"We analyzed a national probability sample (n = 3599) that included telephone interviews about past year victimizations conducted with youth aged 10 to 17 or an adult caregiver concerning children aged 0 to 9."'
     - '"Children ages 0 to 9 and youth ages 10 to 17 who experienced sibling aggression in the past year (ie, psychological, property, mild or severe physical assault), reported greater mental health distress."'
@@ -1355,8 +1355,8 @@
   lang: en
   finding:
     en: A meta-analysis of 16 studies with 1,003 children aged 2.5 to 6 with ADHD or ADHD symptoms found moderate parent-rated effects of parent training on ADHD symptoms (g = 0.51), conduct problems (g = 0.4) and negative parenting (g = 0.63), sustained at follow-ups of 3 to 12 months, but on independent assessment only negative parenting improved significantly.
-    zh-hans: 一项纳入 16 项研究、1,003 名 2.5 至 6 岁患有注意缺陷多动障碍（ADHD）或有 ADHD 症状儿童的荟萃分析发现，按家长评定，家长培训对 ADHD 症状（g = 0.51）、品行问题（g = 0.4）和负面教养（g = 0.63）有中等效果，并在 3 至 12 个月的追踪中维持，但按独立评估，只有负面教养的改善达到显著。
-    zh-hant: 一項納入 16 項研究、1,003 名 2.5 至 6 歲患有注意力不足過動症（ADHD）或有 ADHD 症狀兒童的統合分析發現，依家長評定，親職訓練對 ADHD 症狀（g = 0.51）、行為規範問題（g = 0.4）和負面教養（g = 0.63）有中等效果，並在 3 至 12 個月的追蹤中維持，但依獨立評估，只有負面教養的改善達到顯著。
+    zh-hans: 一项纳入 16 项研究、1,003 名 2.5 至 6 岁患有注意缺陷多动障碍（ADHD）或有 ADHD 症状儿童的荟萃分析发现，按家长评定，家长培训对 ADHD 症状（g = 0.51）、行为问题（g = 0.4）和负面教养（g = 0.63）有中等效果，并在 3 至 12 个月的追踪中维持，但按独立评估，只有负面教养的改善达到显著。
+    zh-hant: 一項納入 16 項研究、1,003 名 2.5 至 6 歲患有注意力不足過動症（ADHD）或有 ADHD 症狀兒童的統合分析發現，依家長評定，親職訓練對 ADHD 症狀（g = 0.51）、行為問題（g = 0.4）和負面教養（g = 0.63）有中等效果，並在 3 至 12 個月的追蹤中維持，但依獨立評估，只有負面教養的改善達到顯著。
   key_facts:
     - '"Sixteen studies including 1,003 children were analyzed."'
     - "\"Parent-rated outcomes revealed moderate effect sizes (ESs; Hedges' g) of 0.51 for ADHD symptoms, 0.4 for conduct problems, and 0.63 for negative parenting.\""
@@ -1380,8 +1380,8 @@
   lang: en
   finding:
     en: A meta-analysis of 32 randomized controlled trials of behavioral interventions for children and adolescents with ADHD found that, on probably blinded assessments, they improved parenting (SMD 0.63 for positive and 0.43 for negative parenting) and reduced conduct problems (SMD 0.31), while blinded evidence of fewer ADHD symptoms was lacking.
-    zh-hans: 一项纳入 32 项随机对照试验的荟萃分析发现，在可能为盲评的评估中，针对注意缺陷多动障碍（ADHD）儿童青少年的行为干预改善了父母教养（正向教养 SMD 0.63，负面教养 SMD 0.43），也减少了品行问题（SMD 0.31），但缺乏盲评证据显示 ADHD 症状减少。
-    zh-hant: 一項納入 32 項隨機對照試驗的統合分析發現，在可能為盲評的評估中，針對注意力不足過動症（ADHD）兒童青少年的行為介入改善了親職教養（正向教養 SMD 0.63，負面教養 SMD 0.43），也減少了行為規範問題（SMD 0.31），但缺乏盲評證據顯示 ADHD 症狀減少。
+    zh-hans: 一项纳入 32 项随机对照试验的荟萃分析发现，在可能为盲评的评估中，针对注意缺陷多动障碍（ADHD）儿童青少年的行为干预改善了父母教养（正向教养 SMD 0.63，负面教养 SMD 0.43），也减少了行为问题（SMD 0.31），但缺乏盲评证据显示 ADHD 症状减少。
+    zh-hant: 一項納入 32 項隨機對照試驗的統合分析發現，在可能為盲評的評估中，針對注意力不足過動症（ADHD）兒童青少年的行為介入改善了親職教養（正向教養 SMD 0.63，負面教養 SMD 0.43），也減少了行為問題（SMD 0.31），但缺乏盲評證據顯示 ADHD 症狀減少。
   key_facts:
     - '"Thirty-two of 2,057 nonduplicate screened records were analyzed."'
     - '"For assessments made by individuals closest to the treatment setting (usually unblinded), there were significant improvements in parenting quality (standardized mean difference [SMD] for positive parenting 0.68; SMD for negative parenting 0.57), parenting self-concept (SMD 0.37), and child ADHD (SMD 0.35), conduct problems (SMD 0.26), social skills (SMD 0.47), and academic performance (SMD 0.28)."'
@@ -1428,9 +1428,9 @@
   url: https://doi.org/10.1542/peds.2008-0908
   lang: en
   finding:
-    en: In a randomized controlled trial with mothers of newborns (1374 intervention, 1364 control), The Period of PURPLE Crying materials led to higher knowledge about infant crying (69.5 versus 63.3) and the dangers of shaking (84.8 versus 83.5) and more sharing of information about walking away if frustrated and the dangers of shaking, while mothers' reported responses to crying were similar to those of controls.
-    zh-hans: 一项针对新生儿母亲的随机对照试验（干预组 1374 人，对照组 1364 人）发现，The Period of PURPLE Crying（紫色哭泣期）教育材料提高了母亲对婴儿哭闹（69.5 比 63.3）和摇晃婴儿危险（84.8 比 83.5）的认识，也让更多母亲向他人分享“受挫时先走开”和摇晃危险的信息，但母亲自述对哭闹的应对方式与对照组相近。
-    zh-hant: 一項針對新生兒母親的隨機對照試驗（介入組 1374 人，對照組 1364 人）發現，The Period of PURPLE Crying（紫色哭泣期）衛教材料提高了母親對嬰兒哭鬧（69.5 比 63.3）和搖晃嬰兒危險（84.8 比 83.5）的認識，也讓更多母親向他人分享「感到挫折時先走開」和搖晃危險的資訊，但母親自述對哭鬧的回應方式與對照組相近。
+    en: In a randomized controlled trial with mothers of newborns (1,374 intervention, 1,364 control), The Period of PURPLE Crying materials led to higher knowledge about infant crying (69.5 versus 63.3) and the dangers of shaking (84.8 versus 83.5) and more sharing of information about walking away if frustrated and the dangers of shaking, while mothers' reported responses to crying were similar to those of controls.
+    zh-hans: 一项针对新生儿母亲的随机对照试验（干预组 1,374 人，对照组 1,364 人）发现，The Period of PURPLE Crying（紫色哭泣期）教育材料提高了母亲对婴儿哭闹（69.5 比 63.3）和摇晃婴儿危险（84.8 比 83.5）的认识，也让更多母亲向他人分享“受挫时先走开”和摇晃危险的信息，但母亲自述对哭闹的应对方式与对照组相近。
+    zh-hant: 一項針對新生兒母親的隨機對照試驗（介入組 1,374 人，對照組 1,364 人）發現，The Period of PURPLE Crying（紫色哭泣期）衛教材料提高了母親對嬰兒哭鬧（69.5 比 63.3）和搖晃嬰兒危險（84.8 比 83.5）的認識，也讓更多母親向他人分享「感到挫折時先走開」和搖晃危險的資訊，但母親自述對哭鬧的回應方式與對照組相近。
   key_facts:
     - '"There were 1374 mothers of newborns randomly assigned to the PURPLE intervention and 1364 mothers to the control group."'
     - '"Primary outcomes were measured by telephone 2 months after delivery."'
@@ -1601,8 +1601,8 @@
   lang: en
   finding:
     en: This meta-analysis of longitudinal studies found small but non-trivial simple correlations between spanking or corporal punishment and later externalizing problems, internalizing problems and lower cognitive performance, but once children's earlier levels of each outcome were controlled, links with externalizing and internalizing problems were statistically significant but trivial (partial r of .07 to .10) and the link with cognitive performance was near the threshold of trivial (-.11, corporal punishment only), and the author concludes the impact is minimal.
-    zh-hans: 这项针对纵向研究的荟萃分析发现，打屁股或体罚与日后的外化问题、内化问题及较低的认知表现之间存在虽小但不可忽视的简单相关；然而在控制孩子此前在同一指标上的水平后，与外化和内化问题的关联虽有统计显著性，却小到可以忽略（偏相关 .07 至 .10），与认知表现的关联则接近可忽略的门槛（-.11，仅有体罚的数据），作者据此认为其影响极小。
-    zh-hant: 這項針對縱貫研究的統合分析發現，打屁股或體罰與日後的外化問題、內化問題及較低的認知表現之間，有雖小但不可忽視的簡單相關；然而在控制孩子先前在同一指標上的程度後，與外化和內化問題的關聯雖達統計顯著，卻小到可以忽略（偏相關 .07 至 .10），與認知表現的關聯則接近可忽略的門檻（-.11，僅有體罰的資料），作者因此認為其影響極小。
+    zh-hans: 这项针对纵向研究的荟萃分析发现，打屁股或体罚与日后的外化问题、内化问题及较低的认知表现之间存在虽小但不可忽视的简单相关；然而在控制孩子此前在同一指标上的水平后，与外化和内化问题的关联虽然有统计学意义，却小到可以忽略（偏相关 .07 至 .10），与认知表现的关联则接近可忽略的门槛（-.11，仅有体罚的数据），作者据此认为其影响极小。
+    zh-hant: 這項針對縱貫研究的統合分析發現，打屁股或體罰與日後的外化問題、內化問題及較低的認知表現之間，有雖小但不可忽視的簡單相關；然而在控制孩子先前在同一指標上的程度後，與外化和內化問題的關聯雖達到統計顯著，卻小到可以忽略（偏相關 .07 至 .10），與認知表現的關聯則接近可忽略的門檻（-.11，僅有體罰的資料），作者因此認為其影響極小。
   key_facts:
     - '"Spanking and CP correlated .14 and .18 respectively with externalizing problems, .12 and .21 with internalizing problems and -.09 and -.18 with cognitive performance."'
     - '"results were statistically significant but trivial (at or below pr = .10) for externalizing (.07 for spanking, .08 for CP) and internalizing behaviors (.10 for spanking, insufficient studies for CP)"'
@@ -1733,8 +1733,8 @@
   lang: en
   finding:
     en: In 976 two-parent families, mothers' and fathers' harsh verbal discipline at age 13 predicted increases in adolescents' conduct problems and depressive symptoms between ages 13 and 14, these links were not moderated by parental warmth, and adolescents' misconduct at 13 also predicted increases in parents' harsh verbal discipline.
-    zh-hans: 在 976 个双亲家庭中，孩子 13 岁时父母严厉的言语管教，预测孩子在 13 至 14 岁之间品行问题和抑郁症状增加，且这些关联不因父母温暖程度不同而改变；同时，孩子 13 岁时的不当行为也预测父母严厉的言语管教随后增加。
-    zh-hant: 在 976 個雙親家庭中，孩子 13 歲時父母嚴厲的言語管教，預測孩子在 13 至 14 歲之間行為規範問題和憂鬱症狀增加，且這些關聯不因父母溫暖程度不同而改變；同時，孩子 13 歲時的不當行為，也預測父母嚴厲的言語管教隨後增加。
+    zh-hans: 在 976 个双亲家庭中，孩子 13 岁时父母严厉的言语管教，预测孩子在 13 至 14 岁之间行为问题和抑郁症状增加，且这些关联不因父母温暖程度不同而改变；同时，孩子 13 岁时的不当行为也预测父母严厉的言语管教随后增加。
+    zh-hant: 在 976 個雙親家庭中，孩子 13 歲時父母嚴厲的言語管教，預測孩子在 13 至 14 歲之間行為問題和憂鬱症狀增加，且這些關聯不因父母溫暖程度不同而改變；同時，孩子 13 歲時的不當行為，也預測父母嚴厲的言語管教隨後增加。
   key_facts:
     - '"Data were from a sample of 976 two-parent families and their children (51% males; 54% European American, 40% African American)."'
     - "\"Mothers' and fathers' harsh verbal discipline at age 13 predicted an increase in adolescent conduct problems and depressive symptoms between ages 13 and 14.\""
@@ -1806,8 +1806,8 @@
   lang: en
   finding:
     en: "In a randomized trial of 134 youth aged 7-14 with oppositional defiant disorder (ODD), Collaborative & Proactive Solutions (CPS) and Parent Management Training (PMT) both outperformed a waitlist and did not differ from each other: about 50% of youth in each treatment were diagnosis free and much or very much improved after treatment (0% on the waitlist), and gains held at the 6-month follow-up."
-    zh-hans: 一项随机对照试验纳入 134 名 7 至 14 岁、患有对立违抗障碍的孩子，发现协作与主动解决方案（CPS）和家长管理培训（PMT）都优于等待名单对照组，两者效果没有差异：治疗结束时，两组各约 50% 的孩子不再符合诊断，并被评为明显或非常明显改善，等待组则为 0%；6 个月随访时疗效仍然保持。
-    zh-hant: 一項隨機對照試驗納入 134 名 7 至 14 歲、患有對立反抗症的孩子，發現合作與主動解決方案（CPS）和親職管理訓練（PMT）都優於等待名單對照組，兩者效果沒有差異：治療結束時，兩組各約 50% 的孩子不再符合診斷，並被評為明顯或非常明顯改善，等待組則為 0%；6 個月追蹤時療效仍然維持。
+    zh-hans: 一项随机对照试验纳入 134 名 7 至 14 岁、患有对立违抗障碍的孩子，发现协作与主动解决方案（CPS）和家长管理训练（PMT）都优于等待名单对照组，两者效果没有差异：治疗结束时，两组各约 50% 的孩子不再符合诊断，并被评为明显或非常明显改善，等待组则为 0%；6 个月随访时疗效仍然保持。
+    zh-hant: 一項隨機對照試驗納入 134 名 7 至 14 歲、患有對立反抗症的孩子，發現合作與主動解決方案（CPS）和親職管理訓練（PMT）都優於候補名單對照組，兩者效果沒有差異：治療結束時，兩組各約 50% 的孩子不再符合診斷，並被評為明顯或非常明顯改善，等待組則為 0%；6 個月追蹤時療效仍然維持。
   key_facts:
     - '"One hundred thirty-four youth (ages 7-14, 61.9% male, 83.6% White) who fulfilled Diagnostic and Statistical Manual of Mental Disorders (4th ed.) criteria for ODD were randomized to CPS, PMT, or WLC groups."'
     - '"Both treatment conditions were superior to the WLC condition but did not differ from one another in either our responder or remitter analyses."'
@@ -2125,9 +2125,9 @@
   url: https://doi.org/10.1001/jamapediatrics.2018.5056
   lang: en
   finding:
-    en: In a longitudinal study of 2441 mothers and children in Calgary, Canada, more screen time at 24 and 36 months was significantly associated with poorer performance on a developmental screening test at 36 months (β, -0.06; 95% CI, -0.10 to -0.01) and 60 months (β, -0.08; 95% CI, -0.13 to -0.02), respectively, with screen time and development both reported by mothers.
-    zh-hans: 一项在加拿大卡尔加里追踪 2441 位母亲及其孩子的纵向研究发现，孩子 24 个月和 36 个月大时屏幕时间较多，分别与 36 个月（β, -0.06；95% CI, -0.10 至 -0.01）和 60 个月（β, -0.08；95% CI, -0.13 至 -0.02）大时发育筛查测试表现较差显著相关；屏幕时间和发育结果都由母亲报告。
-    zh-hant: 一項在加拿大卡加利追蹤 2441 位母親及其孩子的縱貫研究發現，孩子 24 個月和 36 個月大時螢幕時間較多，分別與 36 個月（β, -0.06；95% CI, -0.10 至 -0.01）和 60 個月（β, -0.08；95% CI, -0.13 至 -0.02）大時發展篩檢測驗表現較差顯著相關；螢幕時間和發展結果都由母親填報。
+    en: In a longitudinal study of 2,441 mothers and children in Calgary, Canada, more screen time at 24 and 36 months was significantly associated with poorer performance on a developmental screening test at 36 months (β, -0.06; 95% CI, -0.10 to -0.01) and 60 months (β, -0.08; 95% CI, -0.13 to -0.02), respectively, with screen time and development both reported by mothers.
+    zh-hans: 一项在加拿大卡尔加里追踪 2,441 位母亲及其孩子的纵向研究发现，孩子 24 个月和 36 个月大时屏幕时间较多，分别与 36 个月（β, -0.06；95% CI, -0.10 至 -0.01）和 60 个月（β, -0.08；95% CI, -0.13 至 -0.02）大时发育筛查测试表现较差显著相关；屏幕时间和发育结果都由母亲报告。
+    zh-hant: 一項在加拿大卡加利追蹤 2,441 位母親及其孩子的縱貫研究發現，孩子 24 個月和 36 個月大時螢幕時間較多，分別與 36 個月（β, -0.06；95% CI, -0.10 至 -0.01）和 60 個月（β, -0.08；95% CI, -0.13 至 -0.02）大時發展篩檢測驗表現較差顯著相關；螢幕時間和發展結果都由母親填報。
   key_facts:
     - '"This longitudinal cohort study used a 3-wave, cross-lagged panel model in 2441 mothers and children in Calgary, Alberta, Canada, drawn from the All Our Families study."'
     - '"Data were available when children were aged 24, 36, and 60 months."'
@@ -2201,7 +2201,7 @@
   finding:
     en: This review describes PMTO, a set of parenting programs tested in efficacy and effectiveness trials across contexts, cultures and formats, in which parents learn skill encouragement, limit setting, monitoring and supervision, interpersonal problem solving and positive involvement; the programs prevent and reduce children's behavior problems by replacing coercive interactions with positive parenting.
     zh-hans: 这篇综述介绍了俄勒冈家长管理训练（PMTO）：这套家长课程已在不同环境、文化和形式下接受过效力和实效试验，家长在课程中学习鼓励技能、设定界限、监督照看、人际问题解决和积极参与；课程通过以积极教养取代强制性互动，预防并减少孩子的行为问题。
-    zh-hant: 這篇回顧介紹了奧勒岡親職管理訓練（PMTO）：這套親職課程已在不同環境、文化和形式下接受過效能與成效試驗，家長在課程中學習鼓勵技能、設定界線、監督照看、人際問題解決和正向參與；課程透過以正向教養取代強制性互動，預防並減少孩子的行為問題。
+    zh-hant: 這篇文獻回顧介紹了奧勒岡親職管理訓練（PMTO）：這套親職課程已在不同環境、文化和形式下接受過效能與成效試驗，家長在課程中學習鼓勵技能、設定界線、監督照看、人際問題解決和正向參與；課程透過以正向教養取代強制性互動，預防並減少孩子的行為問題。
   key_facts:
     - '"PMTO has been rigorously tested in efficacy and effectiveness trials in different contexts, cultures, and formats."'
     - '"Parents, the presumed agents of change, learn core parenting practices, specifically skill encouragement, limit setting, monitoring/supervision, interpersonal problem solving, and positive involvement."'
@@ -2223,8 +2223,8 @@
   lang: en
   finding:
     en: In a randomized trial with 81 Chinese parents in Shanghai, parents who took Group Triple P reported fewer child adjustment problems, better parenting practices, better parental adjustment and more confidence as parents than a wait-list group, plus more satisfaction with their children's academic achievement and fewer academic problem behaviors, with all effects maintained at 6-month follow-up.
-    zh-hans: 在上海进行的一项随机试验中，81 位中国家长被分为干预组和候补对照组。参加团体版 3P 正向教养课程（Group Triple P）的家长报告，孩子的适应问题减少，教养方式、家长自身状态和教养自信都有改善，对孩子学业成绩更满意，孩子与学习有关的问题行为也减少了；所有效果在 6 个月随访时仍然保持。
-    zh-hant: 在上海進行的一項隨機試驗中，81 位中國家長被分為介入組和候補對照組。參加團體版 3P 正向教養課程（Group Triple P）的家長表示，孩子的適應問題減少，教養方式、家長自身狀態和教養自信都有改善，對孩子的學業表現更滿意，孩子與學習有關的問題行為也減少了；所有效果在 6 個月追蹤時仍然維持。
+    zh-hans: 在上海进行的一项随机试验中，81 位中国家长被分为干预组和等待名单对照组。参加团体版 3P 正向教养课程（Group Triple P）的家长报告，孩子的适应问题减少，教养方式、家长自身状态和教养自信都有改善，对孩子学业成绩更满意，孩子与学习有关的问题行为也减少了；所有效果在 6 个月随访时仍然保持。
+    zh-hant: 在上海進行的一項隨機試驗中，81 位中國家長被分為介入組和候補名單對照組。參加團體版 3P 正向教養課程（Group Triple P）的家長表示，孩子的適應問題減少，教養方式、家長自身狀態和教養自信都有改善，對孩子的學業表現更滿意，孩子與學習有關的問題行為也減少了；所有效果在 6 個月追蹤時仍然維持。
   key_facts:
     - '"Participants were 81 Chinese parents and their children in Shanghai, who were randomly allocated to an intervention group or wait-list control group."'
     - '"parents in the intervention group reported significant improvements in child adjustment problems, parenting practices, parental adjustment, and parenting self-efficacy at post-assessment"'
@@ -2247,8 +2247,8 @@
   lang: en
   finding:
     en: In a randomized trial with 91 Hong Kong Chinese parents of 3- to 7-year-olds with early conduct problems, parents who took Triple P reported fewer child behavior problems, less dysfunctional parenting and a greater sense of competence than wait-list parents.
-    zh-hans: 在香港一项随机试验中，91 位孩子 3 至 7 岁、出现早期品行问题的华人家长被随机分组。与候补组相比，参加 3P 正向教养课程（Triple P）的家长报告孩子的行为问题更少、不良教养方式更少，自己作为家长的胜任感更强。
-    zh-hant: 在香港一項隨機試驗中，91 位孩子 3 至 7 歲、出現早期品行問題的華人家長被隨機分組。與候補組相比，參加 3P 正向教養課程（Triple P）的家長表示孩子的行為問題較少、失功能的教養方式較少，自己身為家長的勝任感更強。
+    zh-hans: 在香港一项随机试验中，91 位孩子 3 至 7 岁、出现早期行为问题的华人家长被随机分组。与等待名单对照组相比，参加 3P 正向教养课程（Triple P）的家长报告孩子的行为问题更少、不良教养方式更少，自己作为家长的胜任感更强。
+    zh-hant: 在香港一項隨機試驗中，91 位孩子 3 至 7 歲、出現早期行為問題的華人家長被隨機分組。與候補名單對照組相比，參加 3P 正向教養課程（Triple P）的家長表示孩子的行為問題較少、失功能的教養方式較少，自己身為家長的勝任感更強。
   key_facts:
     - '"The participants consisted of 91 parents whose children attended maternal and child health centers and child assessment centers for service, and were between three to seven years old."'
     - '"Participants were randomly assigned to the intervention (TP) and a waitlist control group (WL)."'
@@ -2292,8 +2292,8 @@
   lang: en
   finding:
     en: In a randomized trial with 64 Chinese children with ADHD or ADHD features, families offered PCIT showed significant decreases in child behavior and attention problems, parental stress and negative parenting, and an increase in positive parenting, compared with a wait-list group.
-    zh-hans: 在一项纳入 64 名患有 ADHD（注意缺陷多动障碍）或有相关特征的中国儿童的随机试验中，与候补组相比，接受亲子互动治疗（PCIT）的家庭，孩子的行为和注意力问题、家长压力和消极教养都明显减少，积极教养则有所增加。
-    zh-hant: 在一項納入 64 名患有 ADHD（注意力不足過動症）或有相關特徵的華人兒童的隨機試驗中，與候補組相比，接受親子互動治療（PCIT）的家庭，孩子的行為和注意力問題、家長壓力和負向教養都明顯減少，正向教養則有所增加。
+    zh-hans: 在一项纳入 64 名患有 ADHD（注意缺陷多动障碍）或有相关特征的中国儿童的随机试验中，与等待名单对照组相比，接受亲子互动治疗（PCIT）的家庭，孩子的行为和注意力问题、家长压力和消极教养都明显减少，积极教养则有所增加。
+    zh-hant: 在一項納入 64 名患有 ADHD（注意力不足過動症）或有相關特徵的華人兒童的隨機試驗中，與候補名單對照組相比，接受親子互動治療（PCIT）的家庭，孩子的行為和注意力問題、家長壓力和負向教養都明顯減少，正向教養則有所增加。
   key_facts:
     - '"Participants were randomized into either the intervention group (n = 32) and offered PCIT by trained PCIT practitioners or the waitlist control group (n = 32)"'
     - '"The results indicated a significant decrease in child behavior and attention problems, parental stress, and negative parenting practices and an increase in positive parenting practices in the intervention group at postintervention (p ≤ .002 in all cases)."'
@@ -2382,7 +2382,7 @@
   finding:
     en: This review describes infants and caregivers as mutually regulating their interactions through emotional expressions, and suggests that positive development is associated with coordinated interactions in which mismatches are frequently repaired, while sustained interactive failure and negative affect are associated with negative development.
     zh-hans: 这篇综述指出，婴儿和照顾者通过情绪表达相互调节彼此的互动；积极的发展与协调的互动有关，在这种互动中，“没对上”的时刻会经常被修复，而长期互动失败和负面情绪则与不良发展有关。
-    zh-hant: 這篇回顧指出，嬰兒和照顧者透過情緒表達相互調節彼此的互動；正向的發展與協調的互動有關，在這種互動中，「沒對上」的時刻會經常被修復，而長期互動失敗和負面情緒則與不良發展有關。
+    zh-hant: 這篇文獻回顧指出，嬰兒和照顧者透過情緒表達相互調節彼此的互動；正向的發展與協調的互動有關，在這種互動中，「沒對上」的時刻會經常被修復，而長期互動失敗和負面情緒則與不良發展有關。
   key_facts:
     - '"Infants display a variety of discrete affective expressions that are appropriate to the nature of events and their context."'
     - '"The emotional expressions of the infant and the caretaker function to allow them to mutually regulate their interactions."'
@@ -2472,7 +2472,7 @@
   finding:
     en: A review of 40 articles published from 1977 to 2007 on parents' use of time-out found it widely used as a behavior management strategy, but the way it was carried out varied widely across studies and often could not be determined.
     zh-hans: 一篇综述分析了 1977 至 2007 年间发表的 40 篇关于家长使用暂停法的文章，发现暂停法作为行为管理策略被广泛使用，但各研究的具体做法差异很大，而且常常无法从文章中确定。
-    zh-hant: 一篇回顧分析了 1977 至 2007 年間發表的 40 篇關於家長使用暫停法的文章，發現暫停法作為行為管理策略被廣泛使用，但各研究的具體做法差異很大，而且常常無法從文章中確定。
+    zh-hant: 一篇文獻回顧分析了 1977 至 2007 年間發表的 40 篇關於家長使用暫停法的文章，發現暫停法作為行為管理策略被廣泛使用，但各研究的具體做法差異很大，而且常常無法從文章中確定。
   key_facts:
     - '"the current review provides descriptive data for 40 articles published between 1977 and 2007"'
     - '"Although results indicate wide parental usage of TO as a behavior management strategy, the application of specific procedural variables remains diverse and often unable to be ascertained."'
@@ -2592,7 +2592,7 @@
   finding:
     en: A review reports that parents' responsiveness to infants' exploratory and communicative behaviors predicts infant word learning, and proposes that responsiveness helps infants understand that language is a tool for sharing intentions and, through its close timing, contingency and multimodal and didactic content, helps them map words to their referents and grow their vocabulary.
     zh-hans: 这篇综述指出，家长对婴儿探索和沟通行为的回应性可以预测婴儿的词汇学习；作者提出，回应能帮助婴儿理解语言是分享意图的工具，而且回应在时间上紧随孩子的行为、与孩子的行为相关联，并带有多感官和教导性的内容，有助于婴儿把词语和所指的事物对应起来，从而扩大词汇量。
-    zh-hant: 這篇回顧文章指出，家長對嬰兒探索和溝通行為的回應性可以預測嬰兒的詞彙學習；作者提出，回應能幫助嬰兒理解語言是分享意圖的工具，而且回應在時間上緊接著孩子的行為、與孩子的行為相呼應，並帶有多感官與教導性的內容，有助於嬰兒把字詞和所指的事物連結起來，進而擴充詞彙量。
+    zh-hant: 這篇文獻回顧指出，家長對嬰兒探索和溝通行為的回應性可以預測嬰兒的詞彙學習；作者提出，回應能幫助嬰兒理解語言是分享意圖的工具，而且回應在時間上緊接著孩子的行為、與孩子的行為相呼應，並帶有多感官與教導性的內容，有助於嬰兒把字詞和所指的事物連結起來，進而擴充詞彙量。
   key_facts:
     - '"Parents’ responsiveness to infants’ exploratory and communicative behaviors predicts infant word learning during early periods of language development."'
     - '"We suggest that responsiveness supports infants’ growing pragmatic understanding that language is a tool that enables intentions to be socially shared."'
@@ -2806,7 +2806,7 @@
   finding:
     en: In 53 families observed at home, parents' praise of their child's effort at 14-38 months predicted the child's incremental motivational framework (believing ability is malleable, attributing success to hard work, enjoying challenges) at 7-8 years, whereas parents' praise of inherent characteristics was not associated with later fixed-ability frameworks.
     zh-hans: 研究在家中观察了 53 个家庭，发现父母在孩子 14 至 38 个月大时对孩子努力的表扬，可以预测孩子 7 至 8 岁时的成长型思维（相信能力可以改变、把成功归因于努力、喜欢挑战）；而父母对孩子天生特质的表扬，与孩子日后的固定型思维并无关联。
-    zh-hant: 研究在家中觀察了 53 個家庭，發現父母在孩子 14 至 38 個月大時對孩子努力的讚美，可以預測孩子 7 至 8 歲時的成長型思維（相信能力可以改變、把成功歸因於努力、喜歡挑戰）；而父母對孩子天生特質的讚美，與孩子日後的固定型思維並無關聯。
+    zh-hant: 研究在家中觀察了 53 個家庭，發現父母在孩子 14 至 38 個月大時對孩子努力的稱讚，可以預測孩子 7 至 8 歲時的成長型思維（相信能力可以改變、把成功歸因於努力、喜歡挑戰）；而父母對孩子天生特質的稱讚，與孩子日後的固定型思維並無關聯。
   key_facts:
     - "\"parents' praise of children's effort at 14-38 months (N = 53) did predict incremental frameworks at 7-8 years\""
     - "\"parents' early praise of inherent characteristics was not associated with children's later fixed-ability frameworks\""
@@ -2831,7 +2831,7 @@
   finding:
     en: Following the same 53 children, a higher proportion of process praise (praise for effort and strategies) from parents at ages 1-3 predicted better math and reading comprehension achievement in fourth grade via children's incremental motivational frameworks, specifically their belief that intelligence is malleable rather than their preference for challenging tasks.
     zh-hans: 研究继续追踪同样的 53 名孩子，发现孩子 1 至 3 岁时父母的表扬中过程表扬（表扬努力和策略）的比例越高，孩子小学四年级时的数学和阅读理解成绩越好；这一关联经由孩子的成长型思维传递：起作用的是孩子相信智力可以改变的信念，而不是对挑战性任务的偏好。
-    zh-hant: 研究持續追蹤同樣的 53 名孩子，發現孩子 1 至 3 歲時父母的讚美中過程讚美（讚美努力與策略）的比例越高，孩子國小四年級時的數學和閱讀理解成績越好；這項關聯是經由孩子的成長型思維傳遞：發揮作用的是孩子相信智力可以改變的信念，而不是對挑戰性任務的偏好。
+    zh-hant: 研究持續追蹤同樣的 53 名孩子，發現孩子 1 至 3 歲時父母的稱讚中過程稱讚（稱讚努力與策略）的比例越高，孩子國小四年級時的數學和閱讀理解成績越好；這項關聯是經由孩子的成長型思維傳遞：發揮作用的是孩子相信智力可以改變的信念，而不是對挑戰性任務的偏好。
   key_facts:
     - "\"The current study examines these same children's (n = 53) academic achievement 1 to 2 years later, in 4th grade.\""
     - "\"process praise to toddlers predicts children's academic achievement (in math and reading comprehension) 7 years later, in elementary school, via their incremental motivational frameworks\""
@@ -2856,7 +2856,7 @@
   finding:
     en: "In six studies, praise for intelligence had more negative consequences for children's achievement motivation than praise for effort: fifth graders praised for intelligence cared more about performance goals relative to learning goals and, after failure, showed less persistence, less enjoyment, more low-ability attributions and worse performance than children praised for effort."
     zh-hans: 六项研究显示，与表扬努力相比，夸孩子聪明对孩子的成就动机有更多负面影响：被夸聪明的小学五年级学生更看重表现目标而非学习目标，失败后坚持得更少、更不享受任务、更倾向于把失败归因于能力不足，表现也更差。
-    zh-hant: 六項研究顯示，與讚美努力相比，誇孩子聰明對孩子的成就動機有更多負面影響：被誇聰明的國小五年級學生更看重表現目標而非學習目標，失敗後較不堅持、較不享受任務、更傾向把失敗歸因於能力不足，表現也較差。
+    zh-hant: 六項研究顯示，與稱讚努力相比，誇孩子聰明對孩子的成就動機有更多負面影響：被誇聰明的國小五年級學生更看重表現目標而非學習目標，失敗後較不堅持、較不享受任務、更傾向把失敗歸因於能力不足，表現也較差。
   key_facts:
     - "\"six studies demonstrated that praise for intelligence had more negative consequences for students' achievement motivation than praise for effort\""
     - '"Fifth graders praised for intelligence were found to care more about performance goals relative to learning goals than children praised for effort."'
@@ -2883,7 +2883,7 @@
   finding:
     en: In a study of 313 children (mean age 10.4 years), person praise (praise for personal qualities), but not process praise (praise for behavior), predisposed children, especially those with low self-esteem, to feel ashamed after failure; a separate study of 357 adults found that adults tend to give children with low self-esteem more person praise and less process praise.
     zh-hans: 一项针对 313 名儿童（平均 10.4 岁）的研究发现，人格表扬（称赞孩子的个人特质）会让孩子在失败后更容易感到羞耻，过程表扬（称赞孩子的行为）则不会，低自尊的孩子尤其如此；另一项针对 357 名成人的研究发现，成人往往给低自尊的孩子更多人格表扬、更少过程表扬。
-    zh-hant: 一項針對 313 名兒童（平均 10.4 歲）的研究發現，人格讚美（稱讚孩子的個人特質）會讓孩子在失敗後更容易感到羞愧，過程讚美（稱讚孩子的行為）則不會，低自尊的孩子尤其如此；另一項針對 357 名成人的研究發現，大人往往給低自尊的孩子較多人格讚美、較少過程讚美。
+    zh-hant: 一項針對 313 名兒童（平均 10.4 歲）的研究發現，人格稱讚（稱讚孩子的個人特質）會讓孩子在失敗後更容易感到羞愧，過程稱讚（稱讚孩子的行為）則不會，低自尊的孩子尤其如此；另一項針對 357 名成人的研究發現，大人往往給低自尊的孩子較多人格稱讚、較少過程稱讚。
   key_facts:
     - '"Study 1 (N = 357) showed that adults are inclined to give children with low self-esteem more person praise (i.e., praise for personal qualities) but less process praise (i.e., praise for behavior) than they give children with high self-esteem."'
     - '"Study 2 (N = 313; M(age) = 10.4 years) showed that person praise, but not process praise, predisposes children, especially those with low self-esteem, to feel ashamed following failure."'
@@ -3088,7 +3088,7 @@
   finding:
     en: "A review distinguishes parental autonomy support from permissiveness and independence promotion and reports clear and consistent positive effects across different types of studies: autonomy support was associated with infants' motivation and toddlers' internalization in observation studies, related to children's adjustment at school in parent interview studies, and, as perceived by adolescents, linked to their psychosocial functioning in self-report studies."
     zh-hans: 这篇综述把家长的自主支持与放任或单纯促进独立区分开来，并指出不同类型的研究都显示出清楚一致的正面效果：观察研究发现自主支持与婴儿的动机和幼儿的内化有关，家长访谈研究发现它与孩子在学校的适应有关，自评研究则发现青少年感受到的自主支持与其心理社会功能有关。
-    zh-hant: 這篇回顧文章把家長的自主支持與放任或單純促進獨立區分開來，並指出不同類型的研究都顯示清楚一致的正面效果：觀察研究發現自主支持與嬰兒的動機和幼兒的內化有關，家長訪談研究發現它與孩子在學校的適應有關，自陳研究則發現青少年感受到的自主支持與其心理社會功能有關。
+    zh-hant: 這篇文獻回顧把家長的自主支持與放任或單純促進獨立區分開來，並指出不同類型的研究都顯示清楚一致的正面效果：觀察研究發現自主支持與嬰兒的動機和幼兒的內化有關，家長訪談研究發現它與孩子在學校的適應有關，自陳研究則發現青少年感受到的自主支持與其心理社會功能有關。
   key_facts:
     - '"the authors define parental autonomy support and distinguish it from permissiveness or independence promotion"'
     - '"clear and consistent positive effects arise from different types of studies, conducted with children of various ages"'
@@ -3116,7 +3116,7 @@
   finding:
     en: A review identifies three core executive functions, inhibition (self-control and interference control), working memory and cognitive flexibility, notes that stress, lack of sleep, loneliness or lack of exercise each impair them, and discusses evidence that they can be trained and improved with practice.
     zh-hans: 这篇综述把核心执行功能归纳为三项：抑制控制（自我控制和干扰控制）、工作记忆和认知灵活性；文章指出，压力、睡眠不足、孤独或缺乏运动都会损害执行功能，并讨论了执行功能可以通过练习加以训练和提升的证据。
-    zh-hant: 這篇回顧文章把核心執行功能歸納為三項：抑制控制（自我控制與干擾控制）、工作記憶和認知彈性；文章指出，壓力、睡眠不足、孤單或缺乏運動都會損害執行功能，並討論了執行功能可以透過練習加以訓練和提升的證據。
+    zh-hant: 這篇文獻回顧把核心執行功能歸納為三項：抑制控制（自我控制與干擾控制）、工作記憶和認知彈性；文章指出，壓力、睡眠不足、孤單或缺乏運動都會損害執行功能，並討論了執行功能可以透過練習加以訓練和提升的證據。
   key_facts:
     - "Core EFs named in the abstract: inhibition (response inhibition, or self-control, and interference control), working memory, and cognitive flexibility."
     - '"stress, lack of sleep, loneliness, or lack of exercise each impair EFs"'
@@ -3143,7 +3143,7 @@
   finding:
     en: A review of interventions for children aged 4-12 reports that diverse activities, including computerized training, noncomputerized games, aerobics, martial arts, yoga, mindfulness and school curricula, have improved executive functions, that all successful programs involve repeated practice with progressively increasing challenge, and that children with worse executive functions benefit most.
     zh-hans: 这篇综述梳理了针对 4 至 12 岁儿童的干预，指出电脑化训练、非电脑游戏、有氧运动、武术、瑜伽、正念和学校课程等多种活动都能改善执行功能；所有成功的项目都包含反复练习，并逐步提高对执行功能的挑战；执行功能较弱的孩子获益最大。
-    zh-hant: 這篇回顧文章整理了針對 4 至 12 歲兒童的介入方案，指出電腦化訓練、非電腦遊戲、有氧運動、武術、瑜珈、正念和學校課程等多種活動都能改善執行功能；所有成功的方案都包含反覆練習，並逐步提高對執行功能的挑戰；執行功能較弱的孩子獲益最多。
+    zh-hant: 這篇文獻回顧整理了針對 4 至 12 歲兒童的介入方案，指出電腦化訓練、非電腦遊戲、有氧運動、武術、瑜珈、正念和學校課程等多種活動都能改善執行功能；所有成功的方案都包含反覆練習，並逐步提高對執行功能的挑戰；執行功能較弱的孩子獲益最多。
   key_facts:
     - "\"Diverse activities have been shown to improve children's executive functions: computerized training, noncomputerized games, aerobics, martial arts, yoga, mindfulness, and school curricula.\""
     - '"All successful programs involve repeated practice and progressively increase the challenge to executive functions."'
@@ -3324,7 +3324,7 @@
   finding:
     en: A review of 10 learning techniques gave practice testing and distributed practice high utility ratings, because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks.
     zh-hans: 这篇综述评估了 10 种学习方法，给予练习测试和间隔练习“高实用性”的评价，因为它们对不同年龄和能力的学习者都有益，并且已被证明能在多种评估任务中提升学生的表现。
-    zh-hant: 這篇回顧文章評估了 10 種學習方法，給予練習測驗和間隔練習「高實用性」的評價，因為它們對不同年齡和能力的學習者都有幫助，並且已證實能在多種評量任務中提升學生的表現。
+    zh-hant: 這篇文獻回顧評估了 10 種學習方法，給予練習測驗和間隔練習「高實用性」的評價，因為它們對不同年齡和能力的學習者都有幫助，並且已證實能在多種評量任務中提升學生的表現。
   key_facts:
     - '"The techniques include elaborative interrogation, self-explanation, summarization, highlighting (or underlining), the keyword mnemonic, imagery use for text learning, rereading, practice testing, distributed practice, and interleaved practice."'
     - "\"Practice testing and distributed practice received high utility assessments because they benefit learners of different ages and abilities and have been shown to boost students' performance across many criterion tasks\""
@@ -3392,9 +3392,9 @@
   url: https://doi.org/10.1007/s10648-021-09595-9
   lang: en
   finding:
-    en: A systematic review of 50 classroom experiments (49 effect sizes, total n = 5374) found that the majority of effect sizes (57%) showed medium or large benefits from retrieval practice, and that it improved learning across a variety of education levels, content areas, test delays and formats, although only 6% of experiments were conducted in non-WEIRD countries.
-    zh-hans: 这篇系统综述分析了 50 项课堂实验（49 个效应量，共 5374 人），发现多数效应量（57%）显示提取练习有中等或较大的益处，而且在不同教育阶段、学科内容、测验间隔和形式下都能促进学习；不过只有 6% 的实验在非 WEIRD 国家（西方、受过教育、工业化、富裕、民主以外的国家）进行。
-    zh-hant: 這篇系統性回顧分析了 50 項課堂實驗（49 個效果量，共 5374 人），發現多數效果量（57%）顯示提取練習有中等或較大的益處，而且在不同教育階段、學科內容、測驗間隔和形式下都能促進學習；不過只有 6% 的實驗在非 WEIRD 國家（西方、高教育程度、工業化、富裕、民主以外的國家）進行。
+    en: A systematic review of 50 classroom experiments (49 effect sizes, total n = 5,374) found that the majority of effect sizes (57%) showed medium or large benefits from retrieval practice, and that it improved learning across a variety of education levels, content areas, test delays and formats, although only 6% of experiments were conducted in non-WEIRD countries.
+    zh-hans: 这篇系统综述分析了 50 项课堂实验（49 个效应量，共 5,374 人），发现多数效应量（57%）显示提取练习有中等或较大的益处，而且在不同教育阶段、学科内容、测验间隔和形式下都能促进学习；不过只有 6% 的实验在非 WEIRD 国家（西方、受过教育、工业化、富裕、民主以外的国家）进行。
+    zh-hant: 這篇系統性回顧分析了 50 項課堂實驗（49 個效果量，共 5,374 人），發現多數效果量（57%）顯示提取練習有中等或較大的益處，而且在不同教育階段、學科內容、測驗間隔和形式下都能促進學習；不過只有 6% 的實驗在非 WEIRD 國家（西方、高教育程度、工業化、富裕、民主以外的國家）進行。
   key_facts:
     - '"We screened nearly 2000 abstracts and systematically coded 50 experiments to establish a clearer picture of benefits from retrieval practice in real world educational settings."'
     - '"Our review yielded 49 effect sizes and a total n = 5374, the majority of which (57%) revealed medium or large benefits from retrieval practice."'
@@ -3582,3 +3582,469 @@
     - aggression
   accessed: 2026-10-04
   verified_via: "2026-10-04 CI candidate lookup (sources workflow run 37142476308): Crossref metadata and abstract (Europe PMC, PMID 9086867) read in full. Classroom setting, teacher-delivered."
+- id: stattin-kerr-2000
+  evidence_level: cross-sectional
+  authors: Stattin, H., & Kerr, M.
+  year: 2000
+  title: 'Parental Monitoring: A Reinterpretation'
+  venue: Child Development, 71(4), 1072-1085
+  doi: 10.1111/1467-8624.00210
+  pmid: '11016567'
+  url: https://doi.org/10.1111/1467-8624.00210
+  lang: en
+  finding:
+    en: In a study of 703 14-year-olds in Sweden and their parents, what parents knew about their children's activities came mainly from the children's own free disclosure, and disclosure was the source of knowledge most closely linked with less delinquency; the authors conclude that tracking and surveillance is not the best prescription for parents.
+    zh-hans: 这项对瑞典 703 名 14 岁青少年及其父母的研究发现，父母对孩子活动的了解主要来自孩子的主动告知，而且主动告知这一来源与较少的违规行为关系最密切；作者认为，追踪和监视不是对父母最好的建议。
+    zh-hant: 這項對瑞典 703 名 14 歲青少年及其父母的研究發現，父母對孩子活動的了解主要來自孩子的主動告知，而且主動告知這個來源和較少的違規行為關係最密切；作者認為，追蹤和監視不是給父母最好的建議。
+  key_facts:
+  - 'Abstract: "In our study of 703 14-year-olds in central Sweden and their parents, parental knowledge came mainly from child disclosure, and child disclosure was the source of knowledge that was most closely linked to broad and narrow measures of delinquency (normbreaking and police contact)."'
+  - 'Abstract: the results "held for both children''s and parents'' reports, for both sexes, and were independent of whether the children were exhibiting problem behavior or not."'
+  - 'Abstract: "We conclude that tracking and surveillance is not the best prescription for parental behavior and that a new prescription must rest on an understanding of the factors that determine child disclosure."'
+  - 'Note: participants were 14-year-olds, a few years older than the 10-12 phase; the site says so.'
+  topics:
+  - monitoring
+  - adolescence
+  ages: 14-year-olds
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: kerr-stattin-2000
+  evidence_level: cross-sectional
+  authors: Kerr, M., & Stattin, H.
+  year: 2000
+  title: 'What parents know, how they know it, and several forms of adolescent adjustment: Further support for a reinterpretation of monitoring'
+  venue: Developmental Psychology, 36(3), 366-380
+  doi: 10.1037/0012-1649.36.3.366
+  pmid: '10830980'
+  url: https://doi.org/10.1037/0012-1649.36.3.366
+  lang: en
+  finding:
+    en: Among 1,186 14-year-olds in Sweden, high parental knowledge was linked with better adjustment, but children's spontaneous disclosure explained more of that link than parents' tracking and surveillance did; parents' control efforts were linked with good adjustment only once children's feelings of being controlled, which went with poor adjustment, were set aside.
+    zh-hans: 在瑞典 1,186 名 14 岁青少年中，父母对孩子的了解程度高与孩子适应较好有关，但孩子的主动告知比父母的追踪和监视更能解释这种关系；父母的管控只有在剔除孩子“被管得太紧”的感受（这种感受与适应较差有关）之后，才与适应较好有关。
+    zh-hant: 在瑞典 1,186 名 14 歲青少年中，父母對孩子的了解程度高和孩子適應較好有關，但孩子的主動告知比父母的追蹤和監視更能解釋這種關係；父母的管控只有在排除孩子「被管得太緊」的感受（這種感受和適應較差有關）之後，才和適應較好有關。
+  key_facts:
+  - 'Abstract: "Participants were 1,186 14-year-olds in central Sweden and their parents."'
+  - 'Abstract: "Across sex and informant, high parental knowledge was linked to multiple measures of good adjustment. But children''s spontaneous disclosure of information explained more of these relations than parents'' tracking and surveillance efforts did."'
+  - 'Abstract: "Parents'' control efforts were related to good adjustment only after the child''s feelings of being controlled, which were linked to poor adjustment, were partialed out."'
+  topics:
+  - monitoring
+  - adolescence
+  ages: 14-year-olds
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: racz-mcmahon-2011
+  evidence_level: review
+  authors: Racz, S. J., & McMahon, R. J.
+  year: 2011
+  title: 'The Relationship Between Parental Knowledge and Monitoring and Child and Adolescent Conduct Problems: A 10-Year Update'
+  venue: Clinical Child and Family Psychology Review, 14(4), 377-398
+  doi: 10.1007/s10567-011-0099-y
+  pmid: '22086648'
+  url: https://doi.org/10.1007/s10567-011-0099-y
+  lang: en
+  finding:
+    en: A review of 47 studies published between 2000 and 2010 on parental knowledge and monitoring and children's and adolescents' conduct problems, following the reinterpretation of monitoring as knowledge that is largely driven by what children choose to tell; inadequate monitoring is widely recognized as a risk factor for conduct problems, and the links run in both directions.
+    zh-hans: 这篇综述梳理了 2000 到 2010 年间发表的 47 项关于父母了解程度、监管与儿童青少年行为问题的研究，延续了“监管其实是了解程度，而了解程度主要取决于孩子愿意告诉父母什么”这一新解读；监管不足被普遍视为行为问题的风险因素，而且两者相互影响。
+    zh-hant: 這篇文獻回顧整理了 2000 到 2010 年間發表的 47 項關於父母了解程度、監督與兒童青少年行為問題的研究，延續「監督其實是了解程度，而了解程度主要取決於孩子願意告訴父母什麼」的新解讀；監督不足被普遍視為行為問題的風險因素，而且兩者相互影響。
+  key_facts:
+  - 'Abstract: "Inadequate parental monitoring is widely recognized as a risk factor for the development of child and adolescent conduct problems."'
+  - 'Abstract: "Forty-seven studies published between 2000 and 2010 were identified by searching major databases and bibliographies and were included in this review."'
+  - 'Abstract: the review covers "parental knowledge as driven by child disclosure" and "bidirectional associations between parental knowledge and monitoring and child and adolescent conduct problems".'
+  topics:
+  - monitoring
+  - adolescence
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: steinberg-monahan-2007
+  evidence_level: cross-sectional
+  authors: Steinberg, L., & Monahan, K. C.
+  year: 2007
+  title: Age differences in resistance to peer influence
+  venue: Developmental Psychology, 43(6), 1531-1543
+  doi: 10.1037/0012-1649.43.6.1531
+  pmid: '18020830'
+  url: https://doi.org/10.1037/0012-1649.43.6.1531
+  lang: en
+  finding:
+    en: Pooling four samples of more than 3,600 people aged 10 to 30, resistance to peer influence increased linearly between ages 14 and 18, with little evidence of growth between 10 and 14 or between 18 and 30.
+    zh-hans: 汇总四个样本、超过 3,600 名 10 到 30 岁的参与者后发现，抵抗同伴影响的能力在 14 到 18 岁之间呈线性增长，而在 10 到 14 岁之间以及 18 到 30 岁之间几乎没有增长的证据。
+    zh-hant: 彙整四個樣本、超過 3,600 名 10 到 30 歲的參與者後發現，抵抗同儕影響的能力在 14 到 18 歲之間呈線性增長，而在 10 到 14 歲之間以及 18 到 30 歲之間幾乎沒有增長的證據。
+  key_facts:
+  - 'Abstract: "Data from four ethnically and socioeconomically diverse samples comprising more than 3,600 males and females between the ages of 10 and 30 were pooled from one longitudinal and two cross-sectional studies."'
+  - 'Abstract: "Results show that across all demographic groups, resistance to peer influences increases linearly between ages 14 and 18. In contrast, there is little evidence for growth in this capacity between ages 10 and 14 or between 18 and 30."'
+  topics:
+  - peers
+  - adolescence
+  ages: 10 to 30
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: laursen-coy-collins-1998
+  evidence_level: meta-analysis
+  authors: Laursen, B., Coy, K. C., & Collins, W. A.
+  year: 1998
+  title: 'Reconsidering Changes in Parent-Child Conflict across Adolescence: A Meta-Analysis'
+  venue: Child Development, 69(3), 817-832
+  doi: 10.1111/j.1467-8624.1998.00817.x
+  pmid: '9680687'
+  url: https://doi.org/10.1111/j.1467-8624.1998.00817.x
+  lang: en
+  finding:
+    en: 'Meta-analyses of parent-child conflict across adolescence found little support for the idea that conflict rises and then falls: the rate of conflict declined from early to mid-adolescence and again to late adolescence, while the heat of conflict (its affect) increased from early to mid-adolescence and with pubertal maturation; conclusions about puberty and affect rest on few studies.'
+    zh-hans: 关于青春期亲子冲突的荟萃分析几乎没有发现支持“冲突先升后降”这一常见看法的证据：冲突的频率从青春期早期到中期、再到晚期逐步下降，而冲突的激烈程度（情绪强度）从青春期早期到中期上升，并随青春期发育程度上升；关于青春期发育和情绪强度的结论基于的研究较少。
+    zh-hant: 關於青春期親子衝突的統合分析幾乎沒有發現支持「衝突先升後降」這個常見看法的證據：衝突的頻率從青春期早期到中期、再到晚期逐步下降，而衝突的激烈程度（情緒強度）從青春期早期到中期上升，並隨青春期發育程度上升；關於青春期發育和情緒強度的結論所依據的研究較少。
+  key_facts:
+  - 'Abstract: "The results provide little support for the commonly held view that parent-child conflict rises and then falls across adolescence, although conclusions regarding pubertal change as well as conflict affect are qualified by the limited number of studies available."'
+  - 'Abstract: "In age meta-analyses, conflict rate and total conflict decline from early adolescence to mid-adolescence and from mid-adolescence to late adolescence; conflict affect increases from early adolescence to mid-adolescence."'
+  - 'Abstract: "Puberty meta-analyses revealed only a positive linear association between conflict affect and pubertal maturation."'
+  topics:
+  - adolescence
+  - coparenting
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: fuligni-eccles-1993
+  evidence_level: longitudinal
+  authors: Fuligni, A. J., & Eccles, J. S.
+  year: 1993
+  title: Perceived parent-child relationships and early adolescents' orientation toward peers
+  venue: Developmental Psychology, 29(4), 622-632
+  doi: 10.1037/0012-1649.29.4.622
+  url: https://doi.org/10.1037/0012-1649.29.4.622
+  lang: en
+  finding:
+    en: Among 1,771 children surveyed in sixth and seventh grade, early adolescents who believed their parents asserted power and did not relax restrictions, and those who saw few chances to take part in family decisions (and no increase in such chances), were higher in an extreme orientation toward peers and in seeking advice from peers.
+    zh-hans: 对 1,771 名六年级和七年级学生的调查发现，认为父母一味坚持权威、不放松限制的孩子，以及觉得自己很少有机会参与家庭决定（而且这种机会也没有增加）的孩子，更容易出现极端的“以同伴为中心”倾向，也更常向同伴而不是父母求教。
+    zh-hant: 對 1,771 名六年級和七年級學生的調查發現，認為父母一味堅持權威、不放鬆限制的孩子，以及覺得自己很少有機會參與家庭決定（而且這種機會也沒有增加）的孩子，更容易出現極端的「以同儕為中心」傾向，也更常向同儕而不是父母求教。
+  key_facts:
+  - 'Abstract: "A sample of 1,771 children completed self-report questionnaires during the spring of their 6th and 7th grades."'
+  - 'Abstract: "early adolescents who believed their parents asserted and did not relax their power and restrictiveness were higher in an extreme form of peer orientation."'
+  - 'Abstract: "those who perceived few opportunities to be involved in decision making, as well as no increase in these opportunities, were higher in both extreme peer orientation and peer advice seeking."'
+  topics:
+  - peers
+  - adolescence
+  - autonomy
+  ages: grades 6 and 7 (about 11 to 13)
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: dishion-mccord-poulin-1999
+  evidence_level: review
+  authors: Dishion, T. J., McCord, J., & Poulin, F.
+  year: 1999
+  title: 'When interventions harm: Peer groups and problem behavior'
+  venue: American Psychologist, 54(9), 755-764
+  doi: 10.1037/0003-066x.54.9.755
+  url: https://doi.org/10.1037/0003-066x.54.9.755
+  lang: en
+  finding:
+    en: 'A review of developmental and intervention evidence: longitudinal research shows that "deviancy training" within adolescent friendships predicts increases in delinquency, substance use and violence, and two experimentally controlled studies found that grouping high-risk young adolescents together in interventions increased their problem behavior compared with controls.'
+    zh-hans: 这篇综述梳理了发展研究和干预研究的证据：纵向研究显示，青少年友谊中的“偏差行为互相强化”会预测违规、物质使用和暴力行为的增加；两项有实验对照的研究发现，把高风险的青春期早期少年集中在一起干预，反而比对照组增加了问题行为。
+    zh-hant: 這篇文獻回顧整理了發展研究和介入研究的證據：縱貫研究顯示，青少年友誼中的「偏差行為互相強化」會預測違規、物質使用和暴力行為的增加；兩項有實驗對照的研究發現，把高風險的青春期早期少年集中在一起介入，反而比對照組增加了問題行為。
+  key_facts:
+  - 'Abstract: "Longitudinal research revealed that \"deviancy training\" within adolescent friendships predicts increases in delinquency, substance use, violence, and adult maladjustment."'
+  - 'Abstract: "findings from 2 experimentally controlled intervention studies suggested that peer-group interventions increase adolescent problem behavior and negative life outcomes in adulthood, compared with control youth."'
+  - 'Abstract: "high-risk youth are particularly vulnerable to peer aggregations, compared with low-risk youth."'
+  topics:
+  - peers
+  - adolescence
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: aap-2016-school-aged-media
+  evidence_level: position-statement
+  authors: Council on Communications and Media
+  year: 2016
+  title: Media Use in School-Aged Children and Adolescents
+  venue: Pediatrics, 138(5), e20162592
+  doi: 10.1542/peds.2016-2592
+  pmid: '27940794'
+  url: https://doi.org/10.1542/peds.2016-2592
+  lang: en
+  finding:
+    en: The American Academy of Pediatrics' policy statement for ages 5 through 18 notes both benefits of media (ideas, knowledge, social contact and support) and risks (weight and sleep, inappropriate content and contacts, privacy), says the evidence does not support a one-size-fits-all approach, and asks parents to make a Family Media Use Plan with consistent rules, boundaries on content and personal information, mentoring and open communication about media.
+    zh-hans: 美国儿科学会针对 5 到 18 岁的政策声明指出，媒体既有益处（新想法、知识、社交联系和支持），也有风险（体重和睡眠、不当内容和不当接触、隐私），现有证据不支持“一刀切”的做法，并建议家长制定“家庭媒体使用计划”：规则一致、对内容和个人信息设定界限、给孩子示范和引导，并就媒体使用保持开放的沟通。
+    zh-hant: 美國兒科醫學會針對 5 到 18 歲的政策聲明指出，媒體既有好處（新想法、知識、社交聯繫和支持），也有風險（體重和睡眠、不當內容和不當接觸、隱私），現有證據不支持「一體適用」的做法，並建議家長制定「家庭媒體使用計畫」：規則一致、對內容和個人資訊設定界線、給孩子示範和引導，並就媒體使用保持開放的溝通。
+  key_facts:
+  - 'Abstract: "This policy statement focuses on children and adolescents 5 through 18 years of age."'
+  - 'Abstract: "Benefits include exposure to new ideas and knowledge acquisition, increased opportunities for social contact and support, and new opportunities to access health-promotion messages and information. Risks include negative health effects on weight and sleep; exposure to inaccurate, inappropriate, or unsafe content and contacts; and compromised privacy and confidentiality."'
+  - 'Abstract: "evidence regarding healthy media use does not support a one-size-fits-all approach."'
+  - 'Abstract: "Parents and pediatricians can work together to develop a Family Media Use Plan ... that considers their children''s developmental stages to individualize an appropriate balance for media time and consistent rules about media use, to mentor their children, to set boundaries for accessing content and displaying personal information, and to implement open family communication about media."'
+  topics:
+  - screens
+  - position-statement
+  ages: 5 through 18
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: orben-przybylski-2019
+  evidence_level: cross-sectional
+  authors: Orben, A., & Przybylski, A. K.
+  year: 2019
+  title: The association between adolescent well-being and digital technology use
+  venue: Nature Human Behaviour, 3(2), 173-182
+  doi: 10.1038/s41562-018-0506-1
+  pmid: '30944443'
+  url: https://doi.org/10.1038/s41562-018-0506-1
+  lang: en
+  finding:
+    en: Applying specification curve analysis to three large datasets (355,358 adolescents), the association between digital technology use and adolescent well-being was negative but small, explaining at most 0.4% of the variation in well-being; the authors judge these effects too small to warrant policy change.
+    zh-hans: 对三个大型数据集（共 355,358 名青少年）做“规格曲线分析”后发现，数字技术使用与青少年幸福感之间的关联为负但很小，最多只能解释幸福感差异的 0.4%；作者认为这样的效应小到不足以作为改变政策的依据。
+    zh-hant: 對三個大型資料集（共 355,358 名青少年）做「規格曲線分析」後發現，數位科技使用和青少年幸福感之間的關聯為負但很小，最多只能解釋幸福感差異的 0.4%；作者認為這樣的效應小到不足以作為改變政策的依據。
+  key_facts:
+  - 'Abstract: "applying specification curve analysis (SCA) across three large-scale social datasets (total n = 355,358) to rigorously examine correlational evidence for the effects of digital technology on adolescents."'
+  - 'Abstract: "The association we find between digital technology use and adolescent well-being is negative but small, explaining at most 0.4% of the variation in well-being."'
+  - 'Abstract: "these effects are too small to warrant policy change."'
+  topics:
+  - screens
+  - adolescence
+  ages: adolescents
+  strength: mixed
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: odgers-jensen-2020
+  evidence_level: review
+  authors: Odgers, C. L., & Jensen, M. R.
+  year: 2020
+  title: 'Annual Research Review: Adolescent mental health in the digital age: facts, fears, and future directions'
+  venue: Journal of Child Psychology and Psychiatry, 61(3), 336-348
+  doi: 10.1111/jcpp.13190
+  pmid: '31951670'
+  url: https://doi.org/10.1111/jcpp.13190
+  lang: en
+  finding:
+    en: 'A review of reviews, large preregistered cohort studies and intensive longitudinal studies on digital technology use and adolescent depression and anxiety: most research is correlational and has produced a mix of small positive, negative and null associations; the most rigorous recent studies find small associations that cannot separate cause from effect and are unlikely to be of clinical or practical significance.'
+    zh-hans: 这篇综述汇总了关于数字技术使用与青少年抑郁、焦虑的多篇综述、大型预注册队列研究和密集追踪研究：现有研究大多是相关性研究，结果是小幅正相关、负相关和无关联并存；最近最严谨的研究发现的关联很小，分不清因果，也不太可能有临床或实际意义。
+    zh-hant: 這篇文獻回顧彙整了關於數位科技使用和青少年憂鬱、焦慮的多篇回顧、大型預先註冊的世代研究和密集追蹤研究：現有研究大多是相關性研究，結果是小幅正相關、負相關和無關聯並存；最近最嚴謹的研究發現的關聯很小，分不清因果，也不太可能有臨床或實際意義。
+  key_facts:
+  - 'Abstract: "most research to date has been correlational, focused on adults versus adolescents, and has generated a mix of often conflicting small positive, negative and null associations."'
+  - 'Abstract: "The most recent and rigorous large-scale preregistered studies report small associations between the amount of daily digital technology usage and adolescents'' well-being that do not offer a way of distinguishing cause from effect and, as estimated, are unlikely to be of clinical or practical significance."'
+  topics:
+  - screens
+  - adolescence
+  ages: adolescents
+  strength: mixed
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: cain-gradisar-2010
+  evidence_level: review
+  authors: Cain, N., & Gradisar, M.
+  year: 2010
+  title: 'Electronic media use and sleep in school-aged children and adolescents: A review'
+  venue: Sleep Medicine, 11(8), 735-742
+  doi: 10.1016/j.sleep.2010.02.006
+  pmid: '20673649'
+  url: https://doi.org/10.1016/j.sleep.2010.02.006
+  lang: en
+  finding:
+    en: A review of 36 papers on sleep and electronic media (television, computers, gaming, the internet, mobile phones and music) in school-aged children and adolescents found delayed bedtime and shorter total sleep time to be the outcomes most consistently related to media use.
+    zh-hans: 这篇综述汇总了 36 项关于学龄儿童和青少年睡眠与电子媒体（电视、电脑、电子游戏、网络、手机和音乐）的研究，发现与媒体使用最一致相关的是睡得更晚和总睡眠时间更短。
+    zh-hant: 這篇文獻回顧彙整了 36 項關於學齡兒童和青少年睡眠與電子媒體（電視、電腦、電玩、網路、手機和音樂）的研究，發現和媒體使用最一致相關的是睡得更晚和總睡眠時間更短。
+  key_facts:
+  - 'Abstract: "The present study identified 36 papers that have investigated the relationship between sleep and electronic media in school-aged children and adolescents, including television viewing, use of computers, electronic gaming, and/or the internet, mobile telephones, and music."'
+  - 'Abstract: "delayed bedtime and shorter total sleep time have been found to be most consistently related to media use."'
+  topics:
+  - sleep
+  - screens
+  ages: school-aged children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: carskadon-2011
+  evidence_level: review
+  authors: Carskadon, M. A.
+  year: 2011
+  title: 'Sleep in Adolescents: The Perfect Storm'
+  venue: Pediatric Clinics of North America, 58(3), 637-647
+  doi: 10.1016/j.pcl.2011.03.003
+  pmid: '21600346'
+  url: https://doi.org/10.1016/j.pcl.2011.03.003
+  lang: en
+  finding:
+    en: A review concluding that although sleep amount falls from late childhood through the teenage years, the weight of evidence holds that sleep need does not decline; the sleep lost through adolescence arises from a convergence of biological, psychological and socio-cultural influences, not from a lower need for sleep.
+    zh-hans: 这篇综述的结论是：虽然从童年晚期到十几岁，睡眠时长会减少，但多数证据表明睡眠需求并没有下降；青春期损失的睡眠来自生物、心理和社会文化因素的共同作用，而不是因为需要的睡眠变少了。
+    zh-hant: 這篇文獻回顧的結論是：雖然從童年晚期到十幾歲，睡眠時數會減少，但多數證據顯示睡眠需求並沒有下降；青春期損失的睡眠來自生物、心理和社會文化因素的共同作用，而不是因為需要的睡眠變少了。
+  key_facts:
+  - 'Abstract: "A reduction in sleep amount from late childhood through the second decade has long been known; however, the weight of current evidence holds that sleep need does not decline across this span."'
+  - 'Abstract: "the loss of sleep through adolescence is not driven by lower need for sleep but arises from a convergence of biologic, psychological, and socio-cultural influences."'
+  topics:
+  - sleep
+  - adolescence
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: evans-lee-2011
+  evidence_level: experiment
+  authors: Evans, A. D., & Lee, K.
+  year: 2011
+  title: Verbal deception from late childhood to middle adolescence and its relation to executive functioning skills
+  venue: Developmental Psychology, 47(4), 1108-1116
+  doi: 10.1037/a0023425
+  pmid: '21553958'
+  url: https://doi.org/10.1037/a0023425
+  lang: en
+  finding:
+    en: In an experiment with 8- to 16-year-olds left alone with the answers to a test, most peeked; the sophistication of their lies about it, but not the decision to lie, was related to executive functioning skills (working memory, inhibitory control and planning).
+    zh-hans: 在一项以 8 到 16 岁孩子为对象的实验中，孩子被单独留下、身边放着考题答案，大多数人偷看了；他们对此撒谎的“水平”（而不是是否撒谎的决定）与执行功能（工作记忆、抑制控制和计划能力）有关。
+    zh-hant: 在一項以 8 到 16 歲孩子為對象的實驗中，孩子被單獨留下、身邊放著考題答案，大多數人偷看了；他們對此說謊的「水準」（而不是是否說謊的決定）和執行功能（工作記憶、抑制控制和計畫能力）有關。
+  key_facts:
+  - 'Abstract: "The present investigation examined 8- to 16-year-olds'' tendency to lie, the sophistication of their lies, and related cognitive factors. Participants were left alone and asked not to look at the answers to a test, but the majority peeked."'
+  - 'Abstract: "Results revealed that the sophistication of 8- to 16-year-olds'' lies, but not their decision to lie, was significantly related to executive functioning skills."'
+  topics:
+  - lying
+  ages: 8 to 16
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: ttofi-farrington-2011
+  evidence_level: meta-analysis
+  authors: Ttofi, M. M., & Farrington, D. P.
+  year: 2011
+  title: 'Effectiveness of school-based programs to reduce bullying: a systematic and meta-analytic review'
+  venue: Journal of Experimental Criminology, 7(1), 27-56
+  doi: 10.1007/s11292-010-9109-1
+  url: https://doi.org/10.1007/s11292-010-9109-1
+  lang: en
+  finding:
+    en: 'A systematic review and meta-analysis of 44 evaluations of school-based anti-bullying programs: on average bullying decreased by 20 to 23% and victimization by 17 to 20%; more intensive programs, programs with parent meetings, firm disciplinary methods and improved playground supervision were more effective, while work with peers was associated with an increase in victimization.'
+    zh-hans: 这项对 44 项校园反欺凌项目评估的系统综述和荟萃分析发现，欺凌行为平均减少 20% 到 23%，受欺凌减少 17% 到 20%；更密集的项目、有家长会议、有坚定管教措施、改善操场看管的项目效果更好，而“同伴工作”类做法反而与受欺凌增加有关。
+    zh-hant: 這項對 44 項校園反霸凌方案評估的系統性回顧和統合分析發現，霸凌行為平均減少 20% 到 23%，受霸凌減少 17% 到 20%；更密集的方案、有家長會議、有堅定管教措施、改善操場看管的方案效果更好，而「同儕工作」類做法反而和受霸凌增加有關。
+  key_facts:
+  - 'Abstract: "Of the 53 different program evaluations, 44 provided data that permitted the calculation of an effect size for bullying or victimization. The meta-analysis of these 44 evaluations showed that, overall, school-based anti-bullying programs are effective: on average, bullying decreased by 20–23% and victimization decreased by 17–20%."'
+  - 'Abstract: "More intensive programs were more effective, as were programs including parent meetings, firm disciplinary methods, and improved playground supervision. Work with peers was associated with an increase in victimization."'
+  - Crossref lists the online publication year as 2010; the printed issue is volume 7(1), 2011.
+  topics:
+  - bullying
+  - peers
+  ages: school children
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: lereya-samara-wolke-2013
+  evidence_level: meta-analysis
+  authors: Lereya, S. T., Samara, M., & Wolke, D.
+  year: 2013
+  title: 'Parenting behavior and the risk of becoming a victim and a bully/victim: A meta-analysis study'
+  venue: Child Abuse & Neglect, 37(12), 1091-1108
+  doi: 10.1016/j.chiabu.2013.03.001
+  pmid: '23623619'
+  url: https://doi.org/10.1016/j.chiabu.2013.03.001
+  lang: en
+  finding:
+    en: A meta-analysis of prospective and cross-sectional studies found that children exposed to negative parenting (abuse, neglect, maladaptive parenting) were more likely to be bullied or to be both bullies and victims, with small to moderate effects, while positive parenting (good communication, a warm and affectionate relationship, involvement and support, and supervision) was protective, with small to moderate effects; the authors conclude that anti-bullying work should include families and start before school.
+    zh-hans: 这项对前瞻性研究和横断面研究的荟萃分析发现，经历负面教养（虐待、忽视、不当教养）的孩子更容易受欺凌，或既欺凌别人又受欺凌，效应为小到中等；而正面教养（良好的沟通、温暖亲密的关系、参与和支持、监管）有保护作用，效应同样为小到中等；作者认为反欺凌工作应把家庭纳入，并在孩子入学前就开始。
+    zh-hant: 這項對前瞻性研究和橫斷面研究的統合分析發現，經歷負面教養（虐待、忽視、不當教養）的孩子更容易受霸凌，或既霸凌別人又受霸凌，效果為小到中等；而正面教養（良好的溝通、溫暖親密的關係、參與和支持、督導）有保護作用，效果同樣為小到中等；作者認為反霸凌工作應把家庭納入，並在孩子入學前就開始。
+  key_facts:
+  - 'Abstract: "Both victims and those who both bully and are victims (bully/victims) were more likely to be exposed to negative parenting behavior including abuse and neglect and maladaptive parenting. The effects were generally small to moderate for victims (Hedge''s g range: 0.10-0.31) but moderate for bully/victims (0.13-0.68)."'
+  - 'Abstract: "Positive parenting behavior including good communication of parents with the child, warm and affectionate relationship, parental involvement and support, and parental supervision were protective against peer victimization. The protective effects were generally small to moderate for both victims (Hedge''s g: range: -0.12 to -0.22) and bully/victims (-0.17 to -0.42)."'
+  - 'Abstract: "Intervention programs against bullying should extend their focus beyond schools to include families and start before children enter school."'
+  topics:
+  - bullying
+  - peers
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: ullsperger-nikolas-2017
+  evidence_level: meta-analysis
+  authors: Ullsperger, J. M., & Nikolas, M. A.
+  year: 2017
+  title: 'A meta-analytic review of the association between pubertal timing and psychopathology in adolescence: Are there sex differences in risk?'
+  venue: Psychological Bulletin, 143(9), 903-938
+  doi: 10.1037/bul0000106
+  pmid: '28530427'
+  url: https://doi.org/10.1037/bul0000106
+  lang: en
+  finding:
+    en: A meta-analysis of 101 articles found that earlier pubertal timing was linked with more emotional and behavior problems across all domains measured, for boys as well as girls, with effects that were small in magnitude (d about 0.20); adolescent sex did not moderate the effect.
+    zh-hans: 这项对 101 篇文章的荟萃分析发现，青春期发育较早与所测量的各类情绪和行为问题都有关，男孩和女孩都是如此，效应量较小（d 约为 0.20）；性别并不改变这一效应。
+    zh-hant: 這項對 101 篇文章的統合分析發現，青春期發育較早和所測量的各類情緒和行為問題都有關，男孩和女孩都是如此，效果量較小（d 約為 0.20）；性別並不改變這個效應。
+  key_facts:
+  - 'Abstract: "A systematic literature search was conducted in PubMed and PsycINFO databases and 101 articles met criteria for inclusion."'
+  - 'Abstract: "Adolescent sex did not moderate early pubertal timing effects on emotional and behavior problems. However, robust early pubertal timing effects emerged for both males and females across all domains of psychopathology that were small in magnitude (ds∼.20)."'
+  topics:
+  - puberty
+  - adolescence
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: pinquart-2017-externalizing
+  evidence_level: meta-analysis
+  authors: Pinquart, M.
+  year: 2017
+  title: 'Associations of parenting dimensions and styles with externalizing problems of children and adolescents: An updated meta-analysis'
+  venue: Developmental Psychology, 53(5), 873-932
+  doi: 10.1037/dev0000295
+  pmid: '28459276'
+  url: https://doi.org/10.1037/dev0000295
+  lang: en
+  finding:
+    en: 'A meta-analysis of 1,435 studies: parental warmth, behavioral control, autonomy granting and an authoritative style showed very small to small negative links with children''s and adolescents'' externalizing problems, while harsh control and psychological control showed the strongest positive links; several dimensions predicted change over time, and the links with warmth, behavioral control, harsh control, psychological control and authoritative parenting ran in both directions.'
+    zh-hans: 这项汇总 1,435 项研究的荟萃分析发现，父母的温暖、行为上的管束、给予自主以及权威型（温暖而有要求）的教养方式，与儿童青少年的外化问题呈很小到小的负相关；严厉管控和心理控制与外化问题的正相关最强；多个维度能预测问题随时间的变化，而温暖、行为管束、严厉管控、心理控制和权威型教养与外化问题之间的关系是双向的。
+    zh-hant: 這項彙整 1,435 項研究的統合分析發現，父母的溫暖、行為上的管束、給予自主以及權威型（溫暖而有要求）的教養方式，和兒童青少年的外化問題呈很小到小的負相關；嚴厲管控和心理控制和外化問題的正相關最強；多個向度能預測問題隨時間的變化，而溫暖、行為管束、嚴厲管控、心理控制和權威型教養和外化問題之間的關係是雙向的。
+  key_facts:
+  - 'Abstract: "The present meta-analysis integrates research from 1,435 studies on associations of parenting dimensions and styles with externalizing symptoms in children and adolescents."'
+  - 'Abstract: "Parental warmth, behavioral control, autonomy granting, and an authoritative parenting style showed very small to small negative concurrent and longitudinal associations with externalizing problems. In contrast, harsh control, psychological control, authoritarian, permissive, and neglectful parenting were associated with higher levels of externalizing problems. The strongest associations were observed for harsh control and psychological control."'
+  - 'Abstract: associations of externalizing problems "with warmth, behavioral control, harsh control, psychological control, and authoritative parenting being bidirectional."'
+  topics:
+  - parenting-dimensions
+  - adolescence
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: pinquart-2017-internalizing
+  evidence_level: meta-analysis
+  authors: Pinquart, M.
+  year: 2017
+  title: 'Associations of Parenting Dimensions and Styles with Internalizing Symptoms in Children and Adolescents: A Meta-Analysis'
+  venue: Marriage & Family Review, 53(7), 613-640
+  doi: 10.1080/01494929.2016.1247761
+  url: https://doi.org/10.1080/01494929.2016.1247761
+  lang: en
+  finding:
+    en: 'A meta-analysis of 1,015 studies: parental warmth, behavioral control, autonomy granting and authoritative parenting showed very small to small negative links with children''s and adolescents'' internalizing symptoms (such as anxiety and depression), while harsh control, psychological control, authoritarian and, in part, neglectful parenting went with more symptoms; the links with warmth, psychological control and authoritative parenting ran in both directions.'
+    zh-hans: 这项汇总 1,015 项研究的荟萃分析发现，父母的温暖、行为上的管束、给予自主和权威型教养，与儿童青少年的内化症状（如焦虑、抑郁）呈很小到小的负相关；严厉管控、心理控制、专制型教养以及部分忽视型教养则与更多症状有关；温暖、心理控制和权威型教养与内化症状之间的关系是双向的。
+    zh-hant: 這項彙整 1,015 項研究的統合分析發現，父母的溫暖、行為上的管束、給予自主和權威型教養，和兒童青少年的內化症狀（如焦慮、憂鬱）呈很小到小的負相關；嚴厲管控、心理控制、專制型教養以及部分忽視型教養則和較多症狀有關；溫暖、心理控制和權威型教養和內化症狀之間的關係是雙向的。
+  key_facts:
+  - 'Abstract: "The present meta-analysis integrates research from 1,015 studies on associations of parenting dimensions and styles with internalizing symptoms in children and adolescents."'
+  - 'Abstract: "Parental warmth, behavioral control, autonomy granting, and authoritative parenting showed very small to small negative concurrent and longitudinal associations with internalizing symptoms. In contrast, harsh control, psychological control, authoritarian, and, in part, neglectful parenting were associated with higher levels of internalizing symptoms."'
+  - Crossref lists the online publication year as 2016; the printed issue is volume 53(7), 2017.
+  topics:
+  - parenting-dimensions
+  - adolescence
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: eccles-1993-stage-environment
+  evidence_level: review
+  authors: Eccles, J. S., Midgley, C., Wigfield, A., Buchanan, C. M., Reuman, D., Flanagan, C., & Mac Iver, D.
+  year: 1993
+  title: 'Development during adolescence: The impact of stage-environment fit on young adolescents'' experiences in schools and in families'
+  venue: American Psychologist, 48(2), 90-101
+  doi: 10.1037/0003-066x.48.2.90
+  url: https://doi.org/10.1037/0003-066x.48.2.90
+  lang: en
+  finding:
+    en: 'A review advancing the stage-environment fit hypothesis: some of the negative changes seen in early adolescence (in motivation and self-perception) result from a mismatch between adolescents'' developing needs and the opportunities their school and home environments give them, with examples of how the mismatch arises and how more developmentally appropriate environments can be created.'
+    zh-hans: 这篇综述提出“阶段与环境匹配”假说：青春期早期出现的一些负面变化（动机和自我认知方面），来自青少年正在发展的需要与学校和家庭给他们的机会之间的错配；文章举例说明这种错配如何产生，以及怎样创造更符合发展阶段的环境。
+    zh-hant: 這篇文獻回顧提出「階段與環境匹配」假說：青春期早期出現的一些負面變化（動機和自我認知方面），來自青少年正在發展的需要和學校、家庭給他們的機會之間的錯配；文章舉例說明這種錯配如何產生，以及怎麼創造更符合發展階段的環境。
+  key_facts:
+  - 'Abstract: "This article ... advances the hypothesis that some of the negative psychological changes associated with adolescent development result from a mismatch between the needs of developing adolescents and the opportunities afforded them by their social environments."'
+  - 'Abstract: "It provides examples of how this mismatch develops in the school and in the home and how it is linked to negative age-related changes in early adolescents'' motivation and self-perceptions."'
+  topics:
+  - adolescence
+  - autonomy
+  - school
+  ages: early adolescents
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'

@@ -7,7 +7,7 @@ import { localeStaticPaths, type Locale } from '../../i18n/locales';
 import { t } from '../../i18n/ui';
 import { getPage, assertParity } from '../../lib/content';
 import { setupCites, headingsIn } from '../../lib/page';
-import { BIBLIOGRAPHY, citeNumber, citedIn } from '../../lib/cites';
+import { BIBLIOGRAPHY, citeNumber, citedIn, sourcesHref } from '../../lib/cites';
 import { sourceLink } from '../../lib/sources';
 
 export function getStaticPaths() {
@@ -58,6 +58,7 @@ const colon = locale === 'en' ? ': ' : '：';
                   <span class="chip">{ui.studyType[s.evidence_level]}</span>
                   <a href={link.href} rel="noopener" lang="en">{link.label}</a>
                   {s.pmid && <a href={`https://pubmed.ncbi.nlm.nih.gov/${s.pmid}/`} rel="noopener">{data.pubmed} {s.pmid}</a>}
+                  <a class="bib-sources-link" href={sourcesHref(locale, s.id)}>{ui.sourcesEntry}</a>
                 </p>
                 <p class="bib-finding">{s.finding[locale]}</p>
                 <p class="bib-cited">

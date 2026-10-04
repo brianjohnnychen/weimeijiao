@@ -3,7 +3,7 @@
 export const SITE_URL = 'https://xn--3ys368f86s.com';
 export const SISTER_SITE = 'https://showtellshare.org';
 
-export const PHASES = ['0-12-months', '1-3-years', '3-5-years', '5-7-years', '7-10-years'] as const;
+export const PHASES = ['0-12-months', '1-3-years', '3-5-years', '5-7-years', '7-10-years', '10-12-years'] as const;
 export type Phase = (typeof PHASES)[number];
 
 export const TOOLS = [
@@ -52,6 +52,7 @@ export const EDGE_CASES = [
   'grandparents',
   'dangerous-behavior',
   'developmental-differences',
+  'preteens',
   'not-working',
 ] as const;
 
@@ -81,11 +82,13 @@ export const PRINTABLES = [
   'summary-3-5-years',
   'summary-5-7-years',
   'summary-7-10-years',
+  'summary-10-12-years',
   'learning-0-12-months',
   'learning-1-3-years',
   'learning-3-5-years',
   'learning-5-7-years',
   'learning-7-10-years',
+  'learning-10-12-years',
   'routine-chart',
   'calm-down-plan',
   'family-rules',

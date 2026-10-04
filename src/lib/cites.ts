@@ -13,7 +13,7 @@ export const RESEARCH_GROUPS = [
   { key: 'programs', topics: ['parenting-programs', 'connection'] },
   { key: 'techniques', topics: ['praise', 'instructions', 'ignoring', 'consequences', 'time-out', 'time-in', 'response-cost', 'problem-solving', 'choices', 'repair'] },
   { key: 'physical', topics: ['physical-punishment', 'harsh-verbal', 'culture'] },
-  { key: 'development', topics: ['development', 'milestones', 'infant-crying', 'safety', 'tantrums', 'aggression', 'self-regulation', 'when-to-get-help', 'lying', 'siblings', 'coparenting', 'grandparents', 'neurodevelopment'] },
+  { key: 'development', topics: ['development', 'milestones', 'infant-crying', 'safety', 'tantrums', 'aggression', 'self-regulation', 'when-to-get-help', 'lying', 'siblings', 'coparenting', 'grandparents', 'neurodevelopment', 'adolescence', 'monitoring', 'peers', 'puberty', 'bullying', 'parenting-dimensions', 'autonomy'] },
   { key: 'everyday', topics: ['sleep', 'routines', 'screens', 'mealtime', 'homework'] },
   { key: 'learning', topics: ['language', 'reading', 'play', 'motivation', 'praise-learning', 'mindset', 'executive-function', 'numeracy', 'study-skills', 'school'] },
 ] as const;
@@ -52,6 +52,20 @@ export function citeNumber(id: string): number {
 }
 
 export const researchHref = (locale: Locale, id: string) => `${href(locale, paths.research())}#src-${id}`;
+export const sourcesHref = (locale: Locale, id: string) => `${href(locale, paths.sources())}#src-${id}`;
+
+/** Every source in sources.yml, cited or not, in the same groups and order as the bibliography
+ *  (for the Sources page, SPEC §5.9). */
+export const ALL_SOURCES: { key: ResearchGroupKey; sources: Source[] }[] = RESEARCH_GROUPS.map((g) => ({
+  key: g.key,
+  sources: SOURCES.filter((s) => groupOf(s) === g.key).sort((a, b) => sortKey(a).localeCompare(sortKey(b))),
+})).filter((g) => g.sources.length > 0);
+
+/** Site-wide citation number, or undefined for a source no page cites. */
+export function citeNumberIfCited(id: string): number | undefined {
+  const n = ORDER.indexOf(id) + 1;
+  return n || undefined;
+}
 
 /** One page that cites sources: its path, its label, and the MDX bodies it renders, in order. */
 interface CitingPage {

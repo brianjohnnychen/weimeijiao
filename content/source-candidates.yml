@@ -1,0 +1,6 @@
+# Candidate sources for the sources workflow's candidates job (metadata and abstracts before anything
+# is added to sources.yml). Empty: the 10-12 batch (22 candidates, run 37173192476) was looked up on
+# 2026-10-04; 19 were added to sources.yml, soenens-vansteenkiste-2010 (no abstract reachable),
+# mendle-2007 (covered by ullsperger-nikolas-2017) and yeager-dahl-dweck-2018 (middle adolescents, not
+# 10-12) were not.
+[]

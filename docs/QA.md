@@ -2,25 +2,25 @@
 
 The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test, the anchor test and the behavior test on every push.
 
-Latest full run: 2026-10-04 02:20-02:42 UTC, the Fable audit (section 11). Times below are UTC.
+Latest full run: 2026-10-04 04:11-04:36 UTC, the age-range, Sources, link-verification and translation QA pass (section 12). Times below are UTC.
 
 ## At a glance
 
 | Check | How to rerun | Latest result |
 |---|---|---|
-| Content lint | `node scripts/check-content.mjs` | 159 MDX files, 0 errors, 0 warnings (now also rejects personal names outside the About page and any spelling of the English brand other than WeiMeiJiao) |
-| Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 105 pages (35 per locale), 0 errors, 0 warnings; 42 PDFs; 105 Open Graph images |
-| Link test | `node scripts/link-test.mjs --write` | 14,359 internal links, 9,208 of them to an anchor, 0 broken (block at the end) |
-| Anchor test | `node scripts/anchor-test.mjs` | 26 of 26 deep links land on their target (13 kinds of target, 375px and 1280px) |
-| UI check | `node scripts/ui-check.mjs` | 129 page views, no problems ([report](screenshots/ui-check.md)) |
-| Behavior test | `node scripts/behavior-test.mjs` | 81 of 81 checks pass: age finder scoring and flow, lightbox, toolbox filter, language banner, theme, language switcher, no-JavaScript fallbacks, 404, 320px reflow, dark-mode sheets, menu, Research back link, landmarks (section 9) |
+| Content lint | `node scripts/check-content.mjs` | 168 MDX files (56 per locale), 0 errors, 0 warnings; the cross-locale heading check now covers six phases and the Sources page |
+| Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 120 pages (40 per locale), 0 errors, 0 warnings; 48 PDFs; 120 Open Graph images |
+| Link test | `node scripts/link-test.mjs --write` | 19,328 internal links, 13,327 of them to an anchor, 0 broken (block at the end) |
+| Anchor test | `node scripts/anchor-test.mjs` | 32 of 32 deep links land on their target (16 kinds of target, now including the Sources page, the 10-12 page and the preteens section; 375px and 1280px) |
+| UI check | `node scripts/ui-check.mjs` | 156 page views (17 pages, now including the 10-12 pages and the Sources page), no problems ([report](screenshots/ui-check.md)) |
+| Behavior test | `node scripts/behavior-test.mjs` | 81 of 81 checks pass: age finder scoring (now counted in twelfths of a point, so an answer covering four age ranges splits exactly) and flow, lightbox, toolbox filter, language banner, theme, language switcher, no-JavaScript fallbacks, 404, 320px reflow, dark-mode sheets, menu, Research back link, landmarks (section 9) |
 | Keyboard test | `node scripts/keyboard-test.mjs` | 33 of 33 checks pass at 375px in all three locales: skip link, every header control with a visible focus ring (with and without the language banner), mobile menu, theme button, table of contents links, photo lightbox, age finder radio groups (section 11) |
-| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in the audit; html-validate 11.16 in the final pass | 0 axe violations in 318 page runs (all 106 pages at 375px light, 375px dark and 1280px, section 11); html-validate leaves only cosmetic or deliberate messages (section 9) |
-| Printables | page limits in `scripts/postbuild.mjs` | 39 one-page sheets and the 2-page age finder in each locale, all at 100% scale |
+| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in this pass; html-validate 11.16 in the final pass | 0 axe violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px, section 12); html-validate leaves only cosmetic or deliberate messages (section 9) |
+| Printables | page limits in `scripts/postbuild.mjs` | 45 one-page sheets (15 per locale) and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
-| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 99 or higher: performance 99-100 on mobile (the Chinese home pages at 99) and 100 on desktop; accessibility, best practices and SEO 100 on every page ([lighthouse.md](lighthouse.md), section 7) |
-| Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 146 entries: every DOI registered, metadata matches, every link resolves or its DOI is verified; 0 failures, 70 warnings for publisher pages that refuse automated access (Actions run 37166720251, 2026-10-04 01:01 UTC, whose abstracts the audit's fact-check used) |
-| Help lines | same workflow, `helplines` job | all 14 numbers found on their official pages (run 37166720251) |
+| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 99 or higher: performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; accessibility, best practices and SEO 100 on every page ([lighthouse.md](lighthouse.md), section 12) |
+| Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 165 entries: every DOI registered and its Crossref metadata (title, year, first author) matches the citation; all 165 links are DOI links; landing pages: 8 carry the cited DOI in their citation metadata, 82 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 75 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page (Actions run 37176288709, 2026-10-04 04:12-04:25 UTC) |
+| Help lines | same workflow, `helplines` job | all 14 help-line numbers found on their official pages (run 37176288709) |
 
 ## 1. Fact-check per claim
 
@@ -181,29 +181,68 @@ Judgment calls recorded for Brian (not changed, see STATUS.md): the SPEC §7.4 e
 
 See STATUS.md: the judgment calls listed under the fact-check above; the AAP 2018 statement's reaffirmation status; the SPEC §4a time-out studies that cannot be cited; the 21 illustrations still waiting on the Workers AI quota (unchanged by this audit); Enforce HTTPS.
 
+## 12. Age range to 12, Sources page, link verification and translation QA (2026-10-04, 11:01-12:36 Taipei)
+
+Run on Claude Fable 5.1 on branch `claude/brave-darwin-7h6nne` ([PR #6](https://github.com/brianjohnnychen/weimeijiao/pull/6)) against `main` after PR #5. Brian's brief: (1) extend the age range to 12 with a full 10-12 phase everywhere, (2) a separate, low-key Sources page, (3) verify that every source link resolves to the correct work, (4) a full translation QA of the three locales with a glossary, then rerun the full test suite. SPEC.md and REVIEWER-CHANGES.md were updated first.
+
+### The 10-12 phase
+
+- **New pages, written natively in each locale:** By age, Preteens (10-12 years) (`/by-age/10-12-years/`: what is normal, what works with nine sections from warmth and limits to the move to secondary school, what backfires, things you can say) and Encouraging learning, Preteens (`/learning/10-12-years/`: homework, study methods, reading, praise and growth mindset, motivation, focus, sleep and screens). Each has a one-page summary or one-pager PDF, an image entry in `content/images.yml` (placeholder until the photo passes review in the image pass) and a place in the By age, Learning and Printables hubs, the home page and the sitemap.
+- **Everywhere else:** the age finder gained 10-12 answers (13 new options per locale; the scoring now counts points in twelfths so an answer covering four age ranges splits exactly, and the behavior test's independent count uses the same unit); 13 tools carry 10-12 in their age range with a new preteen sentence in the age note; 7 situations carry the age, and screens, lying, homework and defiance each end with a 10-12 paragraph; the best-proven approach has a new "Preteens: more say, same core" section among the edge cases; When you have little time has a preteen paragraph; the 7-10 page is re-cut as 7-10 with a pointer to the new page; every "birth to 10" mention (titles, taglines, meta descriptions, Open Graph, SPEC, home, about, hubs, printables, content guide) now says 12.
+- **19 new academic sources,** each looked up through the Actions candidates job (Crossref metadata and abstract) before being added to `content/sources.yml` with an evidence level, a trilingual finding and quoted key facts: Stattin and Kerr 2000 and Kerr and Stattin 2000 (parental monitoring and disclosure), Racz and McMahon 2011 (monitoring review), Steinberg and Monahan 2007 (resistance to peer influence), Laursen, Coy and Collins 1998 (parent-child conflict in adolescence), Fuligni and Eccles 1993 (family decision making and peer orientation), Eccles et al. 1993 (stage-environment fit), Dishion, McCord and Poulin 1999 (deviancy training), Ttofi and Farrington 2011 and Lereya, Samara and Wolke 2013 (bullying prevention and parenting), Ullsperger and Nikolas 2017 (pubertal timing), Pinquart 2017 (two meta-analyses of parenting dimensions), Carskadon 2011 and Cain and Gradisar 2010 (sleep and media), the AAP 2016 school-aged media statement, Orben and Przybylski 2019 and Odgers and Jensen 2020 (screens and well-being), Evans and Lee 2011 (lying at 8 to 16). Every claim on the new pages was checked against these entries by the writers and again by the round-B reviewers (below); the English page's six wording slips found by the Chinese writers (Talwar 2015 is 4- to 8-year-olds, Yeager 2019 is a secondary-school sample, Kerr and Stattin is about control efforts, Mol and Bus is variance in oral language, the AAP 2026 point is quoted as the statement makes it, an unsupported grade-level clause removed) were fixed in all three locales.
+
+### Sources page
+
+- `/sources/` (参考文献 / 參考文獻 / Sources) in all three locales, linked only from the footer's bottom line next to About. It lists all 165 entries of `content/sources.yml` grouped by the Research page's six topics and sorted by author: full citation, evidence level, DOI link (and PubMed where there is a PMID), a link to the Research entry, the one-line finding and the pages that cite it; a cited entry carries the same number as in the text; the 5 verified but not yet cited entries (Thomas and Zimmer-Gembeck 2007, Garland 2008, Patterson 2010, Kazdin 2008, Kazdin 1980) say so. Every Research entry links to its Sources entry; `#src-<id>` anchors work on both pages and are covered by the anchor test and the content lint's anchor map.
+
+### Link verification
+
+- **Method.** `scripts/check-sources.mjs` (the `Check sources` workflow, on every change to the sources, weekly, and on demand) already checked that each DOI is registered and that Crossref's title, year and first author match the citation. It now also judges the landing page: a page passes when its citation metadata carries the cited DOI, when its title matches the cited title, or when the final URL after the DOI redirect carries the cited DOI, the publisher's own id for the work (Crossref's alternative-id, such as an Elsevier PII) or the landing URL that Crossref registers for the DOI; a 200 whose HTML is only a script shell is rendered in headless Chrome before being called unreadable; a page that is a homepage, search, login or error page fails the run; a non-DOI link is flagged with the DOI link to use instead.
+- **Result (run 37176288709, 2026-10-04 04:12-04:25 UTC, 165 entries, 0 failures):** 8 carry the cited DOI in their citation metadata, 82 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 75 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page. No link was replaced: none redirected to a homepage, a search page, a paywall error or a different paper, and all 165 links already were DOI links. The 75 pages that refuse automated readers are publisher article pages behind bot protection (for example Taylor & Francis, which answered 403, and APA PsycNet, which serves its content through scripts); for each, the DOI redirect lands on a URL that carries the cited DOI or the publisher's own id for the work, so the link is known to be the right page even though the checker could not read its body.
+- The abstracts the run printed (`--details`) are the ones the writers and reviewers worked from.
+
+### Translation QA
+
+- **Method.** `docs/GLOSSARY.md` was written first (site, section and phase names, people, tools, situations, development and research terms, interface strings, banned forms; now 220 rows) and extended from every review. Seven parallel reviews then covered every page: early phases and hubs; learning pages and printables; eight situations and three tools; physical discipline and Research; the 13 tools with new preteen notes; four situations plus the approach, little-time and Sources pages; the 7-10 and 10-12 pages. Each compared the three locales sentence by sentence (frontmatter strings, scripts and body) and every cited sentence against its source's finding and quoted key facts, checked Taiwan character forms and vocabulary in zh-Hant and mainland vocabulary in zh-Hans, typography (citation markers before 。 in Chinese and after punctuation in English, quote styles, digits, spacing, no dashes) and natural phrasing, fixed the files directly and reported terms the glossary lacked. About 11,000 sentence comparisons (about 3,700 per locale); about 290 reviewer edits plus the site-wide sweeps below; `node scripts/check-content.mjs` clean after every round.
+- **Accuracy against sources (all three locales unless noted):** Talwar 2015 ages 4 to 8; Yeager 2019 a national secondary-school sample; Kerr and Stattin 2000 control efforts, not tracking; Mol and Bus 2011 variance in oral language skills; the AAP 2026 sentence states the statement's own point (platforms designed for engagement and profit); Pinquart 2017 keeps its small-link hedge on approach, little-time and the 10-12 page; Stattin and Kerr's 14-year-old sample stated on the approach page; Laursen 1998 carries its few-studies caveat; Orben and Przybylski 2019 described as one analysis of three datasets covering more than 355,000 teenagers rather than "the best large studies"; Hale and Guan 2015 is a systematic review; Racz and McMahon 2011 conclude rather than confirm; the problem-solving trials are children with serious behavior problems, not older children; Narang 2020 covers infants and children; Yogman 2018 self-regulation skills; Leijten 2019 disruptive behavior; Siddiqui and Ross 2004 control families; Kaminski 2008 parenting programs; the AAP's aversive strategies sentence no longer adds "harsh"; a dropped hedge restored in the redirection summary; the missing motivation item added to the English 3-5 learning description.
+- **Terminology, one form per term across pages and `sources.yml` findings:** 行为问题 / 行為問題 (conduct problems), 等待名单对照组 / 候補名單對照組 (wait-list control), 配合度 for the compliance finding, 文獻回顧 (review), 系统综述 / 系統性回顧 (Cochrane review), 稱讚 (praise in zh-Hant), 家长培训课程 / 親職課程 (parenting program), 家长管理训练 (PMT), 暂时取消特权 (the tool name), 睡前程序 / 睡前流程, 学习动机, 物质奖励 / 實質獎勵, 医学机构 / 醫學機構, 侮辱 (the AAP list), 家庭媒体使用计划 / 家庭媒體使用計畫, 参见 in zh-Hans and 請看 in zh-Hant before every cross-link (另见 / 另見 for see also), US English in the English copy (elementary school, check off, agree on, study for tests, Simon Says, punctuation inside quotes), thousands separators from 1,000 up.
+- **Taiwan usage and characters in zh-Hant:** 佔 (佔上風, 獨佔), 扎實 (not 紮實), 算術, 憂鬱, 計畫, 裝置 / 3C 產品, 群組, 體育服, 安親班; no mainland terms remain (the build's QA caught one 登錄 in a source finding, now 預先註冊). zh-Hans: no Taiwan terms or Traditional characters; 幼儿园, 屏幕时间, 零花钱, 同伴, 校园欺凌. No machine-conversion artifacts were found beyond these character forms; the Chinese pages read as written, not converted.
+- **Phrasing and parity:** hedges and examples aligned across locales (safe things to explore, squeeze a soft toy, dictation counts too, the small choice at the end of screen time); link texts to the new 10-12 pages echo the target headings in each locale; the Research page's "Strong" explanation now reads the same in all three locales; the agesNote order on specific praise follows the ages.
+- **Deliberate localisation kept (owner may decide otherwise):** the About page lists help-line regions in a different order per locale; the zh lists of things used to hit a child carry one local item each (鸡毛掸子 / 藤條); the family-rules poster title is 我們家的約定 in zh-Hant; the age finder's game examples are local (飞行棋、跳棋、纸牌 / 大富翁、跳棋、撲克牌); Chinese bold lead-ins keep the full stop outside the bold; English house forms back-up, afterwards, say sorry and carry on.
+
+### Test results
+
+Everything in the table at the top was rerun on the final build of this branch; UI check screenshots for all 17 pages (now including the 10-12 pages and the Sources page) at 375px light and dark and 1280px light in the three locales are in docs/screenshots/, and 7 of them (the Sources page in all three locales and both widths, the 10-12 pages at 375px, 1280px and in dark mode) were reviewed by eye: no overflow, dark mode holds, the footer's Sources link sits next to About, the new printables fit one page.
+
+### Left open
+
+See STATUS.md: the 75 publisher pages that refuse automated readers (open issue 7); the AAP 2018 statement's reaffirmation status; the SPEC §4a time-out studies that cannot be cited; the illustrations (two new 10-12 entries join the 21 waiting ones; the image pass is queued in INBOX item 3); the localisation choices listed above; Enforce HTTPS.
+
 <!-- link-test:start -->
-Link test run 2026-10-04 02:20 UTC over dist/ (106 HTML pages).
+Link test run 2026-10-04 04:12 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 36 | 4813 | 3070 | 0 |
-| zh-hant | 35 | 4773 | 3069 | 0 |
-| en | 35 | 4773 | 3069 | 0 |
-| all | 106 | 14359 | 9208 | 0 |
+| zh-hans | 41 | 6470 | 4443 | 0 |
+| zh-hant | 40 | 6429 | 4442 | 0 |
+| en | 40 | 6429 | 4442 | 0 |
+| all | 121 | 19328 | 13327 | 0 |
 
-In-content links to a whole page (no #anchor), for review: 72 target page(s).
+In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
 - /printables/summary-0-12-months/ <- /by-age/0-12-months/ ("打印本阶段的一页总结"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
 - /by-age/1-3-years/ <- /by-age/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /by-age/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /by-age/ ("学步儿（1-3 岁）")
 - /printables/summary-1-3-years/ <- /by-age/1-3-years/ ("打印本阶段的一页总结"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
 - /by-age/0-12-months/ <- /by-age/1-3-years/ ("上一个阶段宝宝（0-12 个月）"); /by-age/ ("宝宝（0-12 个月）")
 - /by-age/3-5-years/ <- /by-age/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /by-age/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /by-age/ ("学龄前（3-5 岁）")
+- /printables/summary-10-12-years/ <- /by-age/10-12-years/ ("打印本阶段的一页总结"); /printables/ ("青春期前（10-12 岁）"); /printables/ ("打印")
+- /by-age/7-10-years/ <- /by-age/10-12-years/ ("上一个阶段小学生（7-10 岁）"); /by-age/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /by-age/ ("小学生（7-10 岁）")
 - /printables/routine-chart/ <- /by-age/3-5-years/ ("作息表"); /little-time/ ("日常作息表"); /printables/ ("早晚作息表"); +3 more
 - /printables/summary-3-5-years/ <- /by-age/3-5-years/ ("打印本阶段的一页总结"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
 - /by-age/5-7-years/ <- /by-age/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /by-age/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /by-age/ ("幼小衔接（5-7 岁）")
 - /printables/summary-5-7-years/ <- /by-age/5-7-years/ ("打印本阶段的一页总结"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
-- /by-age/7-10-years/ <- /by-age/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /by-age/ ("小学生（7-10 岁）")
 - /printables/summary-7-10-years/ <- /by-age/7-10-years/ ("打印本阶段的一页总结"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
+- /by-age/10-12-years/ <- /by-age/7-10-years/ ("下一个阶段青春期前（10-12 岁）"); /by-age/ ("青春期前（10-12 岁）")
 - /printables/age-finder/ <- /by-age/ ("年龄小测验"); /printables/ ("年龄小测验"); /printables/ ("打印")
 - /en/printables/family-rules/ <- /en/approach/ ("family rules poster"); /en/by-age/3-5-years/ ("family rules poster"); /en/printables/ ("Family rules poster"); +3 more
 - /en/printables/summary-0-12-months/ <- /en/by-age/0-12-months/ ("Print the one-page summary for this age"); /en/printables/ ("Babies (0-12 months)"); /en/printables/ ("Print")
@@ -211,45 +250,43 @@ In-content links to a whole page (no #anchor), for review: 72 target page(s).
 - /en/printables/summary-1-3-years/ <- /en/by-age/1-3-years/ ("Print the one-page summary for this age"); /en/printables/ ("Toddlers (1-3 years)"); /en/printables/ ("Print")
 - /en/by-age/0-12-months/ <- /en/by-age/1-3-years/ ("Previous ageBabies (0-12 months)"); /en/by-age/ ("Babies (0-12 months)")
 - /en/by-age/3-5-years/ <- /en/by-age/1-3-years/ ("Next agePreschoolers (3-5 years)"); /en/by-age/5-7-years/ ("Previous agePreschoolers (3-5 years)"); /en/by-age/ ("Preschoolers (3-5 years)")
+- /en/printables/summary-10-12-years/ <- /en/by-age/10-12-years/ ("Print the one-page summary for this age"); /en/printables/ ("Preteens (10-12 years)"); /en/printables/ ("Print")
+- /en/by-age/7-10-years/ <- /en/by-age/10-12-years/ ("Previous ageSchool age (7-10 years)"); /en/by-age/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/by-age/ ("School age (7-10 years)")
 - /en/printables/routine-chart/ <- /en/by-age/3-5-years/ ("routine chart"); /en/little-time/ ("routine chart"); /en/printables/ ("Morning and evening routine chart"); +3 more
 - /en/printables/summary-3-5-years/ <- /en/by-age/3-5-years/ ("Print the one-page summary for this age"); /en/printables/ ("Preschoolers (3-5 years)"); /en/printables/ ("Print")
 - /en/by-age/5-7-years/ <- /en/by-age/3-5-years/ ("Next ageStarting school (5-7 years)"); /en/by-age/7-10-years/ ("Previous ageStarting school (5-7 years)"); /en/by-age/ ("Starting school (5-7 years)")
 - /en/printables/summary-5-7-years/ <- /en/by-age/5-7-years/ ("Print the one-page summary for this age"); /en/printables/ ("Starting school (5-7 years)"); /en/printables/ ("Print")
-- /en/by-age/7-10-years/ <- /en/by-age/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/by-age/ ("School age (7-10 years)")
 - /en/printables/summary-7-10-years/ <- /en/by-age/7-10-years/ ("Print the one-page summary for this age"); /en/printables/ ("School age (7-10 years)"); /en/printables/ ("Print")
+- /en/by-age/10-12-years/ <- /en/by-age/7-10-years/ ("Next agePreteens (10-12 years)"); /en/by-age/ ("Preteens (10-12 years)")
 - /en/printables/age-finder/ <- /en/by-age/ ("age finder"); /en/printables/ ("Age finder quiz"); /en/printables/ ("Print")
 - /en/printables/learning-0-12-months/ <- /en/learning/0-12-months/ ("Print the learning one-pager for this ag"); /en/printables/ ("Babies (0-12 months)"); /en/printables/ ("Print")
 - /en/learning/1-3-years/ <- /en/learning/0-12-months/ ("Next ageToddlers (1-3 years)"); /en/learning/3-5-years/ ("Previous ageToddlers (1-3 years)"); /en/learning/ ("Toddlers (1-3 years)")
 - /en/printables/learning-1-3-years/ <- /en/learning/1-3-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Toddlers (1-3 years)"); /en/printables/ ("Print")
 - /en/learning/0-12-months/ <- /en/learning/1-3-years/ ("Previous ageBabies (0-12 months)"); /en/learning/ ("Babies (0-12 months)")
 - /en/learning/3-5-years/ <- /en/learning/1-3-years/ ("Next agePreschoolers (3-5 years)"); /en/learning/5-7-years/ ("Previous agePreschoolers (3-5 years)"); /en/learning/ ("Preschoolers (3-5 years)")
+- /en/printables/learning-10-12-years/ <- /en/learning/10-12-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Preteens (10-12 years)"); /en/printables/ ("Print")
+- /en/learning/7-10-years/ <- /en/learning/10-12-years/ ("Previous ageSchool age (7-10 years)"); /en/learning/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/learning/ ("School age (7-10 years)")
 - /en/printables/learning-3-5-years/ <- /en/learning/3-5-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Preschoolers (3-5 years)"); /en/printables/ ("Print")
 - /en/learning/5-7-years/ <- /en/learning/3-5-years/ ("Next ageStarting school (5-7 years)"); /en/learning/7-10-years/ ("Previous ageStarting school (5-7 years)"); /en/learning/ ("Starting school (5-7 years)")
 - /en/printables/learning-5-7-years/ <- /en/learning/5-7-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Starting school (5-7 years)"); /en/printables/ ("Print")
-- /en/learning/7-10-years/ <- /en/learning/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/learning/ ("School age (7-10 years)")
 - /en/printables/learning-7-10-years/ <- /en/learning/7-10-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("School age (7-10 years)"); /en/printables/ ("Print")
+- /en/learning/10-12-years/ <- /en/learning/7-10-years/ ("Next agePreteens (10-12 years)"); /en/learning/ ("Preteens (10-12 years)")
 - /en/printables/calm-down-plan/ <- /en/printables/ ("My calm-down plan"); /en/printables/ ("Print"); /en/situations/ ("calm-down plan"); +1 more
 - /printables/learning-0-12-months/ <- /learning/0-12-months/ ("打印本阶段的学习一页纸"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
 - /learning/1-3-years/ <- /learning/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /learning/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /learning/ ("学步儿（1-3 岁）")
 - /printables/learning-1-3-years/ <- /learning/1-3-years/ ("打印本阶段的学习一页纸"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
 - /learning/0-12-months/ <- /learning/1-3-years/ ("上一个阶段宝宝（0-12 个月）"); /learning/ ("宝宝（0-12 个月）")
 - /learning/3-5-years/ <- /learning/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /learning/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /learning/ ("学龄前（3-5 岁）")
+- /printables/learning-10-12-years/ <- /learning/10-12-years/ ("打印本阶段的学习一页纸"); /printables/ ("青春期前（10-12 岁）"); /printables/ ("打印")
+- /learning/7-10-years/ <- /learning/10-12-years/ ("上一个阶段小学生（7-10 岁）"); /learning/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /learning/ ("小学生（7-10 岁）")
 - /printables/learning-3-5-years/ <- /learning/3-5-years/ ("打印本阶段的学习一页纸"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
 - /learning/5-7-years/ <- /learning/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /learning/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /learning/ ("幼小衔接（5-7 岁）")
 - /printables/learning-5-7-years/ <- /learning/5-7-years/ ("打印本阶段的学习一页纸"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
-- /learning/7-10-years/ <- /learning/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /learning/ ("小学生（7-10 岁）")
 - /printables/learning-7-10-years/ <- /learning/7-10-years/ ("打印本阶段的学习一页纸"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
+- /learning/10-12-years/ <- /learning/7-10-years/ ("下一个阶段青春期前（10-12 岁）"); /learning/ ("青春期前（10-12 岁）")
 - /printables/calm-down-plan/ <- /printables/ ("我的冷静计划"); /printables/ ("打印"); /situations/ ("冷静计划"); +1 more
 - /zh-hant/printables/family-rules/ <- /zh-hant/approach/ ("家規海報"); /zh-hant/by-age/3-5-years/ ("家規海報"); /zh-hant/printables/ ("家規海報"); +3 more
 - /zh-hant/printables/summary-0-12-months/ <- /zh-hant/by-age/0-12-months/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("寶寶（0-12 個月）"); /zh-hant/printables/ ("列印")
 - /zh-hant/by-age/1-3-years/ <- /zh-hant/by-age/0-12-months/ ("下一個階段學步兒（1-3 歲）"); /zh-hant/by-age/3-5-years/ ("上一個階段學步兒（1-3 歲）"); /zh-hant/by-age/ ("學步兒（1-3 歲）")
 - /zh-hant/printables/summary-1-3-years/ <- /zh-hant/by-age/1-3-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學步兒（1-3 歲）"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/0-12-months/ <- /zh-hant/by-age/1-3-years/ ("上一個階段寶寶（0-12 個月）"); /zh-hant/by-age/ ("寶寶（0-12 個月）")
-- /zh-hant/by-age/3-5-years/ <- /zh-hant/by-age/1-3-years/ ("下一個階段學齡前（3-5 歲）"); /zh-hant/by-age/5-7-years/ ("上一個階段學齡前（3-5 歲）"); /zh-hant/by-age/ ("學齡前（3-5 歲）")
-- /zh-hant/printables/routine-chart/ <- /zh-hant/by-age/3-5-years/ ("作息表"); /zh-hant/little-time/ ("作息表"); /zh-hant/printables/ ("早晚作息表"); +3 more
-- /zh-hant/printables/summary-3-5-years/ <- /zh-hant/by-age/3-5-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學齡前（3-5 歲）"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/5-7-years/ <- /zh-hant/by-age/3-5-years/ ("下一個階段幼小銜接（5-7 歲）"); /zh-hant/by-age/7-10-years/ ("上一個階段幼小銜接（5-7 歲）"); /zh-hant/by-age/ ("幼小銜接（5-7 歲）")
-- /zh-hant/printables/summary-5-7-years/ <- /zh-hant/by-age/5-7-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("幼小銜接（5-7 歲）"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/7-10-years/ <- /zh-hant/by-age/5-7-years/ ("下一個階段國小學童（7-10 歲）"); /zh-hant/by-age/ ("國小學童（7-10 歲）")
-- /zh-hant/printables/summary-7-10-years/ <- /zh-hant/by-age/7-10-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("國小學童（7-10 歲）"); /zh-hant/printables/ ("列印")
 <!-- link-test:end -->

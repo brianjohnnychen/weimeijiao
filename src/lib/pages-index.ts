@@ -60,5 +60,6 @@ export async function pageList(): Promise<PageInfo[]> {
     }
   }
   await titled(paths.about(), 'about');
+  await titled(paths.sources(), 'sources');
   return list;
 }
