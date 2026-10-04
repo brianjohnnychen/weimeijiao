@@ -146,6 +146,14 @@ images:
       zh-hans: 两个孩子在阳光下的阳台上给盆栽浇水，旁边晾着衣服。
       zh-hant: 兩個孩子在陽光下的陽台上替盆栽澆水，旁邊晾著衣服。
     size: '4:3'
+  - id: phase-10-12-years
+    page: phase/10-12-years
+    prompt: A preteen about eleven years old sits at a kitchen table with a parent, the two talking across a planner and a cup of tea, the preteen's phone face down beside them, relaxed and attentive.
+    alt:
+      en: A preteen and a parent talk across a kitchen table over a planner and a cup of tea, the preteen's phone face down beside them.
+      zh-hans: 一个十一二岁的孩子和家长隔着厨房餐桌聊天，桌上放着计划本和一杯茶，孩子的手机扣在旁边。
+      zh-hant: 一個十一二歲的孩子和家長隔著廚房餐桌聊天，桌上放著計畫本和一杯茶，孩子的手機扣在旁邊。
+    size: '4:3'
 
   # Learning by age
   - id: learning-0-12-months
@@ -187,6 +195,14 @@ images:
       en: An older child holds up a card to quiz themselves at a table while a parent beside them smiles and helps.
       zh-hans: 大一点的孩子在桌前拿着卡片自我测验，家长在旁边笑着帮忙。
       zh-hant: 大一點的孩子在桌前拿著卡片自我測驗，家長在旁邊笑著幫忙。
+    size: '4:3'
+  - id: learning-10-12-years
+    page: learning/10-12-years
+    prompt: A preteen studies at a desk by a window with flashcards and a notebook, a parent passing by the open door with a glass of water, bookshelf and a wall calendar behind, evening light.
+    alt:
+      en: A preteen studies at a desk by a window with flashcards and a notebook while a parent brings a glass of water to the open door.
+      zh-hans: 一个十一二岁的孩子在窗边的书桌前用卡片和笔记本复习，家长端着一杯水走到敞开的房门口。
+      zh-hant: 一個十一二歲的孩子在窗邊的書桌前用字卡和筆記本複習，家長端著一杯水走到敞開的房門口。
     size: '4:3'
 
   # Toolbox

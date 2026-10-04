@@ -42,7 +42,7 @@ export interface UiStrings {
 
 export const UI: Record<Locale, UiStrings> = {
   'zh-hans': {
-    tagline: '温和而坚定，从出生到十岁',
+    tagline: '温和而坚定，从出生到十二岁',
     nav: { home: '首页', byAge: '按年龄', approach: '证据最强的方法', toolbox: '工具箱', situations: '常见难题', littleTime: '时间不够时', physical: '关于体罚', learning: '鼓励学习', research: '研究依据', printables: '打印资料', about: '关于本站' },
     skipToContent: '跳到正文',
     menu: '菜单',
@@ -57,8 +57,8 @@ export const UI: Record<Locale, UiStrings> = {
       sections: '网站栏目',
     },
     banner: { text: '本页面有简体中文版。', switchTo: '切换到简体中文', dismiss: '关闭' },
-    phaseName: { '0-12-months': '宝宝', '1-3-years': '学步儿', '3-5-years': '学龄前', '5-7-years': '幼小衔接', '7-10-years': '小学生' },
-    phaseAge: { '0-12-months': '0-12 个月', '1-3-years': '1-3 岁', '3-5-years': '3-5 岁', '5-7-years': '5-7 岁', '7-10-years': '7-10 岁' },
+    phaseName: { '0-12-months': '宝宝', '1-3-years': '学步儿', '3-5-years': '学龄前', '5-7-years': '幼小衔接', '7-10-years': '小学生', '10-12-years': '青春期前' },
+    phaseAge: { '0-12-months': '0-12 个月', '1-3-years': '1-3 岁', '3-5-years': '3-5 岁', '5-7-years': '5-7 岁', '7-10-years': '7-10 岁', '10-12-years': '10-12 岁' },
     evidence: {
       label: '证据强度',
       strong: '强',
@@ -131,7 +131,7 @@ export const UI: Record<Locale, UiStrings> = {
     notFound: { title: '找不到这个页面', body: '链接可能已经更改。可以回到首页重新找。', home: '回到首页' },
   },
   'zh-hant': {
-    tagline: '溫和而堅定，從出生到十歲',
+    tagline: '溫和而堅定，從出生到十二歲',
     nav: { home: '首頁', byAge: '依年齡', approach: '證據最強的方法', toolbox: '工具箱', situations: '常見難題', littleTime: '時間不夠時', physical: '關於體罰', learning: '鼓勵學習', research: '研究依據', printables: '列印資源', about: '關於本站' },
     skipToContent: '跳到主要內容',
     menu: '選單',
@@ -146,8 +146,8 @@ export const UI: Record<Locale, UiStrings> = {
       sections: '網站單元',
     },
     banner: { text: '本頁面有繁體中文版。', switchTo: '切換到繁體中文', dismiss: '關閉' },
-    phaseName: { '0-12-months': '寶寶', '1-3-years': '學步兒', '3-5-years': '學齡前', '5-7-years': '幼小銜接', '7-10-years': '國小學童' },
-    phaseAge: { '0-12-months': '0-12 個月', '1-3-years': '1-3 歲', '3-5-years': '3-5 歲', '5-7-years': '5-7 歲', '7-10-years': '7-10 歲' },
+    phaseName: { '0-12-months': '寶寶', '1-3-years': '學步兒', '3-5-years': '學齡前', '5-7-years': '幼小銜接', '7-10-years': '國小學童', '10-12-years': '青春期前' },
+    phaseAge: { '0-12-months': '0-12 個月', '1-3-years': '1-3 歲', '3-5-years': '3-5 歲', '5-7-years': '5-7 歲', '7-10-years': '7-10 歲', '10-12-years': '10-12 歲' },
     evidence: {
       label: '證據強度',
       strong: '強',
@@ -220,7 +220,7 @@ export const UI: Record<Locale, UiStrings> = {
     notFound: { title: '找不到這個頁面', body: '連結可能已經變更。可以回到首頁重新找。', home: '回到首頁' },
   },
   en: {
-    tagline: 'Warm, firm discipline from birth to age 10',
+    tagline: 'Warm, firm discipline from birth to age 12',
     nav: { home: 'Home', byAge: 'By age', approach: 'Best-proven approach', toolbox: 'Toolbox', situations: 'Situations', littleTime: 'Little time', physical: 'Physical discipline', learning: 'Learning', research: 'Research', printables: 'Printables', about: 'About' },
     skipToContent: 'Skip to content',
     menu: 'Menu',
@@ -235,8 +235,8 @@ export const UI: Record<Locale, UiStrings> = {
       sections: 'Sections',
     },
     banner: { text: 'This page is available in English.', switchTo: 'Switch to English', dismiss: 'Dismiss' },
-    phaseName: { '0-12-months': 'Babies', '1-3-years': 'Toddlers', '3-5-years': 'Preschoolers', '5-7-years': 'Starting school', '7-10-years': 'School age' },
-    phaseAge: { '0-12-months': '0-12 months', '1-3-years': '1-3 years', '3-5-years': '3-5 years', '5-7-years': '5-7 years', '7-10-years': '7-10 years' },
+    phaseName: { '0-12-months': 'Babies', '1-3-years': 'Toddlers', '3-5-years': 'Preschoolers', '5-7-years': 'Starting school', '7-10-years': 'School age', '10-12-years': 'Preteens' },
+    phaseAge: { '0-12-months': '0-12 months', '1-3-years': '1-3 years', '3-5-years': '3-5 years', '5-7-years': '5-7 years', '7-10-years': '7-10 years', '10-12-years': '10-12 years' },
     evidence: {
       label: 'Evidence',
       strong: 'Strong',

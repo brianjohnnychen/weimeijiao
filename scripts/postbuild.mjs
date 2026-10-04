@@ -11,7 +11,7 @@ import { serve } from './serve.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
-const PRINTABLES = ['age-finder', 'summary-0-12-months', 'summary-1-3-years', 'summary-3-5-years', 'summary-5-7-years', 'summary-7-10-years', 'learning-0-12-months', 'learning-1-3-years', 'learning-3-5-years', 'learning-5-7-years', 'learning-7-10-years', 'routine-chart', 'calm-down-plan', 'family-rules'];
+const PRINTABLES = ['age-finder', 'summary-0-12-months', 'summary-1-3-years', 'summary-3-5-years', 'summary-5-7-years', 'summary-7-10-years', 'summary-10-12-years', 'learning-0-12-months', 'learning-1-3-years', 'learning-3-5-years', 'learning-5-7-years', 'learning-7-10-years', 'learning-10-12-years', 'routine-chart', 'calm-down-plan', 'family-rules'];
 const PREFIXES = ['', '/zh-hant', '/en'];
 // Page limits: every printable is a one-page sheet except the age finder (one sheet, both sides).
 const MAX_PAGES = { 'age-finder': 2 };

@@ -16,7 +16,7 @@ import * as OpenCC from 'opencc-js';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
 const LOCALES = ['zh-hans', 'zh-hant', 'en'];
-const PHASES = ['0-12-months', '1-3-years', '3-5-years', '5-7-years', '7-10-years'];
+const PHASES = ['0-12-months', '1-3-years', '3-5-years', '5-7-years', '7-10-years', '10-12-years'];
 const TOOLS = ['connection-time', 'clear-expectations', 'specific-praise', 'planned-ignoring', 'redirection', 'choices', 'when-then', 'natural-consequences', 'logical-consequences', 'time-in', 'time-out', 'privilege-removal', 'problem-solving', 'routines', 'family-meetings', 'repair'];
 const SITUATIONS = ['tantrums', 'public-meltdowns', 'hitting-biting', 'sibling-fighting', 'bedtime', 'mealtime', 'screens', 'lying', 'defiance', 'whining', 'homework', 'grandparents'];
 const EDGE_CASES = ['refuses-time-out', 'aggression', 'public-places', 'siblings', 'caregivers-disagree', 'grandparents', 'dangerous-behavior', 'developmental-differences', 'not-working'];
