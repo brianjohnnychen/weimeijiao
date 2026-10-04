@@ -84,7 +84,7 @@ const countText = { 'zh-hans': '显示 {n} 个工具，共 {total} 个', 'zh-han
             <div class="tool-meta">
               <Evidence level={tool.data.evidence} locale={locale} />
               <ul class="chips" aria-label={ui.ages}>
-                {tool.data.ages.map((a) => <li><span class="chip">{ui.phaseAge[a]}</span></li>)}
+                {tool.data.ages.map((a) => <li><a class="chip" href={`${href(locale, paths.phase(a))}#start`}>{ui.phaseAge[a]}</a></li>)}
               </ul>
             </div>
           </div>

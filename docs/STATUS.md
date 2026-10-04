@@ -4,6 +4,12 @@
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
 
+### Site-wide flow read-through (INBOX item 5), 2026-10-04 14:55-15:47 Taipei ([PR #9](https://github.com/brianjohnnychen/weimeijiao/pull/9))
+
+- **Done:** every page read in all three locales under Brian's flow rule by nine parallel editors with one brief; 135 content files (45 per locale: 12 pages, 6 phases, 13 situations, 8 tools, 6 learning pages) changed in nine commits, all connective tissue (transitions, openers, list order, hand-over links, reciprocal tools-and-situations lists), no claim, citation, heading or anchor touched. Templates: age chips on situations and tools link to their phase page, the By age hub says six stages, the toddler guide precedes the defiance guide. Details and the list of content decisions left for Brian in docs/QA.md section 14.
+- **Tests on the final build:** content lint 171 files, 0 errors; locale parity 57 entries per locale, clean; build 120 pages, QA 0 errors, 48 PDFs, 120 Open Graph images; link test 20,387 internal links (14,377 to an anchor), 0 broken; anchor test 32 of 32; behavior test 81 of 81; keyboard test 33 of 33; UI check 165 views (18 pages in three locales at 375px light, 1280px light and 375px dark, plus the home page at 320px), no problems; axe-core 4.13.0: 363 page runs, 0 violations; Lighthouse: all 18 medians 98 or higher (performance 100 on every desktop page and on the English mobile pages, 99 on five Chinese mobile pages and 98 on the zh-Hant physical discipline page on mobile; accessibility, best practices and SEO 100 everywhere); sources unchanged in this pass, so the sources job's last run stands (37181587302: 176 entries, 0 failures).
+- **For Brian:** the content decisions in QA.md section 14 (a "How sure is this?" section for the three school learning pages; whether bedtime, hitting and biting, and screens should carry the 0-12 months age; the mealtime guide's two sister-site links; a consequence step in the screens guide).
+
 ### Situation page My toddler ignores me, and two standing rules (INBOX item 4), 2026-10-04 13:48-14:46 Taipei ([PR #8](https://github.com/brianjohnnychen/weimeijiao/pull/8))
 
 - **The page:** `/situations/#ignores-me` in all three locales (学步儿不理我 / 學步兒不理我 / My toddler ignores me), ages 1-3 with an "At 3 to 5" pointer: attention first, one statement instruction, a short wait, when-then or a choice, hands-on guidance, immediate thanks, redirection for a "stop", planned ignoring of minor stuff, calm follow-through, and why toddlers do this (autonomy, self-control under construction, "do" harder than "don't", passive noncompliance as a passing stage). No hearing, screening or red-flag content beyond the generic "when it is not working" link. Linked from the defiance guide, the 1-3 phase page and the situations index. 11 new sources verified through the candidates job; the checker re-verified all 176 entries (0 failures). Details in docs/QA.md section 13.
@@ -69,14 +75,14 @@ Both domains resolved within minutes of Cowork's Cloudflare fix (reported at abo
 | Content lint | 171 files, 0 errors, 0 warnings (also rejects personal names outside About, misspellings of WeiMeiJiao, and heading mismatches between locales) |
 | Locale parity | `scripts/parity-test.mjs` in CI: 57 entries per locale, every page, situation, tool, phase and learning page in all three locales, frontmatter lists the same length, alt text in every locale for 55 images |
 | Build and QA | 120 pages (40 per locale), 0 errors, 0 warnings; no third-party assets |
-| Link test | 19,697 internal links, 13,696 to an anchor, 0 broken |
+| Link test | 20,387 internal links, 14,377 to an anchor, 0 broken |
 | Anchor test | 32 of 32 deep links land on their target (375px and 1280px) |
 | Behavior test | 81 of 81 checks pass in all three locales |
 | Keyboard test | 33 of 33 checks pass at 375px in all three locales |
 | Accessibility | axe-core 4.13.0, WCAG 2.2 AA plus best practice: 0 violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px); html-validate from the final pass |
 | UI check | 165 views in three locales (17 pages plus the new situation section at its anchor): no overflow, console errors, failed requests or broken images; dark mode passes; header fits |
 | Printables | 45 one-page sheets and 3 two-page age finders, all at 100% scale |
-| Lighthouse | all 18 medians (3 runs each) are 99 or higher: performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md) |
+| Lighthouse | all 18 medians (3 runs each) are 98 or higher: performance 100 on every desktop page and on the English mobile pages, 99 on five Chinese mobile pages and 98 on the zh-Hant physical discipline page on mobile; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md) |
 | Sources and help lines | Actions run 37181587302: 176 sources, 0 failures; landing pages 8 carry the cited DOI in their citation metadata, 88 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 80 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page; all 14 help-line numbers found on their official pages |
 
 ### What is built

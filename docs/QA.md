@@ -2,7 +2,7 @@
 
 The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test, the anchor test and the behavior test on every push.
 
-Latest full run: 2026-10-04 06:11-06:46 UTC, the toddler-ignores-me page and the standing rules (section 13). Times below are UTC.
+Latest full run: 2026-10-04 07:20-07:47 UTC, the site-wide flow read-through (section 14). Times below are UTC.
 
 ## At a glance
 
@@ -11,15 +11,15 @@ Latest full run: 2026-10-04 06:11-06:46 UTC, the toddler-ignores-me page and the
 | Content lint | `node scripts/check-content.mjs` | 171 MDX files (57 per locale), 0 errors, 0 warnings |
 | Locale parity | `node scripts/parity-test.mjs` (new, in CI) | 57 entries per locale: every page, situation, tool, phase and learning page present in all three locales, frontmatter lists the same length, alt text in every locale for 55 images |
 | Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 120 pages (40 per locale), 0 errors, 0 warnings; 48 PDFs; 120 Open Graph images |
-| Link test | `node scripts/link-test.mjs --write` | 19,697 internal links, 13,696 of them to an anchor, 0 broken (block at the end) |
+| Link test | `node scripts/link-test.mjs --write` | 20,387 internal links, 14,377 of them to an anchor, 0 broken (block at the end) |
 | Anchor test | `node scripts/anchor-test.mjs` | 32 of 32 deep links land on their target (16 kinds of target, now including the Sources page, the 10-12 page and the preteens section; 375px and 1280px) |
 | UI check | `node scripts/ui-check.mjs` | 165 page views (18 entries in the page list: the 17 pages plus the new situation section at its anchor), no problems ([report](screenshots/ui-check.md)) |
 | Behavior test | `node scripts/behavior-test.mjs` | 81 of 81 checks pass: age finder scoring (now counted in twelfths of a point, so an answer covering four age ranges splits exactly) and flow, lightbox, toolbox filter, language banner, theme, language switcher, no-JavaScript fallbacks, 404, 320px reflow, dark-mode sheets, menu, Research back link, landmarks (section 9) |
 | Keyboard test | `node scripts/keyboard-test.mjs` | 33 of 33 checks pass at 375px in all three locales: skip link, every header control with a visible focus ring (with and without the language banner), mobile menu, theme button, table of contents links, photo lightbox, age finder radio groups (section 11) |
-| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in this pass; html-validate 11.16 in the final pass | 0 axe violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px, section 13); html-validate leaves only cosmetic or deliberate messages (section 9) |
+| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in this pass; html-validate 11.16 in the final pass | 0 axe violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px, section 14); html-validate leaves only cosmetic or deliberate messages (section 9) |
 | Printables | page limits in `scripts/postbuild.mjs` | 45 one-page sheets (15 per locale) and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
-| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 99 or higher: performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; accessibility, best practices and SEO 100 on every page; one of the three mobile runs of the zh-Hans home page scored 87 on performance, the other 53 runs are within one point of their median ([lighthouse.md](lighthouse.md), section 13) |
+| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 98 or higher: performance 100 on every desktop page and on the English mobile pages, 99 on five Chinese mobile pages and 98 on the zh-Hant physical discipline page on mobile; accessibility, best practices and SEO 100 on every page; single mobile runs ranged down to 89 (zh-Hant 3-5 page) while the medians held ([lighthouse.md](lighthouse.md), section 14) |
 | Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 176 entries: every DOI registered and its Crossref metadata (title, year, first author) matches the citation; all 176 links are DOI links; landing pages: 8 carry the cited DOI in their citation metadata, 88 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 80 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page (Actions run 37181587302, 2026-10-04 06:01-06:10 UTC) |
 | Help lines | same workflow, `helplines` job | all 14 help-line numbers found on their official pages (run 37181587302) |
 
@@ -238,15 +238,48 @@ Run on Claude Fable 5.1 on branch `claude/brave-darwin-7h6nne` ([PR #8](https://
 
 The table at the top: content lint 171 files, 0 errors; locale parity 57 entries per locale, clean; build 120 pages, QA 0 errors, 48 PDFs, 120 Open Graph images; link test 19,697 internal links (13,696 to an anchor), 0 broken; anchor test 32 of 32; behavior test 81 of 81; keyboard test 33 of 33; UI check 165 views (the 17 pages plus the new section at its anchor, three locales, 375px light, 1280px light and 375px dark), no problems; axe-core 4.13.0: 363 page runs, 0 violations; Lighthouse: all 18 medians 99 or higher (performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; one of the three zh-Hans home mobile runs scored 87, the median stayed 99); sources job run 37181587302: 176 entries, 0 failures, every link tied to its work; help lines 14 of 14. The new section was also read on the screenshots at 375px and 1280px in all three locales, light and dark (docs/screenshots/*situation-ignores-me*).
 
+## 14. Site-wide flow read-through (2026-10-04, 14:55-15:47 Taipei)
+
+Run on Claude Fable 5.1 on branch `claude/brave-darwin-7h6nne` ([PR #9](https://github.com/brianjohnnychen/weimeijiao/pull/9)) under Brian's flow rule (CLAUDE.md, SPEC §6): the whole site must be an easy, smooth read, with flow from section to section and from topic to topic, and a site-wide read-through when the queue is quiet. The queue was quiet after item 4 (the image pass waits on the daily allocation).
+
+### Method
+
+- Nine editors read the site in parallel, one group of pages each, every page in all three locales: top-level pages; phases 0-12 months, 1-3 and 3-5; phases 5-7, 7-10 and 10-12; situations (two groups, with the index); tools (two groups, with the toolbox intro); learning pages with their hub; physical discipline, research, sources, printables and About. Each worked from one brief: three kinds of problem (an opening that does not orient, an abrupt jump or a dead end between sections, a list out of natural order; a section order that differs from the page's siblings; a page or section that does not lead to the next relevant page) and hard limits (the same edit at the same place in all three locales, no claim, number, study description or citation touched, no heading text or id changed, no em or en dashes, Taiwan usage in Traditional Chinese, glossary terms, typical output 0 to 4 small edits per page, structural problems reported rather than rewritten).
+- Each editor ran the content lint and the locale parity test after its edits; the coordinator read every English diff, relayed cross-group findings between editors (a tool that a guide sends readers to but that does not list the guide back, a phase section with no hand-over, a link target to verify), made the template changes the editors could not, committed the work by group, and then ran the full suite once on the combined tree.
+- 135 content files (45 per locale: 12 pages, 6 phases, 13 situations, 8 tools, 6 learning pages) changed in nine commits; no source, claim or citation changed, no heading or anchor changed, no frontmatter list differs in length across locales.
+
+### What changed
+
+- **Templates.** The age chips on every situation section and tool card now link to the phase page for that age (the one hand-over no situation or tool had); the By age hub's section heading says six stages (it had said five since the 10-12 phase was added); the toddler guide precedes the defiance guide on the situations page, so its closing hand-over points forward.
+- **Top-level pages.** The approach hands over to By age at the start of its core skills and to the situations hub at the start of its edge cases; its developmental-differences and get-help sections end on links instead of dead ends. By age closes with where to start for an older child; About points to By age; little-time links each habit to its tool and gives parents of babies and toddlers somewhere to go; research leads onward to the Sources page; printables opens with what is on offer; the family rules poster and the routine chart hand back to family meetings and bedtime battles; physical discipline gains one link to the Chinese-families evidence, with its balance untouched.
+- **Phase pages.** 0-12 months bridges crying to signals, opens what works from the core approach, and hands over to the toddler page and its learning page; 1-3 links clear expectations from its limits section and lists the tool, keeps the "no" material together before the silence paragraph, and links sleep and screens; 3-5 gains an orienting opener for what's normal and links hitting and biting, sleep and screens, specific praise and the calm-down plan; 5-7 closes what's normal with a hand-over to the next phase and links bedtime battles and the calm-down plan; 7-10 links bedtime and sibling fighting from the sections that discuss them; 10-12 opens its hand-over section from trust, links homework and defiance, and closes the By age journey instead of stopping. The three youngest pages close What's normal the same way as their older siblings, hand their praise, choices and sleep sections over to the learning pages, and the babies page now lists grandparents while the toddler and preschool pages list mealtime struggles.
+- **Situations.** The index bridges into its first-aid list; bedtime's steps run in order and its why section hands over to sleep and learning; tantrums marks the turn from why to what to do; public meltdowns names planned ignoring and time-in in its waiting step; whining closes on the approach's planned ignoring; mealtime's help item hands over to when it is not working; screens leads to family meetings, when-then, problem solving and the preteen learning page; each guide now leads to the tools its steps use and the tool cards list the guides back (about twenty reciprocal list entries added, three unused entries replaced or dropped); the toddler guide's example line drops the child's name, as the content guide requires; the homework guide describes the middle school meta-analysis the same way in both places.
+- **Tools.** The toolbox intro links the tools it tells readers to start with; choices escalates in order; time-in calms the parent before the move; clear expectations and privilege removal open from the approach's core skills; redirection hands over to time-in and orders its lines by step; clear expectations hands over to the family rules poster.
+- **Learning pages.** Orienting openers for the praise and numbers sections; connection time from the play sections; each early page closes by handing over to the next; the school pages link routines, specific praise, choices and family meetings; the hub names the 10-12 page.
+
+### Left for Brian (content decisions, not flow)
+
+- The three school learning pages (5-7, 7-10, 10-12) have no "How sure is this?" section, while the three early pages do; adding one means new evidence text with citations.
+- The babies page links bedtime, hitting and biting, and screens, whose age chips start at 1-3 although their sources reach into the first year; either those guides gain 0-12 months in their ages or the babies page drops them.
+- The phase pages differ in style by trio (h3 subsections and bullet lists on the three youngest, bold lead-ins and paragraphs on the three oldest; a "Things you can say" intro only on 0-12 and 1-3); consistent within each trio, left as deliberate.
+- General tools (routines, specific praise, connection time, when-then) are used by more guides than their cards list; the lists were kept to the guides where the tool is the main lever.
+- The mealtime guide links the sister site twice (end of the body and a prevention item), both in context.
+- The screens guide deliberately frames switching off as follow-through rather than punishment; a consequence step for repeated refusals would be new advice.
+- Little-time uses straight quotes in English prose, consistently within the file, which the content guide allows.
+
+### Test results
+
+The table at the top: content lint 171 files, 0 errors; locale parity 57 entries per locale, clean; build 120 pages, QA 0 errors, 48 PDFs, 120 Open Graph images; link test 20,387 internal links (14,377 to an anchor), 0 broken; anchor test 32 of 32; behavior test 81 of 81; keyboard test 33 of 33; UI check 165 views (18 pages in three locales at 375px light, 1280px light and 375px dark, plus the home page at 320px), no problems; axe-core 4.13.0: 363 page runs, 0 violations; Lighthouse: all 18 medians 98 or higher (performance 100 on every desktop page and on the English mobile pages, 99 on five Chinese mobile pages and 98 on the zh-Hant physical discipline page on mobile; accessibility, best practices and SEO 100 everywhere); sources unchanged in this pass, so the sources job's last run stands (37181587302: 176 entries, 0 failures).
+
 <!-- link-test:start -->
-Link test run 2026-10-04 06:13 UTC over dist/ (121 HTML pages).
+Link test run 2026-10-04 07:21 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 41 | 6593 | 4566 | 0 |
-| zh-hant | 40 | 6552 | 4565 | 0 |
-| en | 40 | 6552 | 4565 | 0 |
-| all | 121 | 19697 | 13696 | 0 |
+| zh-hans | 41 | 6823 | 4793 | 0 |
+| zh-hant | 40 | 6782 | 4792 | 0 |
+| en | 40 | 6782 | 4792 | 0 |
+| all | 121 | 20387 | 14377 | 0 |
 
 In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
@@ -257,6 +290,7 @@ In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /by-age/3-5-years/ <- /by-age/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /by-age/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /by-age/ ("学龄前（3-5 岁）")
 - /printables/summary-10-12-years/ <- /by-age/10-12-years/ ("打印本阶段的一页总结"); /printables/ ("青春期前（10-12 岁）"); /printables/ ("打印")
 - /by-age/7-10-years/ <- /by-age/10-12-years/ ("上一个阶段小学生（7-10 岁）"); /by-age/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /by-age/ ("小学生（7-10 岁）")
+- /printables/calm-down-plan/ <- /by-age/3-5-years/ ("冷静计划"); /by-age/5-7-years/ ("冷静计划"); /printables/ ("我的冷静计划"); +3 more
 - /printables/routine-chart/ <- /by-age/3-5-years/ ("作息表"); /little-time/ ("日常作息表"); /printables/ ("早晚作息表"); +3 more
 - /printables/summary-3-5-years/ <- /by-age/3-5-years/ ("打印本阶段的一页总结"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
 - /by-age/5-7-years/ <- /by-age/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /by-age/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /by-age/ ("幼小衔接（5-7 岁）")
@@ -272,6 +306,7 @@ In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /en/by-age/3-5-years/ <- /en/by-age/1-3-years/ ("Next agePreschoolers (3-5 years)"); /en/by-age/5-7-years/ ("Previous agePreschoolers (3-5 years)"); /en/by-age/ ("Preschoolers (3-5 years)")
 - /en/printables/summary-10-12-years/ <- /en/by-age/10-12-years/ ("Print the one-page summary for this age"); /en/printables/ ("Preteens (10-12 years)"); /en/printables/ ("Print")
 - /en/by-age/7-10-years/ <- /en/by-age/10-12-years/ ("Previous ageSchool age (7-10 years)"); /en/by-age/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/by-age/ ("School age (7-10 years)")
+- /en/printables/calm-down-plan/ <- /en/by-age/3-5-years/ ("calm-down plan"); /en/by-age/5-7-years/ ("calm-down plan"); /en/printables/ ("My calm-down plan"); +3 more
 - /en/printables/routine-chart/ <- /en/by-age/3-5-years/ ("routine chart"); /en/little-time/ ("routine chart"); /en/printables/ ("Morning and evening routine chart"); +3 more
 - /en/printables/summary-3-5-years/ <- /en/by-age/3-5-years/ ("Print the one-page summary for this age"); /en/printables/ ("Preschoolers (3-5 years)"); /en/printables/ ("Print")
 - /en/by-age/5-7-years/ <- /en/by-age/3-5-years/ ("Next ageStarting school (5-7 years)"); /en/by-age/7-10-years/ ("Previous ageStarting school (5-7 years)"); /en/by-age/ ("Starting school (5-7 years)")
@@ -291,7 +326,6 @@ In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /en/printables/learning-5-7-years/ <- /en/learning/5-7-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Starting school (5-7 years)"); /en/printables/ ("Print")
 - /en/printables/learning-7-10-years/ <- /en/learning/7-10-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("School age (7-10 years)"); /en/printables/ ("Print")
 - /en/learning/10-12-years/ <- /en/learning/7-10-years/ ("Next agePreteens (10-12 years)"); /en/learning/ ("Preteens (10-12 years)")
-- /en/printables/calm-down-plan/ <- /en/printables/ ("My calm-down plan"); /en/printables/ ("Print"); /en/situations/ ("calm-down plan"); +1 more
 - /printables/learning-0-12-months/ <- /learning/0-12-months/ ("打印本阶段的学习一页纸"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
 - /learning/1-3-years/ <- /learning/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /learning/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /learning/ ("学步儿（1-3 岁）")
 - /printables/learning-1-3-years/ <- /learning/1-3-years/ ("打印本阶段的学习一页纸"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
@@ -304,7 +338,6 @@ In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/learning-5-7-years/ <- /learning/5-7-years/ ("打印本阶段的学习一页纸"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
 - /printables/learning-7-10-years/ <- /learning/7-10-years/ ("打印本阶段的学习一页纸"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
 - /learning/10-12-years/ <- /learning/7-10-years/ ("下一个阶段青春期前（10-12 岁）"); /learning/ ("青春期前（10-12 岁）")
-- /printables/calm-down-plan/ <- /printables/ ("我的冷静计划"); /printables/ ("打印"); /situations/ ("冷静计划"); +1 more
 - /zh-hant/printables/family-rules/ <- /zh-hant/approach/ ("家規海報"); /zh-hant/by-age/3-5-years/ ("家規海報"); /zh-hant/printables/ ("家規海報"); +3 more
 - /zh-hant/printables/summary-0-12-months/ <- /zh-hant/by-age/0-12-months/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("寶寶（0-12 個月）"); /zh-hant/printables/ ("列印")
 - /zh-hant/by-age/1-3-years/ <- /zh-hant/by-age/0-12-months/ ("下一個階段學步兒（1-3 歲）"); /zh-hant/by-age/3-5-years/ ("上一個階段學步兒（1-3 歲）"); /zh-hant/by-age/ ("學步兒（1-3 歲）")
