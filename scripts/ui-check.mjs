@@ -1,6 +1,6 @@
 // UI check over the built site (dist/) in headless Chrome, all three locales:
-//   - screenshots of the first screen at 375px and 1280px (light) and 375px (dark) to docs/screenshots/,
-//     plus the home page at 320px
+//   - screenshots of the first screen (or of the section a view's anchor names) at 375px and 1280px (light)
+//     and 375px (dark) to docs/screenshots/, plus the home page at 320px
 //   - every listed page, full height: no horizontal overflow, no console errors, no broken images;
 //     the site name in the header is neither cut off nor running under the header controls
 //   - keyboard: the first Tab lands on a visible skip link; Tab moves through header controls
@@ -27,6 +27,7 @@ const PAGES = [
   ['approach', '/approach/'],
   ['toolbox', '/toolbox/'],
   ['situations', '/situations/'],
+  ['situation-ignores-me', '/situations/#ignores-me'],
   ['little-time', '/little-time/'],
   ['physical', '/physical-discipline/'],
   ['learning', '/learning/'],
@@ -157,7 +158,7 @@ const when = new Date().toISOString().replace('T', ' ').slice(0, 16);
 const md = [
   `# UI check (${when} UTC)`,
   '',
-  `${rows.length} page views: ${PAGES.length} pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen; overflow, header, console, image and request checks cover the whole page.`,
+  `${rows.length} page views: ${PAGES.length} pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen, or the section a view's anchor names; overflow, header, console, image and request checks cover the whole page.`,
   '',
   problems.length ? `## Problems (${problems.length})\n\n${problems.map((p) => `- ${p}`).join('\n')}` : '## Problems\n\nNone.',
   '',
