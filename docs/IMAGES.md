@@ -6,7 +6,9 @@ The quality gate of SPEC §9. Every photograph the images workflow generates is 
 
 - Chosen: `@cf/black-forest-labs/flux-2-dev` (FLUX.2 [dev], Black Forest Labs; on Workers AI since 2025-11-25, Cloudflare's most capable image model, multipart input, 1024x768 output here, 28 inference steps). Brian asked for the most photorealistic text-to-image model in the Workers AI catalog, FLUX.2 [dev] or newer if available. Every workflow run prints the account's current Text-to-Image catalog and the chosen model's input schema; the first run's output is recorded below, and a newer flagship replaces the choice only deliberately, here.
 - Cost at Cloudflare's published rate for this model ($0.00041 per 512x512 output tile per step, $0.011 per 1,000 neurons): about 3,100 neurons for one 1024x768 image at 28 steps, so the free daily allocation of 10,000 neurons covers about three images a day. That is why the rollout is a few images per day.
-- Catalog and schema as printed by the first run: (pending the first run)
+- Catalog as printed by the first run (37178445115, 2026-10-04 04:56 UTC), 10 Text-to-Image models: `@cf/black-forest-labs/flux-2-dev`, `@cf/black-forest-labs/flux-2-klein-9b`, `@cf/black-forest-labs/flux-2-klein-4b`, `@cf/black-forest-labs/flux-1-schnell`, `@cf/leonardo/lucid-origin`, `@cf/leonardo/phoenix-1.0`, `@cf/lykon/dreamshaper-8-lcm`, `@cf/stabilityai/stable-diffusion-xl-base-1.0` (beta), `@cf/bytedance/stable-diffusion-xl-lightning` (beta), `@cf/runwayml/stable-diffusion-v1-5-inpainting` (beta). FLUX.2 [dev] is the flagship of the list (Cloudflare describes it as generating highly realistic and detailed images); the two FLUX.2 [klein] models are its smaller distilled versions, cheaper and faster but not more photorealistic, so the choice stands.
+- Schema: Cloudflare's schema endpoint describes this model only as a multipart body, so the field names come from Cloudflare's model page: `prompt` (required), `steps`, `guidance`, `width` (default 1024, 256 to 1920), `height` (default 768, 256 to 1920), `seed`, and up to four reference images `input_image_0` to `input_image_3` (not used here). The script sends prompt, steps, width and height.
+- Usage report: the GraphQL dataset is `aiInferenceAdaptiveGroups` with `sum.totalNeurons`; the token answered "not authorized for that account", so the report stays empty until Account Analytics: Read is added to CF_AI_TOKEN (a Cloudflare setting, for Cowork or Brian).
 
 ## Runs
 
@@ -14,6 +16,7 @@ The quality gate of SPEC §9. Every photograph the images workflow generates is 
 |---|---|---|
 | 2026-10-03 17:21-17:31 | 37140206854 (first style, flux-1-schnell) | 31 illustrations generated, then error 4006 "daily free allocation used up" on every further request from 17:27 |
 | 2026-10-04 00:22, 00:24, 01:31, 03:08, 04:40 | 37161742742, 37168281018, 37173192470, 37177668112 | error 4006 on the first request each time, nothing generated |
+| 2026-10-04 04:56 | 37178445115 (new pipeline, flux-2-dev) | catalog and schema printed; usage not authorized; error 4006 on the first request, nothing generated |
 
 ## Images
 
