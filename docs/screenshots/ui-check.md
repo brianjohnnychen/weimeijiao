@@ -1,6 +1,6 @@
-# UI check (2026-10-04 02:24 UTC)
+# UI check (2026-10-04 04:17 UTC)
 
-129 page views: 14 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen; overflow, header, console, image and request checks cover the whole page.
+156 page views: 17 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen; overflow, header, console, image and request checks cover the whole page.
 
 ## Problems
 
@@ -19,6 +19,9 @@ None.
 | zh-hans | phase-1-3 | 375 | light | - | ok | [zh-hans-phase-1-3-375.jpg](zh-hans-phase-1-3-375.jpg) |
 | zh-hans | phase-1-3 | 1280 | light | ok | ok | [zh-hans-phase-1-3-1280.jpg](zh-hans-phase-1-3-1280.jpg) |
 | zh-hans | phase-1-3 | 375 | dark | - | ok | [zh-hans-phase-1-3-375-dark.jpg](zh-hans-phase-1-3-375-dark.jpg) |
+| zh-hans | phase-10-12 | 375 | light | - | ok | [zh-hans-phase-10-12-375.jpg](zh-hans-phase-10-12-375.jpg) |
+| zh-hans | phase-10-12 | 1280 | light | ok | ok | [zh-hans-phase-10-12-1280.jpg](zh-hans-phase-10-12-1280.jpg) |
+| zh-hans | phase-10-12 | 375 | dark | - | ok | [zh-hans-phase-10-12-375-dark.jpg](zh-hans-phase-10-12-375-dark.jpg) |
 | zh-hans | approach | 375 | light | - | ok | [zh-hans-approach-375.jpg](zh-hans-approach-375.jpg) |
 | zh-hans | approach | 1280 | light | ok | ok | [zh-hans-approach-1280.jpg](zh-hans-approach-1280.jpg) |
 | zh-hans | approach | 375 | dark | - | ok | [zh-hans-approach-375-dark.jpg](zh-hans-approach-375-dark.jpg) |
@@ -40,9 +43,15 @@ None.
 | zh-hans | learning-5-7 | 375 | light | - | ok | [zh-hans-learning-5-7-375.jpg](zh-hans-learning-5-7-375.jpg) |
 | zh-hans | learning-5-7 | 1280 | light | ok | ok | [zh-hans-learning-5-7-1280.jpg](zh-hans-learning-5-7-1280.jpg) |
 | zh-hans | learning-5-7 | 375 | dark | - | ok | [zh-hans-learning-5-7-375-dark.jpg](zh-hans-learning-5-7-375-dark.jpg) |
+| zh-hans | learning-10-12 | 375 | light | - | ok | [zh-hans-learning-10-12-375.jpg](zh-hans-learning-10-12-375.jpg) |
+| zh-hans | learning-10-12 | 1280 | light | ok | ok | [zh-hans-learning-10-12-1280.jpg](zh-hans-learning-10-12-1280.jpg) |
+| zh-hans | learning-10-12 | 375 | dark | - | ok | [zh-hans-learning-10-12-375-dark.jpg](zh-hans-learning-10-12-375-dark.jpg) |
 | zh-hans | research | 375 | light | - | ok | [zh-hans-research-375.jpg](zh-hans-research-375.jpg) |
 | zh-hans | research | 1280 | light | ok | ok | [zh-hans-research-1280.jpg](zh-hans-research-1280.jpg) |
 | zh-hans | research | 375 | dark | - | ok | [zh-hans-research-375-dark.jpg](zh-hans-research-375-dark.jpg) |
+| zh-hans | sources | 375 | light | - | ok | [zh-hans-sources-375.jpg](zh-hans-sources-375.jpg) |
+| zh-hans | sources | 1280 | light | ok | ok | [zh-hans-sources-1280.jpg](zh-hans-sources-1280.jpg) |
+| zh-hans | sources | 375 | dark | - | ok | [zh-hans-sources-375-dark.jpg](zh-hans-sources-375-dark.jpg) |
 | zh-hans | printables | 375 | light | - | ok | [zh-hans-printables-375.jpg](zh-hans-printables-375.jpg) |
 | zh-hans | printables | 1280 | light | ok | ok | [zh-hans-printables-1280.jpg](zh-hans-printables-1280.jpg) |
 | zh-hans | printables | 375 | dark | - | ok | [zh-hans-printables-375-dark.jpg](zh-hans-printables-375-dark.jpg) |
@@ -62,6 +71,9 @@ None.
 | zh-hant | phase-1-3 | 375 | light | - | ok | [zh-hant-phase-1-3-375.jpg](zh-hant-phase-1-3-375.jpg) |
 | zh-hant | phase-1-3 | 1280 | light | ok | ok | [zh-hant-phase-1-3-1280.jpg](zh-hant-phase-1-3-1280.jpg) |
 | zh-hant | phase-1-3 | 375 | dark | - | ok | [zh-hant-phase-1-3-375-dark.jpg](zh-hant-phase-1-3-375-dark.jpg) |
+| zh-hant | phase-10-12 | 375 | light | - | ok | [zh-hant-phase-10-12-375.jpg](zh-hant-phase-10-12-375.jpg) |
+| zh-hant | phase-10-12 | 1280 | light | ok | ok | [zh-hant-phase-10-12-1280.jpg](zh-hant-phase-10-12-1280.jpg) |
+| zh-hant | phase-10-12 | 375 | dark | - | ok | [zh-hant-phase-10-12-375-dark.jpg](zh-hant-phase-10-12-375-dark.jpg) |
 | zh-hant | approach | 375 | light | - | ok | [zh-hant-approach-375.jpg](zh-hant-approach-375.jpg) |
 | zh-hant | approach | 1280 | light | ok | ok | [zh-hant-approach-1280.jpg](zh-hant-approach-1280.jpg) |
 | zh-hant | approach | 375 | dark | - | ok | [zh-hant-approach-375-dark.jpg](zh-hant-approach-375-dark.jpg) |
@@ -83,9 +95,15 @@ None.
 | zh-hant | learning-5-7 | 375 | light | - | ok | [zh-hant-learning-5-7-375.jpg](zh-hant-learning-5-7-375.jpg) |
 | zh-hant | learning-5-7 | 1280 | light | ok | ok | [zh-hant-learning-5-7-1280.jpg](zh-hant-learning-5-7-1280.jpg) |
 | zh-hant | learning-5-7 | 375 | dark | - | ok | [zh-hant-learning-5-7-375-dark.jpg](zh-hant-learning-5-7-375-dark.jpg) |
+| zh-hant | learning-10-12 | 375 | light | - | ok | [zh-hant-learning-10-12-375.jpg](zh-hant-learning-10-12-375.jpg) |
+| zh-hant | learning-10-12 | 1280 | light | ok | ok | [zh-hant-learning-10-12-1280.jpg](zh-hant-learning-10-12-1280.jpg) |
+| zh-hant | learning-10-12 | 375 | dark | - | ok | [zh-hant-learning-10-12-375-dark.jpg](zh-hant-learning-10-12-375-dark.jpg) |
 | zh-hant | research | 375 | light | - | ok | [zh-hant-research-375.jpg](zh-hant-research-375.jpg) |
 | zh-hant | research | 1280 | light | ok | ok | [zh-hant-research-1280.jpg](zh-hant-research-1280.jpg) |
 | zh-hant | research | 375 | dark | - | ok | [zh-hant-research-375-dark.jpg](zh-hant-research-375-dark.jpg) |
+| zh-hant | sources | 375 | light | - | ok | [zh-hant-sources-375.jpg](zh-hant-sources-375.jpg) |
+| zh-hant | sources | 1280 | light | ok | ok | [zh-hant-sources-1280.jpg](zh-hant-sources-1280.jpg) |
+| zh-hant | sources | 375 | dark | - | ok | [zh-hant-sources-375-dark.jpg](zh-hant-sources-375-dark.jpg) |
 | zh-hant | printables | 375 | light | - | ok | [zh-hant-printables-375.jpg](zh-hant-printables-375.jpg) |
 | zh-hant | printables | 1280 | light | ok | ok | [zh-hant-printables-1280.jpg](zh-hant-printables-1280.jpg) |
 | zh-hant | printables | 375 | dark | - | ok | [zh-hant-printables-375-dark.jpg](zh-hant-printables-375-dark.jpg) |
@@ -105,6 +123,9 @@ None.
 | en | phase-1-3 | 375 | light | - | ok | [en-phase-1-3-375.jpg](en-phase-1-3-375.jpg) |
 | en | phase-1-3 | 1280 | light | ok | ok | [en-phase-1-3-1280.jpg](en-phase-1-3-1280.jpg) |
 | en | phase-1-3 | 375 | dark | - | ok | [en-phase-1-3-375-dark.jpg](en-phase-1-3-375-dark.jpg) |
+| en | phase-10-12 | 375 | light | - | ok | [en-phase-10-12-375.jpg](en-phase-10-12-375.jpg) |
+| en | phase-10-12 | 1280 | light | ok | ok | [en-phase-10-12-1280.jpg](en-phase-10-12-1280.jpg) |
+| en | phase-10-12 | 375 | dark | - | ok | [en-phase-10-12-375-dark.jpg](en-phase-10-12-375-dark.jpg) |
 | en | approach | 375 | light | - | ok | [en-approach-375.jpg](en-approach-375.jpg) |
 | en | approach | 1280 | light | ok | ok | [en-approach-1280.jpg](en-approach-1280.jpg) |
 | en | approach | 375 | dark | - | ok | [en-approach-375-dark.jpg](en-approach-375-dark.jpg) |
@@ -126,9 +147,15 @@ None.
 | en | learning-5-7 | 375 | light | - | ok | [en-learning-5-7-375.jpg](en-learning-5-7-375.jpg) |
 | en | learning-5-7 | 1280 | light | ok | ok | [en-learning-5-7-1280.jpg](en-learning-5-7-1280.jpg) |
 | en | learning-5-7 | 375 | dark | - | ok | [en-learning-5-7-375-dark.jpg](en-learning-5-7-375-dark.jpg) |
+| en | learning-10-12 | 375 | light | - | ok | [en-learning-10-12-375.jpg](en-learning-10-12-375.jpg) |
+| en | learning-10-12 | 1280 | light | ok | ok | [en-learning-10-12-1280.jpg](en-learning-10-12-1280.jpg) |
+| en | learning-10-12 | 375 | dark | - | ok | [en-learning-10-12-375-dark.jpg](en-learning-10-12-375-dark.jpg) |
 | en | research | 375 | light | - | ok | [en-research-375.jpg](en-research-375.jpg) |
 | en | research | 1280 | light | ok | ok | [en-research-1280.jpg](en-research-1280.jpg) |
 | en | research | 375 | dark | - | ok | [en-research-375-dark.jpg](en-research-375-dark.jpg) |
+| en | sources | 375 | light | - | ok | [en-sources-375.jpg](en-sources-375.jpg) |
+| en | sources | 1280 | light | ok | ok | [en-sources-1280.jpg](en-sources-1280.jpg) |
+| en | sources | 375 | dark | - | ok | [en-sources-375-dark.jpg](en-sources-375-dark.jpg) |
 | en | printables | 375 | light | - | ok | [en-printables-375.jpg](en-printables-375.jpg) |
 | en | printables | 1280 | light | ok | ok | [en-printables-1280.jpg](en-printables-1280.jpg) |
 | en | printables | 375 | dark | - | ok | [en-printables-375-dark.jpg](en-printables-375-dark.jpg) |
