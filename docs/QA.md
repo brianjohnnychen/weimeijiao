@@ -219,14 +219,14 @@ Everything in the table at the top was rerun on the final build of this branch; 
 See STATUS.md: the 75 publisher pages that refuse automated readers (open issue 7); the AAP 2018 statement's reaffirmation status; the SPEC §4a time-out studies that cannot be cited; the illustrations (two new 10-12 entries join the 21 waiting ones; the image pass is queued in INBOX item 3); the localisation choices listed above; Enforce HTTPS.
 
 <!-- link-test:start -->
-Link test run 2026-10-04 04:12 UTC over dist/ (121 HTML pages).
+Link test run 2026-10-04 06:13 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 41 | 6470 | 4443 | 0 |
-| zh-hant | 40 | 6429 | 4442 | 0 |
-| en | 40 | 6429 | 4442 | 0 |
-| all | 121 | 19328 | 13327 | 0 |
+| zh-hans | 41 | 6593 | 4566 | 0 |
+| zh-hant | 40 | 6552 | 4565 | 0 |
+| en | 40 | 6552 | 4565 | 0 |
+| all | 121 | 19697 | 13696 | 0 |
 
 In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
