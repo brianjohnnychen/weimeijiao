@@ -1,0 +1,88 @@
+---
+import BrandMark from './BrandMark.astro';
+import Icon from './icons/Icon.astro';
+import { LOCALES, LOCALE_META, splitLocale, type Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import { alternates, href, paths } from '../lib/routes';
+
+interface Props { locale: Locale; pathname: string; noCurrent?: boolean }
+const { locale, pathname, noCurrent = false } = Astro.props;
+const ui = t(locale);
+const { path } = splitLocale(pathname);
+
+const items = [
+  { label: ui.nav.byAge, path: paths.byAge() },
+  { label: ui.nav.approach, path: paths.approach() },
+  { label: ui.nav.toolbox, path: paths.toolbox() },
+  { label: ui.nav.situations, path: paths.situations() },
+  { label: ui.nav.littleTime, path: paths.littleTime() },
+  { label: ui.nav.physical, path: paths.physical() },
+  { label: ui.nav.learning, path: paths.learning() },
+  { label: ui.nav.research, path: paths.research() },
+  { label: ui.nav.printables, path: paths.printables() },
+  { label: ui.nav.about, path: paths.about() },
+];
+// The 404 page is not any of these pages, so it marks none of them as current.
+const current = (p: string) => (noCurrent ? undefined : path === p ? 'page' : path.startsWith(p) ? 'true' : undefined);
+const mainNavLabel = { 'zh-hans': '主导航', 'zh-hant': '主選單', en: 'Main' }[locale];
+const short: Record<Locale, string> = { 'zh-hans': '简', 'zh-hant': '繁', en: 'EN' };
+const alts = alternates(pathname);
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={href(locale, paths.home())} aria-label={`${LOCALE_META[locale].siteName}${locale === 'en' ? ', ' : '，'}${ui.nav.home}`}>
+      <BrandMark />
+      <span class="brand-text">
+        <span class="brand-name">{LOCALE_META[locale].siteName}</span>
+        <span class="brand-tagline">{ui.tagline}</span>
+      </span>
+    </a>
+    <div class="header-tools">
+      <ul class="lang-switch" aria-label={ui.language}>
+        {LOCALES.map((l) => {
+          const alt = alts.find((a) => a.locale === l)!;
+          return (
+            <li>
+              <a
+                href={alt.href}
+                hreflang={LOCALE_META[l].lang}
+                lang={LOCALE_META[l].lang}
+                aria-label={LOCALE_META[l].label}
+                title={LOCALE_META[l].label}
+                aria-current={l === locale ? 'true' : undefined}
+                data-set-locale={l}
+              >{short[l]}</a>
+            </li>
+          );
+        })}
+      </ul>
+      <button class="icon-btn theme-toggle js-only" type="button" data-theme-toggle data-label-dark={ui.theme.toDark} data-label-light={ui.theme.toLight} aria-label={ui.theme.toDark}>
+        <Icon name="moon" class="icon-moon" />
+        <Icon name="sun" class="icon-sun" />
+      </button>
+      <details class="menu">
+        <summary class="icon-btn" aria-label={ui.menu}>
+          <Icon name="menu" class="icon-menu" />
+          <Icon name="close" class="icon-close" />
+        </summary>
+        <nav class="menu-panel" aria-label={ui.menu}>
+          <ul>
+            <li><a class="nav-link" href={href(locale, paths.home())} aria-current={!noCurrent && path === '/' ? 'page' : undefined}>{ui.nav.home}</a></li>
+            {items.map((item) => (
+              <li><a class="nav-link" href={href(locale, item.path)} aria-current={current(item.path)}>{item.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+  <nav class="nav-desktop" aria-label={mainNavLabel}>
+    <div class="container">
+      <ul>
+        {items.map((item) => (
+          <li><a class="nav-link" href={href(locale, item.path)} aria-current={current(item.path)}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>

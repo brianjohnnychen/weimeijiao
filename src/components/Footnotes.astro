@@ -1,0 +1,36 @@
+---
+// "Sources on this page": every source cited on the page, by site-wide number, each linking to
+// its exact Research page entry and back to its first marker on this page.
+import Citation from './Citation.astro';
+import { getSource, sourceLink } from '../lib/sources';
+import { citeNumber, researchHref } from '../lib/cites';
+import { t } from '../i18n/ui';
+import type { Locale } from '../i18n/locales';
+
+interface Props { locale: Locale; ids: string[] }
+const { locale, ids } = Astro.props;
+const ui = t(locale);
+---
+{ids.length > 0 && (
+  <section class="footnotes" id="sources" aria-labelledby="sources-heading">
+    <h2 id="sources-heading">{ui.sources}</h2>
+    <p class="muted">{ui.sourcesIntro}</p>
+    <ol class="footnote-list">
+      {ids.map((id) => {
+        const s = getSource(id);
+        const link = sourceLink(s);
+        const n = citeNumber(id);
+        return (
+          <li id={`ref-${id}`} value={n}>
+            <Citation source={s} locale={locale} />
+            <span class="ref-links">
+              <a href={researchHref(locale, id)}>{ui.researchLink}</a>
+              <a href={link.href} rel="noopener" lang="en">{link.label}</a>
+              <a href={`#cite-${id}-1`}>{ui.backToText}</a>
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  </section>
+)}

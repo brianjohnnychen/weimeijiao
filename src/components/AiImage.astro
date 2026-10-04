@@ -1,0 +1,52 @@
+---
+// An AI illustration from content/images.yml. Renders the optimized image when
+// src/assets/ai/<id>.png exists, otherwise a decorative placeholder (gradient + icon).
+import { Picture } from 'astro:assets';
+import Icon from './icons/Icon.astro';
+import type { IconName } from './icons/Icon.astro';
+import { aspect, getAiAsset, getImageEntry } from '../lib/images';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  id: string;
+  locale: Locale;
+  /** Display width the layout reserves, used for srcset generation. */
+  width?: number;
+  sizes?: string;
+  /** Fetch first and decode with the page: only for the image that leads the first screen on every device. */
+  priority?: boolean;
+  /** Load without waiting for it to scroll near: for images that may be on the first screen. */
+  eager?: boolean;
+  class?: string;
+}
+const { id, locale, width = 960, sizes = '(min-width: 860px) 45vw, 100vw', priority = false, eager = false, class: className } = Astro.props;
+const entry = getImageEntry(id);
+const asset = getAiAsset(id);
+const ratio = aspect(entry.size);
+const height = Math.round(width / ratio);
+const iconFor: Record<string, IconName> = {
+  phase: 'sprout', tool: 'tools', situation: 'chat', research: 'book', physical: 'scale', printables: 'printer',
+};
+const icon = iconFor[entry.page.split('/')[0]] ?? 'heart';
+---
+{asset ? (
+  <Picture
+    src={asset}
+    alt={entry.alt[locale]}
+    formats={['avif', 'webp']}
+    fallbackFormat="jpg"
+    width={width}
+    height={height}
+    fit="cover"
+    position="center"
+    layout="constrained"
+    sizes={sizes}
+    priority={priority}
+    loading={!priority && eager ? 'eager' : undefined}
+    class={className}
+  />
+) : (
+  <div class:list={['ai-placeholder', className]} style={`aspect-ratio: ${ratio}`} aria-hidden="true" data-placeholder={id}>
+    <Icon name={icon} />
+  </div>
+)}

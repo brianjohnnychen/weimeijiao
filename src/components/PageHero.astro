@@ -1,0 +1,33 @@
+---
+import AiImage from './AiImage.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  eyebrow?: string;
+  lede?: string;
+  image?: string;
+  trail?: { label: string; path?: string }[];
+}
+const { locale, title, eyebrow, lede, image, trail } = Astro.props;
+---
+<section class="page-hero">
+  <div class="container">
+    {trail && <Breadcrumbs locale={locale} trail={trail} />}
+    <div class:list={['page-hero-grid', image && 'has-media']}>
+      <div>
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        <h1 id="page-title">{title}</h1>
+        {lede && <p class="lede">{lede}</p>}
+        <slot />
+      </div>
+      {image && (
+        <div class="page-hero-media">
+          <AiImage id={image} locale={locale} eager width={960} sizes="(min-width: 860px) 44vw, 100vw" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

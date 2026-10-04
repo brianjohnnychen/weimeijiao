@@ -1,0 +1,60 @@
+---
+import { render } from 'astro:content';
+import Article from '../../../layouts/Article.astro';
+import { mdxComponents } from '../../../components/mdx';
+import { localeStaticPaths, type Locale } from '../../../i18n/locales';
+import { t, phaseLabel } from '../../../i18n/ui';
+import { PHASES, PRINTABLES } from '../../../lib/site';
+import { getPage, getPhase, getLearning } from '../../../lib/content';
+import { href, paths } from '../../../lib/routes';
+import { setupCites } from '../../../lib/page';
+import { pageSources } from '../../../lib/cites';
+import { entryText } from '../../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+const { locale } = Astro.props as { locale: Locale };
+const ui = t(locale);
+const page = await getPage(locale, 'printables');
+setupCites(Astro.locals, locale);
+const { Content } = await render(page);
+const sources = pageSources([entryText(page)]);
+const d = page.data as unknown as { title: string; description: string; lede?: string; image?: string; groups: { quiz: string; summaries: string; learning: string; tools: string } };
+const titleOf = async (slug: (typeof PRINTABLES)[number]) => {
+  if (slug.startsWith('summary-')) {
+    const p = slug.replace('summary-', '') as (typeof PHASES)[number];
+    return { title: phaseLabel(locale, p), text: (await getPhase(locale, p)).data.lede };
+  }
+  if (slug.startsWith('learning-')) {
+    const p = slug.replace('learning-', '') as (typeof PHASES)[number];
+    return { title: phaseLabel(locale, p), text: (await getLearning(locale, p)).data.lede };
+  }
+  const e = await getPage(locale, slug);
+  return { title: e.data.title, text: e.data.description };
+};
+const items = await Promise.all(PRINTABLES.map(async (slug) => ({ slug, ...(await titleOf(slug)) })));
+const groups = [
+  { id: 'quiz', title: d.groups.quiz, items: items.filter((i) => i.slug === 'age-finder') },
+  { id: 'summaries', title: d.groups.summaries, items: items.filter((i) => i.slug.startsWith('summary-')) },
+  { id: 'learning', title: d.groups.learning, items: items.filter((i) => i.slug.startsWith('learning-')) },
+  { id: 'tools', title: d.groups.tools, items: items.filter((i) => ['routine-chart', 'calm-down-plan', 'family-rules'].includes(i.slug)) },
+];
+---
+<Article locale={locale} title={d.title} description={d.description} lede={d.lede} image={d.image} trail={[{ label: d.title }]} sources={sources} toc={groups.map((g) => ({ id: g.id, text: g.title }))}>
+  <Content components={mdxComponents} />
+  {groups.map((g) => (
+    <section id={g.id} aria-labelledby={`${g.id}-h`}>
+      <h2 id={`${g.id}-h`}>{g.title}</h2>
+      <ul class="printable-list">
+        {g.items.map((i) => (
+          <li id={`printable-${i.slug}`}>
+            <h3 id={`printable-${i.slug}-title`}><a href={href(locale, paths.printable(i.slug))}>{i.title}</a></h3>
+            <p>{i.text}</p>
+            <p class="printable-links"><a href={href(locale, paths.printable(i.slug))}>{ui.print.print}</a> · <a href={href(locale, paths.printablePdf(i.slug))} download>{ui.print.pdf}</a></p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</Article>

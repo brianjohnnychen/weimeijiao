@@ -1,0 +1,116 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LangBanner from '../components/LangBanner.astro';
+import { LOCALES, LOCALE_META, type Locale } from '../i18n/locales';
+import { t } from '../i18n/ui';
+import { absolute, alternates, ogImagePath } from '../lib/routes';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  /** Leave the site name out of <title> (home page). */
+  bareTitle?: boolean;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  bodyClass?: string;
+  /** Path used for the language switcher and alternates (404 uses '/'). */
+  alternatesPath?: string;
+}
+
+const { locale, title, description, bareTitle = false, type = 'article', noindex = false, bodyClass, alternatesPath } = Astro.props;
+const meta = LOCALE_META[locale];
+const ui = t(locale);
+const pathname = alternatesPath ?? Astro.url.pathname;
+const canonical = absolute(pathname);
+const alts = alternates(pathname);
+const fullTitle = bareTitle ? title : `${title} | ${meta.siteName}`;
+const ogImage = absolute(ogImagePath(pathname));
+const xDefault = alts.find((a) => a.locale === 'zh-hans')!.url;
+// Only the real root home page sends returning visitors to their saved language (never the 404 page).
+const isRootHome = Astro.url.pathname === '/' && !noindex;
+// English pages preload the three faces most of their text uses, so the web fonts usually arrive
+// before first paint and the text does not reflow when they swap in.
+const LATIN_PRELOAD = ['dm-sans-latin-400-normal.woff2', 'dm-sans-latin-700-normal.woff2', 'lora-latin-600-normal.woff2'];
+---
+<!doctype html>
+<html lang={meta.lang} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {!noindex && alts.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#fffdf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1f1e1b" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={meta.siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title.includes(meta.siteName) ? title : `${title} | ${meta.siteName}`} />
+    <meta property="og:locale" content={meta.og} />
+    {LOCALES.filter((l) => l !== locale).map((l) => <meta property="og:locale:alternate" content={LOCALE_META[l].og} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    {meta.fontCss && (
+      <>
+        {/* CJK @font-face rules load without blocking first paint; text shows in the system font until then (font-display: swap). */}
+        <link rel="preload" href={meta.fontCss} as="style" data-cjk-css onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+          <link rel="stylesheet" href={meta.fontCss} />
+          <style is:inline set:html={`:root{--font-body:${meta.fontBody}!important;--font-head:${meta.fontHead}!important}`} />
+        </noscript>
+      </>
+    )}
+    {locale === 'en' && LATIN_PRELOAD.map((file) => <link rel="preload" href={`/fonts/files/${file}`} as="font" type="font/woff2" crossorigin />)}
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var t = localStorage.getItem('wmj-theme');
+          if (t === 'dark' || t === 'light') d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    {isRootHome && (
+      <script is:inline>
+        (function () {
+          try {
+            var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+            if (nav && nav.type === 'back_forward') return;
+            var saved = localStorage.getItem('wmj-locale');
+            var internal = document.referrer && document.referrer.indexOf(location.origin) === 0;
+            if (!internal && (saved === 'en' || saved === 'zh-hant')) location.replace('/' + saved + '/');
+          } catch (e) {}
+        })();
+      </script>
+    )}
+    <slot name="head" />
+  </head>
+  <body class={bodyClass} data-locale={locale}>
+    <a class="skip-link" href="#main">{ui.skipToContent}</a>
+    {!noindex && <LangBanner locale={locale} pathname={pathname} />}
+    <Header locale={locale} pathname={pathname} noCurrent={noindex} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script>
+      import { initSite } from '../scripts/site';
+      initSite();
+    </script>
+  </body>
+</html>

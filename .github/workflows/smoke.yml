@@ -1,0 +1,21 @@
+name: Smoke test (live site)
+
+# Re-checks the live site and the redirect domains without deploying, e.g. after Enforce HTTPS
+# is turned on. Read-only: it only sends GET requests to the public URLs.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check the live site and redirect domains
+        run: node scripts/smoke-test.mjs --once

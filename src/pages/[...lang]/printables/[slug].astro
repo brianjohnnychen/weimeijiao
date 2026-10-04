@@ -1,0 +1,84 @@
+---
+// Phase summaries (summary-<phase>) and learning one-pagers (learning-<phase>).
+import Printable from '../../../layouts/Printable.astro';
+import RichText from '../../../components/RichText.astro';
+import { LOCALES, paramFromLocale, type Locale } from '../../../i18n/locales';
+import { t, withColon, phaseLabel } from '../../../i18n/ui';
+import { PHASES, type Phase } from '../../../lib/site';
+import { getPhase, getLearning, getPage } from '../../../lib/content';
+import { setupCites } from '../../../lib/page';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((locale) =>
+    PHASES.flatMap((phase) => [
+      { params: { lang: paramFromLocale(locale), slug: `summary-${phase}` }, props: { locale, phase, kind: 'summary' as const } },
+      { params: { lang: paramFromLocale(locale), slug: `learning-${phase}` }, props: { locale, phase, kind: 'learning' as const } },
+    ]),
+  );
+}
+
+const { locale, phase, kind } = Astro.props as { locale: Locale; phase: Phase; kind: 'summary' | 'learning' };
+const ui = t(locale);
+setupCites(Astro.locals, locale);
+const labels = {
+  'zh-hans': { learnEveryday: '每天可以做的事', learnTalk: '可以这样聊', learnAvoid: '少做这些' },
+  'zh-hant': { learnEveryday: '每天可以做的事', learnTalk: '可以這樣聊', learnAvoid: '少做這些' },
+  en: { learnEveryday: 'Every day', learnTalk: 'Things to talk about', learnAvoid: 'Go easy on' },
+}[locale];
+const phaseTitle = phaseLabel(locale, phase);
+const age = ui.phaseAge[phase];
+// Each sheet describes itself (what is on the paper), so its description differs from the page it summarizes.
+const descriptions = {
+  summary: {
+    'zh-hans': `可打印的一页总结，适合 ${age}的孩子：这个阶段的正常表现、有效的做法、容易适得其反的做法，以及可以怎么说。`,
+    'zh-hant': `可列印的一頁摘要，適合 ${age}的孩子：這個階段的正常表現、有效的做法、容易適得其反的做法，以及可以怎麼說。`,
+    en: `A one-page summary to print, for children aged ${age}: what is normal, what works, what backfires and what to say.`,
+  },
+  learning: {
+    'zh-hans': `可打印的在家学习一页纸，适合 ${age}的孩子：每天可以做的事、可以聊的话题，以及要少做的事。`,
+    'zh-hant': `可列印的在家學習一頁紙，適合 ${age}的孩子：每天可以做的事、可以聊的話題，以及要少做的事。`,
+    en: `A one-page sheet to print on learning at home, for children aged ${age}: everyday ideas, things to talk about and what to go easy on.`,
+  },
+};
+let title = '';
+let description = '';
+let image = '';
+let sections: { id: string; heading: string; items: string[]; say?: boolean }[] = [];
+if (kind === 'summary') {
+  const e = await getPhase(locale, phase);
+  title = withColon(locale, ui.phase.printable, phaseTitle);
+  description = descriptions.summary[locale];
+  image = e.data.image;
+  sections = [
+    { id: 'normal', heading: ui.phase.normal, items: e.data.summary.normal },
+    { id: 'works', heading: ui.phase.works, items: e.data.summary.works },
+    { id: 'backfires', heading: ui.phase.backfires, items: e.data.summary.backfires },
+    { id: 'say', heading: ui.phase.say, items: e.data.summary.say, say: true },
+  ];
+} else {
+  const e = await getLearning(locale, phase);
+  const hub = await getPage(locale, 'learning');
+  title = withColon(locale, ui.learning.printable, phaseTitle);
+  description = descriptions.learning[locale];
+  image = e.data.image;
+  sections = [
+    { id: 'everyday', heading: labels.learnEveryday, items: e.data.summary.everyday },
+    { id: 'talk', heading: labels.learnTalk, items: e.data.summary.talk, say: true },
+    { id: 'avoid', heading: labels.learnAvoid, items: e.data.summary.avoid },
+  ];
+  void hub;
+}
+const slug = `${kind}-${phase}` as const;
+---
+<Printable locale={locale} slug={slug} title={title} description={description} image={image} sheetClass="sheet-summary">
+  <div class="summary-grid">
+    {sections.map((s) => (
+      <section class="summary-box" id={s.id} aria-labelledby={`${s.id}-h`}>
+        <h2 id={`${s.id}-h`}>{s.heading}</h2>
+        <ul class:list={[s.say && 'say-list']}>
+          {s.items.map((item) => <li>{s.say ? <q><RichText text={item} /></q> : <RichText text={item} />}</li>)}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Printable>

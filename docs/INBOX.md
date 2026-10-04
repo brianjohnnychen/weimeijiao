@@ -1,6 +1,6 @@
 # INBOX
 
-## 1. Build the whole site (open)
+## 1. Build the whole site (built; READY FOR FINAL PASS 2026-10-04 04:27 Taipei, see STATUS.md; go-live after the final pass)
 
 Build everything in SPEC.md to its definition of done (§10) in one pass, final form, no v1:
 

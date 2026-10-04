@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+# Manual only. The custom domain (xn--3ys368f86s.com) is attached to Pages, so every deploy is
+# public. It runs once, after the final QA pass (SPEC §2); build sessions never run it.
+# There is deliberately no push trigger. The smoke job then checks the live site and the
+# redirect domains.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build, render PDFs and OG images, run QA, the link test and the anchor test
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+        run: |
+          npm run build
+          node scripts/link-test.mjs
+          node scripts/anchor-test.mjs
+
+      - name: Check CNAME
+        run: test "$(cat dist/CNAME)" = "xn--3ys368f86s.com"
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  smoke:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Check the live site and redirect domains
+        run: node scripts/smoke-test.mjs

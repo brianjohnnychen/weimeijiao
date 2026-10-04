@@ -1,0 +1,11 @@
+---
+// One formatted reference (APA-like), kept in the source's own language.
+import type { Source } from '../lib/sources';
+import { yearOf } from '../lib/sources';
+import type { Locale } from '../i18n/locales';
+
+interface Props { source: Source; locale: Locale }
+const { source: s, locale } = Astro.props;
+const showEnglishTitle = locale === 'en' && s.title_en && s.lang !== 'en';
+---
+<span lang={s.lang}>{s.authors} ({yearOf(s)}). <cite class="citation-title">{s.title}</cite>{showEnglishTitle && <span lang="en"> [{s.title_en}]</span>}. {s.venue}.</span>

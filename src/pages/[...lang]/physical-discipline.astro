@@ -1,0 +1,10 @@
+---
+import MdxPage from '../../components/MdxPage.astro';
+import { localeStaticPaths, type Locale } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+const { locale } = Astro.props as { locale: Locale };
+---
+<MdxPage locale={locale} slug="physical-discipline" tocLevels={[2, 3]} />

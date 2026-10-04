@@ -1,0 +1,22 @@
+---
+// Dismissible suggestion shown when the visitor's browser language points to another locale
+// and they have not chosen one yet. Rendered hidden; a tiny script reveals the right variant.
+import { LOCALES, LOCALE_META, type Locale } from '../i18n/locales';
+import { UI } from '../i18n/ui';
+import { alternates } from '../lib/routes';
+
+interface Props { locale: Locale; pathname: string }
+const { locale, pathname } = Astro.props;
+const alts = alternates(pathname);
+---
+<aside class="lang-banner" data-lang-banner hidden aria-label={UI[locale].language}>
+  {LOCALES.filter((l) => l !== locale).map((l) => (
+    <div class="container" data-banner-for={l} lang={LOCALE_META[l].lang} hidden>
+      <p>{UI[l].banner.text}</p>
+      <div class="banner-actions">
+        <a class="btn" href={alts.find((a) => a.locale === l)!.href} hreflang={LOCALE_META[l].lang} data-set-locale={l}>{UI[l].banner.switchTo}</a>
+        <button class="btn btn-secondary" type="button" data-banner-dismiss>{UI[l].banner.dismiss}</button>
+      </div>
+    </div>
+  ))}
+</aside>

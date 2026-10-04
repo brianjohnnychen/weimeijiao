@@ -1,0 +1,30 @@
+---
+// Renders a frontmatter string that may contain citation markers written as [[cite:source-id]]
+// and links written as [text](/path/#anchor). Internal paths are locale-neutral (no /en/ or
+// /zh-hant/ prefix) and must end with / before any #anchor; the current locale is added here.
+import Cite from './Cite.astro';
+import { localizePath, type Locale } from '../i18n/locales';
+
+interface Props { text: string }
+const { text } = Astro.props;
+const locale = (Astro.locals.cites?.locale ?? 'zh-hans') as Locale;
+const parts = text.split(/(\[\[cite:[a-z0-9-]+\]\]|\[[^\]]+\]\([^)\s]+\))/g).filter(Boolean);
+const linkHref = (to: string) => {
+  if (/^https?:\/\//.test(to)) return to;
+  if (to.startsWith('#')) return to;
+  if (!to.startsWith('/')) throw new Error(`RichText link "${to}": path must start with /, # or https://`);
+  const [path, hash] = to.split('#');
+  if (!path.endsWith('/')) throw new Error(`RichText link "${to}": path must end with / (trailing slash)`);
+  return localizePath(locale, path) + (hash ? `#${hash}` : '');
+};
+---
+{parts.map((part) => {
+  const cite = /^\[\[cite:([a-z0-9-]+)\]\]$/.exec(part);
+  if (cite) return <Cite id={cite[1]} />;
+  const link = /^\[([^\]]+)\]\(([^)\s]+)\)$/.exec(part);
+  if (link) {
+    const target = linkHref(link[2]);
+    return /^https?:/.test(target) ? <a href={target} rel="noopener">{link[1]}</a> : <a href={target}>{link[1]}</a>;
+  }
+  return <Fragment set:text={part} />;
+})}

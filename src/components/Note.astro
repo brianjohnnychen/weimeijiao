@@ -1,0 +1,8 @@
+---
+interface Props { title?: string; kind?: 'info' | 'safety' }
+const { title, kind = 'info' } = Astro.props;
+---
+<div class:list={['note', kind === 'safety' && 'note-safety']} role="note">
+  {title && <strong class="note-title">{title}</strong>}
+  <slot />
+</div>

@@ -1,0 +1,13 @@
+---
+// Site mark: a large and a small rounded shape leaning together (an adult and a child),
+// drawn with paths so it renders the same everywhere. No mascot, no text.
+interface Props { class?: string }
+const { class: className = 'brand-mark' } = Astro.props;
+---
+<svg class={className} viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+  <rect width="32" height="32" rx="8" fill="currentColor" opacity="0.12"></rect>
+  <circle cx="12.5" cy="9.5" r="3.6" fill="currentColor"></circle>
+  <path d="M6.5 26c0-6 2.6-10.2 6-10.2s6 4.2 6 10.2z" fill="currentColor"></path>
+  <circle cx="21.8" cy="14.6" r="2.7" fill="#c85a1e"></circle>
+  <path d="M17.6 26c0-4.6 1.9-7.6 4.2-7.6S26 21.4 26 26z" fill="#c85a1e"></path>
+</svg>

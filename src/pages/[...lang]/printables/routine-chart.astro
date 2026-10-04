@@ -1,0 +1,44 @@
+---
+import { render } from 'astro:content';
+import Footnotes from '../../../components/Footnotes.astro';
+import { mdxComponents } from '../../../components/mdx';
+import { pageSources } from '../../../lib/cites';
+import { entryText } from '../../../lib/sources';
+import Printable from '../../../layouts/Printable.astro';
+import RoutineIcon from '../../../components/RoutineIcon.astro';
+import { localeStaticPaths, type Locale } from '../../../i18n/locales';
+import { getPage } from '../../../lib/content';
+import { setupCites } from '../../../lib/page';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+interface Step { icon: string; text: string }
+const { locale } = Astro.props as { locale: Locale };
+setupCites(Astro.locals, locale);
+const page = await getPage(locale, 'routine-chart');
+const { Content: Notes } = await render(page);
+const noteSources = pageSources([page.body]);
+const d = page.data as unknown as { title: string; description: string; lede: string; image?: string; days: string[]; morningTitle: string; morning: Step[]; eveningTitle: string; evening: Step[]; tip: string; blankLabel: string };
+---
+<Printable locale={locale} slug="routine-chart" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-routine">
+  {[{ id: 'morning', title: d.morningTitle, steps: d.morning }, { id: 'evening', title: d.eveningTitle, steps: d.evening }].map((block) => (
+    <section class="routine-block" id={block.id} aria-labelledby={`${block.id}-h`}>
+      <h2 id={`${block.id}-h`}>{block.title}</h2>
+      <table class="routine-table">
+        <thead><tr><th scope="col"><span class="visually-hidden">{block.title}</span></th>{d.days.map((day) => <th scope="col">{day}</th>)}</tr></thead>
+        <tbody>
+          {block.steps.map((s) => (
+            <tr><th scope="row"><RoutineIcon name={s.icon} /> {s.text}</th>{d.days.map(() => <td><span class="box" aria-hidden="true"></span></td>)}</tr>
+          ))}
+          <tr><th scope="row" class="blank">{d.blankLabel}</th>{d.days.map(() => <td><span class="box" aria-hidden="true"></span></td>)}</tr>
+        </tbody>
+      </table>
+    </section>
+  ))}
+  <p class="sheet-tip">{d.tip}</p>
+  <Fragment slot="notes">
+    <Notes components={mdxComponents} />
+    <Footnotes locale={locale} ids={noteSources} />
+  </Fragment>
+</Printable>

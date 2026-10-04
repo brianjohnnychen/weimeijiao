@@ -1,0 +1,157 @@
+# Help lines for the About page disclaimer (SPEC §5.8). Not academic sources: these are contact
+# details, checked against the official page of the service that runs each line.
+# The sources workflow (job "helplines") opens each source and confirms every `expect` string
+# appears. status: published = shown on the About page (verified; re-checked weekly, the job fails
+# if a published number disappears from its source). status: candidate = still being verified,
+# never shown on the site.
+- id: cn-12355
+  status: published
+  region: mainland-china
+  phone: "12355"
+  name_en: "12355 Youth Service Hotline (Communist Youth League)"
+  name_zh_hans: "12355 青少年服务台"
+  expect: ["12355"]
+  sources:
+    - https://www.gqt.org.cn/xxgk/zdgz/202209/t20220921_789696.htm
+    - https://www.12355.net/
+    - http://www.12355.net/
+    - https://www.gqt.org.cn/
+  search:
+    - { q: "12355 青少年服务台 共青团", mkt: zh-CN }
+- id: cn-12356
+  status: published
+  region: mainland-china
+  phone: "12356"
+  name_en: "12356 national psychological assistance hotline"
+  name_zh_hans: "12356 心理援助热线"
+  expect: ["12356"]
+  sources:
+    - https://en.nhc.gov.cn/2025-02/14/c_86392.htm
+    - https://www.nhc.gov.cn/
+  search:
+    - { q: "12356 心理援助热线 国家卫生健康委", mkt: zh-CN }
+- id: cn-12338
+  status: published
+  region: mainland-china
+  phone: "12338"
+  name_en: "12338 women's and children's rights hotline (All-China Women's Federation)"
+  name_zh_hans: "12338 妇女维权公益服务热线（全国妇联）"
+  expect: ["12338"]
+  sources:
+    - http://www.bjwomen.gov.cn/flgz/ymlm/wqga/12338rx/index.html
+    - https://www.women.org.cn/
+    - http://www.women.org.cn/
+  search:
+    - { q: "12338 妇女维权公益服务热线 全国妇联", mkt: zh-CN }
+- id: tw-113
+  status: published
+  region: taiwan
+  phone: "113"
+  name_en: "113 protection hotline (Ministry of Health and Welfare)"
+  name_zh_hant: "113 保護專線"
+  expect: ["113", "保護專線"]
+  sources:
+    - https://dep.mohw.gov.tw/DOPS/np-1183-105.html
+    - https://www.mohw.gov.tw/cp-3568-38697-1.html
+    - https://dep.mohw.gov.tw/DOPS/
+    - https://www.mohw.gov.tw/
+    - https://www.sfaa.gov.tw/
+  search:
+    - { q: "113保護專線 衛生福利部", mkt: zh-TW }
+    - { q: "Taiwan 113 protection hotline Ministry of Health and Welfare", mkt: en-US }
+- id: tw-1925
+  status: published
+  region: taiwan
+  phone: "1925"
+  name_en: "1925 mental health support line (Ministry of Health and Welfare)"
+  name_zh_hant: "1925 安心專線"
+  expect: ["1925", "安心專線"]
+  sources:
+    - https://dep.mohw.gov.tw/DOMHAOH/cp-4906-54077-107.html
+    - https://www.mohw.gov.tw/cp-16-48244-1.html
+    - https://dep.mohw.gov.tw/DOMHAOH/
+    - https://dep.mohw.gov.tw/DOMH/
+    - https://www.mohw.gov.tw/
+  search:
+    - { q: "1925安心專線 衛生福利部", mkt: zh-TW }
+    - { q: "Taiwan 1925 mental health hotline Ministry of Health and Welfare", mkt: en-US }
+- id: tw-1995
+  status: published
+  region: taiwan
+  phone: "1995"
+  name_en: "1995 Lifeline Taiwan"
+  name_zh_hant: "1995 生命線"
+  expect: ["1995", "生命線"]
+  sources:
+    - https://www.life1995.org.tw/
+- id: tw-1980
+  status: published
+  region: taiwan
+  phone: "1980"
+  name_en: "1980 Teacher Chang counselling line"
+  name_zh_hant: "1980 張老師專線"
+  expect: ["1980", "張老師"]
+  sources:
+    - https://www.1980.org.tw/
+- id: hk-swd
+  status: published
+  region: hong-kong
+  phone: "2343 2255"
+  name_en: "Social Welfare Department hotline"
+  name_zh_hant: "社會福利署熱線"
+  expect: ["2343 2255"]
+  sources:
+    - https://www.swd.gov.hk/
+    - https://www.swd.gov.hk/tc/
+- id: hk-samaritans
+  status: published
+  region: hong-kong
+  phone: "2389 2222"
+  name_en: "The Samaritan Befrienders Hong Kong"
+  name_zh_hant: "香港撒瑪利亞防止自殺會"
+  expect: ["2389 2222"]
+  sources:
+    - https://sbhk.org.hk/
+    - https://www.sbhk.org.hk/
+- id: us-988
+  status: published
+  region: united-states
+  phone: "988"
+  name_en: "988 Suicide & Crisis Lifeline"
+  expect: ["988", "Lifeline"]
+  sources:
+    - https://988lifeline.org/
+- id: us-childhelp
+  status: published
+  region: united-states
+  phone: "1-800-422-4453"
+  name_en: "Childhelp National Child Abuse Hotline"
+  expect: ["1-800-422-4453"]
+  sources:
+    - https://www.childhelphotline.org/
+    - https://www.childhelp.org/hotline/
+- id: uk-nspcc
+  status: published
+  region: united-kingdom
+  phone: "0808 800 5000"
+  name_en: "NSPCC Helpline"
+  expect: ["0808 800 5000"]
+  sources:
+    - https://www.nspcc.org.uk/keeping-children-safe/reporting-abuse/
+    - https://www.nspcc.org.uk/
+- id: uk-family-lives
+  status: published
+  region: united-kingdom
+  phone: "0808 800 2222"
+  name_en: "Family Lives parent helpline"
+  expect: ["0808 800 2222"]
+  sources:
+    - https://www.familylives.org.uk/
+- id: uk-childline
+  status: published
+  region: united-kingdom
+  phone: "0800 1111"
+  name_en: "Childline (for children and young people)"
+  expect: ["0800 1111", "Childline"]
+  sources:
+    - https://www.nspcc.org.uk/keeping-children-safe/reporting-abuse/

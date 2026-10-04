@@ -1,0 +1,14 @@
+---
+// Locale-aware internal link for MDX: <L to="/toolbox/#time-out">time-out</L>.
+// Paths are written without the locale prefix; the current page's locale is added.
+import { localizePath, type Locale } from '../i18n/locales';
+
+interface Props { to: string }
+const { to } = Astro.props;
+const locale = (Astro.locals.cites?.locale ?? 'zh-hans') as Locale;
+if (!to.startsWith('/')) throw new Error(`<L to="${to}">: path must start with /`);
+const [path, hash] = to.split('#');
+if (!path.endsWith('/')) throw new Error(`<L to="${to}">: path must end with / (trailing slash)`);
+const target = localizePath(locale, path) + (hash ? `#${hash}` : '');
+---
+<a href={target}><slot /></a>

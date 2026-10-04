@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { LOCALES, LOCALE_META } from '../i18n/locales';
+import { UI } from '../i18n/ui';
+import { href, paths } from '../lib/routes';
+---
+<Base locale="zh-hans" title={`${UI['zh-hans'].notFound.title} · ${UI['zh-hant'].notFound.title} · ${UI.en.notFound.title}`} description="魏美娇.com：找不到这个页面。找不到這個頁面。Page not found." noindex alternatesPath="/">
+  <section class="section">
+    <div class="container prose not-found">
+      {LOCALES.map((l) => (
+        <div lang={LOCALE_META[l].lang} id={`nf-${l}`}>
+          {l === 'zh-hans' ? <h1 id={`nf-title-${l}`}>{UI[l].notFound.title}</h1> : <h2 id={`nf-title-${l}`}>{UI[l].notFound.title}</h2>}
+          <p>{UI[l].notFound.body}</p>
+          <p><a class="btn" href={href(l, paths.home())}>{UI[l].notFound.home}</a></p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,157 @@
+---
+import { render } from 'astro:content';
+import Footnotes from '../../../components/Footnotes.astro';
+import { mdxComponents } from '../../../components/mdx';
+import { pageSources } from '../../../lib/cites';
+import { entryText } from '../../../lib/sources';
+// Age finder: 10 questions point to the phase page to start with. Works as an interactive
+// quiz (small script) and as a printable sheet with a scoring key (no script needed).
+import Printable from '../../../layouts/Printable.astro';
+import RichText from '../../../components/RichText.astro';
+import { localeStaticPaths, type Locale } from '../../../i18n/locales';
+import { t, phaseLabel } from '../../../i18n/ui';
+import { PHASES, type Phase } from '../../../lib/site';
+import { getPage } from '../../../lib/content';
+import { href, paths } from '../../../lib/routes';
+import { setupCites } from '../../../lib/page';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+interface Option { text: string; phases: Phase[] }
+interface Question { id: string; text: string; weight?: number; options: Option[] }
+const { locale } = Astro.props as { locale: Locale };
+setupCites(Astro.locals, locale);
+const ui = t(locale);
+const page = await getPage(locale, 'age-finder');
+const { Content: Notes } = await render(page);
+const noteSources = pageSources([page.body]);
+const d = page.data as unknown as { title: string; description: string; lede: string; image?: string; questions: Question[]; note: string; scoringSteps: string[] };
+if (d.questions.length !== 10) throw new Error(`age-finder (${locale}) must have exactly 10 questions`);
+for (const q of d.questions) for (const o of q.options) for (const p of o.phases) if (!PHASES.includes(p)) throw new Error(`Unknown phase ${p} in age-finder ${q.id}`);
+const phaseLinks = Object.fromEntries(PHASES.map((p) => [p, { href: href(locale, paths.phase(p)), label: phaseLabel(locale, p) }]));
+const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+const maxOptions = Math.max(...d.questions.map((q) => q.options.length));
+---
+<Printable locale={locale} slug="age-finder" title={d.title} description={d.description} lede={d.lede} image={d.image} sheetClass="sheet-quiz" printHint={ui.print.printHintTwo}>
+  <form class="quiz" id="quiz" data-quiz data-phases={JSON.stringify(phaseLinks)} data-labels={JSON.stringify({ incomplete: ui.quiz.incomplete, result: ui.quiz.result, also: ui.quiz.also, read: ui.quiz.read, colon: locale === 'en' ? ': ' : '：' })}>
+    <ol class="quiz-list" role="list">
+      {d.questions.map((q) => (
+        <li id={`q-${q.id}`}>
+          <fieldset data-weight={q.weight ?? 1}>
+            <legend><RichText text={q.text} /></legend>
+            <p class="quiz-missing" id={`q-${q.id}-missing`} hidden>{ui.quiz.unanswered}</p>
+            {q.options.map((o, oi) => (
+              <label class="quiz-option">
+                <input type="radio" name={q.id} value={o.phases.join(' ')} />
+                <span class="quiz-letter" aria-hidden="true">{letters[oi]}</span>
+                <span>{o.text}</span>
+              </label>
+            ))}
+          </fieldset>
+        </li>
+      ))}
+    </ol>
+    <div class="quiz-actions screen-only js-only">
+      <button type="submit" class="btn">{ui.quiz.see}</button>
+      <button type="reset" class="btn btn-secondary">{ui.quiz.restart}</button>
+    </div>
+    <div class="quiz-result" id="result" role="status" aria-live="polite" tabindex="-1"></div>
+  </form>
+  <section class="quiz-key" id="scoring" aria-labelledby="scoring-h">
+    <h2 id="scoring-h">{ui.quiz.scoring}</h2>
+    <noscript><p>{ui.quiz.noJs}</p></noscript>
+    <ol>{d.scoringSteps.map((s) => <li>{s}</li>)}</ol>
+    <table class="key-table">
+      <thead><tr><th scope="col">#</th>{letters.slice(0, maxOptions).map((l) => <th scope="col">{l}</th>)}</tr></thead>
+      <tbody>
+        {d.questions.map((q, qi) => (
+          <tr><th scope="row">{qi + 1}</th>{q.options.map((o) => <td>{o.phases.map((p) => ui.phaseAge[p]).join(' / ')}</td>)}{Array.from({ length: maxOptions - q.options.length }, () => <td />)}</tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="quiz-note">{d.note}</p>
+  </section>
+  <Fragment slot="notes">
+    <Notes components={mdxComponents} />
+    <Footnotes locale={locale} ids={noteSources} />
+  </Fragment>
+</Printable>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-quiz]');
+  if (form) {
+    const phases = JSON.parse(form.dataset.phases!) as Record<string, { href: string; label: string }>;
+    const labels = JSON.parse(form.dataset.labels!) as Record<string, string>;
+    const order = Object.keys(phases);
+    const result = form.querySelector<HTMLElement>('#result')!;
+    const fieldsets = [...form.querySelectorAll<HTMLFieldSetElement>('fieldset')];
+    const scrollBehavior = (): ScrollBehavior => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
+    // A question flagged as unanswered shows a note until it gets an answer.
+    const flag = (fs: HTMLFieldSetElement, missing: boolean) => {
+      const note = fs.querySelector<HTMLElement>('.quiz-missing');
+      if (note) note.hidden = !missing;
+      fs.classList.toggle('is-missing', missing);
+      if (missing && note) fs.setAttribute('aria-describedby', note.id);
+      else fs.removeAttribute('aria-describedby');
+    };
+    form.addEventListener('change', (e) => {
+      const fs = (e.target as Element).closest('fieldset');
+      if (fs) flag(fs, false);
+    });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Points are counted in sixths, so splitting a point between two or three ages stays an
+      // exact whole number and ties and the 1.5-point rule (9 sixths) match the printed key.
+      const scores: Record<string, number> = Object.fromEntries(order.map((p) => [p, 0]));
+      const missing: HTMLFieldSetElement[] = [];
+      for (const fs of fieldsets) {
+        const checked = fs.querySelector<HTMLInputElement>('input:checked');
+        flag(fs, !checked);
+        if (!checked) {
+          missing.push(fs);
+          continue;
+        }
+        const ps = checked.value.split(' ');
+        const w = Number(fs.dataset.weight || 1);
+        for (const p of ps) scores[p] += Math.round((6 * w) / ps.length);
+      }
+      result.replaceChildren();
+      if (missing.length) {
+        const p = document.createElement('p');
+        p.textContent = labels.incomplete;
+        result.append(p);
+        missing[0].scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
+        missing[0].querySelector('input')?.focus({ preventScroll: true });
+        return;
+      }
+      // Highest score first; on a tie the younger age comes first.
+      const ranked = [...order].sort((a, b) => scores[b] - scores[a] || order.indexOf(a) - order.indexOf(b));
+      const best = ranked[0];
+      const second = ranked[1];
+      const h = document.createElement('p');
+      h.className = 'quiz-result-title';
+      h.textContent = labels.result;
+      const a = document.createElement('a');
+      a.className = 'btn';
+      a.href = phases[best].href;
+      a.textContent = `${labels.read}${labels.colon}${phases[best].label}`;
+      result.append(h, a);
+      if (scores[second] > 0 && scores[best] - scores[second] <= 9) {
+        const also = document.createElement('p');
+        also.append(`${labels.also}${labels.colon}`);
+        const a2 = document.createElement('a');
+        a2.href = phases[second].href;
+        a2.textContent = phases[second].label;
+        also.append(a2);
+        result.append(also);
+      }
+      result.focus({ preventScroll: true });
+      result.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
+    });
+    form.addEventListener('reset', () => {
+      result.replaceChildren();
+      fieldsets.forEach((fs) => flag(fs, false));
+    });
+  }
+</script>
