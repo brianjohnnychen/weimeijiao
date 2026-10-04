@@ -14,3 +14,8 @@ Build everything in SPEC.md to its definition of done (§10) in one pass, final 
 8. Printables and age-finder quiz per §5.7.
 9. SEO: sitemap, robots.txt, hreflang, canonical to `https://xn--3ys368f86s.com`, OG images per locale.
 10. Verify (§10), save screenshots, update STATUS.md and RUNLOG.md, then mark this item done.
+
+## 2. Fable audit of the live build (done 2026-10-04, PR #5; see STATUS.md and QA.md section 11)
+
+Brian's audit brief: re-verify every factual claim against its source with the Actions source checker (academic sources only), flag and fix anything unsupported, overstated or mistranslated in all three locales; full UI/UX review at 375 and 1280 in zh-Hans, zh-Hant and en with dark mode and keyboard navigation; anchor link test; confirm every asset is self-hosted and China-safe. Content changes: (1) the site is less about Brian and his family: personal and family references only on the About page, everywhere else a neutral expert voice; (2) the English brand name is WeiMeiJiao, one word, everywhere. Added during the audit: `deploy.yml` runs on every push to `main`.
+

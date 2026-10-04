@@ -1,10 +1,13 @@
 name: Deploy to GitHub Pages
 
-# Manual only. The custom domain (xn--3ys368f86s.com) is attached to Pages, so every deploy is
-# public. It runs once, after the final QA pass (SPEC §2); build sessions never run it.
-# There is deliberately no push trigger. The smoke job then checks the live site and the
-# redirect domains.
+# Runs on every push to main (so a merged pull request goes live on its own) and on manual
+# dispatch (Brian's instruction of 2026-10-04, SPEC §2). The custom domain (xn--3ys368f86s.com)
+# is attached to Pages, so every deploy is public: nothing merges into main until CI is green.
+# Sessions never dispatch it by hand. The smoke job then checks the live site and the redirect
+# domains.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

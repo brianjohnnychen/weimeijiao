@@ -4,6 +4,16 @@
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
 
+### Fable audit, 2026-10-04 09:54-10:42 Taipei ([PR #5](https://github.com/brianjohnnychen/weimeijiao/pull/5))
+
+Run on Claude Fable 5.1 against the live build on `main`. Everything below was re-run on the rebuilt site after the changes; details in docs/QA.md, section 11.
+
+- **Fact-check, every claim re-verified:** the Actions source checker's run on `main` (37166720251, 01:01 UTC; 146 sources, 0 failures, 70 publisher pages that refuse bots with the DOI verified) printed every abstract; eight reviewers compared all 776 citation markers per locale (2,328 marker-locale checks, 141 sources) with the abstracts and the verified key facts, side by side in zh-Hans, zh-Hant and en. 15 claims corrected: one age range stated beyond its source's scope (AAP 2016 media guide now 0 to 5 on the Screens page), one uncited claim given its existing citation (bedtime routine), two spanking passages now labelled as the minority view, a dropped "significantly" (time-out at age 3), three verb or construct mismatches ("physical discipline" not "spanking" for the six-country study; a review "reports"; the honesty appeal Talwar 2015 actually tested), one mistranslation (a Chinese "only" not in the source), one enjoyment claim that was the authors' proposal, one missing Mixed marker, one Traditional Chinese age bound, one dropped hedge about performance-linked rewards, one effect-size result reassigned to the right meta-analysis, and one ambiguous pronoun on the physical discipline page. Physical discipline and When you have little time pass SPEC §7 point by point (both sides, exact figures, proponents' conditions attributed to them, no how-to, one neutral law sentence). Nothing in `content/sources.yml` contradicts its abstract.
+- **UI and UX:** UI check 129 views clean, 20 screenshots reviewed by eye in all three locales at both widths and in dark mode; keyboard navigation verified at 1280px (UI check) and 375px (new `scripts/keyboard-test.mjs`, 33 of 33, in CI); axe-core 4.13.0 0 violations in 318 page runs; behavior test 81 of 81; anchor test 26 of 26; link test 14,359 links, 0 broken; Lighthouse all 18 medians (3 runs each) are 99 or higher: performance 99-100 on mobile (the Chinese home pages at 99) and 100 on desktop; accessibility, best practices and SEO 100 on every page.
+- **Assets:** nothing third-party anywhere in the built output; fonts, images, scripts and share cards all from the site's own domain; the only outbound links are DOIs, PubMed and the sister site.
+- **Brian's content changes:** personal and family references now appear only on the About page (the home page's "About this site" paragraph is in a neutral expert voice in all three locales; the lint enforces it); the English brand name is WeiMeiJiao everywhere (header, footer, titles, Open Graph tags and share cards, PDF footers, About, package.json, smoke test, SPEC); Chinese names unchanged.
+- **Deploy on merge:** on Brian's instruction during the audit, `deploy.yml` now also runs on every push to `main` (manual dispatch kept), so merging PR #5 publishes these changes without a manual deploy (SPEC §2 updated; REVIEWER-CHANGES.md).
+
 ### Go-live (SPEC §2), 2026-10-04 08:28-08:50 Taipei (00:28-00:50 UTC)
 
 - **Merged:** [PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1) into `main` at 00:28 UTC (merge commit `26221d2`), after CI passed on its last commit.
@@ -27,17 +37,18 @@ Both domains resolved within minutes of Cowork's Cloudflare fix (reported at abo
 
 | Check | Result |
 |---|---|
-| Fact-check per claim | 11 build-phase reviews plus the final text review covered every page in all three locales |
-| Content lint | 159 files, 0 errors, 0 warnings |
+| Fact-check per claim | 11 build-phase reviews, the final text review, and the Fable audit's re-verification of all 776 markers per locale against the source checker's abstracts (15 corrections) |
+| Content lint | 159 files, 0 errors, 0 warnings (also rejects personal names outside About and misspellings of WeiMeiJiao) |
 | Build and QA | 105 pages, 0 errors, 0 warnings; no third-party assets; straight quotes now also checked in English alt, label and meta text |
-| Link test | 14,353 internal links, 9,202 to an anchor, 0 broken |
+| Link test | 14,359 internal links, 9,208 to an anchor, 0 broken |
 | Anchor test | 26 of 26 deep links land on their target (375px and 1280px) |
-| Behavior test (new) | 81 of 81 checks pass in all three locales |
-| Accessibility | axe-core 4.13, WCAG 2.2 AA plus best practice: 0 violations on all 106 pages at 375px light, 375px dark and 1280px, and in the 8 banner states. html-validate: only cosmetic or deliberate messages left |
+| Behavior test | 81 of 81 checks pass in all three locales |
+| Keyboard test (new) | 33 of 33 checks pass at 375px in all three locales |
+| Accessibility | axe-core 4.13.0, WCAG 2.2 AA plus best practice: 0 violations in 318 page runs on the audit build (all 106 pages at 375px light, 375px dark and 1280px); the 8 banner states and html-validate from the final pass |
 | UI check | 129 views in three locales: no overflow, console errors, failed requests or broken images; keyboard and dark mode pass; header fits |
 | Printables | 39 one-page sheets and 3 two-page age finders, all at 100% scale |
-| Lighthouse | All 18 medians (3 runs each) are 95 or higher: performance 95-100 on mobile and 100 on desktop; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md) |
-| Sources and help lines | Actions run 37161742748 (the latest change to sources.yml): 146 sources, 0 failures; all 14 help lines found on their official pages |
+| Lighthouse | all 18 medians (3 runs each) are 99 or higher: performance 99-100 on mobile (the Chinese home pages at 99) and 100 on desktop; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md) |
+| Sources and help lines | Actions run 37166720251 on main: 146 sources, 0 failures (70 publisher pages refuse bots, DOI verified); all 14 help lines found on their official pages |
 
 ### What is built
 
@@ -45,7 +56,7 @@ Both domains resolved within minutes of Cowork's Cloudflare fix (reported at abo
 - **Content:** 159 MDX files written natively in each language, 776 citation markers per locale pointing to 141 distinct academic sources, each marker linked to its exact Research entry and back. Physical discipline follows SPEC §7.
 - **Printables:** 14 per locale, 42 PDFs rendered at build time.
 - **Images:** 31 of 52 AI illustrations generated and reviewed (21 follow after the quota reset); 12 family photos on About with gallery and lightbox.
-- **Workflows:** `ci.yml` (every push: content lint, build with QA, link test, anchor test, behavior test), `sources.yml`, `images.yml`, `deploy.yml` (manual only; build, deploy, smoke test of the live site and both redirect domains), `smoke.yml`.
+- **Workflows:** `ci.yml` (every push: content lint, build with QA, link test, anchor test, behavior test, keyboard test), `sources.yml`, `images.yml`, `deploy.yml` (every push to `main` and manual dispatch; build, deploy, smoke test of the live site and both redirect domains), `smoke.yml`.
 
 ### Open issues
 
@@ -54,10 +65,12 @@ Both domains resolved within minutes of Cowork's Cloudflare fix (reported at abo
 3. **AAP 2018 discipline statement: reaffirmation status unknown.** AAP policy statements expire after 5 years unless reaffirmed; no notice was found and the article page blocks automated access. Every page says "in its 2018 policy statement". Waiting on: someone opening the article page in a browser.
 4. **SPEC §4a sources not citable.** Hobbs et al. 1978, Kendall et al. 1975 and Roberts & Powers 1990 exist, but no abstract is reachable by automated checks, so they are left out under the rule never to cite what could not be verified. Waiting on: Brian, only if he wants them added (someone would need to read the abstracts).
 5. **Judgment calls left for Brian:** the warning sign "You hit a baby or toddler" (the study's authors advise against spanking infants and toddlers; "toddler" overlaps the 2-6 range proponents discuss); the 2010 six-country study that also linked time-out with child anxiety is shown on the time-out tool but not on the 7-10 page; the family-rules poster repeats two points of the on-screen "Four keys"; two uncited framing sentences on the learning pages.
+6. **Judgment calls from the Fable audit (checked, deliberately not changed):** SPEC §7.4 lists "angry or implement-based punishment" and "warmth" as example points of agreement, but no minority-side source states them, so the page does not assert them as shared positions (implement use is under the warning signs via Zolotor 2008); the decision question that lists the proponents' conditions is attributed to them but could be read as a checklist; narrative reviews (Heilmann 2021, Mindell 2006, Owen 2012) are introduced with "found" where the content guide prefers "concluded"; "Spanking:" is the lay label over corporal-punishment and physical-discipline sources in two summaries; Wang & Kenny 2014 is called "a US study" although its abstract gives only the sample's ethnic make-up; Kamins & Dweck 1999 Study 2's age rests on the sources.yml finding, not the abstract; the 0-12 learning sheet states repair of mix-ups flatly where Tronick 1989 says "may be associated"; the AAP 2016 media statement is cited on the bedtime and mealtime pages without its 0-to-5 scope being stated there; the coparenting meta-analysis (parents) is applied to grandparent-parent cooperation through a bridging sentence. Bookkeeping in `sources.yml`: cote-2006 pages read 71-85 where Crossref gives 68-82; ollendick-2016 carries year 2015 (online first) with a 2016 volume; kamins-dweck-1999, vasquez-2016 and patall-2008-choice have no `strength` or `ages` note; kazdin-2008 is verified but cited nowhere.
 
 ### Next step
 
 - 18:05 UTC check-in (2026-10-04): retry the 21 illustrations (the 00:22, 00:24 and 01:31 UTC attempts hit the used-up allocation). When they arrive, review every one, merge them to `main` through a pull request, and run `deploy.yml` again.
+- Merging [PR #5](https://github.com/brianjohnnychen/weimeijiao/pull/5) publishes the audit changes on its own (`deploy.yml` now runs on every push to `main`); its smoke job then checks the live site. Afterwards, the images PR above also goes live on merge.
 - Brian or Cowork: tick Enforce HTTPS in the repo's Settings → Pages (open issue 1).
 
 ## Earlier notes

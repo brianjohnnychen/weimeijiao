@@ -4,13 +4,15 @@ Owner: Brian Chen (Meteor City LLC). Built in Claude Code from this repo. Not Lo
 
 Revised 2026-10-04 by Brian's SPEC change (academic-only sources, no per-country law content, new sections: The one best-proven approach with edge cases, When you have little time, Encouraging learning). Logged in docs/REVIEWER-CHANGES.md.
 
+Revised again 2026-10-04 (Brian, via the Fable audit session): the English brand name is WeiMeiJiao, one word; personal and family references appear only on the About page, the rest of the site speaks in a neutral expert voice (§1, §6, §8). Logged in docs/REVIEWER-CHANGES.md.
+
 ## 1. What this is
 
-A free, trilingual, research-based educational website on **disciplining young children, birth to about age 10**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, built by a parent about his own kids, organized by developmental phase, with printable tools.
+A free, trilingual, research-based educational website on **disciplining young children, birth to about age 10**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, organized by developmental phase, with printable tools. The site grew out of a parent raising his own kids, but that story lives on the About page only (§8); every other page speaks in a neutral expert voice.
 
 Audience: parents and caregivers (primary), grandparents, teachers and nannies (secondary). Chinese-speaking families in Taiwan, mainland China and overseas, plus English readers.
 
-Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Traditional) / "Wei Mei Jiao" (English). Choose a short tagline per language in §6 voice. No mascot or third-party characters.
+Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Traditional) / "WeiMeiJiao" (English: one word, no spaces, everywhere it appears: site title, header, footer, meta and Open Graph tags, PDFs, alt text and docs). Choose a short tagline per language in §6 voice. No mascot or third-party characters.
 
 ## 2. Domains and hosting (already set up by the Cowork chat, do not redo)
 
@@ -21,7 +23,7 @@ Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Tradition
 | 魏美嬌.com (`xn--k6s926f86s.com`) | 301 → primary, same path | Dynadot + Cloudflare redirect rule |
 
 - Hosting: **GitHub Pages**, built and deployed by GitHub Actions (`.github/workflows/deploy.yml`, `actions/deploy-pages`). Repo is public, so Actions minutes are free.
-- **Deploys are manual and happen once, after the final QA pass.** The custom domain is already attached to Pages, so any deploy is public. `deploy.yml` runs only on `workflow_dispatch`. Build sessions never run it: they preview and test locally and with Playwright, CI (`ci.yml`) builds and tests every push without deploying, and when a build and its own QA are done the session writes READY FOR FINAL PASS with the QA results and open issues in docs/STATUS.md, commits, and stops. The final QA pass (run on a different model) fixes everything it can, then runs `deploy.yml` to go live at `xn--3ys368f86s.com`, turns on Enforce HTTPS if its token allows, confirms the site loads and both redirect domains work (deploy.yml's smoke-test job checks this), and lists any open issues in docs/STATUS.md. Hosting stays on GitHub Pages (Brian tested it from mainland China). If no switch to Fable with a FINAL QA PASS message arrives within 60 minutes of READY FOR FINAL PASS, the build session runs the full final QA pass itself on its current model, fixes everything it can, and then follows the steps above.
+- **Deploys run automatically on every push to `main`, and on manual dispatch** (Brian's instruction of 2026-10-04, logged in docs/REVIEWER-CHANGES.md; it replaces the earlier manual-only rule). The custom domain is attached to Pages, so every deploy is public: a change goes live when its pull request is merged into `main`, so nothing merges until CI is green and the session's own QA is done. Sessions never dispatch `deploy.yml` by hand. Sessions preview and test locally and with Playwright, CI (`ci.yml`) builds and tests every push without deploying, and `deploy.yml`'s own build job runs the build, QA, link test and anchor test again before publishing; its smoke-test job then confirms the live site loads and both redirect domains work. Hosting stays on GitHub Pages (Brian tested it from mainland China). Earlier history: the first deploy was manual after the final QA pass (the previous wording of this bullet, including the 60-minute fallback rule for the final QA pass, is kept in docs/REVIEWER-CHANGES.md).
 - Publish a `CNAME` file in the built output containing exactly `xn--3ys368f86s.com`.
 - After the first successful deploy, Brian/Cowork sets Pages source = GitHub Actions, custom domain and Enforce HTTPS in repo settings. If your session's token can call the Pages API (`PUT /repos/{owner}/{repo}/pages`), do it yourself and log it in docs/STATUS.md.
 - Canonical URLs, sitemap, hreflang and Open Graph all use `https://xn--3ys368f86s.com`.
@@ -79,6 +81,7 @@ Three locales, full parity (every page exists in all three):
 - Scripts and examples are written natively in each language, not translated word for word.
 - No em dashes in any user-facing copy in any language.
 - Children in examples are generic; never use Brian's daughters' names outside the About page.
+- No personal or family references outside the About page: no Brian, Zoe, Naomi or Kelsea, no "my kids" or "our family" meaning the owner's family, no relocation story, no dedications. Those passages are written in a neutral expert voice. The About page keeps the family story and the photo gallery (§8). Parent scripts such as "In our family, hands are gentle" are generic and fine.
 
 ## 7. Physical discipline page (Brian's decision: present both sides)
 

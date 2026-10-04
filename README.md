@@ -1,2 +1,2 @@
 # weimeijiao
-Trilingual child discipline guide, ages 0 to 10
+WeiMeiJiao (魏美娇 / 魏美嬌): a free, trilingual, research-based guide to disciplining children from birth to about age 10.
