@@ -109,6 +109,10 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | getting attention first (attention before the instruction) | 先引起注意 | 先引起注意 | |
 | guided compliance (hands-on guidance) | 手把手带着做 | 手把手帶著做 | The behavioral term is guided compliance; lay text keeps 手把手. |
 | a do request / a don't (prohibition) | 要孩子做某事 / 禁止孩子做某事 | 要孩子做某事 / 禁止孩子做某事 | |
+| negotiation (Kuczynski's skilled form of resistance) | 讨价还价（跟你讲条件） | 討價還價（跟你講條件） | |
+| direct defiance (Kuczynski's category; outright defiance in lay text) | 直接违抗 | 直接違抗 | |
+| limit setting (the verb; a limit is 界限 / 界線) | 设限 | 設限 | |
+| teaching-based / power-based limit setting (Houck and LeCuyer-Maus) | 以教导为主 / 以权力压制为主的设限 | 以教導為主 / 以權力壓制為主的設限 | |
 | compliance (the child doing as asked) | 配合度；noncompliance 不服从 | 配合度；noncompliance 不服從 | 配合度 is the lay form for the compliance-plos-2018 finding on every page; 服从 only in the fixed terms 不服从 and 即时服从 (immediate compliance). |
 | disruptive behavior / conduct problems | 破坏性行为 / 行为问题 | 干擾行為 / 行為問題 | Never 品行问题 / 品行問題 / 行為規範問題. |
 | disruptive behavior disorder | 破坏性行为障碍 | 干擾行為障礙 | |
