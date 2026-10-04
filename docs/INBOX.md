@@ -31,3 +31,6 @@ Brian's brief: add a situation page "My toddler ignores me" (ages 1-3, with a sh
 
 Standing rules sent with it (recorded in CLAUDE.md, SPEC §6 and §10, REVIEWER-CHANGES): (1) flow within every page and from topic to topic, with a flow pass on every change and a site-wide read-through when the queue is quiet; (2) every change in all three locales in the same PR, with a CI parity check.
 
+## 5. Site-wide flow read-through (Brian's standing rule, 2026-10-04; in progress from 14:55 Taipei)
+
+Queue quiet after item 4 (the image pass waits on the daily allocation), so the read-through the flow rule calls for starts: every page in all three locales, read for flow from section to section (transitions, the same order of sections across pages of a kind) and from topic to topic (links that lead naturally to the next relevant page). Edits are minimal and identical in meaning across locales, no claim or citation changes, one pull request; the result goes to docs/QA.md and STATUS.md.
