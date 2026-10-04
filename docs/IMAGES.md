@@ -1,6 +1,12 @@
 # Image review log
 
-The quality gate of SPEC §9. Every photograph the images workflow generates is opened at full size and judged before its pull request is merged: AI tells (extra or fused fingers, warped faces or eyes, melted objects, garbled text, plastic skin, impossible lighting or anatomy, uncanny symmetry), the content limits (no hitting, spanking, injury, crying or frightened children, no distress beyond ordinary mild frustration; neutral scenes on the physical-discipline and safety pages; no real people), the scene fitting its page, and the alt text in `content/images.yml` still describing what is in the picture. A rejected image is deleted, its prompt adjusted if the fault was the prompt, and the id generated again in the next run. Images carry no caption, watermark, label or provenance metadata (Brian, 2026-10-04).
+The quality gate of SPEC §9. Every candidate the images workflow generates is opened at full size and judged before anything is merged: garbled text, odd hands or faces, melted objects, uneven style against the rest of the set, impossible anatomy or lighting, or a breach of the content limits means rejection. The cleanest candidate per image is copied to `src/assets/ai/<id>.jpg` on a batch branch and merged through a pull request; this log records the decision.
+
+## Direction
+
+- 2026-10-03: first style, flat illustrations from flux-1-schnell (31 pieces, 1024x1024).
+- 2026-10-04 morning: Brian's photo direction (documentary photography, FLUX.2 [dev]); blocked all day by error 4006 on the free allocation (runs below).
+- 2026-10-04 22:25 Taipei: Brian replaces the photo plan with polished illustrations for every image, in one consistent style matching the best first pieces, several candidates per image, Workers Paid active so the daily block no longer applies; the daily schedule is gone and runs are manual. When every image is approved and merged, STATUS.md starts with ILLUSTRATIONS COMPLETE and Cowork cancels the paid plan.
 
 ## Model choice
 
