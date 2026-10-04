@@ -113,15 +113,17 @@ function anchorsFromBody(body) {
 // name is checked on the year alone. Sentence: from the previous terminator to the next one, plus any
 // citation markers that follow it (English markers sit after the full stop).
 const SENTENCE_END = /[.!?。！？]/;
+// A full stop between digits (0.20) or followed directly by a letter (e.g.) does not end a sentence.
+const endsSentenceAt = (text, i) => SENTENCE_END.test(text[i]) && !(text[i] === '.' && ((/\d/.test(text[i - 1] ?? '') && /\d/.test(text[i + 1] ?? '')) || /[a-z]/.test(text[i + 1] ?? '')));
 const MARKERS_AHEAD = /^(?:\s*(?:<Cite\s+id=["'][^"']+["']\s*\/>|\[\[cite:[^\]]+\]\]))+/;
 function sentenceWindow(text, at, from = at) {
   let start = at;
-  while (start > 0 && !SENTENCE_END.test(text[start - 1]) && text[start - 1] !== '\n') start--;
+  while (start > 0 && !endsSentenceAt(text, start - 1) && text[start - 1] !== '\n') start--;
   // Markers right after the previous terminator belong to the previous sentence.
   const lead = MARKERS_AHEAD.exec(text.slice(start));
   if (lead) start += lead[0].length;
   let end = from; // scan forward from the end of the author-year itself, so "et al." does not end the sentence
-  while (end < text.length && !SENTENCE_END.test(text[end]) && text[end] !== '\n') end++;
+  while (end < text.length && !endsSentenceAt(text, end) && text[end] !== '\n') end++;
   // Markers right after the terminator belong to this sentence (English style); a marker before 。 is inside already.
   let tail = end + 1;
   for (;;) {
