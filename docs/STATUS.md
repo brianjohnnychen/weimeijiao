@@ -4,6 +4,13 @@
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
 
+### Situation page My toddler ignores me, and two standing rules (INBOX item 4), 2026-10-04 13:48-14:46 Taipei ([PR #8](https://github.com/brianjohnnychen/weimeijiao/pull/8))
+
+- **The page:** `/situations/#ignores-me` in all three locales (学步儿不理我 / 學步兒不理我 / My toddler ignores me), ages 1-3 with an "At 3 to 5" pointer: attention first, one statement instruction, a short wait, when-then or a choice, hands-on guidance, immediate thanks, redirection for a "stop", planned ignoring of minor stuff, calm follow-through, and why toddlers do this (autonomy, self-control under construction, "do" harder than "don't", passive noncompliance as a passing stage). No hearing, screening or red-flag content beyond the generic "when it is not working" link. Linked from the defiance guide, the 1-3 phase page and the situations index. 11 new sources verified through the candidates job; the checker re-verified all 176 entries (0 failures). Details in docs/QA.md section 13.
+- **Standing rules from Brian:** flow within every page and from topic to topic with a flow pass on every change (CLAUDE.md, SPEC §6), and every change in all three locales in the same pull request, enforced by `scripts/parity-test.mjs` in CI (SPEC §6 and §10). A site-wide flow read-through is queued for when the image rollout leaves a quiet moment.
+- **Tests on the final build:** content lint 171 files, 0 errors; locale parity 57 entries per locale, clean; build 120 pages, QA 0 errors, 48 PDFs, 120 Open Graph images; link test 19,697 internal links (13,696 to an anchor), 0 broken; anchor test 32 of 32; behavior test 81 of 81; keyboard test 33 of 33; UI check 165 views (the 17 pages plus the new section at its anchor, three locales, 375px light, 1280px light and 375px dark), no problems; axe-core 4.13.0: 363 page runs, 0 violations; Lighthouse: all 18 medians 99 or higher (performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; one of the three zh-Hans home mobile runs scored 87, the median stayed 99); sources job run 37181587302: 176 entries, 0 failures, every link tied to its work; help lines 14 of 14. The new section was also read on the screenshots at 375px and 1280px in all three locales, light and dark (docs/screenshots/*situation-ignores-me*).
+- **Not done:** the GitHub repository description still says "ages 0 to 10". No tool in this session can change repository settings (and CLAUDE.md reserves GitHub settings for Cowork): Cowork or Brian can set it to "Trilingual child discipline guide, ages 0 to 12" in the repo's About box.
+
 ### Image pass (INBOX item 3), 2026-10-04 from 12:45 Taipei, in progress
 
 Brian's image direction with his correction of the same day (no label, caption, watermark or provenance metadata on images), carried out without Brian in daily batches. SPEC §9 is rewritten; the review log and the model choice are in docs/IMAGES.md.
@@ -59,17 +66,18 @@ Both domains resolved within minutes of Cowork's Cloudflare fix (reported at abo
 | Check | Result |
 |---|---|
 | Fact-check per claim | 11 build-phase reviews, the final text review, the Fable audit's re-verification of all markers against the source checker's abstracts, and this pass's translation QA, which checked every cited sentence in all three locales against the source's finding and key facts (about 25 accuracy fixes) |
-| Content lint | 168 files, 0 errors, 0 warnings (also rejects personal names outside About, misspellings of WeiMeiJiao, and heading mismatches between locales) |
+| Content lint | 171 files, 0 errors, 0 warnings (also rejects personal names outside About, misspellings of WeiMeiJiao, and heading mismatches between locales) |
+| Locale parity | `scripts/parity-test.mjs` in CI: 57 entries per locale, every page, situation, tool, phase and learning page in all three locales, frontmatter lists the same length, alt text in every locale for 55 images |
 | Build and QA | 120 pages (40 per locale), 0 errors, 0 warnings; no third-party assets |
-| Link test | 19,328 internal links, 13,327 to an anchor, 0 broken |
+| Link test | 19,697 internal links, 13,696 to an anchor, 0 broken |
 | Anchor test | 32 of 32 deep links land on their target (375px and 1280px) |
 | Behavior test | 81 of 81 checks pass in all three locales |
 | Keyboard test | 33 of 33 checks pass at 375px in all three locales |
 | Accessibility | axe-core 4.13.0, WCAG 2.2 AA plus best practice: 0 violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px); html-validate from the final pass |
-| UI check | 156 views in three locales (17 pages): no overflow, console errors, failed requests or broken images; dark mode passes; header fits |
+| UI check | 165 views in three locales (17 pages plus the new situation section at its anchor): no overflow, console errors, failed requests or broken images; dark mode passes; header fits |
 | Printables | 45 one-page sheets and 3 two-page age finders, all at 100% scale |
 | Lighthouse | all 18 medians (3 runs each) are 99 or higher: performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md) |
-| Sources and help lines | Actions run 37176288709: 165 sources, 0 failures; landing pages 8 carry the cited DOI in their citation metadata, 82 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 75 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page; all 14 help-line numbers found on their official pages |
+| Sources and help lines | Actions run 37181587302: 176 sources, 0 failures; landing pages 8 carry the cited DOI in their citation metadata, 88 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 80 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page; all 14 help-line numbers found on their official pages |
 
 ### What is built
 

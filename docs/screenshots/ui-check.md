@@ -1,6 +1,6 @@
-# UI check (2026-10-04 04:17 UTC)
+# UI check (2026-10-04 06:46 UTC)
 
-156 page views: 17 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen; overflow, header, console, image and request checks cover the whole page.
+165 page views: 18 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen, or the section a view's anchor names; overflow, header, console, image and request checks cover the whole page.
 
 ## Problems
 
@@ -31,6 +31,9 @@ None.
 | zh-hans | situations | 375 | light | - | ok | [zh-hans-situations-375.jpg](zh-hans-situations-375.jpg) |
 | zh-hans | situations | 1280 | light | ok | ok | [zh-hans-situations-1280.jpg](zh-hans-situations-1280.jpg) |
 | zh-hans | situations | 375 | dark | - | ok | [zh-hans-situations-375-dark.jpg](zh-hans-situations-375-dark.jpg) |
+| zh-hans | situation-ignores-me | 375 | light | - | ok | [zh-hans-situation-ignores-me-375.jpg](zh-hans-situation-ignores-me-375.jpg) |
+| zh-hans | situation-ignores-me | 1280 | light | - | ok | [zh-hans-situation-ignores-me-1280.jpg](zh-hans-situation-ignores-me-1280.jpg) |
+| zh-hans | situation-ignores-me | 375 | dark | - | ok | [zh-hans-situation-ignores-me-375-dark.jpg](zh-hans-situation-ignores-me-375-dark.jpg) |
 | zh-hans | little-time | 375 | light | - | ok | [zh-hans-little-time-375.jpg](zh-hans-little-time-375.jpg) |
 | zh-hans | little-time | 1280 | light | ok | ok | [zh-hans-little-time-1280.jpg](zh-hans-little-time-1280.jpg) |
 | zh-hans | little-time | 375 | dark | - | ok | [zh-hans-little-time-375-dark.jpg](zh-hans-little-time-375-dark.jpg) |
@@ -83,6 +86,9 @@ None.
 | zh-hant | situations | 375 | light | - | ok | [zh-hant-situations-375.jpg](zh-hant-situations-375.jpg) |
 | zh-hant | situations | 1280 | light | ok | ok | [zh-hant-situations-1280.jpg](zh-hant-situations-1280.jpg) |
 | zh-hant | situations | 375 | dark | - | ok | [zh-hant-situations-375-dark.jpg](zh-hant-situations-375-dark.jpg) |
+| zh-hant | situation-ignores-me | 375 | light | - | ok | [zh-hant-situation-ignores-me-375.jpg](zh-hant-situation-ignores-me-375.jpg) |
+| zh-hant | situation-ignores-me | 1280 | light | - | ok | [zh-hant-situation-ignores-me-1280.jpg](zh-hant-situation-ignores-me-1280.jpg) |
+| zh-hant | situation-ignores-me | 375 | dark | - | ok | [zh-hant-situation-ignores-me-375-dark.jpg](zh-hant-situation-ignores-me-375-dark.jpg) |
 | zh-hant | little-time | 375 | light | - | ok | [zh-hant-little-time-375.jpg](zh-hant-little-time-375.jpg) |
 | zh-hant | little-time | 1280 | light | ok | ok | [zh-hant-little-time-1280.jpg](zh-hant-little-time-1280.jpg) |
 | zh-hant | little-time | 375 | dark | - | ok | [zh-hant-little-time-375-dark.jpg](zh-hant-little-time-375-dark.jpg) |
@@ -135,6 +141,9 @@ None.
 | en | situations | 375 | light | - | ok | [en-situations-375.jpg](en-situations-375.jpg) |
 | en | situations | 1280 | light | ok | ok | [en-situations-1280.jpg](en-situations-1280.jpg) |
 | en | situations | 375 | dark | - | ok | [en-situations-375-dark.jpg](en-situations-375-dark.jpg) |
+| en | situation-ignores-me | 375 | light | - | ok | [en-situation-ignores-me-375.jpg](en-situation-ignores-me-375.jpg) |
+| en | situation-ignores-me | 1280 | light | - | ok | [en-situation-ignores-me-1280.jpg](en-situation-ignores-me-1280.jpg) |
+| en | situation-ignores-me | 375 | dark | - | ok | [en-situation-ignores-me-375-dark.jpg](en-situation-ignores-me-375-dark.jpg) |
 | en | little-time | 375 | light | - | ok | [en-little-time-375.jpg](en-little-time-375.jpg) |
 | en | little-time | 1280 | light | ok | ok | [en-little-time-1280.jpg](en-little-time-1280.jpg) |
 | en | little-time | 375 | dark | - | ok | [en-little-time-375-dark.jpg](en-little-time-375-dark.jpg) |
