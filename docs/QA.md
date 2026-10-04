@@ -182,28 +182,30 @@ Judgment calls recorded for Brian (not changed, see STATUS.md): the SPEC §7.4 e
 See STATUS.md: the judgment calls listed under the fact-check above; the AAP 2018 statement's reaffirmation status; the SPEC §4a time-out studies that cannot be cited; the 21 illustrations still waiting on the Workers AI quota (unchanged by this audit); Enforce HTTPS.
 
 <!-- link-test:start -->
-Link test run 2026-10-04 02:20 UTC over dist/ (106 HTML pages).
+Link test run 2026-10-04 04:12 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 36 | 4813 | 3070 | 0 |
-| zh-hant | 35 | 4773 | 3069 | 0 |
-| en | 35 | 4773 | 3069 | 0 |
-| all | 106 | 14359 | 9208 | 0 |
+| zh-hans | 41 | 6470 | 4443 | 0 |
+| zh-hant | 40 | 6429 | 4442 | 0 |
+| en | 40 | 6429 | 4442 | 0 |
+| all | 121 | 19328 | 13327 | 0 |
 
-In-content links to a whole page (no #anchor), for review: 72 target page(s).
+In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
 - /printables/summary-0-12-months/ <- /by-age/0-12-months/ ("打印本阶段的一页总结"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
 - /by-age/1-3-years/ <- /by-age/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /by-age/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /by-age/ ("学步儿（1-3 岁）")
 - /printables/summary-1-3-years/ <- /by-age/1-3-years/ ("打印本阶段的一页总结"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
 - /by-age/0-12-months/ <- /by-age/1-3-years/ ("上一个阶段宝宝（0-12 个月）"); /by-age/ ("宝宝（0-12 个月）")
 - /by-age/3-5-years/ <- /by-age/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /by-age/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /by-age/ ("学龄前（3-5 岁）")
+- /printables/summary-10-12-years/ <- /by-age/10-12-years/ ("打印本阶段的一页总结"); /printables/ ("青春期前（10-12 岁）"); /printables/ ("打印")
+- /by-age/7-10-years/ <- /by-age/10-12-years/ ("上一个阶段小学生（7-10 岁）"); /by-age/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /by-age/ ("小学生（7-10 岁）")
 - /printables/routine-chart/ <- /by-age/3-5-years/ ("作息表"); /little-time/ ("日常作息表"); /printables/ ("早晚作息表"); +3 more
 - /printables/summary-3-5-years/ <- /by-age/3-5-years/ ("打印本阶段的一页总结"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
 - /by-age/5-7-years/ <- /by-age/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /by-age/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /by-age/ ("幼小衔接（5-7 岁）")
 - /printables/summary-5-7-years/ <- /by-age/5-7-years/ ("打印本阶段的一页总结"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
-- /by-age/7-10-years/ <- /by-age/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /by-age/ ("小学生（7-10 岁）")
 - /printables/summary-7-10-years/ <- /by-age/7-10-years/ ("打印本阶段的一页总结"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
+- /by-age/10-12-years/ <- /by-age/7-10-years/ ("下一个阶段青春期前（10-12 岁）"); /by-age/ ("青春期前（10-12 岁）")
 - /printables/age-finder/ <- /by-age/ ("年龄小测验"); /printables/ ("年龄小测验"); /printables/ ("打印")
 - /en/printables/family-rules/ <- /en/approach/ ("family rules poster"); /en/by-age/3-5-years/ ("family rules poster"); /en/printables/ ("Family rules poster"); +3 more
 - /en/printables/summary-0-12-months/ <- /en/by-age/0-12-months/ ("Print the one-page summary for this age"); /en/printables/ ("Babies (0-12 months)"); /en/printables/ ("Print")
@@ -211,45 +213,43 @@ In-content links to a whole page (no #anchor), for review: 72 target page(s).
 - /en/printables/summary-1-3-years/ <- /en/by-age/1-3-years/ ("Print the one-page summary for this age"); /en/printables/ ("Toddlers (1-3 years)"); /en/printables/ ("Print")
 - /en/by-age/0-12-months/ <- /en/by-age/1-3-years/ ("Previous ageBabies (0-12 months)"); /en/by-age/ ("Babies (0-12 months)")
 - /en/by-age/3-5-years/ <- /en/by-age/1-3-years/ ("Next agePreschoolers (3-5 years)"); /en/by-age/5-7-years/ ("Previous agePreschoolers (3-5 years)"); /en/by-age/ ("Preschoolers (3-5 years)")
+- /en/printables/summary-10-12-years/ <- /en/by-age/10-12-years/ ("Print the one-page summary for this age"); /en/printables/ ("Preteens (10-12 years)"); /en/printables/ ("Print")
+- /en/by-age/7-10-years/ <- /en/by-age/10-12-years/ ("Previous ageSchool age (7-10 years)"); /en/by-age/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/by-age/ ("School age (7-10 years)")
 - /en/printables/routine-chart/ <- /en/by-age/3-5-years/ ("routine chart"); /en/little-time/ ("routine chart"); /en/printables/ ("Morning and evening routine chart"); +3 more
 - /en/printables/summary-3-5-years/ <- /en/by-age/3-5-years/ ("Print the one-page summary for this age"); /en/printables/ ("Preschoolers (3-5 years)"); /en/printables/ ("Print")
 - /en/by-age/5-7-years/ <- /en/by-age/3-5-years/ ("Next ageStarting school (5-7 years)"); /en/by-age/7-10-years/ ("Previous ageStarting school (5-7 years)"); /en/by-age/ ("Starting school (5-7 years)")
 - /en/printables/summary-5-7-years/ <- /en/by-age/5-7-years/ ("Print the one-page summary for this age"); /en/printables/ ("Starting school (5-7 years)"); /en/printables/ ("Print")
-- /en/by-age/7-10-years/ <- /en/by-age/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/by-age/ ("School age (7-10 years)")
 - /en/printables/summary-7-10-years/ <- /en/by-age/7-10-years/ ("Print the one-page summary for this age"); /en/printables/ ("School age (7-10 years)"); /en/printables/ ("Print")
+- /en/by-age/10-12-years/ <- /en/by-age/7-10-years/ ("Next agePreteens (10-12 years)"); /en/by-age/ ("Preteens (10-12 years)")
 - /en/printables/age-finder/ <- /en/by-age/ ("age finder"); /en/printables/ ("Age finder quiz"); /en/printables/ ("Print")
 - /en/printables/learning-0-12-months/ <- /en/learning/0-12-months/ ("Print the learning one-pager for this ag"); /en/printables/ ("Babies (0-12 months)"); /en/printables/ ("Print")
 - /en/learning/1-3-years/ <- /en/learning/0-12-months/ ("Next ageToddlers (1-3 years)"); /en/learning/3-5-years/ ("Previous ageToddlers (1-3 years)"); /en/learning/ ("Toddlers (1-3 years)")
 - /en/printables/learning-1-3-years/ <- /en/learning/1-3-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Toddlers (1-3 years)"); /en/printables/ ("Print")
 - /en/learning/0-12-months/ <- /en/learning/1-3-years/ ("Previous ageBabies (0-12 months)"); /en/learning/ ("Babies (0-12 months)")
 - /en/learning/3-5-years/ <- /en/learning/1-3-years/ ("Next agePreschoolers (3-5 years)"); /en/learning/5-7-years/ ("Previous agePreschoolers (3-5 years)"); /en/learning/ ("Preschoolers (3-5 years)")
+- /en/printables/learning-10-12-years/ <- /en/learning/10-12-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Preteens (10-12 years)"); /en/printables/ ("Print")
+- /en/learning/7-10-years/ <- /en/learning/10-12-years/ ("Previous ageSchool age (7-10 years)"); /en/learning/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/learning/ ("School age (7-10 years)")
 - /en/printables/learning-3-5-years/ <- /en/learning/3-5-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Preschoolers (3-5 years)"); /en/printables/ ("Print")
 - /en/learning/5-7-years/ <- /en/learning/3-5-years/ ("Next ageStarting school (5-7 years)"); /en/learning/7-10-years/ ("Previous ageStarting school (5-7 years)"); /en/learning/ ("Starting school (5-7 years)")
 - /en/printables/learning-5-7-years/ <- /en/learning/5-7-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("Starting school (5-7 years)"); /en/printables/ ("Print")
-- /en/learning/7-10-years/ <- /en/learning/5-7-years/ ("Next ageSchool age (7-10 years)"); /en/learning/ ("School age (7-10 years)")
 - /en/printables/learning-7-10-years/ <- /en/learning/7-10-years/ ("Print the learning one-pager for this ag"); /en/printables/ ("School age (7-10 years)"); /en/printables/ ("Print")
+- /en/learning/10-12-years/ <- /en/learning/7-10-years/ ("Next agePreteens (10-12 years)"); /en/learning/ ("Preteens (10-12 years)")
 - /en/printables/calm-down-plan/ <- /en/printables/ ("My calm-down plan"); /en/printables/ ("Print"); /en/situations/ ("calm-down plan"); +1 more
 - /printables/learning-0-12-months/ <- /learning/0-12-months/ ("打印本阶段的学习一页纸"); /printables/ ("宝宝（0-12 个月）"); /printables/ ("打印")
 - /learning/1-3-years/ <- /learning/0-12-months/ ("下一个阶段学步儿（1-3 岁）"); /learning/3-5-years/ ("上一个阶段学步儿（1-3 岁）"); /learning/ ("学步儿（1-3 岁）")
 - /printables/learning-1-3-years/ <- /learning/1-3-years/ ("打印本阶段的学习一页纸"); /printables/ ("学步儿（1-3 岁）"); /printables/ ("打印")
 - /learning/0-12-months/ <- /learning/1-3-years/ ("上一个阶段宝宝（0-12 个月）"); /learning/ ("宝宝（0-12 个月）")
 - /learning/3-5-years/ <- /learning/1-3-years/ ("下一个阶段学龄前（3-5 岁）"); /learning/5-7-years/ ("上一个阶段学龄前（3-5 岁）"); /learning/ ("学龄前（3-5 岁）")
+- /printables/learning-10-12-years/ <- /learning/10-12-years/ ("打印本阶段的学习一页纸"); /printables/ ("青春期前（10-12 岁）"); /printables/ ("打印")
+- /learning/7-10-years/ <- /learning/10-12-years/ ("上一个阶段小学生（7-10 岁）"); /learning/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /learning/ ("小学生（7-10 岁）")
 - /printables/learning-3-5-years/ <- /learning/3-5-years/ ("打印本阶段的学习一页纸"); /printables/ ("学龄前（3-5 岁）"); /printables/ ("打印")
 - /learning/5-7-years/ <- /learning/3-5-years/ ("下一个阶段幼小衔接（5-7 岁）"); /learning/7-10-years/ ("上一个阶段幼小衔接（5-7 岁）"); /learning/ ("幼小衔接（5-7 岁）")
 - /printables/learning-5-7-years/ <- /learning/5-7-years/ ("打印本阶段的学习一页纸"); /printables/ ("幼小衔接（5-7 岁）"); /printables/ ("打印")
-- /learning/7-10-years/ <- /learning/5-7-years/ ("下一个阶段小学生（7-10 岁）"); /learning/ ("小学生（7-10 岁）")
 - /printables/learning-7-10-years/ <- /learning/7-10-years/ ("打印本阶段的学习一页纸"); /printables/ ("小学生（7-10 岁）"); /printables/ ("打印")
+- /learning/10-12-years/ <- /learning/7-10-years/ ("下一个阶段青春期前（10-12 岁）"); /learning/ ("青春期前（10-12 岁）")
 - /printables/calm-down-plan/ <- /printables/ ("我的冷静计划"); /printables/ ("打印"); /situations/ ("冷静计划"); +1 more
 - /zh-hant/printables/family-rules/ <- /zh-hant/approach/ ("家規海報"); /zh-hant/by-age/3-5-years/ ("家規海報"); /zh-hant/printables/ ("家規海報"); +3 more
 - /zh-hant/printables/summary-0-12-months/ <- /zh-hant/by-age/0-12-months/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("寶寶（0-12 個月）"); /zh-hant/printables/ ("列印")
 - /zh-hant/by-age/1-3-years/ <- /zh-hant/by-age/0-12-months/ ("下一個階段學步兒（1-3 歲）"); /zh-hant/by-age/3-5-years/ ("上一個階段學步兒（1-3 歲）"); /zh-hant/by-age/ ("學步兒（1-3 歲）")
 - /zh-hant/printables/summary-1-3-years/ <- /zh-hant/by-age/1-3-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學步兒（1-3 歲）"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/0-12-months/ <- /zh-hant/by-age/1-3-years/ ("上一個階段寶寶（0-12 個月）"); /zh-hant/by-age/ ("寶寶（0-12 個月）")
-- /zh-hant/by-age/3-5-years/ <- /zh-hant/by-age/1-3-years/ ("下一個階段學齡前（3-5 歲）"); /zh-hant/by-age/5-7-years/ ("上一個階段學齡前（3-5 歲）"); /zh-hant/by-age/ ("學齡前（3-5 歲）")
-- /zh-hant/printables/routine-chart/ <- /zh-hant/by-age/3-5-years/ ("作息表"); /zh-hant/little-time/ ("作息表"); /zh-hant/printables/ ("早晚作息表"); +3 more
-- /zh-hant/printables/summary-3-5-years/ <- /zh-hant/by-age/3-5-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("學齡前（3-5 歲）"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/5-7-years/ <- /zh-hant/by-age/3-5-years/ ("下一個階段幼小銜接（5-7 歲）"); /zh-hant/by-age/7-10-years/ ("上一個階段幼小銜接（5-7 歲）"); /zh-hant/by-age/ ("幼小銜接（5-7 歲）")
-- /zh-hant/printables/summary-5-7-years/ <- /zh-hant/by-age/5-7-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("幼小銜接（5-7 歲）"); /zh-hant/printables/ ("列印")
-- /zh-hant/by-age/7-10-years/ <- /zh-hant/by-age/5-7-years/ ("下一個階段國小學童（7-10 歲）"); /zh-hant/by-age/ ("國小學童（7-10 歲）")
-- /zh-hant/printables/summary-7-10-years/ <- /zh-hant/by-age/7-10-years/ ("列印本階段的一頁摘要"); /zh-hant/printables/ ("國小學童（7-10 歲）"); /zh-hant/printables/ ("列印")
 <!-- link-test:end -->
