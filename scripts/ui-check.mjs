@@ -3,8 +3,8 @@
 //     and 375px (dark) to docs/screenshots/, plus the home page at 320px
 //   - every listed page, full height: no horizontal overflow, no console errors, no broken images;
 //     the site name in the header is neither cut off nor running under the header controls
-//   - keyboard: the first Tab lands on a visible skip link; Tab moves through header controls
-//     with a visible focus indicator; Enter on the skip link moves focus to <main>
+//   - keyboard (views without an anchor): the first Tab lands on a visible skip link; Tab moves through
+//     header controls with a visible focus indicator; Enter on the skip link moves focus to <main>
 //   - dark mode: the page background really is dark when the system prefers dark
 //   node scripts/ui-check.mjs            (writes docs/screenshots/*.jpg and docs/screenshots/ui-check.md)
 import { mkdir, writeFile, rm } from 'node:fs/promises';
@@ -104,9 +104,10 @@ async function check(locale, name, path, width, scheme) {
   if (scheme === 'dark' && lum !== null && lum > 0.3) issues.push(`dark mode background is light (${info.bg})`);
   if (scheme === 'light' && lum !== null && lum < 0.7) issues.push(`light mode background is dark (${info.bg})`);
 
-  // Keyboard, once per page at desktop width in light mode.
+  // Keyboard, once per page at desktop width in light mode. Not on an anchored view: after fragment
+  // navigation the browser starts Tab from the section, as it should, so the skip link is not first.
   let keys = '';
-  if (width === 1280 && scheme === 'light') {
+  if (width === 1280 && scheme === 'light' && !path.includes('#')) {
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.keyboard.press('Tab');
     await page.waitForTimeout(200);
