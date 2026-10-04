@@ -6,9 +6,11 @@ Revised 2026-10-04 by Brian's SPEC change (academic-only sources, no per-country
 
 Revised again 2026-10-04 (Brian, via the Fable audit session): the English brand name is WeiMeiJiao, one word; personal and family references appear only on the About page, the rest of the site speaks in a neutral expert voice (§1, §6, §8). Logged in docs/REVIEWER-CHANGES.md.
 
+Revised a third time 2026-10-04 (Brian, via the Fable session): the age range runs to 12 with a new 10-12 phase everywhere (§1, §5, §5a, §5.7); a separate, low-key Sources page lists every source (§5.9); every source link must resolve to the correct work, not just answer 200 (§6, §10); a full translation QA with docs/GLOSSARY.md as the terminology reference (§6). Logged in docs/REVIEWER-CHANGES.md.
+
 ## 1. What this is
 
-A free, trilingual, research-based educational website on **disciplining young children, birth to about age 10**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, organized by developmental phase, with printable tools. The site grew out of a parent raising his own kids, but that story lives on the About page only (§8); every other page speaks in a neutral expert voice.
+A free, trilingual, research-based educational website on **disciplining young children, birth to about age 12**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, organized by developmental phase, with printable tools. The site grew out of a parent raising his own kids, but that story lives on the About page only (§8); every other page speaks in a neutral expert voice.
 
 Audience: parents and caregivers (primary), grandparents, teachers and nannies (secondary). Chinese-speaking families in Taiwan, mainland China and overseas, plus English readers.
 
