@@ -33,7 +33,7 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
     fontBody: "'WMJ Punct TC Sans','DM Sans','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif",
     fontHead: "'WMJ Punct TC Serif','Lora','Noto Serif TC','Songti TC','PMingLiU',serif",
   },
-  en: { lang: 'en', prefix: '/en', label: 'English', og: 'en_US', fontCss: null, siteName: 'Wei Mei Jiao' },
+  en: { lang: 'en', prefix: '/en', label: 'English', og: 'en_US', fontCss: null, siteName: 'WeiMeiJiao' },
 };
 
 export function isLocale(value: unknown): value is Locale {

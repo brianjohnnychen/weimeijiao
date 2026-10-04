@@ -80,7 +80,8 @@ const BANNED = [
   { re: /–/, label: 'en dash (use a hyphen for ranges)' },
   { re: /WMJ-DRAFT/, label: 'draft marker' },
   { re: /\b(TODO|TBD|FIXME|lorem ipsum|XXX)\b/i, label: 'placeholder text' },
-  { re: /\b(Naomi|Kelsea)\b/, label: "daughters' names (About page only)", unless: (f) => f.includes('/pages/about.mdx') },
+  { re: /\b(Brian|Zoe|Naomi|Kelsea)\b/, label: 'personal names (About page only; every other page is in a neutral expert voice)', unless: (f) => f.includes('/pages/about.mdx') },
+  { re: /\b(Wei Mei Jiao|Weimeijiao|WeiMeijiao|Wei-Mei-Jiao)\b/, label: 'English brand name is WeiMeiJiao, one word' },
 ];
 
 const errors = [];

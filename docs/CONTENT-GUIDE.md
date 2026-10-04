@@ -11,7 +11,8 @@ The full build (`npm run build`) runs QA on the built pages and `node scripts/li
 ## 1. Voice
 
 - Warm, direct, non-judgmental, short sentences. Parents arrive stressed. The first screen of every page answers "what do I do now?": that is the `start` list (3 to 5 concrete steps) or the `now` list on situations.
-- Talk to the parent ("you"), about "your child". Children in examples are generic: no names (the daughters' names appear only on the About page).
+- Talk to the parent ("you"), about "your child". Children in examples are generic: no names. Personal and family references (Brian, Zoe, Naomi, Kelsea, the owner's "my kids" or "our family", the relocation story, dedications) appear only on the About page; every other page speaks in a neutral expert voice. Generic parent scripts such as "In our family, hands are gentle" are fine.
+- The English brand name is WeiMeiJiao, one word with no spaces (the Chinese names are 魏美娇 / 魏美嬌). The linter rejects other spellings.
 - Practical first, then why. No moralizing, no shaming, no guilt. Admit uncertainty plainly.
 - Each locale is written natively, not translated sentence by sentence. Scripts ("what to say") must sound like something a parent in that place would really say to a child.
 

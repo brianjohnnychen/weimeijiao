@@ -24,7 +24,7 @@ async function head(url) {
 const checks = [
   { name: 'Home (zh-Hans) loads', url: `${PRIMARY}/`, want: (r) => r.status === 200 && r.body.includes('魏美娇') },
   { name: 'Home (zh-Hant) loads', url: `${PRIMARY}/zh-hant/`, want: (r) => r.status === 200 && r.body.includes('魏美嬌') },
-  { name: 'Home (en) loads', url: `${PRIMARY}/en/`, want: (r) => r.status === 200 && r.body.includes('Wei Mei Jiao') },
+  { name: 'Home (en) loads', url: `${PRIMARY}/en/`, want: (r) => r.status === 200 && r.body.includes('WeiMeiJiao') },
   { name: 'Deep page loads', url: `${PRIMARY}/en/toolbox/`, want: (r) => r.status === 200 && r.body.includes('id="time-out"') },
   { name: 'Research page loads', url: `${PRIMARY}/research/`, want: (r) => r.status === 200 && r.body.includes('id="bibliography"') },
   { name: 'Unknown path gives 404 page', url: `${PRIMARY}/no-such-page-smoke-test/`, want: (r) => r.status === 404 },

@@ -288,7 +288,7 @@ export const UI: Record<Locale, UiStrings> = {
     },
     tool: { how: 'How to do it', ages: 'Ages it fits', evidence: 'Evidence strength', mistakes: 'Common mistakes', say: 'Things you can say', related: 'Related tools', relatedSituations: 'Situations it helps with' },
     situation: { now: 'Right now', why: 'Why it happens', say: 'Things you can say', prevent: 'Preventing the next one', help: 'When to get help', tools: 'Tools that help' },
-    print: { print: 'Print', pdf: 'Download PDF', printHint: 'Prints on one A4 or Letter page.', printHintTwo: 'Prints on two A4 or Letter pages.', fromSite: 'From weimeijiao (魏美娇.com)', sources: 'Sources:', notes: 'How to use this sheet' },
+    print: { print: 'Print', pdf: 'Download PDF', printHint: 'Prints on one A4 or Letter page.', printHintTwo: 'Prints on two A4 or Letter pages.', fromSite: 'From WeiMeiJiao (weimeijiao.com)', sources: 'Sources:', notes: 'How to use this sheet' },
     quiz: {
       see: 'See the result',
       restart: 'Start over',

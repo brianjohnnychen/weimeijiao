@@ -4,13 +4,15 @@ Owner: Brian Chen (Meteor City LLC). Built in Claude Code from this repo. Not Lo
 
 Revised 2026-10-04 by Brian's SPEC change (academic-only sources, no per-country law content, new sections: The one best-proven approach with edge cases, When you have little time, Encouraging learning). Logged in docs/REVIEWER-CHANGES.md.
 
+Revised again 2026-10-04 (Brian, via the Fable audit session): the English brand name is WeiMeiJiao, one word; personal and family references appear only on the About page, the rest of the site speaks in a neutral expert voice (§1, §6, §8). Logged in docs/REVIEWER-CHANGES.md.
+
 ## 1. What this is
 
-A free, trilingual, research-based educational website on **disciplining young children, birth to about age 10**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, built by a parent about his own kids, organized by developmental phase, with printable tools.
+A free, trilingual, research-based educational website on **disciplining young children, birth to about age 10**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, organized by developmental phase, with printable tools. The site grew out of a parent raising his own kids, but that story lives on the About page only (§8); every other page speaks in a neutral expert voice.
 
 Audience: parents and caregivers (primary), grandparents, teachers and nannies (secondary). Chinese-speaking families in Taiwan, mainland China and overseas, plus English readers.
 
-Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Traditional) / "Wei Mei Jiao" (English). Choose a short tagline per language in §6 voice. No mascot or third-party characters.
+Name and brand: the site's name is 魏美娇 (Simplified) / 魏美嬌 (Traditional) / "WeiMeiJiao" (English: one word, no spaces, everywhere it appears: site title, header, footer, meta and Open Graph tags, PDFs, alt text and docs). Choose a short tagline per language in §6 voice. No mascot or third-party characters.
 
 ## 2. Domains and hosting (already set up by the Cowork chat, do not redo)
 
@@ -79,6 +81,7 @@ Three locales, full parity (every page exists in all three):
 - Scripts and examples are written natively in each language, not translated word for word.
 - No em dashes in any user-facing copy in any language.
 - Children in examples are generic; never use Brian's daughters' names outside the About page.
+- No personal or family references outside the About page: no Brian, Zoe, Naomi or Kelsea, no "my kids" or "our family" meaning the owner's family, no relocation story, no dedications. Those passages are written in a neutral expert voice. The About page keeps the family story and the photo gallery (§8). Parent scripts such as "In our family, hands are gentle" are generic and fine.
 
 ## 7. Physical discipline page (Brian's decision: present both sides)
 
