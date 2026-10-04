@@ -1,19 +1,22 @@
 // Post-deploy smoke test for the live site and its redirect domains (SPEC §2).
 // Runs in GitHub Actions after deploy.yml's deploy job and on demand via smoke.yml.
-//   node scripts/smoke-test.mjs              check everything, retrying for a few minutes
+//   node scripts/smoke-test.mjs              check everything, retrying for up to 8 minutes
 //   node scripts/smoke-test.mjs --once       single attempt (no waiting for Pages to update)
 // Exit code 1 if the primary site or a redirect domain fails; HTTPS enforcement and www are
 // reported as warnings until Enforce HTTPS is on and the certificate covers www.
+// The checks run in parallel and each request gives up after 20 seconds, so even when a domain
+// does not resolve (slow DNS failures) the result table is always printed before the job's
+// time limit.
 import { appendFileSync } from 'node:fs';
 
 const PRIMARY = 'https://xn--3ys368f86s.com';
 const once = process.argv.includes('--once');
-const attempts = once ? 1 : 10;
+const deadline = Date.now() + (once ? 0 : 8 * 60 * 1000);
 const pause = 30000;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function head(url) {
-  const res = await fetch(url, { redirect: 'manual', headers: { 'User-Agent': 'weimeijiao-smoke-test' } });
+  const res = await fetch(url, { redirect: 'manual', headers: { 'User-Agent': 'weimeijiao-smoke-test' }, signal: AbortSignal.timeout(20000) });
   const body = res.status === 200 ? await res.text() : '';
   return { status: res.status, location: res.headers.get('location') ?? '', body };
 }
@@ -40,20 +43,21 @@ const checks = [
   { name: 'www redirects to apex', url: 'https://www.xn--3ys368f86s.com/', want: (r) => [301, 308].includes(r.status) && r.location.startsWith(PRIMARY), warnOnly: true },
 ];
 
-let results = [];
-for (let attempt = 1; attempt <= attempts; attempt++) {
-  results = [];
-  for (const c of checks) {
-    let r;
-    try {
-      r = await head(c.url);
-    } catch (err) {
-      r = { status: 0, location: '', body: '', error: String(err?.cause?.code ?? err?.message ?? err) };
-    }
-    results.push({ ...c, r, ok: c.want(r) });
+const check = async (c) => {
+  let r;
+  try {
+    r = await head(c.url);
+  } catch (err) {
+    r = { status: 0, location: '', body: '', error: String(err?.cause?.code ?? err?.name ?? err?.message ?? err) };
   }
+  return { ...c, r, ok: c.want(r) };
+};
+
+let results = [];
+for (let attempt = 1; ; attempt++) {
+  results = await Promise.all(checks.map(check));
   const hardFail = results.filter((x) => !x.ok && !x.warnOnly);
-  if (!hardFail.length || attempt === attempts) break;
+  if (!hardFail.length || Date.now() + pause > deadline) break;
   console.log(`Attempt ${attempt}: ${hardFail.length} check(s) failing, retrying in ${pause / 1000}s (Pages can take a few minutes)`);
   await sleep(pause);
 }
