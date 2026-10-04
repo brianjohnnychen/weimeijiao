@@ -124,7 +124,7 @@ images:
     size: '4:3'
   - id: phase-1-3-years
     page: phase/1-3-years
-    prompt: "An eighteen-month-old toddler in a Shanghai apartment kitchen reaching for a cupboard handle while a parent crouches beside and offers a plastic bowl instead, a small toddler frown, afternoon light, a high chair and a rice cooker in the frame."
+    prompt: "An eighteen-month-old toddler in a top and trousers in a Shanghai apartment kitchen reaching for a plain cupboard handle while a parent crouches beside and offers a plastic bowl instead, a small toddler frown, afternoon light, a wooden high chair and plain cupboard doors, the kitchen filling the whole picture."
     alt:
       en: "A toddler reaches for a kitchen cupboard while a parent crouches beside and offers a plastic bowl instead."
       zh-hans: "学步儿伸手去拉厨房柜门，家长蹲在旁边递上一个塑料碗代替。"
@@ -132,7 +132,7 @@ images:
     size: '4:3'
   - id: phase-3-5-years
     page: phase/3-5-years
-    prompt: "A four-year-old in a yellow raincoat pulling on rain boots by the front door of a Taichung apartment while a parent waits with an umbrella, patient, grey daylight from the stairwell, a wet floor mat."
+    prompt: "Close inside an apartment entryway in Taichung: a four-year-old in a yellow raincoat sitting on a low step pulling on the second rain boot, the first boot already on, a parent standing close holding a closed umbrella and waiting patiently, grey rainy-day light, a wet floor mat, the entryway filling the whole picture."
     alt:
       en: "A four-year-old in a yellow raincoat pulls on rain boots by the front door while a parent waits with an umbrella."
       zh-hans: "穿黄雨衣的四岁孩子在门口穿雨靴，家长拿着伞在旁边等。"
@@ -140,7 +140,7 @@ images:
     size: '4:3'
   - id: phase-5-7-years
     page: phase/5-7-years
-    prompt: "A six-year-old at a small desk by the window of a Hangzhou apartment doing homework in an exercise book, a parent sitting beside at an angle without touching the pencil, late afternoon light, a backpack hung on the chair."
+    prompt: "A six-year-old at a small desk by the window of a Hangzhou apartment working in an exercise book that lies flat and is seen from a low angle so its pages are plain cream, the pencil hand mostly hidden behind the book, a parent sitting a little back from the desk holding a cup of tea in both hands and watching without touching the work, late afternoon light, a plain backpack hung on the chair, the room filling the whole picture."
     alt:
       en: "A six-year-old does homework at a small desk by the window while a parent sits beside without taking over."
       zh-hans: "六岁的孩子在窗边的小书桌上写作业，家长坐在旁边陪着，没有伸手代劳。"
@@ -148,7 +148,7 @@ images:
     size: '4:3'
   - id: phase-7-10-years
     page: phase/7-10-years
-    prompt: "A nine-year-old and a parent at a kitchen table in Kaohsiung on a Sunday morning, both leaning over a blank weekly planner sheet with colored pens, a bowl of fruit, a glass of soy milk, warm morning light."
+    prompt: "A nine-year-old and a parent at a kitchen table in Kaohsiung on a Sunday morning, both leaning over a blank weekly planner grid with empty cells and no writing, each holding one colored pen, a bowl of fruit, a glass of soy milk, warm morning light, the table filling the whole picture."
     alt:
       en: "A nine-year-old and a parent lean over a weekly planner sheet with colored pens at the kitchen table on a Sunday morning."
       zh-hans: "周日早晨，九岁的孩子和家长在餐桌上拿着彩笔一起看一周计划表。"
@@ -165,7 +165,7 @@ images:
   # Encouraging learning
   - id: learning-0-12-months
     page: learning/0-12-months
-    prompt: "A parent sitting on the floor of a Taipei apartment singing to a baby in their lap, the baby looking up at the parent's face, a board book open on the mat, window light, an electric fan in the corner."
+    prompt: "A parent sitting cross-legged on the floor of a Taipei apartment singing softly to a baby in their lap, the parent smiling with the mouth slightly open and relaxed eyebrows, the baby looking up at the parent's face, a closed board book lying on the mat, window light, a plain electric fan in the corner, the room filling the whole picture."
     alt:
       en: "A parent sits on the floor singing to a baby in their lap, the baby looking up at the parent’s face."
       zh-hans: "家长坐在地板上对着怀里的宝宝唱歌，宝宝抬头看着家长的脸。"
@@ -189,7 +189,7 @@ images:
     size: '4:3'
   - id: learning-5-7-years
     page: learning/5-7-years
-    prompt: "A six-year-old reading a picture book aloud to a parent on a bench on the balcony of a Taipei apartment, laundry drying overhead, evening light, the parent listening with a cup of tea."
+    prompt: "Seen from inside a Taipei apartment balcony so the bench, the railing and the laundry drying overhead fill the picture edge to edge: a six-year-old reading aloud from a picture book held so only its plain back cover faces the viewer, a parent beside on the bench listening with a cup of tea, evening light."
     alt:
       en: "A six-year-old reads a picture book aloud to a parent on a balcony bench under drying laundry."
       zh-hans: "六岁的孩子在阳台的长椅上大声给家长读绘本，头顶晾着衣服。"
@@ -197,7 +197,7 @@ images:
     size: '4:3'
   - id: learning-7-10-years
     page: learning/7-10-years
-    prompt: "A nine-year-old at a desk in a Shanghai apartment quizzing herself with a stack of handwritten flashcards, the plain backs of the cards toward the camera, a parent passing in the hallway with a laundry basket, desk lamp and window light."
+    prompt: "A nine-year-old at a desk in a Shanghai apartment holding up one blank cream index card with its plain side toward the viewer, a small neat stack of blank cards beside the desk lamp, no writing visible anywhere, a parent passing in the hallway behind with a laundry basket, lamp and window light, the room filling the whole picture."
     alt:
       en: "A nine-year-old quizzes herself with flashcards at a desk while a parent passes in the hallway with laundry."
       zh-hans: "九岁的孩子在书桌前用卡片自测，家长抱着洗好的衣服从走廊经过。"
