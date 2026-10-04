@@ -22,12 +22,20 @@ const out = [];
 const check = (cond, msg, extra = '') => out.push(`${cond ? 'ok  ' : 'FAIL'} ${msg}${extra ? ' :: ' + extra : ''}`);
 const PREFIX = ['', '/zh-hant', '/en'];
 const ctxFor = (opts = {}) => browser.newContext({ viewport: { width: 375, height: 812 }, locale: 'en-US', ...opts });
+// Chinese pages switch to their web fonts after load and keep the reader's place by scrolling, so
+// checks that measure positions wait for that switch first (as the anchor test does).
+const open = async (page, target) => {
+  await page.goto(target);
+  await page
+    .waitForFunction(() => !document.documentElement.lang.startsWith('zh') || document.documentElement.classList.contains('cjk-ready'), null, { timeout: 20000 })
+    .catch(() => {});
+};
 
 // 1. Age finder: integer scoring, tie-break, 1.5-point rule; incomplete flow; result focus
 for (const pre of PREFIX) {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}${pre}/printables/age-finder/`);
+  await open(page, `${url}${pre}/printables/age-finder/`);
   const qs = await page.$$eval('fieldset', (fss) => fss.map((fs) => [...fs.querySelectorAll('input')].map((i) => i.value)));
   const phases = await page.$eval('[data-quiz]', (f) => JSON.parse(f.dataset.phases));
   const order = Object.keys(phases);
@@ -76,7 +84,7 @@ for (const pre of PREFIX) {
 for (const pre of PREFIX) {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}${pre}/about/`);
+  await open(page, `${url}${pre}/about/`);
   check((await page.$$('dialog.lightbox img')).length === 0, `${pre || '/'} lightbox: no <img> without a source before opening`);
   const thumbIsLink = await page.$eval('.gallery-thumb', (a) => a.tagName === 'A' && /\.webp$/.test(a.getAttribute('href')));
   check(thumbIsLink, `${pre || '/'} gallery: thumbnails link to the large photo`);
@@ -101,7 +109,7 @@ for (const pre of PREFIX) {
 for (const pre of PREFIX) {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}${pre}/toolbox/`);
+  await open(page, `${url}${pre}/toolbox/`);
   await page.click('button[data-age="0-12-months"]');
   const count = await page.$eval('.filter-count', (e) => e.textContent);
   check(/\d/.test(count), `${pre || '/'} toolbox: filter announces a count`, count);
@@ -128,7 +136,7 @@ const langCtx = async (langs, path) => {
   const ctx = await ctxFor({ locale: langs[0] });
   await ctx.addInitScript((l) => { Object.defineProperty(navigator, 'languages', { get: () => l }); Object.defineProperty(navigator, 'language', { get: () => l[0] }); }, langs);
   const page = await ctx.newPage();
-  await page.goto(url + path);
+  await open(page, url + path);
   const shown = await page.evaluate(() => { const b = document.querySelector('[data-lang-banner]'); if (!b || b.hidden) return null; return b.querySelector('[data-banner-for]:not([hidden])')?.dataset.bannerFor; });
   return { ctx, page, shown };
 };
@@ -159,7 +167,7 @@ const langCtx = async (langs, path) => {
 {
   const ctx = await ctxFor({ colorScheme: 'light' });
   const page = await ctx.newPage();
-  await page.goto(`${url}/en/`);
+  await open(page, `${url}/en/`);
   const l1 = await page.getAttribute('[data-theme-toggle]', 'aria-label');
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.waitForTimeout(100);
@@ -176,7 +184,7 @@ const langCtx = async (langs, path) => {
 {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}/toolbox/#time-out`);
+  await open(page, `${url}/toolbox/#time-out`);
   await page.click('.lang-switch a[data-set-locale="en"]');
   await page.waitForLoadState('load');
   check(page.url().endsWith('/en/toolbox/#time-out'), 'language switcher carries the #section', page.url());
@@ -204,9 +212,9 @@ const langCtx = async (langs, path) => {
 {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}/en/`);
+  await open(page, `${url}/en/`);
   await page.evaluate(() => localStorage.setItem('wmj-locale', 'en'));
-  await page.goto(`${url}/en/no-such-page/`);
+  await open(page, `${url}/en/no-such-page/`);
   await page.waitForTimeout(300);
   const st = await page.evaluate(() => ({ path: location.pathname, banner: !!document.querySelector('[data-lang-banner]'), current: document.querySelectorAll('[aria-current="page"]').length }));
   check(st.path === '/en/no-such-page/' && !st.banner && st.current === 0, '404: no redirect, no banner, nothing marked current', JSON.stringify(st));
@@ -217,7 +225,7 @@ const langCtx = async (langs, path) => {
 for (const p of ['/printables/routine-chart/', '/zh-hant/printables/routine-chart/', '/en/printables/routine-chart/', '/printables/age-finder/', '/zh-hant/printables/age-finder/', '/en/printables/age-finder/']) {
   const ctx = await browser.newContext({ viewport: { width: 320, height: 640 } });
   const page = await ctx.newPage();
-  await page.goto(url + p);
+  await open(page, url + p);
   const w = await page.evaluate(() => document.documentElement.scrollWidth);
   check(w <= 320, `320px: ${p} has no sideways scroll`, String(w));
   await ctx.close();
@@ -227,7 +235,7 @@ for (const p of ['/printables/routine-chart/', '/zh-hant/printables/routine-char
 {
   const ctx = await ctxFor({ colorScheme: 'dark' });
   const page = await ctx.newPage();
-  await page.goto(`${url}/en/printables/routine-chart/`);
+  await open(page, `${url}/en/printables/routine-chart/`);
   const c = await page.evaluate(() => { const th = document.querySelector('.routine-table tbody th'); const cs = getComputedStyle(th); return { color: cs.color, bg: cs.backgroundColor, focus: getComputedStyle(document.querySelector('.sheet')).getPropertyValue('--focus').trim() }; });
   const lum = (rgb) => { const [r, g, b] = rgb.match(/\d+/g).slice(0, 3).map(Number).map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
   const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
@@ -240,17 +248,17 @@ for (const p of ['/printables/routine-chart/', '/zh-hant/printables/routine-char
 for (const pre of PREFIX) {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}${pre}/approach/`);
+  await open(page, `${url}${pre}/approach/`);
   await page.click('details.menu summary');
   const links = await page.$$('.menu-panel a');
   await links[links.length - 1].focus();
   await page.keyboard.press('Tab');
-  const open = await page.evaluate(() => document.querySelector('details.menu').open);
-  check(!open, `${pre || '/'} menu: closes when Tab moves past the last link`);
+  const stillOpen = await page.evaluate(() => document.querySelector('details.menu').open);
+  check(!stillOpen, `${pre || '/'} menu: closes when Tab moves past the last link`);
   await page.click('details.menu summary');
   await page.mouse.click(200, 700);
-  const open2 = await page.evaluate(() => document.querySelector('details.menu').open);
-  check(!open2, `${pre || '/'} menu: closes on a tap outside`);
+  const stillOpen2 = await page.evaluate(() => document.querySelector('details.menu').open);
+  check(!stillOpen2, `${pre || '/'} menu: closes on a tap outside`);
   await ctx.close();
 }
 
@@ -258,7 +266,7 @@ for (const pre of PREFIX) {
 {
   const ctx = await ctxFor();
   const page = await ctx.newPage();
-  await page.goto(`${url}/en/toolbox/`);
+  await open(page, `${url}/en/toolbox/`);
   const cite = page.locator('sup.cite a').nth(5);
   const id = await cite.getAttribute('id');
   await cite.click();
@@ -272,11 +280,11 @@ for (const pre of PREFIX) {
 {
   const ctx = await ctxFor({ viewport: { width: 1280, height: 900 } });
   const page = await ctx.newPage();
-  await page.goto(`${url}/en/learning/0-12-months/`);
+  await open(page, `${url}/en/learning/0-12-months/`);
   const m = await page.$eval('a.mixed', (a) => a.getAttribute('href'));
   check(m === '/en/research/#evidence-levels', 'Mixed evidence badge links to its explanation', m);
   for (const p of ['/situations/', '/about/', '/approach/', '/en/', '/zh-hant/by-age/0-12-months/']) {
-    await page.goto(url + p);
+    await open(page, url + p);
     const lm = await page.evaluate(() => {
       const names = [...document.querySelectorAll('nav, aside, [role="navigation"], [role="complementary"], section[aria-label], section[aria-labelledby]')].map((e) => {
         const role = e.getAttribute('role') || (e.tagName === 'NAV' ? 'navigation' : e.tagName === 'ASIDE' ? 'complementary' : 'region');
