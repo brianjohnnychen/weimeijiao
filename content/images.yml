@@ -51,7 +51,7 @@ images:
     page: approach/edge-cases
     prompt: "A parent and a grandmother talking quietly over tea at a kitchen table in a Tainan family home while a preschooler draws at the far end of the table, soft window light, a rice cooker and a bowl of fruit on the counter."
     alt:
-      en: "A parent and a grandmother talk over tea at the kitchen table while a preschooler draws at the far end."
+      en: "A parent and a grandmother talk over tea at the kitchen table while a preschooler draws at the other end of the table."
       zh-hans: "家长和奶奶在餐桌边喝茶聊天，学龄前的孩子在桌子另一头画画。"
       zh-hant: "家長和阿嬤在餐桌邊喝茶聊天，學齡前的孩子在桌子另一頭畫畫。"
     size: '4:3'
@@ -158,9 +158,9 @@ images:
     page: phase/10-12-years
     prompt: "An eleven-year-old and a parent talking at the kitchen table of a Beijing apartment in the evening, the child half turned toward the parent with a phone face down on the table, the parent listening with a cup of tea, a school bag on a chair, warm pendant light."
     alt:
-      en: "An eleven-year-old and a parent talk at the kitchen table in the evening, a phone face down between them."
-      zh-hans: "晚上，十一岁的孩子和家长在餐桌边聊天，手机扣在两人之间的桌上。"
-      zh-hant: "晚上，十一歲的孩子和家長在餐桌邊聊天，手機扣在兩人之間的桌上。"
+      en: "An eleven-year-old and a parent talk at the kitchen table in the evening, a phone lying on the table between them."
+      zh-hans: "晚上，十一岁的孩子和家长在餐桌边聊天，手机放在两人之间的桌上。"
+      zh-hant: "晚上，十一歲的孩子和家長在餐桌邊聊天，手機放在兩人之間的桌上。"
     size: '4:3'
   # Encouraging learning
   - id: learning-0-12-months
@@ -175,9 +175,9 @@ images:
     page: learning/1-3-years
     prompt: "A two-year-old and a parent crouched on a park path in Chengdu looking at a snail on a leaf together, the parent pointing, the toddler's mouth open mid-word, soft overcast light, bicycles parked behind them."
     alt:
-      en: "A toddler and a parent crouch on a park path looking at a snail on a leaf, the parent pointing."
-      zh-hans: "学步儿和家长蹲在公园小路上一起看叶子上的蜗牛，家长用手指着。"
-      zh-hant: "學步兒和家長蹲在公園小路上一起看葉子上的蝸牛，家長用手指著。"
+      en: "A toddler and a parent stop on a park path to look at a snail on a leaf, the parent pointing."
+      zh-hans: "学步儿和家长在公园小路上停下来一起看叶子上的蜗牛，家长用手指着。"
+      zh-hant: "學步兒和家長在公園小路上停下來一起看葉子上的蝸牛，家長用手指著。"
     size: '4:3'
   - id: learning-3-5-years
     page: learning/3-5-years
@@ -222,7 +222,7 @@ images:
     size: '4:3'
   - id: tool-clear-expectations
     page: tool/clear-expectations
-    prompt: "A parent crouched to a four-year-old's eye level in a Taipei apartment hallway before going out, holding the straps of the child's small backpack and speaking calmly, shoes by the door, morning light."
+    prompt: "A tight view inside a Taipei apartment entryway: a parent crouched to a four-year-old's eye level holding the straps of the child's small plain one-colour backpack and speaking calmly, the shoe rack cut off by the left edge and the door edge by the right, morning light, the two figures filling the picture."
     alt:
       en: "A parent crouches to a four-year-old’s eye level in the hallway, holding the child’s backpack straps and speaking calmly."
       zh-hans: "出门前，家长在玄关蹲下来和四岁的孩子平视，扶着孩子的小书包带平静地说话。"
@@ -238,7 +238,7 @@ images:
     size: '4:3'
   - id: tool-planned-ignoring
     page: tool/planned-ignoring
-    prompt: "A parent calmly washing vegetables at the kitchen sink of a Taichung apartment, back half turned, while a three-year-old sits on the tiled floor nearby with a pouting face next to a toy, afternoon light."
+    prompt: "A close view from floor level of a Taichung apartment kitchen: a three-year-old sitting on the tiled floor in the foreground with a pouting face next to one toy, the parent's back half turned at the sink above, calmly washing vegetables, plain cabinets running off both edges of the picture, no appliances, afternoon light."
     alt:
       en: "A parent calmly washes vegetables at the sink while a three-year-old sits pouting on the kitchen floor nearby."
       zh-hans: "家长在水槽边平静地洗菜，三岁的孩子噘着嘴坐在旁边的厨房地板上。"
@@ -256,13 +256,13 @@ images:
     page: tool/choices
     prompt: "A three-year-old standing in front of an open wardrobe in a Taipei bedroom, choosing between two plain T-shirts a parent holds up, an unmade bed, morning light."
     alt:
-      en: "A three-year-old chooses between two T-shirts a parent holds up in front of an open wardrobe."
-      zh-hans: "三岁的孩子站在打开的衣柜前，在家长举着的两件 T 恤里挑一件。"
-      zh-hant: "三歲的孩子站在打開的衣櫃前，在家長舉著的兩件 T 恤裡挑一件。"
+      en: "A three-year-old chooses between two T-shirts in front of an open wardrobe, one held up by a parent."
+      zh-hans: "三岁的孩子站在打开的衣柜前，在两件 T 恤里挑一件，其中一件由家长举着。"
+      zh-hant: "三歲的孩子站在打開的衣櫃前，在兩件 T 恤裡挑一件，其中一件由家長舉著。"
     size: '4:3'
   - id: tool-when-then
     page: tool/when-then
-    prompt: "A six-year-old hanging a school bag on a hook by the door of a Shanghai apartment while a parent waits at the table with a plate of cut fruit, afternoon light."
+    prompt: "A tight view by the door of a Shanghai apartment: a six-year-old reaching up to hang a plain one-colour school bag on a single wooden hook beside the door edge at the left, a parent waiting at the table on the right with a plate of cut fruit, the table running off the bottom edge, afternoon light, no patches or writing anywhere."
     alt:
       en: "A six-year-old hangs up a school bag by the door while a parent waits at the table with a plate of cut fruit."
       zh-hans: "六岁的孩子把书包挂到门边的挂钩上，家长端着切好的水果在餐桌边等着。"
@@ -270,7 +270,7 @@ images:
     size: '4:3'
   - id: tool-natural-consequences
     page: tool/natural-consequences
-    prompt: "A seven-year-old with a school bag on looking at a rain jacket forgotten on a hook by the open front door of a Taipei apartment, light rain falling in the stairwell outside, a parent in the background drinking coffee calmly."
+    prompt: "Inside a Taipei apartment, close on a seven-year-old with a school bag on, looking at a rain jacket forgotten on a hook beside the open front door, a sliver of light rain visible past the door edge, a mug of coffee on the table at the edge of the picture, morning light, the scene filling the picture."
     alt:
       en: "A seven-year-old with a school bag looks at a forgotten rain jacket by the open front door while rain falls outside."
       zh-hans: "背着书包的七岁孩子看着忘在门边挂钩上的雨衣，门外正下着小雨。"
@@ -278,11 +278,11 @@ images:
     size: '4:3'
   - id: tool-logical-consequences
     page: tool/logical-consequences
-    prompt: "A five-year-old putting toy cars back into a cardboard box on the living-room floor of a Chengdu apartment while a parent sits on the sofa nearby, both calm, late afternoon light."
+    prompt: "A Chengdu apartment living room in late afternoon light: a five-year-old kneeling on the rug putting three toy cars back into a plain woven basket with no label while a parent sits calmly on the sofa nearby, the room filling the picture."
     alt:
-      en: "A five-year-old puts toy cars back into a box on the floor while a parent sits calmly on the sofa nearby."
-      zh-hans: "五岁的孩子把玩具车一辆辆放回地板上的纸箱里，家长平静地坐在旁边的沙发上。"
-      zh-hant: "五歲的孩子把玩具車一輛輛放回地板上的紙箱裡，家長平靜地坐在旁邊的沙發上。"
+      en: "A five-year-old puts toy cars back into a basket on the floor while a parent sits calmly on the sofa nearby."
+      zh-hans: "五岁的孩子把玩具车一辆辆放回地板上的篮子里，家长平静地坐在旁边的沙发上。"
+      zh-hant: "五歲的孩子把玩具車一輛輛放回地板上的籃子裡，家長平靜地坐在旁邊的沙發上。"
     size: '4:3'
   - id: tool-time-in
     page: tool/time-in
@@ -302,11 +302,11 @@ images:
     size: '4:3'
   - id: tool-privilege-removal
     page: tool/privilege-removal
-    prompt: "A tablet charging face down on a kitchen counter next to a rice cooker in a Taipei apartment at dusk, a ten-year-old reading a comic book at the kitchen table behind it, warm light."
+    prompt: "A Taipei apartment kitchen in warm evening light: a tablet lying face down with its blank back showing, charging on the counter beside a kettle and a bowl of fruit, a ten-year-old at the kitchen table behind reading a plain-covered book seen from the side, the room filling the picture."
     alt:
-      en: "A tablet charges face down on the kitchen counter while a ten-year-old reads a comic book at the table behind it."
-      zh-hans: "平板扣在厨房台面上充电，十岁的孩子在后面的餐桌边看漫画书。"
-      zh-hant: "平板扣在廚房流理台上充電，十歲的孩子在後面的餐桌邊看漫畫書。"
+      en: "A tablet charges face down on the kitchen counter while a ten-year-old reads a book at the table behind it."
+      zh-hans: "平板扣在厨房台面上充电，十岁的孩子在后面的餐桌边看书。"
+      zh-hant: "平板扣在廚房流理台上充電，十歲的孩子在後面的餐桌邊看書。"
     size: '4:3'
   - id: tool-problem-solving
     page: tool/problem-solving
@@ -320,9 +320,9 @@ images:
     page: tool/routines
     prompt: "A school morning in a Tainan apartment: a six-year-old brushing teeth at the bathroom sink while a parent hands over a folded plain white shirt, a simple chart of colored squares stuck to the mirror, morning light."
     alt:
-      en: "A six-year-old brushes teeth at the bathroom sink while a parent hands over a folded shirt, a picture chart stuck to the mirror."
-      zh-hans: "六岁的孩子在洗手台前刷牙，家长递过叠好的衬衫，镜子上贴着图片日程表。"
-      zh-hant: "六歲的孩子在洗手台前刷牙，家長遞過摺好的襯衫，鏡子上貼著圖片時間表。"
+      en: "A six-year-old brushes teeth at the bathroom sink while a parent’s hand passes a clean white shirt, a chart of coloured squares stuck to the mirror."
+      zh-hans: "六岁的孩子在洗手台前刷牙，家长递过一件干净的白衬衫，镜子上贴着彩色方格表。"
+      zh-hant: "六歲的孩子在洗手台前刷牙，家長遞過一件乾淨的白襯衫，鏡子上貼著彩色方格表。"
     size: '4:3'
   - id: tool-family-meetings
     page: tool/family-meetings
@@ -334,11 +334,11 @@ images:
     size: '4:3'
   - id: tool-repair
     page: tool/repair
-    prompt: "A parent crouching in a bedroom doorway in a Shenzhen apartment, arms open to offer a hug to an eight-year-old sitting on the bed, both with soft expressions after an argument, evening lamp light."
+    prompt: "A Shenzhen apartment bedroom in soft evening light: a parent kneeling beside the bed with one arm open toward an eight-year-old sitting on the bed, both with soft expressions after an argument, the room filling the picture, no doorway."
     alt:
-      en: "A parent crouches in a bedroom doorway with arms open to hug an eight-year-old sitting on the bed."
-      zh-hans: "家长蹲在卧室门口张开双臂，要抱坐在床上的八岁孩子。"
-      zh-hant: "家長蹲在臥室門口張開雙臂，要抱坐在床上的八歲孩子。"
+      en: "A parent kneels beside the bed with an arm open to hug an eight-year-old sitting on it."
+      zh-hans: "家长跪在床边张开手臂，要抱坐在床上的八岁孩子。"
+      zh-hant: "家長跪在床邊張開手臂，要抱坐在床上的八歲孩子。"
     size: '4:3'
   # Situations
   - id: situation-tantrums
@@ -351,7 +351,7 @@ images:
     size: '4:3'
   - id: situation-public-meltdowns
     page: situation/public-meltdowns
-    prompt: "A preschooler sitting on the floor of a small neighborhood grocery store aisle in Chengdu with a frown and crossed arms, a parent crouched beside with a calm face and a shopping basket on the floor, blurred shelves of unbranded packages, mixed fluorescent and daylight."
+    prompt: "A small neighborhood grocery store aisle in Chengdu: a preschooler sitting on the floor with a frown and crossed arms, a parent crouched beside with a calm face, a shopping basket on the floor, shelves of plain boxes and bottles with no labels or marks drawn softly behind, mixed fluorescent and daylight, the aisle filling the picture."
     alt:
       en: "A preschooler sits frowning on the floor of a small grocery store aisle while a parent crouches beside them calmly."
       zh-hans: "学龄前的孩子皱着眉坐在小杂货店的过道地上，家长平静地蹲在旁边。"
@@ -361,21 +361,21 @@ images:
     page: situation/hitting-biting
     prompt: "A parent sitting on a playmat in a Hangzhou living room, gently holding a toddler's hands in theirs while the toddler looks at a stuffed rabbit between them, another toddler playing with blocks at the edge of the frame, calm, afternoon light."
     alt:
-      en: "A parent sits on a playmat gently holding a toddler’s hands while the toddler looks at a stuffed rabbit between them."
-      zh-hans: "家长坐在游戏垫上轻轻握着学步儿的双手，孩子看着两人之间的毛绒兔子。"
-      zh-hant: "家長坐在遊戲墊上輕輕握著學步兒的雙手，孩子看著兩人之間的絨毛兔子。"
+      en: "A parent sits on a playmat holding a stuffed rabbit between them while a toddler’s hands rest on it and the toddler looks at the rabbit."
+      zh-hans: "家长坐在游戏垫上握着毛绒兔子，学步儿的手搭在兔子上，看着它。"
+      zh-hant: "家長坐在遊戲墊上握著絨毛兔子，學步兒的手搭在兔子上，看著牠。"
     size: '4:3'
   - id: situation-sibling-fighting
     page: situation/sibling-fighting
-    prompt: "Two children, about five and eight, both holding one toy car across a low table in a Kaohsiung living room and frowning at each other, a parent walking in from the kitchen doorway, afternoon light."
+    prompt: "A Kaohsiung living room in afternoon light: two children, about five and eight, both holding one toy car across a low table and frowning at each other, a parent stepping in from the side of the room, the room filling the picture, no doorway."
     alt:
-      en: "Two children hold the same toy car across a low table and frown at each other while a parent walks in from the kitchen."
-      zh-hans: "两个孩子隔着矮桌各抓着同一辆玩具车的一头，互相瞪着，家长从厨房门口走进来。"
-      zh-hant: "兩個孩子隔著矮桌各抓著同一輛玩具車的一頭，互相瞪著，家長從廚房門口走進來。"
+      en: "Two children hold the same toy car across a low table and frown at each other while a parent steps in from the side of the room."
+      zh-hans: "两个孩子隔着矮桌各抓着同一辆玩具车的一头，互相瞪着，家长从旁边走过来。"
+      zh-hant: "兩個孩子隔著矮桌各抓著同一輛玩具車的一頭，互相瞪著，家長從旁邊走過來。"
     size: '4:3'
   - id: situation-bedtime
     page: situation/bedtime
-    prompt: "A parent sitting on the floor beside a child's bed in a dim Taipei bedroom, a small nightlight on, a four-year-old under the quilt holding a stuffed toy, the parent's hand resting on the quilt."
+    prompt: "A softly lit Taipei bedroom at night with one small glowing nightlight: a parent sitting on the floor beside a child's bed, a four-year-old under the quilt holding a stuffed toy, the parent's hand resting on the quilt, the room filling the picture."
     alt:
       en: "A parent sits on the floor beside a child’s bed in a dim room, a hand resting on the quilt, a nightlight on."
       zh-hans: "昏暗的卧室里亮着小夜灯，家长坐在孩子床边的地板上，手搭在被子上。"
