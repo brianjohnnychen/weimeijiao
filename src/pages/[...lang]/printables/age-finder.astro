@@ -101,8 +101,8 @@ const maxOptions = Math.max(...d.questions.map((q) => q.options.length));
     });
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Points are counted in sixths, so splitting a point between two or three ages stays an
-      // exact whole number and ties and the 1.5-point rule (9 sixths) match the printed key.
+      // Points are counted in twelfths, so splitting a point between two, three or four ages stays an
+      // exact whole number and ties and the 1.5-point rule (18 twelfths) match the printed key.
       const scores: Record<string, number> = Object.fromEntries(order.map((p) => [p, 0]));
       const missing: HTMLFieldSetElement[] = [];
       for (const fs of fieldsets) {
@@ -114,7 +114,7 @@ const maxOptions = Math.max(...d.questions.map((q) => q.options.length));
         }
         const ps = checked.value.split(' ');
         const w = Number(fs.dataset.weight || 1);
-        for (const p of ps) scores[p] += Math.round((6 * w) / ps.length);
+        for (const p of ps) scores[p] += Math.round((12 * w) / ps.length);
       }
       result.replaceChildren();
       if (missing.length) {
@@ -137,7 +137,7 @@ const maxOptions = Math.max(...d.questions.map((q) => q.options.length));
       a.href = phases[best].href;
       a.textContent = `${labels.read}${labels.colon}${phases[best].label}`;
       result.append(h, a);
-      if (scores[second] > 0 && scores[best] - scores[second] <= 9) {
+      if (scores[second] > 0 && scores[best] - scores[second] <= 18) {
         const also = document.createElement('p');
         also.append(`${labels.also}${labels.colon}`);
         const a2 = document.createElement('a');
