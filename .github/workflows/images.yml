@@ -1,15 +1,36 @@
 name: Generate images
 
-# Generates missing AI illustrations (content/images.yml) with Cloudflare Workers AI and
-# commits them to the branch that triggered the run. It never deploys: deploys are manual
-# (deploy.yml, workflow_dispatch only, triggered by Brian after the final QA pass).
+# Generates the site's photographs (content/images.yml, SPEC §9) with Cloudflare Workers AI and commits
+# them for review. Nothing goes live from here: deploys are deploy.yml's business, and only reviewed
+# images are merged to main (docs/IMAGES.md keeps the review log).
+#   - Daily at 00:20 UTC (after the free allocation resets) and on manual dispatch, the run works on the
+#     review branch images/incoming: created from the triggering branch (main) if missing, otherwise kept
+#     merged with it, and pushed back with the new files.
+#   - A push that changes the manifest, the script or this file on any branch other than main generates
+#     on that branch, so a prompt change can be tried before it reaches main.
+#   - A push to main never generates: merges carry only reviewed images.
+# It generates within the free daily allocation only and stops at the first "allocation used up" answer.
 on:
   workflow_dispatch:
     inputs:
       regenerate:
-        description: Image ids to regenerate even if the file exists (comma separated, optional)
+        description: Image ids to generate again even if a file exists (comma separated, optional)
         required: false
         default: ''
+      max:
+        description: How many images to generate in this run
+        required: false
+        default: '4'
+      probe_only:
+        description: Only print the model catalog, the schema and the usage report
+        type: boolean
+        default: false
+      steps:
+        description: Inference steps (empty = the script's default)
+        required: false
+        default: ''
+  schedule:
+    - cron: '20 0 * * *'
   push:
     paths:
       - content/images.yml
@@ -25,10 +46,37 @@ concurrency:
 
 jobs:
   generate:
+    # A push to main is a merge of reviewed work: it never generates.
+    if: github.event_name != 'push' || github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Pick the branch that receives the images
+        id: branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
+            echo "name=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+            echo "Writing to the pushed branch ${GITHUB_REF_NAME}."
+          else
+            if git fetch origin images/incoming 2>/dev/null; then
+              git checkout -B images/incoming origin/images/incoming
+              if ! git merge --no-edit "origin/${GITHUB_REF_NAME}"; then
+                echo "::error::images/incoming does not merge cleanly with ${GITHUB_REF_NAME}; resolve it by hand."
+                exit 1
+              fi
+              echo "Writing to images/incoming (merged with ${GITHUB_REF_NAME})."
+            else
+              git checkout -B images/incoming
+              echo "Writing to a new images/incoming branch from ${GITHUB_REF_NAME}."
+            fi
+            echo "name=images/incoming" >> "$GITHUB_OUTPUT"
+          fi
 
       - uses: actions/setup-node@v5
         with:
@@ -38,29 +86,31 @@ jobs:
       - name: Install (runtime dependencies only)
         run: npm ci --omit=dev
 
-      - name: Generate missing images
+      - name: Probe the catalog and generate
         id: generate
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_AI_TOKEN: ${{ secrets.CF_AI_TOKEN }}
           REGENERATE: ${{ github.event.inputs.regenerate }}
+          MAX_IMAGES: ${{ github.event.inputs.max || '4' }}
+          PROBE_ONLY: ${{ github.event.inputs.probe_only }}
+          IMAGE_STEPS: ${{ github.event.inputs.steps }}
         run: node scripts/generate-images.mjs
 
-      - name: Commit new images
-        id: commit
+      - name: Commit the new images for review
         if: always()
+        env:
+          BRANCH: ${{ steps.branch.outputs.name }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/assets/ai
           if git diff --cached --quiet; then
-            echo "No image changes."
-            echo "committed=false" >> "$GITHUB_OUTPUT"
+            echo "No new images."
             exit 0
           fi
-          git commit -m "Generate AI illustrations"
+          git commit -m "Generate photographs for review"
           for i in 1 2 3; do
-            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break
+            git pull --rebase origin "$BRANCH" 2>/dev/null || true
+            git push origin "HEAD:$BRANCH" && break
             sleep $((i * 5))
           done
-          echo "committed=true" >> "$GITHUB_OUTPUT"
+          echo "Pushed to $BRANCH. Review each image at full size and log it in docs/IMAGES.md before merging."

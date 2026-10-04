@@ -45,7 +45,7 @@ The full build (`npm run build`) runs QA on the built pages and `node scripts/li
 - Markdown inside MDX: paragraphs, `-` and `1.` lists, `**bold**`, `*italic*`. Keep paragraphs short. Blank line before and after components that hold block content.
 - Frontmatter is YAML. Quote any English string that contains `: `, `#`, starts with a quote or bracket, or contains `[[cite:...]]` or `[text](/path/)` (use double quotes and escape inner double quotes as `\"`, or single quotes). Chinese text with full-width punctuation usually needs no quotes, but quoting is always safe.
 - `say` lists and `<Say>` hold the words only, without surrounding quote marks.
-- Keep the `image` id each file already has (the illustrations are listed in `content/images.yml`).
+- Keep the `image` id each file already has (the photographs are listed in `content/images.yml`; see SPEC §9 and docs/IMAGES.md).
 
 ## 5. Language and typography
 
