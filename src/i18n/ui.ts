@@ -10,7 +10,7 @@ export interface UiStrings {
   menu: string;
   language: string;
   theme: { toDark: string; toLight: string };
-  footer: { disclaimer: string; privacy: string; sister: string; sisterLabel: string; copyright: string; sections: string };
+  footer: { disclaimer: string; privacy: string; sister: string; sisterLabel: string; copyright: string; sections: string; sourcesPage: string };
   banner: { text: string; switchTo: string; dismiss: string };
   phaseName: Record<Phase, string>;
   phaseAge: Record<Phase, string>;
@@ -23,6 +23,8 @@ export interface UiStrings {
   allAges: string;
   sources: string;
   sourcesIntro: string;
+  sourcesEntry: string;
+  notCited: string;
   researchLink: string;
   openSource: string;
   backToText: string;
@@ -55,6 +57,7 @@ export const UI: Record<Locale, UiStrings> = {
       sisterLabel: 'Show Tell Share：和孩子一起建立家庭饮食文化',
       copyright: '© 2026 Meteor City LLC',
       sections: '网站栏目',
+      sourcesPage: '参考文献',
     },
     banner: { text: '本页面有简体中文版。', switchTo: '切换到简体中文', dismiss: '关闭' },
     phaseName: { '0-12-months': '宝宝', '1-3-years': '学步儿', '3-5-years': '学龄前', '5-7-years': '幼小衔接', '7-10-years': '小学生', '10-12-years': '青春期前' },
@@ -91,6 +94,8 @@ export const UI: Record<Locale, UiStrings> = {
     allAges: '所有年龄',
     sources: '参考资料',
     sourcesIntro: '文中的上标数字对应以下资料。每条资料都可以在研究依据页面找到完整说明。',
+    sourcesEntry: '参考文献条目',
+    notCited: '本站页面未引用，作为已核实的参考资料保留。',
     researchLink: '在研究依据页面查看',
     openSource: '打开原文',
     backToText: '回到正文',
@@ -144,6 +149,7 @@ export const UI: Record<Locale, UiStrings> = {
       sisterLabel: 'Show Tell Share：和孩子一起建立家庭飲食文化',
       copyright: '© 2026 Meteor City LLC',
       sections: '網站單元',
+      sourcesPage: '參考文獻',
     },
     banner: { text: '本頁面有繁體中文版。', switchTo: '切換到繁體中文', dismiss: '關閉' },
     phaseName: { '0-12-months': '寶寶', '1-3-years': '學步兒', '3-5-years': '學齡前', '5-7-years': '幼小銜接', '7-10-years': '國小學童', '10-12-years': '青春期前' },
@@ -180,6 +186,8 @@ export const UI: Record<Locale, UiStrings> = {
     allAges: '所有年齡',
     sources: '參考資料',
     sourcesIntro: '文中的上標數字對應以下資料。每筆資料都可以在研究依據頁面找到完整說明。',
+    sourcesEntry: '參考文獻條目',
+    notCited: '本站頁面未引用，作為已核實的參考資料保留。',
     researchLink: '在研究依據頁面查看',
     openSource: '開啟原文',
     backToText: '回到內文',
@@ -233,6 +241,7 @@ export const UI: Record<Locale, UiStrings> = {
       sisterLabel: 'Show Tell Share: build a food culture with your family',
       copyright: '© 2026 Meteor City LLC',
       sections: 'Sections',
+      sourcesPage: 'Sources',
     },
     banner: { text: 'This page is available in English.', switchTo: 'Switch to English', dismiss: 'Dismiss' },
     phaseName: { '0-12-months': 'Babies', '1-3-years': 'Toddlers', '3-5-years': 'Preschoolers', '5-7-years': 'Starting school', '7-10-years': 'School age', '10-12-years': 'Preteens' },
@@ -269,6 +278,8 @@ export const UI: Record<Locale, UiStrings> = {
     allAges: 'All ages',
     sources: 'Sources',
     sourcesIntro: 'The small numbers in the text point to these sources. Each one has a full entry on the Research page.',
+    sourcesEntry: 'Entry in Sources',
+    notCited: 'Not cited on any page; kept as a verified reference.',
     researchLink: 'See it on the Research page',
     openSource: 'Open the source',
     backToText: 'Back to the text',

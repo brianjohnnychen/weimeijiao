@@ -1,0 +1,77 @@
+---
+// Sources: every entry in content/sources.yml, cited or not (SPEC §5.9). A low-key bibliography
+// page linked from the footer only: full citation, evidence level, DOI or stable link, PubMed
+// where available, and the pages that cite it. Entry ids match the Research page (#src-<id>).
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import Citation from '../../components/Citation.astro';
+import { mdxComponents } from '../../components/mdx';
+import { localeStaticPaths, type Locale } from '../../i18n/locales';
+import { t } from '../../i18n/ui';
+import { getPage, assertParity } from '../../lib/content';
+import { setupCites, headingsIn } from '../../lib/page';
+import { ALL_SOURCES, citeNumberIfCited, citedIn, researchHref } from '../../lib/cites';
+import { SOURCES, sourceLink } from '../../lib/sources';
+
+export function getStaticPaths() {
+  return localeStaticPaths();
+}
+
+const { locale } = Astro.props as { locale: Locale };
+await assertParity();
+const ui = t(locale);
+const page = await getPage(locale, 'sources');
+const research = await getPage(locale, 'research');
+setupCites(Astro.locals, locale, 'bibliography');
+const { Content } = await render(page);
+const cited = await citedIn(locale);
+const data = page.data as unknown as { title: string; description: string; lede?: string; image?: string; allTitle: string; allIntro: string; citedIn: string; pubmed: string; researchEntry: string; count: string };
+const groups = (research.data as unknown as { groups: Record<string, string> }).groups;
+const toc = [...headingsIn(page.body), { id: 'all', text: data.allTitle }, ...ALL_SOURCES.map((g) => ({ id: `group-${g.key}`, text: groups[g.key], depth: 3 }))];
+const sep = locale === 'en' ? ', ' : '、';
+const colon = locale === 'en' ? ': ' : '：';
+const total = SOURCES.length;
+const citedCount = SOURCES.filter((s) => cited.has(s.id)).length;
+const countText = data.count.replace('{total}', String(total)).replace('{cited}', String(citedCount));
+---
+<Article locale={locale} title={data.title} description={data.description} lede={data.lede} image={data.image} trail={[{ label: data.title }]} toc={toc} bodyClass="page-research page-sources">
+  <Content components={mdxComponents} />
+
+  <section class="bibliography" id="all" aria-labelledby="all-heading">
+    <h2 id="all-heading">{data.allTitle}</h2>
+    <p>{data.allIntro} {countText}</p>
+    {ALL_SOURCES.map((group) => (
+      <section id={`group-${group.key}`} aria-labelledby={`group-${group.key}-heading`}>
+        <h3 id={`group-${group.key}-heading`}>{groups[group.key]}</h3>
+        <ul class="bib-list bib-list-plain">
+          {group.sources.map((s) => {
+            const link = sourceLink(s);
+            const where = cited.get(s.id) ?? [];
+            const n = citeNumberIfCited(s.id);
+            return (
+              <li id={`src-${s.id}`} class="bib-entry">
+                <p class="bib-citation">{n !== undefined && <span class="bib-number" aria-hidden="true">{n}</span>}<Citation source={s} locale={locale} /></p>
+                <p class="bib-meta">
+                  <span class="chip">{ui.studyType[s.evidence_level]}</span>
+                  <a href={link.href} rel="noopener" lang="en">{link.label}</a>
+                  {s.pmid && <a href={`https://pubmed.ncbi.nlm.nih.gov/${s.pmid}/`} rel="noopener">{data.pubmed} {s.pmid}</a>}
+                  {n !== undefined && <a href={researchHref(locale, s.id)}>{data.researchEntry}</a>}
+                </p>
+                <p class="bib-finding">{s.finding[locale]}</p>
+                <p class="bib-cited">
+                  {where.length ? (
+                    <>
+                      <strong>{data.citedIn}{colon}</strong>{where.map((w, i) => <>{i > 0 && sep}<a href={w.href}>{w.label}</a></>)}
+                    </>
+                  ) : (
+                    <span class="muted">{ui.notCited}</span>
+                  )}
+                </p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
+  </section>
+</Article>

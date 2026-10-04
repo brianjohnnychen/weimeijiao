@@ -21,6 +21,7 @@ export const paths = {
   printable: (p: Printable) => `/printables/${p}/`,
   printablePdf: (p: Printable) => `/printables/${p}.pdf`,
   about: () => '/about/',
+  sources: () => '/sources/',
 };
 
 export const href = (locale: Locale, path: string) => localizePath(locale, path);
