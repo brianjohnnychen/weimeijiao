@@ -137,7 +137,8 @@ await mkdir(candDir, { recursive: true });
 
 let sendSeed = true;
 async function generate(img, seed) {
-  const prompt = `${img.prompt.trim()} ${style}`.replace(/\s+/g, ' ');
+  // The full-bleed instruction leads, the scene follows, the shared style closes (frames came from busy prompts).
+  const prompt = `Full-bleed flat illustration that fills the entire canvas edge to edge, no frame, no border, no margin: ${img.prompt.trim()} ${style}`.replace(/\s+/g, ' ');
   if (prompt.length > 2048) throw new Error(`prompt too long (${prompt.length} chars)`);
   const url = api(`/ai/run/${MODEL}`);
   for (let attempt = 1; attempt <= 4; attempt++) {
