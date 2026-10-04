@@ -13,7 +13,7 @@ export const RESEARCH_GROUPS = [
   { key: 'programs', topics: ['parenting-programs', 'connection'] },
   { key: 'techniques', topics: ['praise', 'instructions', 'ignoring', 'consequences', 'time-out', 'time-in', 'response-cost', 'problem-solving', 'choices', 'repair'] },
   { key: 'physical', topics: ['physical-punishment', 'harsh-verbal', 'culture'] },
-  { key: 'development', topics: ['development', 'milestones', 'infant-crying', 'safety', 'tantrums', 'aggression', 'self-regulation', 'when-to-get-help', 'lying', 'siblings', 'coparenting', 'grandparents', 'neurodevelopment'] },
+  { key: 'development', topics: ['development', 'milestones', 'infant-crying', 'safety', 'tantrums', 'aggression', 'self-regulation', 'when-to-get-help', 'lying', 'siblings', 'coparenting', 'grandparents', 'neurodevelopment', 'adolescence', 'monitoring', 'peers', 'puberty', 'bullying', 'parenting-dimensions', 'autonomy'] },
   { key: 'everyday', topics: ['sleep', 'routines', 'screens', 'mealtime', 'homework'] },
   { key: 'learning', topics: ['language', 'reading', 'play', 'motivation', 'praise-learning', 'mindset', 'executive-function', 'numeracy', 'study-skills', 'school'] },
 ] as const;

@@ -3582,3 +3582,469 @@
     - aggression
   accessed: 2026-10-04
   verified_via: "2026-10-04 CI candidate lookup (sources workflow run 37142476308): Crossref metadata and abstract (Europe PMC, PMID 9086867) read in full. Classroom setting, teacher-delivered."
+- id: stattin-kerr-2000
+  evidence_level: cross-sectional
+  authors: Stattin, H., & Kerr, M.
+  year: 2000
+  title: 'Parental Monitoring: A Reinterpretation'
+  venue: Child Development, 71(4), 1072-1085
+  doi: 10.1111/1467-8624.00210
+  pmid: '11016567'
+  url: https://doi.org/10.1111/1467-8624.00210
+  lang: en
+  finding:
+    en: In a study of 703 14-year-olds in Sweden and their parents, what parents knew about their children's activities came mainly from the children's own free disclosure, and disclosure was the source of knowledge most closely linked with less delinquency; the authors conclude that tracking and surveillance is not the best prescription for parents.
+    zh-hans: 这项对瑞典 703 名 14 岁青少年及其父母的研究发现，父母对孩子活动的了解主要来自孩子的主动告知，而且主动告知这一来源与较少的违规行为关系最密切；作者认为，追踪和监视不是对父母最好的建议。
+    zh-hant: 這項對瑞典 703 名 14 歲青少年及其父母的研究發現，父母對孩子活動的了解主要來自孩子的主動告知，而且主動告知這個來源和較少的違規行為關係最密切；作者認為，追蹤和監視不是給父母最好的建議。
+  key_facts:
+  - 'Abstract: "In our study of 703 14-year-olds in central Sweden and their parents, parental knowledge came mainly from child disclosure, and child disclosure was the source of knowledge that was most closely linked to broad and narrow measures of delinquency (normbreaking and police contact)."'
+  - 'Abstract: the results "held for both children''s and parents'' reports, for both sexes, and were independent of whether the children were exhibiting problem behavior or not."'
+  - 'Abstract: "We conclude that tracking and surveillance is not the best prescription for parental behavior and that a new prescription must rest on an understanding of the factors that determine child disclosure."'
+  - 'Note: participants were 14-year-olds, a few years older than the 10-12 phase; the site says so.'
+  topics:
+  - monitoring
+  - adolescence
+  ages: 14-year-olds
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: kerr-stattin-2000
+  evidence_level: cross-sectional
+  authors: Kerr, M., & Stattin, H.
+  year: 2000
+  title: 'What parents know, how they know it, and several forms of adolescent adjustment: Further support for a reinterpretation of monitoring'
+  venue: Developmental Psychology, 36(3), 366-380
+  doi: 10.1037/0012-1649.36.3.366
+  pmid: '10830980'
+  url: https://doi.org/10.1037/0012-1649.36.3.366
+  lang: en
+  finding:
+    en: Among 1,186 14-year-olds in Sweden, high parental knowledge was linked with better adjustment, but children's spontaneous disclosure explained more of that link than parents' tracking and surveillance did; parents' control efforts were linked with good adjustment only once children's feelings of being controlled, which went with poor adjustment, were set aside.
+    zh-hans: 在瑞典 1,186 名 14 岁青少年中，父母对孩子的了解程度高与孩子适应较好有关，但孩子的主动告知比父母的追踪和监视更能解释这种关系；父母的管控只有在剔除孩子“被管得太紧”的感受（这种感受与适应较差有关）之后，才与适应较好有关。
+    zh-hant: 在瑞典 1,186 名 14 歲青少年中，父母對孩子的了解程度高和孩子適應較好有關，但孩子的主動告知比父母的追蹤和監視更能解釋這種關係；父母的管控只有在排除孩子「被管得太緊」的感受（這種感受和適應較差有關）之後，才和適應較好有關。
+  key_facts:
+  - 'Abstract: "Participants were 1,186 14-year-olds in central Sweden and their parents."'
+  - 'Abstract: "Across sex and informant, high parental knowledge was linked to multiple measures of good adjustment. But children''s spontaneous disclosure of information explained more of these relations than parents'' tracking and surveillance efforts did."'
+  - 'Abstract: "Parents'' control efforts were related to good adjustment only after the child''s feelings of being controlled, which were linked to poor adjustment, were partialed out."'
+  topics:
+  - monitoring
+  - adolescence
+  ages: 14-year-olds
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: racz-mcmahon-2011
+  evidence_level: review
+  authors: Racz, S. J., & McMahon, R. J.
+  year: 2011
+  title: 'The Relationship Between Parental Knowledge and Monitoring and Child and Adolescent Conduct Problems: A 10-Year Update'
+  venue: Clinical Child and Family Psychology Review, 14(4), 377-398
+  doi: 10.1007/s10567-011-0099-y
+  pmid: '22086648'
+  url: https://doi.org/10.1007/s10567-011-0099-y
+  lang: en
+  finding:
+    en: A review of 47 studies published between 2000 and 2010 on parental knowledge and monitoring and children's and adolescents' conduct problems, following the reinterpretation of monitoring as knowledge that is largely driven by what children choose to tell; inadequate monitoring is widely recognized as a risk factor for conduct problems, and the links run in both directions.
+    zh-hans: 这篇综述梳理了 2000 到 2010 年间发表的 47 项关于父母了解程度、监管与儿童青少年品行问题的研究，延续了“监管其实是了解程度，而了解程度主要取决于孩子愿意告诉父母什么”这一新解读；监管不足被普遍视为品行问题的风险因素，而且两者相互影响。
+    zh-hant: 這篇文獻回顧整理了 2000 到 2010 年間發表的 47 項關於父母了解程度、監督與兒童青少年品行問題的研究，延續「監督其實是了解程度，而了解程度主要取決於孩子願意告訴父母什麼」的新解讀；監督不足被普遍視為品行問題的風險因素，而且兩者相互影響。
+  key_facts:
+  - 'Abstract: "Inadequate parental monitoring is widely recognized as a risk factor for the development of child and adolescent conduct problems."'
+  - 'Abstract: "Forty-seven studies published between 2000 and 2010 were identified by searching major databases and bibliographies and were included in this review."'
+  - 'Abstract: the review covers "parental knowledge as driven by child disclosure" and "bidirectional associations between parental knowledge and monitoring and child and adolescent conduct problems".'
+  topics:
+  - monitoring
+  - adolescence
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: steinberg-monahan-2007
+  evidence_level: cross-sectional
+  authors: Steinberg, L., & Monahan, K. C.
+  year: 2007
+  title: Age differences in resistance to peer influence
+  venue: Developmental Psychology, 43(6), 1531-1543
+  doi: 10.1037/0012-1649.43.6.1531
+  pmid: '18020830'
+  url: https://doi.org/10.1037/0012-1649.43.6.1531
+  lang: en
+  finding:
+    en: Pooling four samples of more than 3,600 people aged 10 to 30, resistance to peer influence increased linearly between ages 14 and 18, with little evidence of growth between 10 and 14 or between 18 and 30.
+    zh-hans: 汇总四个样本、超过 3,600 名 10 到 30 岁的参与者后发现，抵抗同伴影响的能力在 14 到 18 岁之间呈线性增长，而在 10 到 14 岁之间以及 18 到 30 岁之间几乎没有增长的证据。
+    zh-hant: 彙整四個樣本、超過 3,600 名 10 到 30 歲的參與者後發現，抵抗同儕影響的能力在 14 到 18 歲之間呈線性增長，而在 10 到 14 歲之間以及 18 到 30 歲之間幾乎沒有增長的證據。
+  key_facts:
+  - 'Abstract: "Data from four ethnically and socioeconomically diverse samples comprising more than 3,600 males and females between the ages of 10 and 30 were pooled from one longitudinal and two cross-sectional studies."'
+  - 'Abstract: "Results show that across all demographic groups, resistance to peer influences increases linearly between ages 14 and 18. In contrast, there is little evidence for growth in this capacity between ages 10 and 14 or between 18 and 30."'
+  topics:
+  - peers
+  - adolescence
+  ages: 10 to 30
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: laursen-coy-collins-1998
+  evidence_level: meta-analysis
+  authors: Laursen, B., Coy, K. C., & Collins, W. A.
+  year: 1998
+  title: 'Reconsidering Changes in Parent-Child Conflict across Adolescence: A Meta-Analysis'
+  venue: Child Development, 69(3), 817-832
+  doi: 10.1111/j.1467-8624.1998.00817.x
+  pmid: '9680687'
+  url: https://doi.org/10.1111/j.1467-8624.1998.00817.x
+  lang: en
+  finding:
+    en: 'Meta-analyses of parent-child conflict across adolescence found little support for the idea that conflict rises and then falls: the rate of conflict declined from early to mid-adolescence and again to late adolescence, while the heat of conflict (its affect) increased from early to mid-adolescence and with pubertal maturation; conclusions about puberty and affect rest on few studies.'
+    zh-hans: 关于青春期亲子冲突的荟萃分析几乎没有发现支持“冲突先升后降”这一常见看法的证据：冲突的频率从青春期早期到中期、再到晚期逐步下降，而冲突的激烈程度（情绪强度）从青春期早期到中期上升，并随青春期发育程度上升；关于青春期发育和情绪强度的结论基于的研究较少。
+    zh-hant: 關於青春期親子衝突的統合分析幾乎沒有發現支持「衝突先升後降」這個常見看法的證據：衝突的頻率從青春期早期到中期、再到晚期逐步下降，而衝突的激烈程度（情緒強度）從青春期早期到中期上升，並隨青春期發育程度上升；關於青春期發育和情緒強度的結論所依據的研究較少。
+  key_facts:
+  - 'Abstract: "The results provide little support for the commonly held view that parent-child conflict rises and then falls across adolescence, although conclusions regarding pubertal change as well as conflict affect are qualified by the limited number of studies available."'
+  - 'Abstract: "In age meta-analyses, conflict rate and total conflict decline from early adolescence to mid-adolescence and from mid-adolescence to late adolescence; conflict affect increases from early adolescence to mid-adolescence."'
+  - 'Abstract: "Puberty meta-analyses revealed only a positive linear association between conflict affect and pubertal maturation."'
+  topics:
+  - adolescence
+  - coparenting
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: fuligni-eccles-1993
+  evidence_level: longitudinal
+  authors: Fuligni, A. J., & Eccles, J. S.
+  year: 1993
+  title: Perceived parent-child relationships and early adolescents' orientation toward peers
+  venue: Developmental Psychology, 29(4), 622-632
+  doi: 10.1037/0012-1649.29.4.622
+  url: https://doi.org/10.1037/0012-1649.29.4.622
+  lang: en
+  finding:
+    en: Among 1,771 children surveyed in sixth and seventh grade, early adolescents who believed their parents asserted power and did not relax restrictions, and those who saw few chances to take part in family decisions (and no increase in such chances), were higher in an extreme orientation toward peers and in seeking advice from peers.
+    zh-hans: 对 1,771 名六年级和七年级学生的调查发现，认为父母一味坚持权威、不放松限制的孩子，以及觉得自己很少有机会参与家庭决定（而且这种机会也没有增加）的孩子，更容易出现极端的“以同伴为中心”倾向，也更常向同伴而不是父母求教。
+    zh-hant: 對 1,771 名六年級和七年級學生的調查發現，認為父母一味堅持權威、不放鬆限制的孩子，以及覺得自己很少有機會參與家庭決定（而且這種機會也沒有增加）的孩子，更容易出現極端的「以同儕為中心」傾向，也更常向同儕而不是父母求教。
+  key_facts:
+  - 'Abstract: "A sample of 1,771 children completed self-report questionnaires during the spring of their 6th and 7th grades."'
+  - 'Abstract: "early adolescents who believed their parents asserted and did not relax their power and restrictiveness were higher in an extreme form of peer orientation."'
+  - 'Abstract: "those who perceived few opportunities to be involved in decision making, as well as no increase in these opportunities, were higher in both extreme peer orientation and peer advice seeking."'
+  topics:
+  - peers
+  - adolescence
+  - autonomy
+  ages: grades 6 and 7 (about 11 to 13)
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: dishion-mccord-poulin-1999
+  evidence_level: review
+  authors: Dishion, T. J., McCord, J., & Poulin, F.
+  year: 1999
+  title: 'When interventions harm: Peer groups and problem behavior'
+  venue: American Psychologist, 54(9), 755-764
+  doi: 10.1037/0003-066x.54.9.755
+  url: https://doi.org/10.1037/0003-066x.54.9.755
+  lang: en
+  finding:
+    en: 'A review of developmental and intervention evidence: longitudinal research shows that "deviancy training" within adolescent friendships predicts increases in delinquency, substance use and violence, and two experimentally controlled studies found that grouping high-risk young adolescents together in interventions increased their problem behavior compared with controls.'
+    zh-hans: 这篇综述梳理了发展研究和干预研究的证据：纵向研究显示，青少年友谊中的“偏差行为互相强化”会预测违规、物质使用和暴力行为的增加；两项有实验对照的研究发现，把高风险的青春期早期少年集中在一起干预，反而比对照组增加了问题行为。
+    zh-hant: 這篇文獻回顧整理了發展研究和介入研究的證據：縱貫研究顯示，青少年友誼中的「偏差行為互相強化」會預測違規、物質使用和暴力行為的增加；兩項有實驗對照的研究發現，把高風險的青春期早期少年集中在一起介入，反而比對照組增加了問題行為。
+  key_facts:
+  - 'Abstract: "Longitudinal research revealed that \"deviancy training\" within adolescent friendships predicts increases in delinquency, substance use, violence, and adult maladjustment."'
+  - 'Abstract: "findings from 2 experimentally controlled intervention studies suggested that peer-group interventions increase adolescent problem behavior and negative life outcomes in adulthood, compared with control youth."'
+  - 'Abstract: "high-risk youth are particularly vulnerable to peer aggregations, compared with low-risk youth."'
+  topics:
+  - peers
+  - adolescence
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: aap-2016-school-aged-media
+  evidence_level: position-statement
+  authors: Council on Communications and Media
+  year: 2016
+  title: Media Use in School-Aged Children and Adolescents
+  venue: Pediatrics, 138(5), e20162592
+  doi: 10.1542/peds.2016-2592
+  pmid: '27940794'
+  url: https://doi.org/10.1542/peds.2016-2592
+  lang: en
+  finding:
+    en: The American Academy of Pediatrics' policy statement for ages 5 through 18 notes both benefits of media (ideas, knowledge, social contact and support) and risks (weight and sleep, inappropriate content and contacts, privacy), says the evidence does not support a one-size-fits-all approach, and asks parents to make a Family Media Use Plan with consistent rules, boundaries on content and personal information, mentoring and open communication about media.
+    zh-hans: 美国儿科学会针对 5 到 18 岁的政策声明指出，媒体既有益处（新想法、知识、社交联系和支持），也有风险（体重和睡眠、不当内容和不当接触、隐私），现有证据不支持“一刀切”的做法，并建议家长制定“家庭媒体使用计划”：规则一致、对内容和个人信息设定界限、给孩子示范和引导，并就媒体使用保持开放的沟通。
+    zh-hant: 美國兒科醫學會針對 5 到 18 歲的政策聲明指出，媒體既有好處（新想法、知識、社交聯繫和支持），也有風險（體重和睡眠、不當內容和不當接觸、隱私），現有證據不支持「一體適用」的做法，並建議家長制定「家庭媒體使用計畫」：規則一致、對內容和個人資訊設定界線、給孩子示範和引導，並就媒體使用保持開放的溝通。
+  key_facts:
+  - 'Abstract: "This policy statement focuses on children and adolescents 5 through 18 years of age."'
+  - 'Abstract: "Benefits include exposure to new ideas and knowledge acquisition, increased opportunities for social contact and support, and new opportunities to access health-promotion messages and information. Risks include negative health effects on weight and sleep; exposure to inaccurate, inappropriate, or unsafe content and contacts; and compromised privacy and confidentiality."'
+  - 'Abstract: "evidence regarding healthy media use does not support a one-size-fits-all approach."'
+  - 'Abstract: "Parents and pediatricians can work together to develop a Family Media Use Plan ... that considers their children''s developmental stages to individualize an appropriate balance for media time and consistent rules about media use, to mentor their children, to set boundaries for accessing content and displaying personal information, and to implement open family communication about media."'
+  topics:
+  - screens
+  - position-statement
+  ages: 5 through 18
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: orben-przybylski-2019
+  evidence_level: cross-sectional
+  authors: Orben, A., & Przybylski, A. K.
+  year: 2019
+  title: The association between adolescent well-being and digital technology use
+  venue: Nature Human Behaviour, 3(2), 173-182
+  doi: 10.1038/s41562-018-0506-1
+  pmid: '30944443'
+  url: https://doi.org/10.1038/s41562-018-0506-1
+  lang: en
+  finding:
+    en: Applying specification curve analysis to three large datasets (355,358 adolescents), the association between digital technology use and adolescent well-being was negative but small, explaining at most 0.4% of the variation in well-being; the authors judge these effects too small to warrant policy change.
+    zh-hans: 对三个大型数据集（共 355,358 名青少年）做“规格曲线分析”后发现，数字技术使用与青少年幸福感之间的关联为负但很小，最多只能解释幸福感差异的 0.4%；作者认为这样的效应小到不足以作为改变政策的依据。
+    zh-hant: 對三個大型資料集（共 355,358 名青少年）做「規格曲線分析」後發現，數位科技使用和青少年幸福感之間的關聯為負但很小，最多只能解釋幸福感差異的 0.4%；作者認為這樣的效應小到不足以作為改變政策的依據。
+  key_facts:
+  - 'Abstract: "applying specification curve analysis (SCA) across three large-scale social datasets (total n = 355,358) to rigorously examine correlational evidence for the effects of digital technology on adolescents."'
+  - 'Abstract: "The association we find between digital technology use and adolescent well-being is negative but small, explaining at most 0.4% of the variation in well-being."'
+  - 'Abstract: "these effects are too small to warrant policy change."'
+  topics:
+  - screens
+  - adolescence
+  ages: adolescents
+  strength: mixed
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: odgers-jensen-2020
+  evidence_level: review
+  authors: Odgers, C. L., & Jensen, M. R.
+  year: 2020
+  title: 'Annual Research Review: Adolescent mental health in the digital age: facts, fears, and future directions'
+  venue: Journal of Child Psychology and Psychiatry, 61(3), 336-348
+  doi: 10.1111/jcpp.13190
+  pmid: '31951670'
+  url: https://doi.org/10.1111/jcpp.13190
+  lang: en
+  finding:
+    en: 'A review of reviews, large preregistered cohort studies and intensive longitudinal studies on digital technology use and adolescent depression and anxiety: most research is correlational and has produced a mix of small positive, negative and null associations; the most rigorous recent studies find small associations that cannot separate cause from effect and are unlikely to be of clinical or practical significance.'
+    zh-hans: 这篇综述汇总了关于数字技术使用与青少年抑郁、焦虑的多篇综述、大型预注册队列研究和密集追踪研究：现有研究大多是相关性研究，结果是小幅正相关、负相关和无关联并存；最近最严谨的研究发现的关联很小，分不清因果，也不太可能有临床或实际意义。
+    zh-hant: 這篇文獻回顧彙整了關於數位科技使用和青少年憂鬱、焦慮的多篇回顧、大型預先登錄的世代研究和密集追蹤研究：現有研究大多是相關性研究，結果是小幅正相關、負相關和無關聯並存；最近最嚴謹的研究發現的關聯很小，分不清因果，也不太可能有臨床或實際意義。
+  key_facts:
+  - 'Abstract: "most research to date has been correlational, focused on adults versus adolescents, and has generated a mix of often conflicting small positive, negative and null associations."'
+  - 'Abstract: "The most recent and rigorous large-scale preregistered studies report small associations between the amount of daily digital technology usage and adolescents'' well-being that do not offer a way of distinguishing cause from effect and, as estimated, are unlikely to be of clinical or practical significance."'
+  topics:
+  - screens
+  - adolescence
+  ages: adolescents
+  strength: mixed
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: cain-gradisar-2010
+  evidence_level: review
+  authors: Cain, N., & Gradisar, M.
+  year: 2010
+  title: 'Electronic media use and sleep in school-aged children and adolescents: A review'
+  venue: Sleep Medicine, 11(8), 735-742
+  doi: 10.1016/j.sleep.2010.02.006
+  pmid: '20673649'
+  url: https://doi.org/10.1016/j.sleep.2010.02.006
+  lang: en
+  finding:
+    en: A review of 36 papers on sleep and electronic media (television, computers, gaming, the internet, mobile phones and music) in school-aged children and adolescents found delayed bedtime and shorter total sleep time to be the outcomes most consistently related to media use.
+    zh-hans: 这篇综述汇总了 36 项关于学龄儿童和青少年睡眠与电子媒体（电视、电脑、电子游戏、网络、手机和音乐）的研究，发现与媒体使用最一致相关的是睡得更晚和总睡眠时间更短。
+    zh-hant: 這篇文獻回顧彙整了 36 項關於學齡兒童和青少年睡眠與電子媒體（電視、電腦、電玩、網路、手機和音樂）的研究，發現和媒體使用最一致相關的是睡得更晚和總睡眠時間更短。
+  key_facts:
+  - 'Abstract: "The present study identified 36 papers that have investigated the relationship between sleep and electronic media in school-aged children and adolescents, including television viewing, use of computers, electronic gaming, and/or the internet, mobile telephones, and music."'
+  - 'Abstract: "delayed bedtime and shorter total sleep time have been found to be most consistently related to media use."'
+  topics:
+  - sleep
+  - screens
+  ages: school-aged children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: carskadon-2011
+  evidence_level: review
+  authors: Carskadon, M. A.
+  year: 2011
+  title: 'Sleep in Adolescents: The Perfect Storm'
+  venue: Pediatric Clinics of North America, 58(3), 637-647
+  doi: 10.1016/j.pcl.2011.03.003
+  pmid: '21600346'
+  url: https://doi.org/10.1016/j.pcl.2011.03.003
+  lang: en
+  finding:
+    en: A review concluding that although sleep amount falls from late childhood through the teenage years, the weight of evidence holds that sleep need does not decline; the sleep lost through adolescence arises from a convergence of biological, psychological and socio-cultural influences, not from a lower need for sleep.
+    zh-hans: 这篇综述的结论是：虽然从童年晚期到十几岁，睡眠时长会减少，但多数证据表明睡眠需求并没有下降；青春期损失的睡眠来自生物、心理和社会文化因素的共同作用，而不是因为需要的睡眠变少了。
+    zh-hant: 這篇文獻回顧的結論是：雖然從童年晚期到十幾歲，睡眠時數會減少，但多數證據顯示睡眠需求並沒有下降；青春期損失的睡眠來自生物、心理和社會文化因素的共同作用，而不是因為需要的睡眠變少了。
+  key_facts:
+  - 'Abstract: "A reduction in sleep amount from late childhood through the second decade has long been known; however, the weight of current evidence holds that sleep need does not decline across this span."'
+  - 'Abstract: "the loss of sleep through adolescence is not driven by lower need for sleep but arises from a convergence of biologic, psychological, and socio-cultural influences."'
+  topics:
+  - sleep
+  - adolescence
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: evans-lee-2011
+  evidence_level: experiment
+  authors: Evans, A. D., & Lee, K.
+  year: 2011
+  title: Verbal deception from late childhood to middle adolescence and its relation to executive functioning skills
+  venue: Developmental Psychology, 47(4), 1108-1116
+  doi: 10.1037/a0023425
+  pmid: '21553958'
+  url: https://doi.org/10.1037/a0023425
+  lang: en
+  finding:
+    en: In an experiment with 8- to 16-year-olds left alone with the answers to a test, most peeked; the sophistication of their lies about it, but not the decision to lie, was related to executive functioning skills (working memory, inhibitory control and planning).
+    zh-hans: 在一项以 8 到 16 岁孩子为对象的实验中，孩子被单独留下、身边放着考题答案，大多数人偷看了；他们对此撒谎的“水平”（而不是是否撒谎的决定）与执行功能（工作记忆、抑制控制和计划能力）有关。
+    zh-hant: 在一項以 8 到 16 歲孩子為對象的實驗中，孩子被單獨留下、身邊放著考題答案，大多數人偷看了；他們對此說謊的「水準」（而不是是否說謊的決定）和執行功能（工作記憶、抑制控制和計畫能力）有關。
+  key_facts:
+  - 'Abstract: "The present investigation examined 8- to 16-year-olds'' tendency to lie, the sophistication of their lies, and related cognitive factors. Participants were left alone and asked not to look at the answers to a test, but the majority peeked."'
+  - 'Abstract: "Results revealed that the sophistication of 8- to 16-year-olds'' lies, but not their decision to lie, was significantly related to executive functioning skills."'
+  topics:
+  - lying
+  ages: 8 to 16
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: ttofi-farrington-2011
+  evidence_level: meta-analysis
+  authors: Ttofi, M. M., & Farrington, D. P.
+  year: 2011
+  title: 'Effectiveness of school-based programs to reduce bullying: a systematic and meta-analytic review'
+  venue: Journal of Experimental Criminology, 7(1), 27-56
+  doi: 10.1007/s11292-010-9109-1
+  url: https://doi.org/10.1007/s11292-010-9109-1
+  lang: en
+  finding:
+    en: 'A systematic review and meta-analysis of 44 evaluations of school-based anti-bullying programs: on average bullying decreased by 20 to 23% and victimization by 17 to 20%; more intensive programs, programs with parent meetings, firm disciplinary methods and improved playground supervision were more effective, while work with peers was associated with an increase in victimization.'
+    zh-hans: 这项对 44 项校园反欺凌项目评估的系统综述和荟萃分析发现，欺凌行为平均减少 20% 到 23%，受欺凌减少 17% 到 20%；更密集的项目、有家长会议、有坚定纪律措施、改善操场看管的项目效果更好，而“同伴工作”类做法反而与受欺凌增加有关。
+    zh-hant: 這項對 44 項校園反霸凌方案評估的系統性回顧和統合分析發現，霸凌行為平均減少 20% 到 23%，受霸凌減少 17% 到 20%；更密集的方案、有家長會議、有堅定管教措施、改善操場看管的方案效果更好，而「同儕工作」類做法反而和受霸凌增加有關。
+  key_facts:
+  - 'Abstract: "Of the 53 different program evaluations, 44 provided data that permitted the calculation of an effect size for bullying or victimization. The meta-analysis of these 44 evaluations showed that, overall, school-based anti-bullying programs are effective: on average, bullying decreased by 20–23% and victimization decreased by 17–20%."'
+  - 'Abstract: "More intensive programs were more effective, as were programs including parent meetings, firm disciplinary methods, and improved playground supervision. Work with peers was associated with an increase in victimization."'
+  - Crossref lists the online publication year as 2010; the printed issue is volume 7(1), 2011.
+  topics:
+  - bullying
+  - peers
+  ages: school children
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: lereya-samara-wolke-2013
+  evidence_level: meta-analysis
+  authors: Lereya, S. T., Samara, M., & Wolke, D.
+  year: 2013
+  title: 'Parenting behavior and the risk of becoming a victim and a bully/victim: A meta-analysis study'
+  venue: Child Abuse & Neglect, 37(12), 1091-1108
+  doi: 10.1016/j.chiabu.2013.03.001
+  pmid: '23623619'
+  url: https://doi.org/10.1016/j.chiabu.2013.03.001
+  lang: en
+  finding:
+    en: A meta-analysis of prospective and cross-sectional studies found that children exposed to negative parenting (abuse, neglect, maladaptive parenting) were more likely to be bullied or to be both bullies and victims, with small to moderate effects, while positive parenting (good communication, a warm and affectionate relationship, involvement and support, and supervision) was protective, with small to moderate effects; the authors conclude that anti-bullying work should include families and start before school.
+    zh-hans: 这项对前瞻性研究和横断面研究的荟萃分析发现，经历负面教养（虐待、忽视、不当教养）的孩子更容易受欺凌，或既欺凌别人又受欺凌，效应为小到中等；而正面教养（良好的沟通、温暖亲密的关系、参与和支持、监管）有保护作用，效应同样为小到中等；作者认为反欺凌工作应把家庭纳入，并在孩子入学前就开始。
+    zh-hant: 這項對前瞻性研究和橫斷面研究的統合分析發現，經歷負面教養（虐待、忽視、不當教養）的孩子更容易受霸凌，或既霸凌別人又受霸凌，效果為小到中等；而正面教養（良好的溝通、溫暖親密的關係、參與和支持、督導）有保護作用，效果同樣為小到中等；作者認為反霸凌工作應把家庭納入，並在孩子入學前就開始。
+  key_facts:
+  - 'Abstract: "Both victims and those who both bully and are victims (bully/victims) were more likely to be exposed to negative parenting behavior including abuse and neglect and maladaptive parenting. The effects were generally small to moderate for victims (Hedge''s g range: 0.10-0.31) but moderate for bully/victims (0.13-0.68)."'
+  - 'Abstract: "Positive parenting behavior including good communication of parents with the child, warm and affectionate relationship, parental involvement and support, and parental supervision were protective against peer victimization. The protective effects were generally small to moderate for both victims (Hedge''s g: range: -0.12 to -0.22) and bully/victims (-0.17 to -0.42)."'
+  - 'Abstract: "Intervention programs against bullying should extend their focus beyond schools to include families and start before children enter school."'
+  topics:
+  - bullying
+  - peers
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: ullsperger-nikolas-2017
+  evidence_level: meta-analysis
+  authors: Ullsperger, J. M., & Nikolas, M. A.
+  year: 2017
+  title: 'A meta-analytic review of the association between pubertal timing and psychopathology in adolescence: Are there sex differences in risk?'
+  venue: Psychological Bulletin, 143(9), 903-938
+  doi: 10.1037/bul0000106
+  pmid: '28530427'
+  url: https://doi.org/10.1037/bul0000106
+  lang: en
+  finding:
+    en: A meta-analysis of 101 articles found that earlier pubertal timing was linked with more emotional and behavior problems across all domains measured, for boys as well as girls, with effects that were small in magnitude (d about 0.20); adolescent sex did not moderate the effect.
+    zh-hans: 这项对 101 篇文章的荟萃分析发现，青春期发育较早与所测量的各类情绪和行为问题都有关，男孩和女孩都是如此，效应量较小（d 约为 0.20）；性别并不改变这一效应。
+    zh-hant: 這項對 101 篇文章的統合分析發現，青春期發育較早和所測量的各類情緒和行為問題都有關，男孩和女孩都是如此，效果量較小（d 約為 0.20）；性別並不改變這個效應。
+  key_facts:
+  - 'Abstract: "A systematic literature search was conducted in PubMed and PsycINFO databases and 101 articles met criteria for inclusion."'
+  - 'Abstract: "Adolescent sex did not moderate early pubertal timing effects on emotional and behavior problems. However, robust early pubertal timing effects emerged for both males and females across all domains of psychopathology that were small in magnitude (ds∼.20)."'
+  topics:
+  - puberty
+  - adolescence
+  ages: adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: pinquart-2017-externalizing
+  evidence_level: meta-analysis
+  authors: Pinquart, M.
+  year: 2017
+  title: 'Associations of parenting dimensions and styles with externalizing problems of children and adolescents: An updated meta-analysis'
+  venue: Developmental Psychology, 53(5), 873-932
+  doi: 10.1037/dev0000295
+  pmid: '28459276'
+  url: https://doi.org/10.1037/dev0000295
+  lang: en
+  finding:
+    en: 'A meta-analysis of 1,435 studies: parental warmth, behavioral control, autonomy granting and an authoritative style showed very small to small negative links with children''s and adolescents'' externalizing problems, while harsh control and psychological control showed the strongest positive links; several dimensions predicted change over time, and the links with warmth, behavioral control, harsh control, psychological control and authoritative parenting ran in both directions.'
+    zh-hans: 这项汇总 1,435 项研究的荟萃分析发现，父母的温暖、行为上的管束、给予自主以及权威型（温暖而有要求）的教养方式，与儿童青少年的外化问题呈很小到小的负相关；严厉管控和心理控制与外化问题的正相关最强；多个维度能预测问题随时间的变化，而温暖、行为管束、严厉管控、心理控制和权威型教养与外化问题之间的关系是双向的。
+    zh-hant: 這項彙整 1,435 項研究的統合分析發現，父母的溫暖、行為上的管束、給予自主以及權威型（溫暖而有要求）的教養方式，和兒童青少年的外化問題呈很小到小的負相關；嚴厲管控和心理控制和外化問題的正相關最強；多個向度能預測問題隨時間的變化，而溫暖、行為管束、嚴厲管控、心理控制和權威型教養和外化問題之間的關係是雙向的。
+  key_facts:
+  - 'Abstract: "The present meta-analysis integrates research from 1,435 studies on associations of parenting dimensions and styles with externalizing symptoms in children and adolescents."'
+  - 'Abstract: "Parental warmth, behavioral control, autonomy granting, and an authoritative parenting style showed very small to small negative concurrent and longitudinal associations with externalizing problems. In contrast, harsh control, psychological control, authoritarian, permissive, and neglectful parenting were associated with higher levels of externalizing problems. The strongest associations were observed for harsh control and psychological control."'
+  - 'Abstract: associations of externalizing problems "with warmth, behavioral control, harsh control, psychological control, and authoritative parenting being bidirectional."'
+  topics:
+  - parenting-dimensions
+  - adolescence
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: pinquart-2017-internalizing
+  evidence_level: meta-analysis
+  authors: Pinquart, M.
+  year: 2017
+  title: 'Associations of Parenting Dimensions and Styles with Internalizing Symptoms in Children and Adolescents: A Meta-Analysis'
+  venue: Marriage & Family Review, 53(7), 613-640
+  doi: 10.1080/01494929.2016.1247761
+  url: https://doi.org/10.1080/01494929.2016.1247761
+  lang: en
+  finding:
+    en: 'A meta-analysis of 1,015 studies: parental warmth, behavioral control, autonomy granting and authoritative parenting showed very small to small negative links with children''s and adolescents'' internalizing symptoms (such as anxiety and depression), while harsh control, psychological control, authoritarian and, in part, neglectful parenting went with more symptoms; the links with warmth, psychological control and authoritative parenting ran in both directions.'
+    zh-hans: 这项汇总 1,015 项研究的荟萃分析发现，父母的温暖、行为上的管束、给予自主和权威型教养，与儿童青少年的内化症状（如焦虑、抑郁）呈很小到小的负相关；严厉管控、心理控制、专制型教养以及部分忽视型教养则与更多症状有关；温暖、心理控制和权威型教养与内化症状之间的关系是双向的。
+    zh-hant: 這項彙整 1,015 項研究的統合分析發現，父母的溫暖、行為上的管束、給予自主和權威型教養，和兒童青少年的內化症狀（如焦慮、憂鬱）呈很小到小的負相關；嚴厲管控、心理控制、專制型教養以及部分忽視型教養則和較多症狀有關；溫暖、心理控制和權威型教養和內化症狀之間的關係是雙向的。
+  key_facts:
+  - 'Abstract: "The present meta-analysis integrates research from 1,015 studies on associations of parenting dimensions and styles with internalizing symptoms in children and adolescents."'
+  - 'Abstract: "Parental warmth, behavioral control, autonomy granting, and authoritative parenting showed very small to small negative concurrent and longitudinal associations with internalizing symptoms. In contrast, harsh control, psychological control, authoritarian, and, in part, neglectful parenting were associated with higher levels of internalizing symptoms."'
+  - Crossref lists the online publication year as 2016; the printed issue is volume 53(7), 2017.
+  topics:
+  - parenting-dimensions
+  - adolescence
+  ages: children and adolescents
+  strength: consistent
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: eccles-1993-stage-environment
+  evidence_level: review
+  authors: Eccles, J. S., Midgley, C., Wigfield, A., Buchanan, C. M., Reuman, D., Flanagan, C., & Mac Iver, D.
+  year: 1993
+  title: 'Development during adolescence: The impact of stage-environment fit on young adolescents'' experiences in schools and in families'
+  venue: American Psychologist, 48(2), 90-101
+  doi: 10.1037/0003-066x.48.2.90
+  url: https://doi.org/10.1037/0003-066x.48.2.90
+  lang: en
+  finding:
+    en: 'A review advancing the stage-environment fit hypothesis: some of the negative changes seen in early adolescence (in motivation and self-perception) result from a mismatch between adolescents'' developing needs and the opportunities their school and home environments give them, with examples of how the mismatch arises and how more developmentally appropriate environments can be created.'
+    zh-hans: 这篇综述提出“阶段与环境匹配”假说：青春期早期出现的一些负面变化（动机和自我认知方面），来自青少年正在发展的需要与学校和家庭给他们的机会之间的错配；文章举例说明这种错配如何产生，以及怎样创造更符合发展阶段的环境。
+    zh-hant: 這篇文獻回顧提出「階段與環境匹配」假說：青春期早期出現的一些負面變化（動機和自我認知方面），來自青少年正在發展的需要和學校、家庭給他們的機會之間的錯配；文章舉例說明這種錯配如何產生，以及怎麼創造更符合發展階段的環境。
+  key_facts:
+  - 'Abstract: "This article ... advances the hypothesis that some of the negative psychological changes associated with adolescent development result from a mismatch between the needs of developing adolescents and the opportunities afforded them by their social environments."'
+  - 'Abstract: "It provides examples of how this mismatch develops in the school and in the home and how it is linked to negative age-related changes in early adolescents'' motivation and self-perceptions."'
+  topics:
+  - adolescence
+  - autonomy
+  - school
+  ages: early adolescents
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
