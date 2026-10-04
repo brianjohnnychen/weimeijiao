@@ -1,10 +1,22 @@
 # STATUS
 
-## FINAL QA PASS DONE; GOING LIVE
+## DEPLOYED; WAITING ON DNS FOR 魏美娇.com
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
 
-Go-live follows the steps in SPEC §2 right after this update: merge PR #1 into `main`, run `deploy.yml` on `main`, check the live site and both redirect domains, and record the result here. The plan was to wait for the last 21 illustrations, but Cloudflare still reported its free daily allocation as used up at 00:22 and 00:24 UTC (open issue 2), so the site goes live with their designed placeholders and a second deploy adds them once they are generated and reviewed. **Known blocker for the live check: 魏美娇.com and 魏美嬌.com do not resolve yet (open issue 1).**
+### Go-live (SPEC §2), 2026-10-04 08:28-08:50 Taipei (00:28-00:50 UTC)
+
+- **Merged:** [PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1) into `main` at 00:28 UTC (merge commit `26221d2`), after CI passed on its last commit.
+- **Deployed:** `deploy.yml` on `main`, [Actions run 37165058193](https://github.com/brianjohnnychen/weimeijiao/actions/runs/37165058193). The build job passed: build, QA, PDFs, OG images, link test and anchor test on GitHub's runner. The deploy job published the site to GitHub Pages at 00:31 UTC.
+- **Live check:** [smoke test run 37165530941](https://github.com/brianjohnnychen/weimeijiao/actions/runs/37165530941) at 00:38 UTC (single attempt). Results:
+  - **Pass:** weimeijiao.com answers 301 to `https://xn--3ys368f86s.com/en/toolbox/?smoke=1`, keeping the path and query.
+  - **Fail:** every check on 魏美娇.com (home in all three locales, a deep page, Research, the 404 page, sitemap.xml), and the 魏美嬌.com redirect. The runner could not resolve either domain (DNS error EAI_AGAIN). This is open issue 1, the same DNS problem found before the deploy.
+  - **Not reachable yet (warnings):** HTTPS enforcement and the www redirect, for the same reason.
+  - The deploy run's own smoke job was still retrying at 00:46 UTC, close to its 15-minute limit. It checked one URL at a time, and each DNS failure took several seconds, so it could not print its table in time; that job ends red. `scripts/smoke-test.mjs` now runs the checks in parallel, gives each request 20 seconds and stops retrying after 8 minutes, so the table always prints.
+- **Enforce HTTPS:** not turned on. This session has no token for the Pages API, and GitHub can only enforce HTTPS after it has issued the certificate, which needs 魏美娇.com to resolve first (open issue 3).
+- **Illustrations:** the site went live with the designed placeholders on the 21 pages whose illustrations are not generated yet, because Cloudflare still reported its free daily allocation as used up (open issue 2). A second deploy adds them once they are generated and reviewed.
+
+**What makes the site public:** the deployed site is in place on GitHub Pages. Once Cowork activates the two Cloudflare zones (open issue 1), 魏美娇.com serves it with no further deploy, GitHub issues the certificate, and weimeijiao.com's existing redirect starts landing on the site. After that, run `smoke.yml` (Actions → "Smoke test (live site)" → Run workflow) to confirm, then tick Enforce HTTPS.
 
 ### QA results (how to rerun: docs/QA.md)
 
@@ -37,21 +49,22 @@ Go-live follows the steps in SPEC §2 right after this update: merge PR #1 into 
    - xn--3ys368f86s.com (魏美娇.com) and xn--k6s926f86s.com (魏美嬌.com) fail with SERVFAIL. The .com registry sends both to the same Cloudflare nameservers that answer for weimeijiao.com, but those nameservers reply REFUSED for these two names ("lame delegation").
    - Both are registered at Dynadot with no registry hold (status: client transfer prohibited only).
    - What it means: Cloudflare is not serving these two zones yet. Usually a zone is still "pending" activation, or it was added under a different nameserver pair from the one set at Dynadot. To check: in the Cloudflare dashboard, open each zone's Overview. It must say Active, and its two assigned nameservers must match the ones set at Dynadot (earl and lila). If it is pending and they match, "Check nameservers" re-runs the activation check.
-   - Until then 魏美娇.com does not load, GitHub cannot issue its HTTPS certificate, and weimeijiao.com (which redirects to 魏美娇.com) cannot show the site either. The deploy itself does not depend on DNS; once the zones are active, the deployed site appears with no further step. This session does not change DNS (CLAUDE.md).
+   - Until then 魏美娇.com does not load, GitHub cannot issue its HTTPS certificate, and weimeijiao.com (which redirects to 魏美娇.com) cannot show the site either. The smoke test after the deploy (00:38 UTC) confirmed it: weimeijiao.com's redirect works, 魏美娇.com and 魏美嬌.com do not resolve. The site is already deployed; once the zones are active, it appears with no further step. This session does not change DNS (CLAUDE.md).
 2. **21 AI illustrations still to generate.** Cloudflare Workers AI's free daily allocation (10,000 neurons) ran out on 2026-10-03. Cloudflare's pricing page says the limits reset daily at 00:00 UTC, but the images workflow still got "you have used up your daily free allocation" at 00:22 and 00:24 UTC on 2026-10-04 (Actions run 37161742742, attempts 2 and 3). Why is not known from here; one possibility is other Workers AI use on the same Cloudflare account. This session retries later; when the images arrive it reviews every one, commits them and deploys again. Until then those pages show the designed placeholder (a paid plan would cost money, so it was not used).
-3. **Go-live needs the code on `main`.** GitHub starts a `workflow_dispatch` workflow only from the default branch, and `main` has no workflows yet, so go-live is: merge PR #1 into `main`, then run `deploy.yml` on `main` (SPEC §2). The Cowork "Weimeijiao build watch" routine's prompt still says not to run deploy.yml; Brian's later instruction (SPEC §2, REVIEWER-CHANGES.md) supersedes it.
-4. **Enforce HTTPS.** This session has no token for the Pages API, and GitHub can only enforce HTTPS once the certificate exists (after open issue 1 is fixed). The checkbox is for Brian or the Cowork routine.
-5. **AAP 2018 discipline statement: reaffirmation status unknown.** AAP policy statements expire after 5 years unless reaffirmed; no notice was found and the article page blocks automated access. Every page says "in its 2018 policy statement". Waiting on: someone opening the article page in a browser.
-6. **SPEC §4a sources not citable.** Hobbs et al. 1978, Kendall et al. 1975 and Roberts & Powers 1990 exist, but no abstract is reachable by automated checks, so they are left out under the rule never to cite what could not be verified. Waiting on: Brian, only if he wants them added (someone would need to read the abstracts).
-7. **Judgment calls left for Brian:** the warning sign "You hit a baby or toddler" (the study's authors advise against spanking infants and toddlers; "toddler" overlaps the 2-6 range proponents discuss); the 2010 six-country study that also linked time-out with child anxiety is shown on the time-out tool but not on the 7-10 page; the family-rules poster repeats two points of the on-screen "Four keys"; two uncited framing sentences on the learning pages.
+3. **Enforce HTTPS.** This session has no token for the Pages API, and GitHub can only enforce HTTPS once the certificate exists (after open issue 1 is fixed). The checkbox (repo Settings → Pages) is for Brian or the Cowork routine. Note: the Cowork "Weimeijiao build watch" routine's prompt still says not to run deploy.yml; the go-live deploy above ran under Brian's later instruction (SPEC §2, REVIEWER-CHANGES.md).
+4. **AAP 2018 discipline statement: reaffirmation status unknown.** AAP policy statements expire after 5 years unless reaffirmed; no notice was found and the article page blocks automated access. Every page says "in its 2018 policy statement". Waiting on: someone opening the article page in a browser.
+5. **SPEC §4a sources not citable.** Hobbs et al. 1978, Kendall et al. 1975 and Roberts & Powers 1990 exist, but no abstract is reachable by automated checks, so they are left out under the rule never to cite what could not be verified. Waiting on: Brian, only if he wants them added (someone would need to read the abstracts).
+6. **Judgment calls left for Brian:** the warning sign "You hit a baby or toddler" (the study's authors advise against spanking infants and toddlers; "toddler" overlaps the 2-6 range proponents discuss); the 2010 six-country study that also linked time-out with child anxiety is shown on the time-out tool but not on the 7-10 page; the family-rules poster repeats two points of the on-screen "Four keys"; two uncited framing sentences on the learning pages.
 
 ### Next step
 
-00:20 UTC check-in: generate and review the 21 illustrations, then go live per SPEC §2 (merge PR #1, run `deploy.yml` on `main`, record the deploy and smoke-test results here).
+- 01:30 UTC check-in: retry the 21 illustrations. When they arrive, review every one, merge them to `main` through a pull request, and run `deploy.yml` again.
+- Cowork: activate the two Cloudflare zones (open issue 1), then run `smoke.yml` and tick Enforce HTTPS.
 
 ## Earlier notes
 
 - Domains: registered by Cowork 2026-10-03 (see REVIEWER-CHANGES.md); DNS for the two Chinese domains is not answering yet (open issue 1).
+- First deploy: 2026-10-04 00:31 UTC, `deploy.yml` run 37165058193 on `main` (go-live above).
 - GitHub Pages: enabled by Cowork (source = GitHub Actions, custom domain xn--3ys368f86s.com saved, HTTPS certificate pending).
 - Repo secrets CF_ACCOUNT_ID and CF_AI_TOKEN: in place (added by Brian 2026-10-04); the AI image workflow runs.
 - READY FOR FINAL PASS was marked 2026-10-04 04:27 Taipei on commit `b11d4d7`; its QA table is superseded by the one above.
