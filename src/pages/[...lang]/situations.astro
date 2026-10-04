@@ -62,7 +62,7 @@ const alsoLabel = { 'zh-hans': '相关难题', 'zh-hant': '相關難題', en: 'R
           <h2 id={`${slug}-title`}><a class="anchor" href={`#${slug}`}>{s.data.title}</a></h2>
           <p class="tool-summary"><RichText text={s.data.summary} /></p>
           <ul class="chips" aria-label={ui.ages}>
-            {s.data.ages.map((a) => <li><span class="chip">{ui.phaseAge[a]}</span></li>)}
+            {s.data.ages.map((a) => <li><a class="chip" href={`${href(locale, paths.phase(a))}#start`}>{ui.phaseAge[a]}</a></li>)}
           </ul>
         </div>
         <div class="tool-media"><AiImage id={s.data.image} locale={locale} width={480} sizes="(min-width: 860px) 240px, 100vw" /></div>

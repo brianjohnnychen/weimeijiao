@@ -23,7 +23,7 @@ const phases = await getPhases(locale);
 setupCites(Astro.locals, locale);
 const { Content } = await render(page);
 const sources = pageSources([entryText(page)]);
-const stagesTitle = { 'zh-hans': '五个年龄阶段', 'zh-hant': '五個年齡階段', en: 'The five stages' }[locale];
+const stagesTitle = { 'zh-hans': '六个年龄阶段', 'zh-hant': '六個年齡階段', en: 'The six stages' }[locale];
 const toc = [{ id: 'phases-title', text: stagesTitle }, ...headingsIn(page.body)];
 ---
 <Article locale={locale} title={page.data.title} description={page.data.description} lede={page.data.lede} image={page.data.image} trail={[{ label: page.data.title }]} sources={sources} toc={toc}>

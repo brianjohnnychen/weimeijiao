@@ -482,6 +482,17 @@ th {
   white-space: nowrap;
 }
 
+/* An age chip that links to its phase page keeps the chip colors and underlines on hover. */
+a.chip {
+  text-decoration: none;
+}
+
+a.chip:hover {
+  color: var(--chip-text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
 /* ------------------------------------------------------------------
    Header
    ------------------------------------------------------------------ */
