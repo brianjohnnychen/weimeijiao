@@ -410,6 +410,14 @@ images:
       zh-hans: "三岁的孩子抱着胳膊站在门口，家长拿着一只鞋耐心地跪在旁边。"
       zh-hant: "三歲的孩子抱著手臂站在門口，家長拿著一隻鞋耐心地跪在旁邊。"
     size: '4:3'
+  - id: situation-ignores-me
+    page: situation/ignores-me
+    prompt: "A parent crouched on the living-room floor of a Taipei apartment beside an eighteen-month-old who is absorbed in stacking plastic cups, the parent's hand resting lightly on the child's arm and their face at the child's eye level, waiting for the child to look up, late afternoon window light, a few toys scattered on the tiles. 50mm lens."
+    alt:
+      en: "A parent crouches at eye level beside a toddler who is stacking cups, a hand resting on the child’s arm to get their attention."
+      zh-hans: "家长蹲在正专心叠杯子的学步儿旁边，与孩子平视，手轻轻搭在孩子手臂上等孩子抬头。"
+      zh-hant: "家長蹲在正專心疊杯子的學步兒旁邊，與孩子平視，手輕輕搭在孩子手臂上等孩子抬頭。"
+    size: '4:3'
   - id: situation-whining
     page: situation/whining
     prompt: "A four-year-old tugging a parent's sleeve in a Taipei kitchen while the parent keeps stirring a wok, the child's face in a mild pout, a little steam, afternoon light. 35mm lens."

@@ -36,6 +36,7 @@ export const SITUATIONS = [
   'screens',
   'lying',
   'defiance',
+  'ignores-me',
   'whining',
   'homework',
   'grandparents',

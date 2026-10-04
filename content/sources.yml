@@ -4048,3 +4048,272 @@
   strength: single-study
   accessed: '2026-10-04'
   verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37173192476): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the 10-12 phase; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: schaffer-crook-1980
+  evidence_level: cross-sectional
+  authors: "Schaffer, H. R., & Crook, C. K."
+  year: 1980
+  title: "Child compliance and maternal control techniques"
+  venue: "Developmental Psychology, 16(1), 54-61"
+  doi: 10.1037/0012-1649.16.1.54
+  url: https://doi.org/10.1037/0012-1649.16.1.54
+  lang: en
+  finding:
+    en: "In an observational study of 24 children aged 15 and 24 months playing with their mothers, a mother's instruction was most likely to succeed when it formed part of a sequence that first drew the child's attention to the object and then asked for the action; compliance rates varied considerably with the kind of response asked for (looking, touching or doing the task)."
+    zh-hans: "一项观察研究让 24 名 15 个月和 24 个月大的孩子与母亲一起玩，发现母亲的指令在作为“先引起孩子注意、再要求行动”这一序列的一部分时最容易成功；配合的比例因要求的反应类型（看、接触还是完成任务）而有很大差别。"
+    zh-hant: "一項觀察研究讓 24 名 15 個月和 24 個月大的孩子和母親一起玩，發現母親的指令在作為「先引起孩子注意、再要求行動」這一序列的一部分時最容易成功；配合的比例因要求的反應類型（看、接觸還是完成任務）而有很大差別。"
+  key_facts:
+  - 'Abstract: "Observed 24 children aged 15 mo and 24 mo with their mothers in a directed play situation."'
+  - 'Abstract: "Maternal controls were most likely to succeed if they formed part of a sequential attention–action strategy designed to manipulate the child''s involvement state."'
+  - 'Abstract: "Considerable variations occurred in compliance rate according to the type of response required."'
+  topics:
+  - instructions
+  - development
+  ages: "15 and 24 months"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: kuczynski-1987-noncompliance
+  evidence_level: cross-sectional
+  authors: "Kuczynski, L., Kochanska, G., Radke-Yarrow, M., & Girnius-Brown, O."
+  year: 1987
+  title: "A developmental interpretation of young children's noncompliance"
+  venue: "Developmental Psychology, 23(6), 799-806"
+  doi: 10.1037/0012-1649.23.6.799
+  url: https://doi.org/10.1037/0012-1649.23.6.799
+  lang: en
+  finding:
+    en: "In home observations of 70 mothers (some with depression) and their 1½- to 3½-year-olds, passive noncompliance and direct defiance decreased with age while negotiation, a more skilled form of resistance, increased; mothers' reasoning and suggestions went with children's negotiation, and more direct maternal strategies with children's defiant responses."
+    zh-hans: "对 70 对母子（部分母亲患有抑郁症）在家中互动的观察发现，孩子从一岁半到三岁半，被动不服从和直接违抗随年龄减少，而更成熟的抵抗方式“讨价还价”随年龄增加；母亲讲道理和提建议与孩子的讨价还价有关，比较直接的管束方式则与孩子的违抗反应有关。"
+    zh-hant: "對 70 對母子（部分母親有憂鬱症）在家中互動的觀察發現，孩子從一歲半到三歲半，被動不服從和直接違抗隨年齡減少，而比較成熟的抵抗方式「討價還價」隨年齡增加；母親講道理和提建議和孩子的討價還價有關，比較直接的管束方式則和孩子的違抗反應有關。"
+  key_facts:
+  - 'Abstract: "The subjects were 70 dyads consisting of depressed and nondepressed mothers and their 1½- to 3½-year-old children."'
+  - 'Abstract: "Passive noncompliance and direct defiance decreased with age, whereas negotiation, the relatively more sophisticated form of resistance, increased with age."'
+  - 'Abstract: "Mothers'' use of reasoning and suggestion were associated with the children''s use of negotiation as a form of resistance, whereas relatively direct maternal strategies were associated with the children''s defiant responses."'
+  topics:
+  - development
+  - instructions
+  ages: "1.5 to 3.5 years"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: crockenberg-litman-1990
+  evidence_level: cross-sectional
+  authors: "Crockenberg, S., & Litman, C."
+  year: 1990
+  title: "Autonomy as competence in 2-year-olds: Maternal correlates of child defiance, compliance, and self-assertion"
+  venue: "Developmental Psychology, 26(6), 961-971"
+  doi: 10.1037/0012-1649.26.6.961
+  url: https://doi.org/10.1037/0012-1649.26.6.961
+  lang: en
+  finding:
+    en: "A study of 95 mothers and their 2-year-olds, observed in a laboratory compliance task and at home at dinnertime, treated autonomy as a competence and measured it through children's defiant, compliant and self-assertive behavior, distinguishing self-assertion from defiance."
+    zh-hans: "一项针对 95 对母亲和两岁孩子的研究，在实验室的配合任务和家中晚餐时间进行观察，把自主视为一种能力，通过孩子的违抗、配合和自我主张行为来衡量，并把自我主张与违抗区分开来。"
+    zh-hant: "一項以 95 對母親和兩歲孩子為對象的研究，在實驗室的配合任務和家中晚餐時間進行觀察，把自主視為一種能力，透過孩子的違抗、配合和自我主張行為來衡量，並把自我主張和違抗區分開來。"
+  key_facts:
+  - 'Abstract: "Ninety-five mothers and their 2-year-old children participated in a study of maternal control strategies and child autonomy as measured by children''s defiant, compliant, and self-assertive behavior."'
+  - 'Abstract: "Mothers and children were observed in a laboratory compliance task and at home at dinnertime."'
+  - 'Note: the abstract reports the design, not the results; the site uses this entry only for the distinction between self-assertion and defiance as parts of autonomy.'
+  topics:
+  - autonomy
+  - development
+  ages: "2 years"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: kochanska-coy-murray-2001
+  evidence_level: longitudinal
+  authors: "Kochanska, G., Coy, K. C., & Murray, K. T."
+  year: 2001
+  title: "The development of self-regulation in the first four years of life"
+  venue: "Child Development, 72(4), 1091-1111"
+  doi: 10.1111/1467-8624.00336
+  pmid: '11480936'
+  url: https://doi.org/10.1111/1467-8624.00336
+  lang: en
+  finding:
+    en: "Following 108 children at 14, 22, 33 and 45 months, 'do' requests (sustaining something tedious, such as tidying up) were much more challenging than 'don't' requests (giving up something attractive) at every age; committed compliance, when children eagerly embraced the mother's agenda, rather than situational compliance without real commitment, was linked with children following the rules when alone."
+    zh-hans: "追踪 108 名孩子在 14、22、33 和 45 个月大时的表现发现，无论哪个年龄，“要做”的要求（坚持做一件乏味的事，比如收拾玩具）都比“别做”的要求（放弃有吸引力的事）难得多；孩子心甘情愿地配合（主动接受母亲的安排），而不是没有真心投入的、只在当下迫于情境的配合，与孩子独处时仍遵守规则有关。"
+    zh-hant: "追蹤 108 名孩子在 14、22、33 和 45 個月大時的表現發現，不論哪個年齡，「要做」的要求（堅持做一件乏味的事，例如收拾玩具）都比「別做」的要求（放棄有吸引力的事）難得多；孩子心甘情願地配合（主動接受母親的安排），而不是沒有真心投入、只在當下迫於情境的配合，和孩子獨處時仍遵守規則有關。"
+  key_facts:
+  - 'Abstract: "This study examined longitudinally the development of self-regulation in 108 young children during the first 4 years of life."'
+  - 'Abstract: "Children''s committed compliance (when they eagerly embraced maternal agenda) and situational compliance (when they cooperated, but without a sincere commitment) were studied."'
+  - 'Abstract: "At all ages, the Do context was much more challenging for children than the Don''t context."'
+  - 'Abstract: "Committed, but not situational, compliance was linked to children''s internalization of maternal rules, observed when the children were alone in the Do and Don''t contexts."'
+  topics:
+  - development
+  - autonomy
+  ages: "14 to 45 months"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: vaughn-kopp-krakow-1984
+  evidence_level: cross-sectional
+  authors: "Vaughn, B. E., Kopp, C. B., & Krakow, J. B."
+  year: 1984
+  title: "The emergence and consolidation of self-control from eighteen to thirty months of age: Normative trends and individual differences"
+  venue: "Child Development, 55(3), 990-1004"
+  doi: 10.2307/1130151
+  url: https://doi.org/10.2307/1130151
+  lang: en
+  finding:
+    en: "In 72 children aged 18 to 30 months, two aspects of self-control, waiting in the presence of something attractive and complying with the mother's directions in a cleanup task, both increased with age; the authors conclude that self-control emerges and is consolidated during the second and third years of life."
+    zh-hans: "对 72 名 18 到 30 个月大孩子的研究发现，自我控制的两个方面，即面对有吸引力的东西时能等待，以及在收拾任务中听从母亲的指示，都随年龄增长而提高；作者的结论是，自我控制在生命的第二年和第三年出现并逐渐稳固。"
+    zh-hant: "對 72 名 18 到 30 個月大孩子的研究發現，自我控制的兩個面向，也就是面對有吸引力的東西時能等待，以及在收拾任務中聽從母親的指示，都隨年齡增長而提高；作者的結論是，自我控制在生命的第二年和第三年出現並逐漸穩固。"
+  key_facts:
+  - 'Abstract: "2 aspects of self-control were assessed (delay/response inhibition in the presence of an attractive stimulus and compliance with maternal directives in a cleanup task) for 72 children between the ages of 18 and 30 months."'
+  - 'Abstract: "The results indicated that both aspects of self-control show age-related increases."'
+  - 'Abstract: "individual differences in self-control emerge and are consolidated during the second and third years of life."'
+  topics:
+  - development
+  - executive-function
+  ages: "18 to 30 months"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: power-chapieski-1986
+  evidence_level: longitudinal
+  authors: "Power, T. G., & Chapieski, M. L."
+  year: 1986
+  title: "Childrearing and impulse control in toddlers: A naturalistic investigation"
+  venue: "Developmental Psychology, 22(2), 271-275"
+  doi: 10.1037/0012-1649.22.2.271
+  url: https://doi.org/10.1037/0012-1649.22.2.271
+  lang: en
+  finding:
+    en: "In home observations of 18 firstborn toddlers aged 12 to 15 months, mothers made many demands for impulse control and enforced them promptly and consistently; the toddlers of mothers who relied on physical punishment were more likely to ignore their mothers' prohibitions, to handle breakable objects, and to show lower nonverbal competence 7 months later."
+    zh-hans: "对 18 名 12 到 15 个月大的头胎学步儿的家庭观察发现，母亲对孩子的冲动控制提出很多要求，并且及时、一致地执行；依赖体罚的母亲，其孩子更可能不理会母亲的禁止、去摆弄易碎物品，并在 7 个月后表现出较低的非语言能力。"
+    zh-hant: "對 18 名 12 到 15 個月大的頭胎學步兒的家庭觀察發現，母親對孩子的衝動控制提出很多要求，並且及時、一致地執行；依賴體罰的母親，其孩子更可能不理會母親的禁止、去玩易碎物品，並在 7 個月後表現出較低的非語言能力。"
+  key_facts:
+  - 'Abstract: "Observed 18 firstborn toddlers (aged 12–15 mo) and their mothers in their homes on 2 occasions (1 wk apart) for 45 min on each day."'
+  - 'Abstract: "Findings reveal that mothers made numerous demands on their infants for impulse control and enforced them promptly and consistently."'
+  - 'Abstract: "Mothers who relied on physical punishment had infants who were more likely to ignore maternal prohibitions, to manipulate breakable objects, and to show low levels of nonverbal competence 7 mo later."'
+  topics:
+  - physical-punishment
+  - development
+  ages: "12 to 15 months"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: wilder-atwell-2006
+  evidence_level: experiment
+  authors: "Wilder, D. A., & Atwell, J."
+  year: 2006
+  title: "Evaluation of a guided compliance procedure to reduce noncompliance among preschool children"
+  venue: "Behavioral Interventions, 21(4), 265-272"
+  doi: 10.1002/bin.222
+  url: https://doi.org/10.1002/bin.222
+  lang: en
+  finding:
+    en: "With six typically developing preschoolers, a guided compliance procedure (progressively more intrusive prompts whenever the child did not follow an everyday instruction), delivered by a parent or an assistant, was effective for four of the six children in a multiple baseline design."
+    zh-hans: "对 6 名发育正常的学龄前儿童的研究中，由家长或助理实施的引导式配合程序（孩子不照日常指令做时，给予逐步加强的提示，直到手把手带着做），在多基线设计中对 6 个孩子中的 4 个有效。"
+    zh-hant: "對 6 名發展正常的學齡前兒童的研究中，由家長或助理實施的引導式配合程序（孩子不照日常指令做時，給予逐步加強的提示，直到手把手帶著做），在多基線設計中對 6 個孩子中的 4 個有效。"
+  key_facts:
+  - 'Abstract: "The effectiveness of a guided compliance procedure to reduce noncompliance among typically developing preschool children was evaluated."'
+  - 'Abstract: "a parent, instructional assistant, or graduate research assistant implemented the guided compliance procedure, which involved the delivery of progressively more intrusive prompts contingent upon noncompliance."'
+  - 'Abstract: "The results suggest that the procedure was effective for four of the six children who participated."'
+  topics:
+  - instructions
+  ages: "preschool"
+  strength: mixed
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: wilder-2010-rationales
+  evidence_level: experiment
+  authors: "Wilder, D. A., Allison, J., Nicholson, K., Abellon, O. E., & Saulnier, R."
+  year: 2010
+  title: "Further evaluation of antecedent interventions on compliance: The effects of rationales to increase compliance among preschoolers"
+  venue: "Journal of Applied Behavior Analysis, 43(4), 601-613"
+  doi: 10.1901/jaba.2010.43-601
+  pmid: '21541147'
+  url: https://doi.org/10.1901/jaba.2010.43-601
+  lang: en
+  finding:
+    en: "In two experiments with six young children, rationales (telling the child why to comply, given right before or right after an instruction) were ineffective for all six; guided compliance increased compliance for one child, and access to preferred items contingent on complying, with or without response cost, increased it for the others, although problem behavior was often higher in the rationale and guided compliance conditions."
+    zh-hans: "在两项针对 6 名幼童的实验中，讲道理（在指令前或指令后告诉孩子为什么要照做）对 6 个孩子都无效；引导式配合提高了 1 个孩子的配合度，而“照做之后才能拿到喜欢的东西”（有或没有反应代价）提高了其他孩子的配合度，不过在讲道理和引导式配合的条件下，问题行为往往更多。"
+    zh-hant: "在兩項以 6 名幼童為對象的實驗中，講道理（在指令前或指令後告訴孩子為什麼要照做）對 6 個孩子都無效；引導式配合提高了 1 個孩子的配合度，而「照做之後才能拿到喜歡的東西」（有或沒有反應代價）提高了其他孩子的配合度，不過在講道理和引導式配合的條件下，問題行為往往比較多。"
+  key_facts:
+  - 'Abstract: "the effects of rationales (statements that describe why a child should comply with a caregiver-delivered instruction) were evaluated."'
+  - 'Abstract: "The results indicate that rationales were ineffective for all 6 children."'
+  - 'Abstract: "A guided compliance procedure increased compliance for 1 child; contingent access to preferred items with or without response cost increased compliance for the other participants."'
+  - 'Abstract: "Although levels of problem behavior varied within and across participants, they were often higher in the rationale and guided compliance conditions."'
+  topics:
+  - instructions
+  ages: "young children (preschoolers)"
+  strength: mixed
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: mandal-2000-eid
+  evidence_level: experiment
+  authors: "Mandal, R. L., Olmi, D. J., Edwards, R. P., Tingstrom, D. H., & Benoit, D. A."
+  year: 2000
+  title: "Effective instruction delivery and time-in: Positive procedures for achieving child compliance"
+  venue: "Child & Family Behavior Therapy, 22(4), 1-12"
+  doi: 10.1300/J019v22n04_01
+  url: https://doi.org/10.1300/J019v22n04_01
+  lang: en
+  finding:
+    en: "In a clinic study of children who followed 40% or fewer first-time instructions, parents trained in effective instruction delivery and in time-in each raised their child's compliance above baseline, and combining the two raised it further, in a multiple baseline crossover design."
+    zh-hans: "一项诊所研究的对象是第一次听到指令时只有 40% 或更少会照做的孩子；受训使用有效下指令和陪伴冷静（time-in）的家长，各自都把孩子的配合度提高到基线以上，两者结合时提高得更多（多基线交叉设计）。"
+    zh-hant: "一項診所研究的對象是第一次聽到指令時只有 40% 或更少會照做的孩子；受訓使用有效下指令和陪伴冷靜（time-in）的家長，各自都把孩子的配合度提高到基線以上，兩者結合時提高得更多（多基線交叉設計）。"
+  key_facts:
+  - 'Abstract: "Participants were from a university-based school psychology clinic who had percentages of compliance to first-time-presented instructions of 40% or less."'
+  - 'Abstract: "Each parent, trained to implement EID and TI, was assessed using a multiple baseline crossover design."'
+  - 'Abstract: "Both EID and TI alone achieved increases in compliance over baseline levels and additional increases were observed when the two procedures were combined."'
+  - 'Note: the abstract does not state the children''s ages.'
+  topics:
+  - instructions
+  ages: "not stated in the abstract (children referred to a clinic)"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: ford-2001-compliance-training
+  evidence_level: experiment
+  authors: "Ford, A. D., Olmi, D. J., Edwards, R. P., & Tingstrom, D. H."
+  year: 2001
+  title: "The sequential introduction of compliance training components with elementary-aged children in general education classroom settings"
+  venue: "School Psychology Quarterly, 16(2), 142-157"
+  doi: 10.1521/scpq.16.2.142.18702
+  url: https://doi.org/10.1521/scpq.16.2.142.18702
+  lang: en
+  finding:
+    en: "With four 5- and 6-year-olds in a general education classroom, effective instruction delivery with reinforcement for compliance alone raised instruction-following by 21% to 44% above baseline; adding time-out raised it by a further 12% to 18%, and the gains held with minimal decreases at 1- and 4-month follow-up."
+    zh-hans: "对普通班级里 4 名 5 到 6 岁孩子的研究发现，单是有效下指令加上对照做的强化，就让孩子听从指令的比例比基线提高了 21% 到 44%；加上暂停后再提高 12% 到 18%，效果在 1 个月和 4 个月后的追踪中基本保持。"
+    zh-hant: "對普通班級裡 4 名 5 到 6 歲孩子的研究發現，單是有效下指令加上對照做的增強，就讓孩子聽從指令的比例比基線提高了 21% 到 44%；加上暫停後再提高 12% 到 18%，效果在 1 個月和 4 個月後的追蹤中大致保持。"
+  key_facts:
+  - 'Abstract: "the present study evaluated the sequential introduction of compliance training components on the instruction-following of 4 elementary school students (5 & 6 yr olds) in a general education classroom setting."'
+  - 'Abstract: "EID alone resulted in increases in compliance of 21%, 30%, 43%, and 44% above baseline levels for the 4 students, respectively."'
+  - 'Abstract: "Additional increases of 17%, 13%, 12%, and 18%, respectively, resulted when TO was added to EID."'
+  - 'Abstract: "Compliance levels were maintained, with minimal decreases, at 1- and 4-mo follow-up for all 4 students."'
+  topics:
+  - instructions
+  - time-out
+  - school
+  ages: "5 and 6 years"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: houck-lecuyer-maus-2004
+  evidence_level: longitudinal
+  authors: "Houck, G. M., & LeCuyer-Maus, E. A."
+  year: 2004
+  title: "Maternal limit setting during toddlerhood, delay of gratification, and behavior problems at age five"
+  venue: "Infant Mental Health Journal, 25(1), 28-46"
+  doi: 10.1002/imhj.10083
+  url: https://doi.org/10.1002/imhj.10083
+  lang: en
+  finding:
+    en: "Mothers' limit setting with their toddlers was coded at 12, 24 and 36 months and the children's self-control was tested at age 5: a power-based pattern of limit setting went with shorter self-imposed waiting at 5, while a teaching-based pattern gave the most consistently positive outcomes at 36 months and normal waiting times at 5; the patterns did not predict behavior problems."
+    zh-hans: "研究在孩子 12、24 和 36 个月大时记录母亲设限的方式，并在 5 岁时测试孩子的自我控制：以权力压制为主的设限方式与 5 岁时较短的自主等待时间有关，而以教导为主的设限方式在 36 个月时的结果最为一致地正面，5 岁时的等待时间也属正常；这些方式并不能预测行为问题。"
+    zh-hant: "研究在孩子 12、24 和 36 個月大時記錄母親設限的方式，並在 5 歲時測試孩子的自我控制：以權力壓制為主的設限方式和 5 歲時較短的自主等待時間有關，而以教導為主的設限方式在 36 個月時的結果最一致地正面，5 歲時的等待時間也屬正常；這些方式並不能預測行為問題。"
+  key_facts:
+  - 'Abstract: "Observational coding of limit-setting interactions was carried out at 12, 24, and 36 months"'
+  - 'Abstract: "Maternal limit-setting patterns at every age differentiated subsequent duration of delay, but not behavior problems."'
+  - 'Abstract: "A power-based maternal pattern in limit setting adversely affected later self-imposed delay."'
+  - 'Abstract: "a teaching-based pattern yielded more consistently positive outcomes at 36 months and normative delay durations at age five years."'
+  topics:
+  - development
+  - autonomy
+  ages: "12 to 36 months, outcome at 5 years"
+  strength: single-study
+  accessed: '2026-10-04'
+  verified_via: '2026-10-04 candidates job of the sources workflow (GitHub Actions run 37181068575): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from the source named. The entry was added for the situation page My toddler ignores me; the sources job re-checks the DOI, the link and the landing page on every push.'

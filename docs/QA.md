@@ -2,25 +2,26 @@
 
 The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test, the anchor test and the behavior test on every push.
 
-Latest full run: 2026-10-04 04:11-04:36 UTC, the age-range, Sources, link-verification and translation QA pass (section 12). Times below are UTC.
+Latest full run: 2026-10-04 06:11-06:46 UTC, the toddler-ignores-me page and the standing rules (section 13). Times below are UTC.
 
 ## At a glance
 
 | Check | How to rerun | Latest result |
 |---|---|---|
-| Content lint | `node scripts/check-content.mjs` | 168 MDX files (56 per locale), 0 errors, 0 warnings; the cross-locale heading check now covers six phases and the Sources page |
+| Content lint | `node scripts/check-content.mjs` | 171 MDX files (57 per locale), 0 errors, 0 warnings |
+| Locale parity | `node scripts/parity-test.mjs` (new, in CI) | 57 entries per locale: every page, situation, tool, phase and learning page present in all three locales, frontmatter lists the same length, alt text in every locale for 55 images |
 | Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 120 pages (40 per locale), 0 errors, 0 warnings; 48 PDFs; 120 Open Graph images |
-| Link test | `node scripts/link-test.mjs --write` | 19,328 internal links, 13,327 of them to an anchor, 0 broken (block at the end) |
+| Link test | `node scripts/link-test.mjs --write` | 19,697 internal links, 13,696 of them to an anchor, 0 broken (block at the end) |
 | Anchor test | `node scripts/anchor-test.mjs` | 32 of 32 deep links land on their target (16 kinds of target, now including the Sources page, the 10-12 page and the preteens section; 375px and 1280px) |
-| UI check | `node scripts/ui-check.mjs` | 156 page views (17 pages, now including the 10-12 pages and the Sources page), no problems ([report](screenshots/ui-check.md)) |
+| UI check | `node scripts/ui-check.mjs` | 165 page views (18 entries in the page list: the 17 pages plus the new situation section at its anchor), no problems ([report](screenshots/ui-check.md)) |
 | Behavior test | `node scripts/behavior-test.mjs` | 81 of 81 checks pass: age finder scoring (now counted in twelfths of a point, so an answer covering four age ranges splits exactly) and flow, lightbox, toolbox filter, language banner, theme, language switcher, no-JavaScript fallbacks, 404, 320px reflow, dark-mode sheets, menu, Research back link, landmarks (section 9) |
 | Keyboard test | `node scripts/keyboard-test.mjs` | 33 of 33 checks pass at 375px in all three locales: skip link, every header control with a visible focus ring (with and without the language banner), mobile menu, theme button, table of contents links, photo lightbox, age finder radio groups (section 11) |
-| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in this pass; html-validate 11.16 in the final pass | 0 axe violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px, section 12); html-validate leaves only cosmetic or deliberate messages (section 9) |
+| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in this pass; html-validate 11.16 in the final pass | 0 axe violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px, section 13); html-validate leaves only cosmetic or deliberate messages (section 9) |
 | Printables | page limits in `scripts/postbuild.mjs` | 45 one-page sheets (15 per locale) and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
-| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 99 or higher: performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; accessibility, best practices and SEO 100 on every page ([lighthouse.md](lighthouse.md), section 12) |
-| Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 165 entries: every DOI registered and its Crossref metadata (title, year, first author) matches the citation; all 165 links are DOI links; landing pages: 8 carry the cited DOI in their citation metadata, 82 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 75 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page (Actions run 37176288709, 2026-10-04 04:12-04:25 UTC) |
-| Help lines | same workflow, `helplines` job | all 14 help-line numbers found on their official pages (run 37176288709) |
+| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 99 or higher: performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; accessibility, best practices and SEO 100 on every page; one of the three mobile runs of the zh-Hans home page scored 87 on performance, the other 53 runs are within one point of their median ([lighthouse.md](lighthouse.md), section 13) |
+| Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 176 entries: every DOI registered and its Crossref metadata (title, year, first author) matches the citation; all 176 links are DOI links; landing pages: 8 carry the cited DOI in their citation metadata, 88 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 80 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page (Actions run 37181587302, 2026-10-04 06:01-06:10 UTC) |
+| Help lines | same workflow, `helplines` job | all 14 help-line numbers found on their official pages (run 37181587302) |
 
 ## 1. Fact-check per claim
 
@@ -218,15 +219,34 @@ Everything in the table at the top was rerun on the final build of this branch; 
 
 See STATUS.md: the 75 publisher pages that refuse automated readers (open issue 7); the AAP 2018 statement's reaffirmation status; the SPEC §4a time-out studies that cannot be cited; the illustrations (two new 10-12 entries join the 21 waiting ones; the image pass is queued in INBOX item 3); the localisation choices listed above; Enforce HTTPS.
 
+## 13. Situation page My toddler ignores me, and two standing rules (2026-10-04, 13:48-14:46 Taipei)
+
+Run on Claude Fable 5.1 on branch `claude/brave-darwin-7h6nne` ([PR #8](https://github.com/brianjohnnychen/weimeijiao/pull/8)) on Brian's brief via Cowork (INBOX item 4), ahead of the daily image check-ins.
+
+### The page
+
+- `/situations/#ignores-me` (学步儿不理我 / 學步兒不理我 / My toddler ignores me), ages 1-3 with a short "At 3 to 5" pointer that hands over to the defiance guide. Right now: get close and get attention, one short instruction as a statement with a gesture, wait a few seconds, when-then or a two-way choice, hands-on guidance, thanks the moment it is done, redirection when the instruction is a "stop". Why: growing autonomy and self-control still under construction, "do" requests harder than "don't", passive noncompliance as a stage that gives way to negotiating. Prevention: fewer instructions, attention for cooperation, connection time, redirection before trouble, planned ignoring of minor stuff, predictable transitions. When to get help: the generic "when it is not working" link only; no hearing checks, screening steps or red-flag content, as Brian asked.
+- Written natively in each locale (English first, then Simplified and Traditional Chinese by two writers with the extended glossary: 先引起注意, 手把手带着做, 被动不服从, 心甘情愿地配合, 自我主张, 冲动控制, 讨价还价, 设限), same list lengths, citations, links and paragraph order in all three; the Chinese pages were read in full for flow.
+- Linked from the defiance guide (the toddler step), the 1-3 phase page (the "no" section now also covers silence) and, through the situations list, the situations index; added to the SITUATIONS lists, `content/images.yml` (placeholder until the image pass), the glossary and the content guide.
+- Sources: 13 candidates looked up by the candidates job (run 37181068575); 11 added with evidence levels, trilingual findings and quoted key facts (Schaffer and Crook 1980; Kuczynski et al. 1987; Crockenberg and Litman 1990; Kochanska, Coy and Murray 2001; Vaughn, Kopp and Krakow 1984; Power and Chapieski 1986; Wilder and Atwell 2006; Wilder et al. 2010; Mandal et al. 2000; Ford et al. 2001; Houck and LeCuyer-Maus 2004); two (Kuczynski and Kochanska 1990; Kochanska and Aksan 1995) returned no readable abstract and were left out. Every claim on the page matches a quoted key fact; the sources job on the branch (run 37181587302) re-verified all 176 entries: 0 failures, every link tied to its work.
+
+### Standing rules (Brian, via Cowork)
+
+- Flow and three locales per pull request are in CLAUDE.md, SPEC §6 (Flow; Three locales in one pull request) and §10, and REVIEWER-CHANGES. `scripts/parity-test.mjs` runs in CI and fails when a page, situation, tool, phase or learning page is missing in a locale, a frontmatter list differs in length across locales, or an image lacks alt text in a locale. Flow pass done on the new page and the pages it touches (defiance, 1-3, the situations index) in all three locales; the site-wide read-through is queued for a quiet moment.
+
+### Test results
+
+The table at the top: content lint 171 files, 0 errors; locale parity 57 entries per locale, clean; build 120 pages, QA 0 errors, 48 PDFs, 120 Open Graph images; link test 19,697 internal links (13,696 to an anchor), 0 broken; anchor test 32 of 32; behavior test 81 of 81; keyboard test 33 of 33; UI check 165 views (the 17 pages plus the new section at its anchor, three locales, 375px light, 1280px light and 375px dark), no problems; axe-core 4.13.0: 363 page runs, 0 violations; Lighthouse: all 18 medians 99 or higher (performance 99 on the zh-Hans and zh-Hant home pages on mobile and 100 everywhere else; one of the three zh-Hans home mobile runs scored 87, the median stayed 99); sources job run 37181587302: 176 entries, 0 failures, every link tied to its work; help lines 14 of 14. The new section was also read on the screenshots at 375px and 1280px in all three locales, light and dark (docs/screenshots/*situation-ignores-me*).
+
 <!-- link-test:start -->
-Link test run 2026-10-04 04:12 UTC over dist/ (121 HTML pages).
+Link test run 2026-10-04 06:13 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 41 | 6470 | 4443 | 0 |
-| zh-hant | 40 | 6429 | 4442 | 0 |
-| en | 40 | 6429 | 4442 | 0 |
-| all | 121 | 19328 | 13327 | 0 |
+| zh-hans | 41 | 6593 | 4566 | 0 |
+| zh-hant | 40 | 6552 | 4565 | 0 |
+| en | 40 | 6552 | 4565 | 0 |
+| all | 121 | 19697 | 13696 | 0 |
 
 In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more

@@ -84,6 +84,7 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | screens | Screens | 屏幕时间 | 螢幕時間 |
 | lying | Lying | 说谎 | 說謊 |
 | defiance | Defiance and "no" | 对着干、说“不” | 唱反調、說「不」 |
+| ignores-me | My toddler ignores me | 学步儿不理我 | 學步兒不理我 |
 | whining | Whining | 哼哼唧唧、缠人 | 一直盧、哭哭啼啼 |
 | homework | Homework | 写作业 | 寫功課 |
 | grandparents | Grandparents with different rules | 祖辈规矩不一样 | 長輩規矩不一樣 |
@@ -101,6 +102,17 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | working memory | 工作记忆 | 工作記憶 | |
 | attention | 注意力 | 專注力 / 注意力 | |
 | physical aggression | 肢体攻击 | 肢體攻擊 | "hitting" in lay sentences is fine where the body text uses the exact term. |
+| passive noncompliance (ignoring, carrying on) | 被动不服从（不理人、自顾自继续） | 被動不服從（不理人、自顧自繼續） | Kuczynski's category; lay text says 不理人 / 不理人. |
+| committed compliance / situational compliance | 心甘情愿地配合 / 只是迫于当下的配合 | 心甘情願地配合 / 只是迫於當下的配合 | Kochanska's terms, written in lay words. |
+| self-assertion (toddler) | 自我主张 | 自我主張 | Distinct from defiance 对着干 / 違抗. |
+| impulse control / self-control (toddler) | 冲动控制 / 自控力 | 衝動控制 / 自我控制 | |
+| getting attention first (attention before the instruction) | 先引起注意 | 先引起注意 | |
+| guided compliance (hands-on guidance) | 手把手带着做 | 手把手帶著做 | The behavioral term is guided compliance; lay text keeps 手把手. |
+| a do request / a don't (prohibition) | 要孩子做某事 / 禁止孩子做某事 | 要孩子做某事 / 禁止孩子做某事 | |
+| negotiation (Kuczynski's skilled form of resistance) | 讨价还价（跟你讲条件） | 討價還價（跟你講條件） | |
+| direct defiance (Kuczynski's category; outright defiance in lay text) | 直接违抗 | 直接違抗 | |
+| limit setting (the verb; a limit is 界限 / 界線) | 设限 | 設限 | |
+| teaching-based / power-based limit setting (Houck and LeCuyer-Maus) | 以教导为主 / 以权力压制为主的设限 | 以教導為主 / 以權力壓制為主的設限 | |
 | compliance (the child doing as asked) | 配合度；noncompliance 不服从 | 配合度；noncompliance 不服從 | 配合度 is the lay form for the compliance-plos-2018 finding on every page; 服从 only in the fixed terms 不服从 and 即时服从 (immediate compliance). |
 | disruptive behavior / conduct problems | 破坏性行为 / 行为问题 | 干擾行為 / 行為問題 | Never 品行问题 / 品行問題 / 行為規範問題. |
 | disruptive behavior disorder | 破坏性行为障碍 | 干擾行為障礙 | |

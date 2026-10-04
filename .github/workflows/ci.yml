@@ -29,6 +29,9 @@ jobs:
       - name: Content lint (frontmatter, citations, links, headings, dashes, locale vocabulary)
         run: node scripts/check-content.mjs
 
+      - name: Locale parity (every page, situation, tool, phase and learning page in all three locales)
+        run: node scripts/parity-test.mjs
+
       - name: Build (Astro, PDFs, OG images) and QA
         env:
           CHROME_PATH: /usr/bin/google-chrome
