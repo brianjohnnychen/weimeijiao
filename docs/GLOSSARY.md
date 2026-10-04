@@ -164,7 +164,12 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | school-age children (lay) | 上了小学的孩子 | 上國小的孩子 | |
 | preschoolers | 学龄前孩子 (lay) / 学龄前儿童 (research sentences) | 學齡前孩子 / 學齡前兒童 | |
 | group chat | 群聊 | 群組 / 群組聊天 | |
-| device (phone or tablet) | 设备 | 裝置 | |
+| device (phone or tablet) | 设备 | 裝置 / 3C 產品 | |
+| well-being | 幸福感 | 幸福感 | Not 身心健康 for well-being measures. |
+| harsh control (Pinquart's dimension) | 严厉管控 | 嚴厲管控 | Distinct from harsh discipline 严厉管教. |
+| deviancy training | “偏差行为互相强化” | 「偏差行為互相強化」 | |
+| one-size-fits-all | “一刀切” | 「一體適用」 | |
+| motivation (learning) | 学习动机 / 内在动机 | 學習動機 / 內在動機 | Never 学习动力. |
 | arithmetic | 算术 | 算術 | zh-Hant 算數 means to count or to be valid. |
 | Family Media Use Plan (AAP) / family media plan | 家庭媒体使用计划 | 家庭媒體使用計畫 | |
 | gym clothes | 运动服 | 體育服 | |
@@ -244,7 +249,8 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | Sources (on this page) | 参考资料 | 參考資料 |
 | Back to the text | 回到正文 | 回到內文 |
 | Open the source | 打开原文 | 開啟原文 |
-| See … (cross-reference verb) | 参见 | 請看 |
+| See … (cross-reference verb before a link) | 参见 | 請看 |
+| See also | 另见 | 另見 |
 
 ## Banned forms (the lint enforces most of these)
 
