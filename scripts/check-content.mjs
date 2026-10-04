@@ -12,6 +12,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import * as OpenCC from 'opencc-js';
+import { parseAuthors } from '../src/lib/cite-text.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
@@ -24,7 +25,9 @@ const EVIDENCE = ['strong', 'moderate', 'emerging', 'contested'];
 const ICONS = ['wake', 'toilet', 'wash', 'teeth', 'dress', 'breakfast', 'shoes', 'backpack', 'play', 'dinner', 'bath', 'pajamas', 'book', 'sleep', 'tidy', 'homework'];
 const PRINTABLES = ['age-finder', ...PHASES.map((p) => `summary-${p}`), ...PHASES.map((p) => `learning-${p}`), 'routine-chart', 'calm-down-plan', 'family-rules'];
 
-const sources = new Set((YAML.parse(readFileSync(join(root, 'content', 'sources.yml'), 'utf8')) ?? []).map((s) => s.id));
+const SOURCE_LIST = YAML.parse(readFileSync(join(root, 'content', 'sources.yml'), 'utf8')) ?? [];
+const sources = new Set(SOURCE_LIST.map((s) => s.id));
+const sourceById = new Map(SOURCE_LIST.map((s) => [s.id, s]));
 const images = new Set((YAML.parse(readFileSync(join(root, 'content', 'images.yml'), 'utf8'))?.images ?? YAML.parse(readFileSync(join(root, 'content', 'images.yml'), 'utf8')) ?? []).map((i) => i.id));
 
 // Anchors that page templates always render (see src/pages and src/layouts).
@@ -102,6 +105,55 @@ function walk(dir, out = []) {
 
 function anchorsFromBody(body) {
   return [...body.matchAll(/<h[23]\s+id="([^"]+)"/g)].map((m) => m[1]);
+}
+
+// Author-year in the sentence (SPEC §6, Citations in the text): "Gershoff and Grogan-Kaylor (2016)",
+// "Leijten et al. (2019)", "Gershoff 與 Grogan-Kaylor（2016）", "Leijten 等人（2019）" must match a source cited
+// in the same sentence: the year, and the first surname for a person author. An organization or an all-caps
+// name is checked on the year alone. Sentence: from the previous terminator to the next one, plus any
+// citation markers that follow it (English markers sit after the full stop).
+const SENTENCE_END = /[.!?。！？]/;
+function sentenceWindow(text, at) {
+  let start = at;
+  while (start > 0 && !SENTENCE_END.test(text[start - 1]) && text[start - 1] !== '\n') start--;
+  let end = at;
+  while (end < text.length && !SENTENCE_END.test(text[end]) && text[end] !== '\n') end++;
+  // Markers right after the terminator belong to this sentence (English style); a marker before 。 is inside already.
+  let tail = end + 1;
+  for (;;) {
+    const rest = text.slice(tail);
+    const m = /^(?:\s*(?:<Cite\s+id=["'][^"']+["']\s*\/>|\[\[cite:[^\]]+\]\]))+/.exec(rest);
+    if (!m) break;
+    tail += m[0].length;
+  }
+  return text.slice(start, tail);
+}
+function citeIdsIn(windowText) {
+  return [...windowText.matchAll(/<Cite\s+id=["']([^"']+)["']\s*\/>|\[\[cite:([^\]]+)\]\]/g)].map((m) => m[1] ?? m[2]);
+}
+const AUTHOR_YEAR = {
+  en: /\b([A-Z][A-Za-z'’-]+(?:(?: (?:and|&) | et al\.)[A-Z]?[A-Za-z'’-]*)?) \((\d{4})[a-z]?\)/g,
+  zh: /([A-Z][A-Za-z'’-]+(?: (?:和|與) [A-Z][A-Za-z'’-]+| 等人?)?|[一-鿿]{2,}(?:學會|学会|委員會|委员会|協會|协会|組織|组织|中心|學院|学院|部))（(\d{4})[a-z]?）/g,
+};
+function checkAuthorYears(F, locale, text, where) {
+  const re = locale === 'en' ? AUTHOR_YEAR.en : AUTHOR_YEAR.zh;
+  for (const m of text.matchAll(re)) {
+    const [whole, namePart, year] = m;
+    const before = text.slice(Math.max(0, m.index - 40), m.index);
+    // Skip "Comment on Gershoff (2002)"-style quotations inside titles, and years that are not citations (e.g. "the 2016 statement" has no parentheses).
+    const window = sentenceWindow(text, m.index);
+    const ids = citeIdsIn(window).filter((id) => sourceById.has(id));
+    const surname = namePart.split(/ (?:and|&|和|與) | et al\.| 等/)[0].trim();
+    const isPerson = /^[A-Z][a-z]/.test(surname) && !/^(?:American|National|International|World|Council|Committee|Academy|Society|Association|Institute|Centers?|Department|Organization|Organisation|Royal|Canadian|British|Australian|European)$/.test(surname) && !/[一-鿿]/.test(surname) && !/^[A-Z]{2,}$/.test(surname);
+    const orgPhrase = /(?:[A-Z][A-Za-z'’-]+ ){1,6}$/.test(text.slice(Math.max(0, m.index - 80), m.index)) && !/\b(?:and|&)\s*$/.test(before);
+    if (!ids.length) { err(F, `${where}: "${whole}" names a study but no citation marker sits in the same sentence`); continue; }
+    const byYear = ids.map((id) => sourceById.get(id)).filter((src) => String(src.year) === year);
+    if (!byYear.length) { err(F, `${where}: "${whole}" does not match the year of any source cited in that sentence (${ids.join(', ')})`); continue; }
+    if (isPerson && !orgPhrase) {
+      const hit = byYear.some((src) => parseAuthors(src.authors).authors.some((a) => a.surname.toLowerCase() === surname.toLowerCase() || a.surname.toLowerCase().endsWith(' ' + surname.toLowerCase())));
+      if (!hit) err(F, `${where}: "${whole}" names ${surname}, who is not an author of the source cited in that sentence (${byYear.map((x) => x.id).join(', ')})`);
+    }
+  }
 }
 
 // Anchors defined by content: MDX headings per route (all locales share ids).
@@ -347,7 +399,8 @@ for (const f of selected) {
   const tags = [...body.matchAll(/<([A-Z][A-Za-z]*)\b/g)].map((m) => m[1]);
   for (const t of tags) if (!['Cite', 'Say', 'Note', 'L', 'Mixed', 'Effort', 'Gallery'].includes(t)) err(F, `unknown component <${t}>`);
   checkText(F, locale, body, 'body');
-  for (const s of strings(d)) checkText(F, locale, s, 'frontmatter');
+  checkAuthorYears(F, locale, body, 'body');
+  for (const s of strings(d)) { checkText(F, locale, s, 'frontmatter'); checkAuthorYears(F, locale, s, 'frontmatter'); }
   if (locale !== 'en') for (const s of strings(d.say ?? d.summary?.say ?? [])) if (/^\s*["“「]/.test(s)) warn(F, 'say lines are shown inside quote marks already; drop the quotes');
 }
 

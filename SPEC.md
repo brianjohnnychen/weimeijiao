@@ -12,6 +12,8 @@ Revised a fourth time 2026-10-04 (Brian, via the Fable session): §9 is the imag
 
 Revised a fifth time 2026-10-04 (Brian, via the Fable session): two standing rules in §6 and §10: the whole site must be an easy, smooth read (flow within every page and from topic to topic, with a flow pass on every change), and every change is made to all three locales in the same pull request, enforced by a CI parity check.
 
+Revised a sixth time 2026-10-04 (Brian, via the Fable session): two more standing rules in §6 and §10: citations name the authors and year in the sentence when a specific study is the point, marker hover text and the Sources page give author and year, and Sources entries follow APA 7th edition (§5.9); and a natural human voice, with a site-wide naturalness pass that keeps every fact and citation unchanged. Logged in docs/REVIEWER-CHANGES.md.
+
 ## 1. What this is
 
 A free, trilingual, research-based educational website on **disciplining young children, birth to about age 12**, modeled on Brian's earlier site showtellshare.org (repo `brianjohnnychen/showtellshare`, public, static HTML on GitHub Pages). Same spirit: practical, warm, plain-language, organized by developmental phase, with printable tools. The site grew out of a parent raising his own kids, but that story lives on the About page only (§8); every other page speaks in a neutral expert voice.
@@ -78,7 +80,7 @@ Three locales, full parity (every page exists in all three):
 6. **Research** — plain-language summaries of the main studies and position statements, each with full citation and link (DOI/PubMed where possible), plus a note on how to read evidence (correlation vs causation, effect sizes).
 7. **Printables** — age finder quiz (10 questions → one of the six phases), phase summaries (including 10-12), routine chart template, calm-down plan, family rules poster, learning-at-home one-pagers per phase (including 10-12). Print CSS; each printable also downloadable as PDF generated at build time if practical.
 9. **Sources** (added 2026-10-04) — a separate, low-key bibliography page at `/sources/` (参考文献 / 參考文獻 / Sources) listing every entry in `content/sources.yml`, cited or not: full academic citation, evidence level, DOI or stable link, and which pages cite it, grouped by topic, in all three locales. It is not in the main navigation; the footer links to it discreetly. Each in-text citation and each Research page entry may link to its entry there.
-8. **About** — Brian's story and why he built it (see §8), the family photo gallery, a link to showtellshare.org as the sister project, contact (hello@weimeijiao.com once email is set up; until then omit), and a clear disclaimer that this is educational content and not medical, psychological or legal advice, with "when to get professional help" signs and crisis and help-line information (kept in the About disclaimer).
+8. **About** — Brian's story and why he built it (see §8), the family photo gallery, a link to showtellshare.org as the sister project, contact (hello@weimeijiao.com once email is set up; until then omit), and a clear disclaimer that this is educational content and not medical, psychological or legal advice, with "when to get professional help" signs and crisis and help-line information (kept in the About disclaimer). Entries follow APA 7th edition (authors, year, title, journal and volume in italics, pages, DOI link); English works stay in English on every locale's page and Chinese-language works follow the Chinese APA 7 conventions; one line at the top of the page says so (added 2026-10-04).
 
 ## 6. Voice and content rules
 
@@ -100,6 +102,14 @@ The whole site must be an easy, smooth read. Within a page: one thought leads to
 ### Three locales in one pull request (added 2026-10-04)
 
 Every change is made to Simplified Chinese, Traditional Chinese (Taiwan usage) and English in the same pull request: content, titles, summaries, alt text, glossary, sources, navigation, printables and the age finder. `scripts/parity-test.mjs` runs in CI and fails when a page, situation, tool, phase or learning page exists in one locale but not the others, when a list in their frontmatter has a different length across locales, or when an image lacks alt text in a locale.
+
+### Citations in the text (added 2026-10-04)
+
+Every factual claim keeps an in-text citation. The numbered superscript markers stay, for flow, and when a specific study is the point the sentence also names the authors and year in APA form: English "Gershoff and Grogan-Kaylor (2016) found...", three or more authors "Leijten et al. (2019)"; Traditional Chinese "Gershoff 與 Grogan-Kaylor（2016）發現……", "Leijten 等人（2019）"; Simplified Chinese "Gershoff 和 Grogan-Kaylor（2016）发现……", "Leijten 等（2019）"; organizations by their glossary name. The marker's hover and tap text gives the author and year, and the Sources page gives author and year in APA 7th edition entries (authors, year, title, journal, volume, pages, DOI link) in all three locales, English works kept in English and Chinese-language works in the Chinese APA 7 conventions, with one line at the top of the page saying so. `scripts/check-content.mjs` fails when an author-year in a sentence does not match a source cited in that sentence.
+
+### Natural voice (added 2026-10-04)
+
+The prose reads like a thoughtful human parenting-research writer, not a model: sentence length and openers vary; evidence is folded into the sentence instead of the formula "In a meta-analysis of N studies..."; no tidy triplets or stock transitions; no filler such as "it is important to note"; no stacked hedges; no em dashes; no paragraph shape repeated from page to page. Chinese reads as native Taiwan usage (zh-Hant) or mainland usage (zh-Hans), never translated English. Read each page aloud in your head for rhythm. A naturalness pass changes wording only: every fact, number, study description and citation stays, the sources and test suites rerun, and all three locales change in the same pull request.
 
 ## 7. Physical discipline page (Brian's decision: present both sides)
 
@@ -158,4 +168,5 @@ Every page other than About gets one photograph generated by AI, never a photo o
 - docs/QA.md keeps the QA checklist: fact-check per claim, UI/UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, and the link test results.
 - When the build and its own QA are done, docs/STATUS.md says READY FOR FINAL PASS with the QA results and open issues; the final QA pass then fixes what it can and deploys (§2).
 - `content/sources.yml` complete, academic sources only, each with an evidence level; every source link resolves to the correct work, not just to a page that answers 200: the Actions checker confirms that each DOI or URL resolves and that the landing page's title or DOI matches the cited work (no homepage, search page, paywall error or different paper); DOI links are preferred; docs/QA.md reports the counts.
+- Citations and voice (§6): the lint's author-year check passes; sentences that make a specific study the point name its authors and year; new or reworked text follows the natural-voice rule.
 - docs/STATUS.md and docs/RUNLOG.md updated.

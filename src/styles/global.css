@@ -1264,12 +1264,13 @@ q {
   min-height: 28px;
 }
 
+/* APA 7: article titles roman, the journal and volume italic (see Citation.astro); long DOI links may wrap anywhere. */
 .citation-title {
-  font-style: italic;
+  font-style: normal;
 }
 
-:lang(zh) .citation-title:lang(zh) {
-  font-style: normal;
+.citation-link {
+  overflow-wrap: anywhere;
 }
 
 /* Related links */
