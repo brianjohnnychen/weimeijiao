@@ -114,7 +114,7 @@ function anchorsFromBody(body) {
 // citation markers that follow it (English markers sit after the full stop).
 const SENTENCE_END = /[.!?。！？]/;
 // A full stop between digits (0.20) or followed directly by a letter (e.g.) does not end a sentence.
-const endsSentenceAt = (text, i) => SENTENCE_END.test(text[i]) && !(text[i] === '.' && ((/\d/.test(text[i - 1] ?? '') && /\d/.test(text[i + 1] ?? '')) || /[a-z]/.test(text[i + 1] ?? '')));
+const endsSentenceAt = (text, i) => SENTENCE_END.test(text[i]) && !(text[i] === '.' && ((/\d/.test(text[i - 1] ?? '') && /\d/.test(text[i + 1] ?? '')) || /[a-z]/.test(text[i + 1] ?? '') || /\bet al$/.test(text.slice(Math.max(0, i - 6), i))));
 const MARKERS_AHEAD = /^(?:\s*(?:<Cite\s+id=["'][^"']+["']\s*\/>|\[\[cite:[^\]]+\]\]))+/;
 function sentenceWindow(text, at, from = at) {
   let start = at;
@@ -139,8 +139,8 @@ function markerIdsIn(windowText) {
 }
 const SENTENCE_STARTERS = new Set(['When', 'In', 'As', 'The', 'A', 'An', 'But', 'And', 'So', 'If', 'Across', 'Among', 'For', 'Both', 'Even', 'Then', 'Yet', 'Still', 'Once', 'After', 'Before', 'While', 'Because', 'Although', 'Though', 'Since', 'Unless', 'Until', 'Whether', 'What', 'Why', 'How', 'Where', 'That', 'This', 'These', 'Those', 'Here', 'There', 'Later', 'Earlier', 'Meanwhile', 'Instead', 'Indeed', 'Finally', 'First', 'Second', 'Third', 'Next', 'Now', 'Today', 'Only', 'Most', 'Many', 'Some', 'Few', 'Several', 'Two', 'Three', 'One', 'Another', 'Other', 'Each', 'Every', 'No', 'Not', 'Nor', 'Or', 'Also', 'Again', 'Perhaps', 'Of', 'On', 'At', 'By', 'With', 'From', 'To', 'Into', 'Over', 'Under', 'About', 'Through', 'During', 'Without', 'Within', 'Between', 'Against', 'Like', 'Unlike', 'Rather', 'Whereas', 'Say', 'Ask', 'Keep', 'Let', 'Make', 'Start', 'Use', 'Look', 'Think', 'Notice', 'Compare', 'Consider', 'Take', 'Try', 'Read', 'See', 'Note', 'Researchers', 'Parents', 'Children', 'Mothers', 'Fathers', 'Toddlers', 'Preschoolers', 'Babies', 'Preteens', 'Teens', 'Studies', 'Research', 'Evidence', 'Data']);
 const AUTHOR_YEAR = {
-  en: /\b([A-Z][A-Za-z'’-]+(?:(?: (?:and|&) | et al\.)[A-Z]?[A-Za-z'’-]*)?) \((\d{4})[a-z]?\)/g,
-  zh: /([A-Z][A-Za-z'’-]+(?: (?:和|與) [A-Z][A-Za-z'’-]+| 等人?)?|[一-鿿]{2,}(?:學會|学会|委員會|委员会|協會|协会|組織|组织|中心|學院|学院|部))（(\d{4})[a-z]?）/g,
+  en: /(?<![\p{L}'’-])(\p{Lu}[\p{L}'’-]+(?:(?: (?:and|&) | et al\.)\p{Lu}?[\p{L}'’-]*)?) \((\d{4})[a-z]?\)/gu,
+  zh: /(\p{Lu}[\p{L}'’-]+(?: (?:和|與) \p{Lu}[\p{L}'’-]+| 等人?)?|[一-鿿]{2,}(?:學會|学会|委員會|委员会|協會|协会|組織|组织|中心|學院|学院|部))（(\d{4})[a-z]?）/gu,
 };
 function checkAuthorYears(F, locale, text, where) {
   const re = locale === 'en' ? AUTHOR_YEAR.en : AUTHOR_YEAR.zh;
@@ -151,7 +151,7 @@ function checkAuthorYears(F, locale, text, where) {
     const window = sentenceWindow(text, m.index, m.index + whole.length);
     const ids = markerIdsIn(window).filter((id) => sourceById.has(id));
     const surname = namePart.split(/ (?:and|&|和|與) | et al\.| 等/)[0].trim();
-    const isPerson = /^[A-Z][a-z]/.test(surname) && !/^(?:American|National|International|World|Council|Committee|Academy|Society|Association|Institute|Centers?|Department|Organization|Organisation|Royal|Canadian|British|Australian|European)$/.test(surname) && !/[一-鿿]/.test(surname) && !/^[A-Z]{2,}$/.test(surname);
+    const isPerson = /^\p{Lu}\p{Ll}/u.test(surname) && !/^(?:American|National|International|World|Council|Committee|Academy|Society|Association|Institute|Centers?|Department|Organization|Organisation|Royal|Canadian|British|Australian|European)$/.test(surname) && !/[一-鿿]/.test(surname) && !/^\p{Lu}{2,}$/u.test(surname);
     // "The American Academy of Pediatrics (2018)": a capitalized phrase (with of/for/on/and/the connectors) right before the
     // name makes it an organization, checked on the year alone. Sentence starters such as "When" do not count.
     const preMatch = /((?:(?:[A-Z][A-Za-z'’-]+|of|for|on|and|the|de|du|des|et|&) )+)$/.exec(text.slice(Math.max(0, m.index - 100), m.index));
