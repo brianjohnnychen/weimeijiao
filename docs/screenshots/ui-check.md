@@ -1,4 +1,4 @@
-# UI check (2026-10-04 02:09 UTC)
+# UI check (2026-10-04 02:24 UTC)
 
 129 page views: 14 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen; overflow, header, console, image and request checks cover the whole page.
 
