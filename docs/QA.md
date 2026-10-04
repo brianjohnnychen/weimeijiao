@@ -2,24 +2,25 @@
 
 The QA checklist (SPEC §10): fact-check per claim, UI and UX at 375px and 1280px, dark mode, keyboard navigation, no third-party assets, printables, Lighthouse, sources and help lines, and the link test. Every check except the fact-check is a script, so it can be rerun at any time; CI (`.github/workflows/ci.yml`) runs the content lint, the build with QA, the link test, the anchor test and the behavior test on every push.
 
-Latest full run: 2026-10-03 22:40-23:10 UTC, the final QA pass (section 9). Times below are UTC.
+Latest full run: 2026-10-04 02:20-02:42 UTC, the Fable audit (section 11). Times below are UTC.
 
 ## At a glance
 
 | Check | How to rerun | Latest result |
 |---|---|---|
-| Content lint | `node scripts/check-content.mjs` | 159 MDX files, 0 errors, 0 warnings (now also rejects two links joined by 和/and when a link name contains 和/and) |
-| Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 105 pages (35 per locale), 0 errors, 0 warnings; 42 PDFs; 105 Open Graph images; 34 unused built files (4.49 MiB) pruned |
-| Link test | `node scripts/link-test.mjs --write` | 14,353 internal links, 9,202 of them to an anchor, 0 broken (block at the end) |
+| Content lint | `node scripts/check-content.mjs` | 159 MDX files, 0 errors, 0 warnings (now also rejects personal names outside the About page and any spelling of the English brand other than WeiMeiJiao) |
+| Build and QA | `npm run build` (Astro, then `scripts/postbuild.mjs`, then `scripts/qa.mjs`) | 105 pages (35 per locale), 0 errors, 0 warnings; 42 PDFs; 105 Open Graph images |
+| Link test | `node scripts/link-test.mjs --write` | 14,359 internal links, 9,208 of them to an anchor, 0 broken (block at the end) |
 | Anchor test | `node scripts/anchor-test.mjs` | 26 of 26 deep links land on their target (13 kinds of target, 375px and 1280px) |
 | UI check | `node scripts/ui-check.mjs` | 129 page views, no problems ([report](screenshots/ui-check.md)) |
 | Behavior test | `node scripts/behavior-test.mjs` | 81 of 81 checks pass: age finder scoring and flow, lightbox, toolbox filter, language banner, theme, language switcher, no-JavaScript fallbacks, 404, 320px reflow, dark-mode sheets, menu, Research back link, landmarks (section 9) |
-| Accessibility audit | axe-core 4.13 (WCAG 2.2 AA and best practice) and html-validate 11.16, final pass | 0 axe violations in 326 page runs; html-validate leaves only cosmetic or deliberate messages (section 9) |
+| Keyboard test | `node scripts/keyboard-test.mjs` | 33 of 33 checks pass at 375px in all three locales: skip link, every header control with a visible focus ring (with and without the language banner), mobile menu, theme button, table of contents links, photo lightbox, age finder radio groups (section 11) |
+| Accessibility audit | axe-core 4.13.0 (WCAG 2.2 AA and best practice), rerun in the audit; html-validate 11.16 in the final pass | 0 axe violations in 318 page runs (all 106 pages at 375px light, 375px dark and 1280px, section 11); html-validate leaves only cosmetic or deliberate messages (section 9) |
 | Printables | page limits in `scripts/postbuild.mjs` | 39 one-page sheets and the 2-page age finder in each locale, all at 100% scale |
 | Third-party assets | `scripts/qa.mjs` | none; every font, image and script is served from the site's own domain |
-| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians 95 or higher: performance 95-100 on mobile and 100 on desktop; accessibility, best practices and SEO 100 everywhere ([lighthouse.md](lighthouse.md), section 7) |
-| Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 146 entries: every DOI registered, metadata matches, every link resolves; 0 failures (Actions run 37147001796) |
-| Help lines | same workflow, `helplines` job | all 14 numbers found on their official pages (run 37147001796) |
+| Lighthouse | `LIGHTHOUSE_BIN=… node scripts/lighthouse.mjs` | all 18 medians (3 runs each) are 99 or higher: performance 99-100 on mobile (the Chinese home pages at 99) and 100 on desktop; accessibility, best practices and SEO 100 on every page ([lighthouse.md](lighthouse.md), section 7) |
+| Sources | `.github/workflows/sources.yml` (push, weekly, manual) | 146 entries: every DOI registered, metadata matches, every link resolves or its DOI is verified; 0 failures, 70 warnings for publisher pages that refuse automated access (Actions run 37166720251, 2026-10-04 01:01 UTC, whose abstracts the audit's fact-check used) |
+| Help lines | same workflow, `helplines` job | all 14 numbers found on their official pages (run 37166720251) |
 
 ## 1. Fact-check per claim
 
@@ -40,11 +41,15 @@ Totals: 776 citation markers per locale, pointing to 141 distinct sources, with 
 | Encouraging learning: 5-7, 7-10 | 59 | AAP 2016 media guidance scoped to ages 0 to 5, as its abstract states |
 | Research, About, printables | 21 | Research lists only sources cited somewhere on the site |
 
+Re-verified on 2026-10-04 by the Fable audit: every one of the 776 citation markers per locale was compared again with its source's abstract as printed by the source checker, in all three locales, and 15 claims were corrected (section 11).
+
 Word-for-word lookups (`content/source-quotes.yml`, `quotes` job) settled the remaining wording questions on 2026-10-03: the AAP 2018 abstract and the AAP's own "Where We Stand: Spanking" page (recorded in sources.yml), the age range of the AAP 2016 media statement (0 to 5 years), the design of kennedy-kramer-2008 (wait-list comparison; randomization not stated) and the sample of roediger-karpicke-2006 (students; ages not stated).
 
 ## 2. UI and UX at 375px and 1280px
 
 `scripts/ui-check.mjs` opens 14 pages (home, by-age hub, a phase page, approach, toolbox, situations, little time, physical discipline, learning hub, a learning phase page, research, printables hub, age finder, about) in all three locales at 375px and 1280px in light mode and at 375px in dark mode, plus the home page at 320px, with the browser language set to the page's language. On every full page it checks: no horizontal overflow, no console errors, no failed requests, no broken images, and that the site name in the header is neither cut off nor running under the header controls. Screenshots of the first screen of each view are in [docs/screenshots/](screenshots/). Result: no problems in 129 views.
+
+Repeated on 2026-10-04 by the Fable audit on the rebuilt site (129 views, no problems; screenshots refreshed) with a by-eye pass over 20 of them in all three locales, both widths and dark mode (section 11).
 
 Checked by eye on the screenshots (home, toolbox, research, little time and physical discipline in different locales, widths and themes): this is how the English header problem was found (at 375px the name ran under the language switcher). It is fixed, and the UI check now tests for it. The 21 pages still waiting for their illustration show the designed placeholder (open issue in STATUS.md).
 
@@ -58,7 +63,7 @@ The UI check loads every page at 375px with `prefers-color-scheme: dark` and con
 
 ## 4. Keyboard navigation
 
-At 1280px on every page the UI check confirms: the first Tab lands on a visible skip link; Enter on it moves focus to `<main>`; Tab then moves through the header controls with a visible focus ring. All interactive elements are native links, buttons and form controls (the age finder uses radio buttons in fieldsets).
+At 1280px on every page the UI check confirms: the first Tab lands on a visible skip link; Enter on it moves focus to `<main>`; Tab then moves through the header controls with a visible focus ring. At 375px, `scripts/keyboard-test.mjs` (added by the audit, in CI) checks the same plus the mobile menu, the theme button, a table of contents link, the photo lightbox and the age finder's radio groups, with and without the language banner, in all three locales: 33 of 33 (section 11). All interactive elements are native links, buttons and form controls (the age finder uses radio buttons in fieldsets).
 
 ## 5. No third-party assets
 
@@ -109,15 +114,82 @@ Run by the build session on its current model, because no switch to Fable with a
 
 See docs/STATUS.md for the current list and who it is waiting on.
 
+## 11. Fable audit (2026-10-04, 09:54-10:42 Taipei)
+
+Run on Claude Fable 5.1 on branch `claude/brave-darwin-7h6nne` ([PR #5](https://github.com/brianjohnnychen/weimeijiao/pull/5)) against the live build on `main`, after PR #3 and PR #4 had merged. Scope: re-verify every factual claim against its source with the Actions source checker, review the UI and UX at 375px and 1280px in all three locales with dark mode and keyboard navigation, run the anchor test, confirm that every asset is self-hosted, and apply Brian's two content changes (neutral expert voice outside About; English brand name WeiMeiJiao). Every check below was run on the rebuilt site after the content changes.
+
+### Fact-check per claim, re-verified against the source checker
+
+Method. The Actions source checker (`.github/workflows/sources.yml`, job `sources`, run 37166720251 on `main`, 2026-10-04 01:01 UTC) printed, for every one of the 146 entries in `content/sources.yml`, its DOI and Crossref check, its link check and its abstract (Europe PMC, PubMed, OpenAlex, Semantic Scholar or the publisher page): 146 sources, 0 failures, 70 warnings (publisher sites that refuse automated access; the DOI was verified for each). Eight reviewers, one per page group, read every cited sentence in all three locales side by side and compared it with that abstract and with the entry's `key_facts` and `verified_via` notes, applying the citation standard in docs/CONTENT-GUIDE.md §2: numbers, ages, samples and settings must be in the source; correlational studies are "linked with", reviews "conclude", position statements "recommend"; one small study is described as such; mixed findings on the learning pages carry the Mixed marker; the same claim with the same hedge in every locale. The reviewers also read the Chinese for locale vocabulary and for the no-personal-names rule. Nothing outside `sources.yml` was consulted; the citation APIs are not reachable from the build container, so the Actions run is the record.
+
+| Page group | Markers checked per locale | Sources | Fixed |
+|---|---|---|---|
+| Toolbox hub and 16 tools (evidence ratings, age ranges and age notes included) | 70 | 39 | 0 |
+| Situations hub and 12 situations | 82 | 39 | 2 |
+| Best-proven approach with edge cases | 73 | 50 | 0 |
+| By age: hub, 0-12 months, 1-3, 3-5 | 106 | 44 | 4 (10 sentences) |
+| By age: 5-7, 7-10 | 87 | 35 | 2 |
+| When you have little time; Physical discipline (SPEC §7 checked point by point) | 89 | 38 | 1 |
+| Encouraging learning: hub, 0-12 months, 1-3, 3-5 | 181 | 48 | 4 |
+| Encouraging learning: 5-7, 7-10; Research; printables; About | 88 | 54 | 2 |
+| Total | 776 (2,328 across the three locales) | 141 distinct | 15 |
+
+What was fixed (each in all three locales unless noted):
+- Situations, Screens: the AAP 2016 media statement covers ages 0 to 5, so its age guide no longer reads as applying up to age 10 ("over age 2" is now "at ages 2 to 5", introduced as the guide "for children aged 0 to 5").
+- Situations, Bedtime summary: the claim that a short, same-every-night routine helps now carries its citation (Mindell 2009), which the page already used for that claim.
+- By age, 0-12 months: the review by a leading defender of occasional spanking (Larzelere 2000) is labelled a minority view among researchers.
+- By age, 3-5 years: "even its defenders found" is now "even the minority who defend it found" (Larzelere & Kuhn 2005).
+- By age, 3-5 years, time-out: children whose parents used time-out at 3 "did not differ significantly" from other children (Knight 2020 reports no significant difference; the hedge had been dropped).
+- By age, 1-3 years (English only): a narrative review "reports", not "finds" (Joussemet 2008); the Chinese already said 指出.
+- By age, 5-7 years (English only): expecting punishment weakened the appeal to children's own standards of honesty, the comparison Talwar 2015 actually tested; the Chinese already said so.
+- By age, 7-10 years summary: in the six-country study, more physical discipline, not spanking specifically, went with more aggression and anxiety (Lansford 2005 measured physical discipline).
+- Physical discipline (English only): in the Baumrind, Larzelere and Cowan critique, "the evidence she presented" is now "the evidence it presented"; the antecedent is the 2002 meta-analysis and Gershoff is never named on the page.
+- Encouraging learning, 3-5 years (Chinese only): the Cameron 2001 sentence no longer says harm appears "only" under the stated conditions, an "only" the abstract does not contain.
+- Encouraging learning hub, self-control: activities that build the skills into other activities are not "enjoyed more" as a measured outcome; the authors propose they are more enjoyable (Takacs & Kassai 2019).
+- Encouraging learning hub, school age: the two homework findings that disagree (Barger 2019, Patall 2008) carry the Mixed marker, as the page's own evidence notes already treat them.
+- Encouraging learning, 3-5 years and hub (Traditional Chinese only): 12 歲及以下 ("up to age 12"), not 12 歲以下.
+- Encouraging learning, 5-7 years: the Cameron 2001 meta-analysis also found that rewards tied to the level of performance did not lower motivation, as the 7-10 page already said.
+- Research, effect sizes: the d = 0.21 versus d = 0.69 gradient belongs to the first of Leijten 2019's meta-analyses (154 randomized trials), not to "two other meta-analyses".
+
+Found correct and left alone: everything else, including every figure on the physical discipline and little-time pages (111 effect sizes and 160,927 children with 13 of 17 mean effects significant and detrimental; less than 1% of remaining variance; 26 studies and 10 of 13 tactics; 785 children aged 6 to 9; 2,788 families, 30% and 33%; 976 families; 69 prospective studies), every "in its 2018 policy statement" attribution, the minority-view labels on the spanking passages, all 15 Mixed markers per locale on the learning pages, the 16 toolbox evidence ratings and age ranges, and the About page's six cited sentences. No `finding` in `content/sources.yml` contradicts its abstract.
+
+Judgment calls recorded for Brian (not changed, see STATUS.md): the SPEC §7.4 example agreement points "angry or implement-based punishment" and "warmth" are not asserted as shared positions because no minority-side source states them (implement use is under the warning signs via Zolotor 2008); the decision question that lists the proponents' conditions is attributed to them but could be read as a checklist; narrative reviews (Heilmann 2021, Mindell 2006, Owen 2012) are introduced with "found" where the guide prefers "concluded"; "Spanking:" is used as a lay label over corporal-punishment and physical-discipline sources in two summaries; Wang & Kenny 2014 is called "a US study" although its abstract gives only the sample's ethnic make-up; Kamins & Dweck 1999 Study 2's age rests on the sources.yml finding rather than the abstract; the 0-12 learning sheet states repair of mix-ups flatly where Tronick 1989 says "may be associated"; the AAP 2016 media statement is cited on the bedtime and mealtime pages without its 0-to-5 scope being stated there; the coparenting meta-analysis (parents) is applied to grandparent-parent cooperation through a bridging sentence. Bookkeeping in `sources.yml`, not changed: cote-2006 pages read 71-85 where Crossref gives 68-82; ollendick-2016 carries year 2015 (online first) with a 2016 volume; kamins-dweck-1999, vasquez-2016 and patall-2008-choice have no `strength` or `ages` note; kazdin-2008 is verified but cited nowhere.
+
+### UI and UX, dark mode, keyboard
+
+- `scripts/ui-check.mjs` on the rebuilt site: 129 views (14 pages x 3 locales x 375px light, 1280px light and 375px dark, plus the home page at 320px), no horizontal overflow, no console errors, no failed requests, no broken images, header fits; screenshots refreshed in docs/screenshots/.
+- By eye, 20 screenshots across the three locales, both widths and dark mode (home, toolbox, approach, situations, little time, physical discipline, research, printables, age finder, learning 5-7, about): text wraps cleanly at 375px, the header shows the full name at 375px and only the mark at 320px, the white printable sheets keep their light colours in dark mode, the placeholder illustrations on the 21 pages still waiting for their image look intended. Nothing to fix.
+- Keyboard at 1280px (UI check) and at 375px (`scripts/keyboard-test.mjs`, new, 33 checks, in CI): skip link first and visible, Enter on it focuses the content, every header control reachable with a 3px focus ring (with and without the language banner, whose two controls come right after the skip link), the mobile menu opens with Enter, Tab moves into it, Escape closes it and returns focus, the theme button switches to dark and back, a table of contents link lands on its section, the photo lightbox opens with Enter, moves with the arrow keys, closes with Escape and returns focus, the age finder's radio groups work with the arrow keys. A first version of the test read the state at the instant of the key event and caught the English pages mid-transition twice; it now waits up to two seconds for the expected state. A probe with event logging confirmed the site behaves correctly in each case.
+- Dark mode: every page at 375px with `prefers-color-scheme: dark` has a dark background (UI check); the theme button switches and remembers the choice (behavior and keyboard tests).
+- axe-core 4.13.0 (WCAG 2.2 AA, WCAG 2.1, WCAG 2.0 and best-practice rules, with `content-visibility` forced visible): 0 violations in 318 page runs, all 106 pages at 375px light, 375px dark and 1280px light.
+- Behavior test (the version from `main`, which waits for the Chinese font switch): 81 of 81.
+
+### Links, anchors and assets
+
+- Link test: 14,359 internal links, 9,208 of them to an anchor, 0 broken (block at the end of this file).
+- Anchor test: 26 of 26 deep links (13 targets of every kind at 375px and 1280px) land just below the header.
+- Assets: `scripts/qa.mjs` passed (no third-party script, stylesheet, font, image or frame); a separate scan of the built output found no external host in any `src`, `href`, `url()`, preload or script tag (the only outbound links are doi.org, pubmed.ncbi.nlm.nih.gov and showtellshare.org, as ordinary links); the 519 font files and both Chinese font stylesheets are served from the site's own paths. Nothing loads from Google, gstatic, a CDN or any service blocked in mainland China.
+- Lighthouse on the rebuilt site: all 18 medians (3 runs each) are 99 or higher: performance 99-100 on mobile (the Chinese home pages at 99) and 100 on desktop; accessibility, best practices and SEO 100 on every page (docs/lighthouse.md).
+
+### Content changes
+
+- Neutral expert voice outside About (all three locales): the home page's "About this site" paragraph no longer tells the family story; it describes the guide and links to the About page's "Why this site". The About page keeps the story and the photo gallery. The content lint now rejects Brian and Zoe outside About, as it already did Naomi and Kelsea; the built HTML outside /about/ contains none of the names, Boston or the relocation. Generic parent scripts ("In our family, hands are gentle") and the sister-site links stay.
+- English brand name WeiMeiJiao, one word: site name (header, footer, page titles, Open Graph `site_name` and image alt, the share cards, the PDF footers), the About page, package.json, the smoke test and SPEC §1; the lint rejects the spaced spelling. Verified in the rebuilt titles, meta tags, PDF footers and the English share card. Chinese names stay 魏美娇 / 魏美嬌.
+- Also in this pass (Brian's instruction during the audit): `deploy.yml` now runs on every push to `main` as well as on manual dispatch, so merging this PR publishes it (SPEC §2, REVIEWER-CHANGES.md).
+
+### Left open
+
+See STATUS.md: the judgment calls listed under the fact-check above; the AAP 2018 statement's reaffirmation status; the SPEC §4a time-out studies that cannot be cited; the 21 illustrations still waiting on the Workers AI quota (unchanged by this audit); Enforce HTTPS.
+
 <!-- link-test:start -->
-Link test run 2026-10-03 23:08 UTC over dist/ (106 HTML pages).
+Link test run 2026-10-04 02:20 UTC over dist/ (106 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 36 | 4811 | 3068 | 0 |
-| zh-hant | 35 | 4771 | 3067 | 0 |
-| en | 35 | 4771 | 3067 | 0 |
-| all | 106 | 14353 | 9202 | 0 |
+| zh-hans | 36 | 4813 | 3070 | 0 |
+| zh-hant | 35 | 4773 | 3069 | 0 |
+| en | 35 | 4773 | 3069 | 0 |
+| all | 106 | 14359 | 9208 | 0 |
 
 In-content links to a whole page (no #anchor), for review: 72 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
