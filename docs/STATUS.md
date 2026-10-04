@@ -21,7 +21,7 @@ The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC)
 - **Redirects pass:** weimeijiao.com and 魏美嬌.com redirect with 301 to the same path on 魏美娇.com (weimeijiao.com keeps the query too), and www redirects to the bare domain.
 - **Warning:** plain HTTP is not yet redirected to HTTPS (`http://xn--3ys368f86s.com/` answers 200), because Enforce HTTPS is still off. GitHub's certificate is now issued, so the box can be ticked (open issue 1).
 
-DNS took about 15 minutes after Cowork's Cloudflare fix (at about 01:45 UTC), and both certificates followed with no further deploy.
+Both domains resolved within minutes of Cowork's Cloudflare fix (reported at about 01:45 UTC), and both certificates were in place by 02:00 UTC with no further deploy.
 
 ### QA results (how to rerun: docs/QA.md)
 
