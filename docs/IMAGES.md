@@ -6,7 +6,8 @@ The quality gate of SPEC §9. Every candidate the images workflow generates is o
 
 - 2026-10-03: first style, flat illustrations from flux-1-schnell (31 pieces, 1024x1024).
 - 2026-10-04 morning: Brian's photo direction (documentary photography, FLUX.2 [dev]); blocked all day by error 4006 on the free allocation (runs below).
-- 2026-10-04 22:25 Taipei: Brian replaces the photo plan with polished illustrations for every image, in one consistent style matching the best first pieces, several candidates per image, Workers Paid active so the daily block no longer applies; the daily schedule is gone and runs are manual. When every image is approved and merged, STATUS.md starts with ILLUSTRATIONS COMPLETE and Cowork cancels the paid plan.
+- 2026-10-04 22:55 Taipei: Brian replaces the photo plan with polished illustrations for every image, in one consistent style matching the best first pieces, several candidates per image, Workers Paid active so the daily block no longer applies; the daily schedule is gone and runs are manual. When every image is approved and merged, STATUS.md starts with ILLUSTRATIONS COMPLETE and Cowork cancels the paid plan.
+- 2026-10-05 09:30 Taipei: done. All 55 images are approved illustrations, merged in PR #10 (batch 1: 46, batch 2: 9) after eight generation runs that produced 341 candidates (calibration 16, full run 165, regenerations 91, 4, 12, 20, 17 and 16); no first-style PNG is left and nothing in the repository needs Workers AI any more.
 
 ## Model choice
 
@@ -28,6 +29,10 @@ The quality gate of SPEC §9. Every candidate the images workflow generates is o
 | 2026-10-05 00:39 | 37248377290 (regeneration, 32 ids) | failed before generating: the commit step rebased the review branch onto the working branch and hit a conflict; the workflow now adds only the candidate files on top of images/incoming and never merges |
 | 2026-10-05 00:42-00:52 | 37248527205 (regeneration: the 32 ids without a kept candidate, 3 each, frame detector on) | 96 candidates on the review branch (the frame detector re-rolled framed pictures before saving); reviewed in four parallel passes against the quality gate, decisions per image in the table below |
 | 2026-10-05 00:53-00:54 | 37249266392 (situation-tantrums, 4 candidates, the child now dressed) | 4 candidates; candidate 1 kept at the coordinator's full-size review (clear pout with crossed arms, calm parent a short way off, natural hands) |
+| 2026-10-05 01:08-01:11 | 37250221456 (four scenes rewritten after review: learning 0-12 months, phase 3-5, phase 7-10, bedtime; 4 each) | 12 candidates saved (the frame detector discarded every try for three phase 3-5 candidates and one bedtime candidate); one kept per scene at the coordinator's full-size review |
+| 2026-10-05 01:12-01:14 | 37250501796 (five situation scenes rewritten: defiance, screens, mealtime, sibling fighting, whining; 4 each) | 20 candidates; defiance, screens, mealtime and whining kept, sibling fighting rewritten again (no room, sad faces) |
+| 2026-10-05 01:19-01:23 | 37251014194 (home hero, toolbox hero, age finder, sibling fighting, redirection; 4 each; the first run that replaces an id's earlier candidates) | 17 candidates; one kept per scene |
+| 2026-10-05 01:23-01:25 | 37251241695 (natural consequences, privilege removal, time-in, time-out; 4 each) | 16 candidates; one kept per scene, completing all 55 |
 
 ## Images
 
