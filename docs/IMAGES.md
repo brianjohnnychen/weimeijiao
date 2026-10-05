@@ -24,7 +24,10 @@ The quality gate of SPEC §9. Every candidate the images workflow generates is o
 | 2026-10-04 00:22, 00:24, 01:31, 03:08, 04:40 | 37161742742, 37168281018, 37173192470, 37177668112 | error 4006 on the first request each time, nothing generated |
 | 2026-10-04 04:56 | 37178445115 (new pipeline, flux-2-dev) | catalog and schema printed; usage not authorized; error 4006 on the first request, nothing generated |
 | 2026-10-04 14:55-14:56 | 37211030610 (illustration pipeline, flux-2-dev, calibration: 8 ids x 2 candidates, seeds, 3 in flight) | 16 candidates in about a minute on the paid plan, no quota error. Style consistent and clean (tantrums, redirection, ignores-me, learning 3-5 all usable); 6 of 16 came with an inset cream border (home, phase 1-3, physical hero), the home hero painterly, the printables fridge scene full of tiny glyphs. Style text tightened (full-bleed, no frame, flat colour areas), printables prompt changed to a crayon drawing scene; full run follows |
-| 2026-10-04 14:58-15:0x | 37211268143 (full run: all 55 ids x 3 candidates, tightened style) | 165 candidates on the review branch; reviewed in five parallel passes against the quality gate, decisions per image in the table below |
+| 2026-10-04 14:58-15:09 | 37211268143 (full run: all 55 ids x 3 candidates, tightened style) | 165 candidates on the review branch; reviewed in five parallel passes against the quality gate, decisions per image in the table below |
+| 2026-10-05 00:39 | 37248377290 (regeneration, 32 ids) | failed before generating: the commit step rebased the review branch onto the working branch and hit a conflict; the workflow now adds only the candidate files on top of images/incoming and never merges |
+| 2026-10-05 00:42-00:52 | 37248527205 (regeneration: the 32 ids without a kept candidate, 3 each, frame detector on) | 96 candidates on the review branch (the frame detector re-rolled framed pictures before saving); reviewed in four parallel passes against the quality gate, decisions per image in the table below |
+| 2026-10-05 00:53-00:54 | 37249266392 (situation-tantrums, 4 candidates, the child now dressed) | 4 candidates; candidate 1 kept at the coordinator's full-size review (clear pout with crossed arms, calm parent a short way off, natural hands) |
 
 ## Images
 
