@@ -383,7 +383,7 @@ images:
     size: '4:3'
   - id: situation-mealtime
     page: situation/mealtime
-    prompt: "A family dinner at a round table in a Nanjing apartment, a three-year-old in a high chair pushing bok choy to the side of a bowl with a spoon, the parents eating and chatting without reacting, steam rising from a soup, warm light."
+    prompt: "A family dinner at a round table in a Nanjing apartment in warm light: a three-year-old in a high chair pushing a small piece of bok choy to the side of a small bowl with a spoon, the two parents eating and chatting without reacting, a pot of soup with a little steam, the table filling the picture."
     alt:
       en: "At a family dinner, a three-year-old in a high chair pushes vegetables to the side of the bowl while the parents eat and chat."
       zh-hans: "一家人吃晚饭，坐在餐椅上的三岁孩子用勺子把青菜拨到碗边，家长照常吃饭聊天。"
@@ -391,11 +391,11 @@ images:
     size: '4:3'
   - id: situation-screens
     page: situation/screens
-    prompt: "A ten-year-old handing a tablet with a dark screen to a parent in a Shanghai living room at dusk, a half-built board game on the floor behind them, both calm, warm light."
+    prompt: "A Shanghai living room in warm early-evening light: a ten-year-old handing a tablet with a plain dark screen to a parent, both calm, a few plain wooden blocks on the rug behind them, the floor running off the bottom of the picture, the room filling the picture."
     alt:
-      en: "A ten-year-old hands a tablet to a parent in the living room at dusk, a board game set up on the floor behind them."
-      zh-hans: "傍晚的客厅里，十岁的孩子把平板交给家长，身后的地板上摆着玩到一半的棋盘游戏。"
-      zh-hant: "傍晚的客廳裡，十歲的孩子把平板交給家長，身後的地板上擺著玩到一半的桌遊。"
+      en: "A ten-year-old hands a tablet to a parent in the living room in the early evening, a few wooden blocks on the rug behind them."
+      zh-hans: "傍晚的客厅里，十岁的孩子把平板交给家长，身后的地毯上放着几块木积木。"
+      zh-hant: "傍晚的客廳裡，十歲的孩子把平板交給家長，身後的地毯上放著幾塊木頭積木。"
     size: '4:3'
   - id: situation-lying
     page: situation/lying
@@ -407,11 +407,11 @@ images:
     size: '4:3'
   - id: situation-defiance
     page: situation/defiance
-    prompt: "A three-year-old standing by the front door of a Shenzhen apartment with arms crossed and shoes untied, a parent kneeling with one shoe in hand and a patient half-smile, morning light."
+    prompt: "A Shenzhen apartment entryway in morning light: a three-year-old in socks standing with arms crossed, a mild frown, and a parent kneeling beside holding the child's two small shoes in one hand with a patient half-smile, the entryway filling the picture."
     alt:
-      en: "A three-year-old stands by the front door with arms crossed while a parent kneels patiently holding one shoe."
-      zh-hans: "三岁的孩子抱着胳膊站在门口，家长拿着一只鞋耐心地跪在旁边。"
-      zh-hant: "三歲的孩子抱著手臂站在門口，家長拿著一隻鞋耐心地跪在旁邊。"
+      en: "A three-year-old stands by the front door with arms crossed while a parent kneels patiently holding the child’s shoes."
+      zh-hans: "三岁的孩子抱着胳膊站在门口，家长拿着孩子的鞋耐心地跪在旁边。"
+      zh-hant: "三歲的孩子抱著手臂站在門口，家長拿著孩子的鞋耐心地跪在旁邊。"
     size: '4:3'
   - id: situation-ignores-me
     page: situation/ignores-me
@@ -423,7 +423,7 @@ images:
     size: '4:3'
   - id: situation-whining
     page: situation/whining
-    prompt: "A four-year-old tugging a parent's sleeve in a Taipei kitchen while the parent keeps stirring a wok, the child's face in a mild pout, a little steam, afternoon light."
+    prompt: "A Taipei kitchen in afternoon light: a four-year-old standing on the side of the parent away from the stove, holding the parent's sleeve at the elbow with both hands, a mild pout, while the parent keeps stirring a wok with the handle in the parent's own hand, a little steam, the counter running off the bottom of the picture."
     alt:
       en: "A four-year-old tugs a parent’s sleeve in the kitchen while the parent keeps stirring a wok."
       zh-hans: "四岁的孩子在厨房里拉着家长的袖子，家长继续炒菜。"
@@ -439,7 +439,7 @@ images:
     size: '4:3'
   - id: situation-grandparents
     page: situation/grandparents
-    prompt: "A grandfather offering a sweet to a preschooler at a kitchen table in a Tainan family home while the parent at the stove glances over with a small smile, a thermos and a plate of guava on the table, afternoon light."
+    prompt: "A Tainan family kitchen in afternoon light: a grey-haired grandfather with the same small simple features as the other figures offering a sweet to a preschooler at the kitchen table, the parent at the stove glancing over with a small smile, a plate of cut fruit on the table, the table edge running off the bottom of the picture."
     alt:
       en: "A grandfather offers a sweet to a preschooler at the kitchen table while the parent at the stove glances over."
       zh-hans: "爷爷在餐桌边递糖给学龄前的孩子，灶台前的家长回头看了一眼。"
@@ -448,7 +448,7 @@ images:
   # Printables
   - id: printable-age-finder
     page: printables/age-finder
-    prompt: "A parent at a kitchen table in a Taipei apartment at night filling in a paper form of plain boxes with a pencil, seen from an angle, a cup of tea, a child's drawing on the fridge behind."
+    prompt: "A Taipei apartment kitchen table in the evening under a warm pendant lamp: a parent filling in a sheet of paper with a few large empty boxes and nothing written on it, holding a pencil, a cup of tea beside the sheet, the table running off the bottom of the picture."
     alt:
       en: "A parent fills in a paper form with a pencil at the kitchen table at night, a cup of tea beside it."
       zh-hans: "夜里家长在餐桌边用铅笔填一张纸质表格，旁边放着一杯茶。"

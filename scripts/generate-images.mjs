@@ -13,6 +13,8 @@
 //   CANDIDATES                   candidates per image (default 3), each with its own seed
 //   PARALLEL                     requests in flight at once (default 3)
 //   MAX_IMAGES                   at most this many ids per run (default: all)
+//   MAX_TRIES                    attempts per candidate when the picture comes back framed (default 5); a framed picture
+//                                (a panel inside a cream margin, see scripts/lib/frame-check.mjs) is discarded and re-rolled
 //   PROBE_ONLY                   "true": print the catalog, the model's schema and the usage report, generate nothing
 import { existsSync, readFileSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -20,6 +22,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import sharp from 'sharp';
+import { frameCheck } from './lib/frame-check.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = join(root, 'src', 'assets', 'ai');
@@ -30,6 +33,7 @@ const GUIDANCE = process.env.IMAGE_GUIDANCE ? Number(process.env.IMAGE_GUIDANCE)
 const CANDIDATES = Math.max(1, Number(process.env.CANDIDATES || 3));
 const PARALLEL = Math.max(1, Number(process.env.PARALLEL || 3));
 const MAX = process.env.MAX_IMAGES ? Math.max(0, Number(process.env.MAX_IMAGES)) : Infinity;
+const MAX_TRIES = Math.max(1, Number(process.env.MAX_TRIES || 5));
 const PROBE_ONLY = /^(1|true|yes)$/i.test(process.env.PROBE_ONLY || '');
 const WIDTH = 1024;
 const HEIGHT = 768; // the 4:3 display crop
@@ -193,18 +197,35 @@ for (const img of batch) for (let n = 1; n <= CANDIDATES; n++) jobs.push({ img, 
 const done = new Map();
 const failed = [];
 let quotaHit = false;
+let framedCount = 0;
 let next = 0;
 async function worker() {
   while (next < jobs.length && !quotaHit) {
     const job = jobs[next++];
     const started = Date.now();
     try {
-      const jpg = await generate(job.img, job.seed);
+      // A framed picture (a panel inside a cream margin) is discarded and re-rolled with a new seed.
+      let jpg, check, seed = job.seed, tries = 0;
+      for (;;) {
+        tries++;
+        jpg = await generate(job.img, seed);
+        check = await frameCheck(jpg);
+        if (!check.framed) break;
+        framedCount++;
+        console.log(`  ${job.img.id}-${job.n}: framed (${check.reason}), discarded`);
+        if (tries >= MAX_TRIES) break;
+        seed = (seed + 15485863) % 2147483647;
+      }
       const name = `${job.img.id}-${job.n}.jpg`;
+      if (check.framed) {
+        failed.push(`${job.img.id}-${job.n} (framed ${tries} times)`);
+        note(`  ${name}: framed on all ${tries} attempts, nothing saved`);
+        continue;
+      }
       await writeFile(join(candDir, name), jpg);
       const meta = await sharp(jpg).metadata();
       done.set(job.img.id, (done.get(job.img.id) ?? 0) + 1);
-      note(`  ${name} (${meta.width}x${meta.height}, ${Math.round(jpg.length / 1024)} KB, ${Math.round((Date.now() - started) / 1000)} s, seed ${job.seed})`);
+      note(`  ${name} (${meta.width}x${meta.height}, ${Math.round(jpg.length / 1024)} KB, ${Math.round((Date.now() - started) / 1000)} s, seed ${seed}, attempt ${tries})`);
     } catch (err) {
       console.log(`::warning::${job.img.id}-${job.n}: ${err.message}`);
       summary.push(`  ${job.img.id}-${job.n}: ${String(err.message).slice(0, 200)}`);
@@ -215,7 +236,7 @@ async function worker() {
 }
 await Promise.all(Array.from({ length: PARALLEL }, worker));
 
-note(`\nDone: ${[...done.values()].reduce((a, b) => a + b, 0)} candidate(s) for ${done.size} image(s)${failed.length ? `; failed: ${failed.join(', ')}` : ''}${quotaHit ? '; stopped at an allocation error' : ''}.`);
+note(`\nDone: ${[...done.values()].reduce((a, b) => a + b, 0)} candidate(s) for ${done.size} image(s); ${framedCount} framed picture(s) discarded and re-rolled${failed.length ? `; failed: ${failed.join(', ')}` : ''}${quotaHit ? '; stopped at an allocation error' : ''}.`);
 if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFileSync } = await import('node:fs');
   appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Illustration candidates\n\n\`\`\`\n${summary.join('\n')}\n\`\`\`\n`);
