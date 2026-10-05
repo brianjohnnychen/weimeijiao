@@ -214,7 +214,7 @@ images:
   # Toolbox
   - id: tool-connection-time
     page: tool/connection-time
-    prompt: "A parent and a five-year-old lying on their stomachs on the living-room floor of a Shenzhen apartment, drawing together on a large sheet of plain paper with crayons, a phone face down on the sofa behind them, warm afternoon light."
+    prompt: "A Shenzhen apartment living room in warm afternoon light: a parent and a five-year-old both lying on their stomachs on the wooden floor, drawing loops and circles together with crayons on one big sheet of plain paper, a few crayons in a row, a plain flat-coloured sofa behind them with a phone lying face down on it, the room filling the picture."
     alt:
       en: "A parent and a five-year-old lie on the living-room floor drawing together with crayons on a big sheet of paper."
       zh-hans: "家长和五岁的孩子趴在客厅地板上，一起用蜡笔在大纸上画画。"
@@ -286,7 +286,7 @@ images:
     size: '4:3'
   - id: tool-time-in
     page: tool/time-in
-    prompt: "A parent sitting on the floor with their back against the sofa in a Kaohsiung living room, holding a four-year-old on their lap, the child's head resting on the parent's chest, both quiet, soft window light."
+    prompt: "A Kaohsiung living room in soft window light: a parent sitting on the floor with their back against a plain olive sofa in flat colour with no pattern, holding a four-year-old on their lap, the child's head resting on the parent's chest, both quiet, the room filling the picture."
     alt:
       en: "A parent sits on the floor against the sofa holding a four-year-old on their lap, the child’s head resting on the parent’s chest."
       zh-hans: "家长背靠沙发坐在地板上，把四岁的孩子抱在腿上，孩子的头靠在家长胸前。"
