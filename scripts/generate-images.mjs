@@ -138,6 +138,9 @@ const batch = todo.slice(0, MAX);
 note(`\n${file.images.length} images listed; ${todo.length} to do; this run generates ${CANDIDATES} candidate(s) each for ${batch.length}: ${batch.map((i) => i.id).join(', ') || 'nothing'}.`);
 note(`Model ${MODEL}, ${WIDTH}x${HEIGHT}, ${STEPS} steps${GUIDANCE !== undefined ? `, guidance ${GUIDANCE}` : ''}, ${PARALLEL} in flight.`);
 await mkdir(candDir, { recursive: true });
+// The ids this run works on, for the workflow: it clears their earlier candidates on the review branch before adding
+// this run's, so an id whose pictures were all discarded as framed does not keep showing the previous run's files.
+await writeFile(join(candDir, 'run-ids.txt'), batch.map((i) => i.id).join('\n') + '\n');
 
 let sendSeed = true;
 async function generate(img, seed) {

@@ -73,14 +73,15 @@ jobs:
         run: |
           shopt -s nullglob
           files=(image-candidates/*.jpg)
-          if [ ${#files[@]} -eq 0 ]; then
+          if [ ${#files[@]} -eq 0 ] && [ ! -f image-candidates/run-ids.txt ]; then
             echo "No new candidates."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p "$RUNNER_TEMP/candidates"
-          mv image-candidates/*.jpg "$RUNNER_TEMP/candidates/"
+          if [ ${#files[@]} -gt 0 ]; then mv image-candidates/*.jpg "$RUNNER_TEMP/candidates/"; fi
+          if [ -f image-candidates/run-ids.txt ]; then mv image-candidates/run-ids.txt "$RUNNER_TEMP/run-ids.txt"; fi
           git reset --hard --quiet
           git clean -fdq
           if git fetch origin images/incoming 2>/dev/null; then
@@ -89,8 +90,16 @@ jobs:
             git checkout -B images/incoming
           fi
           mkdir -p image-candidates
-          cp "$RUNNER_TEMP"/candidates/*.jpg image-candidates/
-          git add image-candidates
+          # The review branch holds only the latest run's candidates for each id: the earlier files of the ids this run
+          # worked on go first (an id whose pictures were all discarded as framed would otherwise keep the old ones).
+          if [ -f "$RUNNER_TEMP/run-ids.txt" ]; then
+            while read -r id; do
+              if [ -n "$id" ]; then git ls-files image-candidates | grep -E "^image-candidates/${id}-[0-9]+\.jpg$" | xargs -r git rm -q --; fi
+            done < "$RUNNER_TEMP/run-ids.txt"
+          fi
+          new=("$RUNNER_TEMP"/candidates/*.jpg)
+          if [ ${#new[@]} -gt 0 ]; then cp "${new[@]}" image-candidates/; fi
+          git add -A image-candidates
           if git diff --cached --quiet; then
             echo "Candidates identical to the ones already on the review branch."
             exit 0
