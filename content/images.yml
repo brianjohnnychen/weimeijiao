@@ -25,7 +25,7 @@ images:
   # Home and hubs
   - id: home-hero
     page: home
-    prompt: "A parent reading an open picture book that shows only a big painted tree to a toddler on their lap on a fabric sofa in a small Taipei apartment living room in soft afternoon light, an older child building a tower of plain wooden blocks on the tiled floor, a folded blanket on the armrest, the room filling the whole picture."
+    prompt: "A parent reading an open picture book that shows only a big painted tree to a toddler on their lap on a plain flat-coloured sofa with no texture or pattern in a small Taipei apartment living room in soft afternoon light, an older child building a tower of plain wooden blocks on the tiled floor, a folded blanket on the armrest, the room filling the whole picture."
     alt:
       en: "A parent reads a picture book to a toddler on the sofa while an older child builds with wooden blocks on the floor of a small apartment living room."
       zh-hans: "家长在沙发上给怀里的幼儿读绘本，大一点的孩子在小公寓客厅的地板上搭积木。"
@@ -35,9 +35,9 @@ images:
     page: by-age
     prompt: "Two school-age children walking a few steps ahead, one parent carrying a baby in a cloth carrier and the other holding a toddler's hand, the whole family walking along a riverside park path in Taichung on a bright afternoon, banyan trees and a plain metal railing, seen from the side, the path and trees running off every edge of the picture."
     alt:
-      en: "A family walks along a riverside park path: one parent carries a baby in a carrier, the other holds a toddler’s hand, and two older children walk a few steps ahead."
-      zh-hans: "一家人走在河边公园的小路上：一位家长用背巾抱着宝宝，另一位牵着学步儿，两个大一点的孩子走在前面几步。"
-      zh-hant: "一家人走在河邊公園的小路上：一位家長用背巾抱著寶寶，另一位牽著學步兒，兩個大一點的孩子走在前面幾步。"
+      en: "A family walks along a riverside park path: a parent carries a baby in a carrier and holds a toddler’s hand while two older children walk a few steps ahead."
+      zh-hans: "一家人走在河边公园的小路上：家长用背巾抱着宝宝、牵着学步儿，两个大一点的孩子走在前面几步。"
+      zh-hant: "一家人走在河邊公園的小路上：家長用背巾抱著寶寶、牽著學步兒，兩個大一點的孩子走在前面幾步。"
     size: '4:3'
   - id: approach-hero
     page: approach
@@ -57,7 +57,7 @@ images:
     size: '4:3'
   - id: toolbox-hero
     page: toolbox
-    prompt: "A wide view of a kitchen doorway and hallway in a Taipei apartment on a school morning, a parent crouched to a six-year-old's eye level with one hand resting on the child's arm, speaking calmly, a plain school bag with no badge or writing on the floor beside them, soft morning light, the room filling the whole picture."
+    prompt: "A full-bleed view of a kitchen doorway and hallway in a Taipei apartment on a school morning, the walls, floor and doorway touching all four edges of the canvas with no cream margin, no border, no inset panel and no drop shadow: a parent crouched to a six-year-old's eye level with both hands resting on their own knees, speaking calmly, a plain one-colour canvas school bag with no badge, patch, emblem or lettering on the floor beside them, soft morning light."
     alt:
       en: "A parent crouches to a six-year-old’s eye level in the kitchen doorway and speaks calmly, a school bag on the floor beside them."
       zh-hans: "家长在厨房门口蹲下来，和六岁的孩子平视着平静地说话，书包放在旁边的地上。"
@@ -75,9 +75,9 @@ images:
     page: little-time
     prompt: "A parent still in a work shirt sitting on the edge of a child's bed in a small Shenzhen apartment in the evening, reading from a plain cloth-bound book with no writing on it, the child tucked under a quilt, one warm bedside lamp, a phone lying face down and dark on the nightstand, the room filling the whole picture."
     alt:
-      en: "A parent still in work clothes sits on the edge of a child’s bed at night and reads a bedtime story under one warm lamp."
-      zh-hans: "还穿着上班衣服的家长晚上坐在孩子床边，在一盏暖灯下读睡前故事。"
-      zh-hant: "還穿著上班衣服的家長晚上坐在孩子床邊，在一盞暖燈下讀睡前故事。"
+      en: "A parent still in work clothes sits on a child’s bed at night, the child snuggled at their side, and reads a bedtime story under one warm lamp."
+      zh-hans: "还穿着上班衣服的家长晚上坐在孩子床上，孩子依偎在身边，在一盏暖灯下读睡前故事。"
+      zh-hant: "還穿著上班衣服的家長晚上坐在孩子床上，孩子依偎在身旁，在一盞暖燈下讀睡前故事。"
     size: '4:3'
   - id: physical-hero
     page: physical
@@ -92,17 +92,17 @@ images:
     page: learning
     prompt: "A kitchen table in a Nanjing apartment in the late afternoon, a mixed-heritage family: a parent and a school-age seven-year-old leaning over a large-piece children's jigsaw of about a dozen big plain pieces, half assembled, while a toddler stacks plastic cups on the floor nearby, window light, a plain pot on the stove, the kitchen filling the whole picture."
     alt:
-      en: "A parent and a seven-year-old lean over a jigsaw puzzle at the kitchen table while a toddler stacks cups nearby."
-      zh-hans: "家长和七岁的孩子趴在餐桌上一起拼拼图，学步儿在旁边叠杯子。"
-      zh-hant: "家長和七歲的孩子趴在餐桌上一起拼拼圖，學步兒在旁邊疊杯子。"
+      en: "Two parents and a seven-year-old lean over a jigsaw puzzle at the kitchen table while a toddler stacks cups nearby."
+      zh-hans: "两位家长和七岁的孩子趴在餐桌上一起拼拼图，学步儿在旁边叠杯子。"
+      zh-hant: "兩位家長和七歲的孩子趴在餐桌上一起拼拼圖，學步兒在旁邊疊杯子。"
     size: '4:3'
   - id: research-hero
     page: research
     prompt: "A parent reading on a sofa by a window in a Taipei apartment in the evening, a small stack of plain cloth-bound books with blank spines and a cup of tea on the side table, three simple crayon drawings taped to the wall, a sun, a house and a stick figure with no writing, a bedroom door ajar in the background, the room filling the whole picture."
     alt:
-      en: "A parent reads on the sofa at night beside a stack of library books and a cup of tea, children’s drawings taped to the wall."
-      zh-hans: "夜里家长坐在沙发上看书，边桌上放着一摞图书馆借来的书和一杯茶，墙上贴着孩子的画。"
-      zh-hant: "夜裡家長坐在沙發上看書，邊桌上放著一疊圖書館借來的書和一杯茶，牆上貼著孩子的畫。"
+      en: "A parent reads in an armchair beside a stack of library books and a cup of tea, children’s drawings taped to the wall."
+      zh-hans: "家长坐在扶手椅上看书，边桌上放着一摞图书馆借来的书和一杯茶，墙上贴着孩子的画。"
+      zh-hant: "家長坐在扶手椅上看書，邊桌上放著一疊圖書館借來的書和一杯茶，牆上貼著孩子的畫。"
     size: '4:3'
   # Printables
   - id: printables-hero
@@ -246,7 +246,7 @@ images:
     size: '4:3'
   - id: tool-redirection
     page: tool/redirection
-    prompt: "A parent on the kitchen floor of a Nanjing apartment handing a toddler a wooden spoon and a small pot while gently pushing a drawer closed with the other hand, the toddler's attention turning to the spoon, morning light."
+    prompt: "A Nanjing apartment kitchen in morning light, the cabinets and the floor running off every edge of the picture: a parent kneeling on the floor handing a toddler in a teal long-sleeved top and trousers a wooden spoon and a small plain pot, the parent's other hand gently pushing a low drawer closed, the toddler's attention turning to the spoon, only the two of them in the picture."
     alt:
       en: "A parent hands a toddler a wooden spoon and a small pot while gently closing a kitchen drawer."
       zh-hans: "家长把木勺和小锅递给学步儿，另一只手轻轻关上厨房抽屉。"
@@ -367,7 +367,7 @@ images:
     size: '4:3'
   - id: situation-sibling-fighting
     page: situation/sibling-fighting
-    prompt: "A Kaohsiung living room in afternoon light, the room filling the picture to every edge: two fully dressed children in T-shirts, one about five and one about eight, both gripping one single toy car across a low table and frowning at each other with short straight mouths, a parent stepping in from the side of the room, no doorway."
+    prompt: "A Kaohsiung living room in afternoon light, a plain flat-coloured sofa against the back wall, a window with curtains and a rug on the wooden floor, the room running off every edge of the picture: an eight-year-old and a clearly smaller five-year-old, both in T-shirts, each gripping one end of the same toy car across a low table and frowning at each other with lowered eyebrows and pressed lips, a parent stepping in from the side of the room, no doorway."
     alt:
       en: "Two children hold the same toy car across a low table and frown at each other while a parent steps in from the side of the room."
       zh-hans: "两个孩子隔着矮桌各抓着同一辆玩具车的一头，互相瞪着，家长从旁边走过来。"
@@ -385,17 +385,17 @@ images:
     page: situation/mealtime
     prompt: "A family dinner at a round table in a Nanjing apartment in warm light, the dining room wall and floor running off all four edges of the picture: a three-year-old in a high chair with a mild frown nudging one piece of bok choy to the rim of a small bowl with a spoon, the two parents each holding a rice bowl and chopsticks mid-meal and chatting with each other without reacting, a pot of soup with a little steam on the table."
     alt:
-      en: "At a family dinner, a three-year-old in a high chair pushes vegetables to the side of the bowl while the parents eat and chat."
-      zh-hans: "一家人吃晚饭，坐在餐椅上的三岁孩子用勺子把青菜拨到碗边，家长照常吃饭聊天。"
-      zh-hant: "一家人吃晚飯，坐在餐椅上的三歲孩子用湯匙把青菜撥到碗邊，家長照常吃飯聊天。"
+      en: "At a family dinner, a three-year-old in a high chair frowns at the bok choy in a small bowl, spoon in hand, while the parents keep eating calmly."
+      zh-hans: "一家人吃晚饭，坐在餐椅上的三岁孩子拿着勺子，皱着眉看着小碗里的青菜，家长在旁边照常吃饭。"
+      zh-hant: "一家人吃晚飯，坐在餐椅上的三歲孩子拿著湯匙，皺著眉看著小碗裡的青菜，家長在旁邊照常吃飯。"
     size: '4:3'
   - id: situation-screens
     page: situation/screens
     prompt: "A Shanghai living room in warm early-evening light, the wall, a plain flat-coloured sofa and the wooden floor reaching every edge of the picture: a tall ten-year-old in a mustard T-shirt, sitting on the rug with their head level with the parent's shoulder, handing a tablet with a plain dark screen to the parent, both calm, a few plain wooden blocks on the rug behind them."
     alt:
-      en: "A ten-year-old hands a tablet to a parent in the living room in the early evening, a few wooden blocks on the rug behind them."
-      zh-hans: "傍晚的客厅里，十岁的孩子把平板交给家长，身后的地毯上放着几块木积木。"
-      zh-hant: "傍晚的客廳裡，十歲的孩子把平板交給家長，身後的地毯上放著幾塊木頭積木。"
+      en: "A ten-year-old hands a tablet to a parent in the living room in the early evening, a few wooden blocks on the rug beside them."
+      zh-hans: "傍晚的客厅里，十岁的孩子把平板交给家长，旁边的地毯上放着几块木积木。"
+      zh-hant: "傍晚的客廳裡，十歲的孩子把平板交給家長，旁邊的地毯上放著幾塊木頭積木。"
     size: '4:3'
   - id: situation-lying
     page: situation/lying
@@ -448,7 +448,7 @@ images:
   # Printables
   - id: printable-age-finder
     page: printables/age-finder
-    prompt: "A Taipei apartment kitchen table in the evening under a warm pendant lamp: a parent filling in a sheet of paper with a few large empty boxes and nothing written on it, holding a pencil, a cup of tea beside the sheet, the table running off the bottom of the picture."
+    prompt: "A Taipei apartment kitchen table in the evening under a warm pendant lamp: a parent filling in a single sheet of paper with three large empty squares outlined on it and nothing written anywhere, holding a pencil; nothing on the table except the sheet, the pencil and a cup of tea; no cardboard boxes; a kitchen counter and stove behind; the table running off the bottom of the picture."
     alt:
       en: "A parent fills in a paper form with a pencil at the kitchen table at night, a cup of tea beside it."
       zh-hans: "夜里家长在餐桌边用铅笔填一张纸质表格，旁边放着一杯茶。"
