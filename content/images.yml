@@ -150,9 +150,9 @@ images:
     page: phase/7-10-years
     prompt: "A nine-year-old and a parent at a kitchen table in Kaohsiung on a Sunday morning, both leaning over one blank cream sheet of paper seen at a low angle, each holding one capped colored pen, a plain unpatterned fruit bowl, a glass of soy milk, warm morning light, the table filling the whole picture."
     alt:
-      en: "A nine-year-old and a parent lean over a weekly planner sheet with colored pens at the kitchen table on a Sunday morning."
-      zh-hans: "周日早晨，九岁的孩子和家长在餐桌上拿着彩笔一起看一周计划表。"
-      zh-hant: "週日早晨，九歲的孩子和家長在餐桌上拿著彩色筆一起看一週計畫表。"
+      en: "On a Sunday morning, a nine-year-old and a parent lean over a blank sheet at the kitchen table with colored pens, planning the week together."
+      zh-hans: "周日早晨，九岁的孩子和家长在餐桌前拿着彩笔，对着一张白纸一起规划这一周。"
+      zh-hant: "週日早晨，九歲的孩子和家長在餐桌前拿著彩色筆，對著一張白紙一起規劃這一週。"
     size: '4:3'
   - id: phase-10-12-years
     page: phase/10-12-years
@@ -377,9 +377,9 @@ images:
     page: situation/bedtime
     prompt: "A Taipei bedroom at night, the whole room reaching every edge of the picture (wall, curtained window, floor and bed), lit only by a small plug-in nightlight low on the wall, soft teal-blue shadows: a parent sitting on the floor beside a child's bed, a four-year-old under a plain unpatterned quilt holding a stuffed toy, the parent's hand resting on the quilt."
     alt:
-      en: "A parent sits on the floor beside a child’s bed in a dim room, a hand resting on the quilt, a nightlight on."
-      zh-hans: "昏暗的卧室里亮着小夜灯，家长坐在孩子床边的地板上，手搭在被子上。"
-      zh-hant: "昏暗的臥室裡亮著小夜燈，家長坐在孩子床邊的地板上，手搭在被子上。"
+      en: "At night, with a nightlight glowing on the wall, a parent kneels on the floor beside a child’s bed with both hands resting on the quilt."
+      zh-hans: "夜里，墙上亮着小夜灯，家长跪坐在孩子床边的地板上，双手搭在被子上。"
+      zh-hant: "夜裡，牆上亮著小夜燈，家長跪坐在孩子床邊的地板上，雙手搭在被子上。"
     size: '4:3'
   - id: situation-mealtime
     page: situation/mealtime
