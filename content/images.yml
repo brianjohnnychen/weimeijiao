@@ -270,7 +270,7 @@ images:
     size: '4:3'
   - id: tool-natural-consequences
     page: tool/natural-consequences
-    prompt: "Inside a Taipei apartment, close on a seven-year-old with a school bag on, looking at a rain jacket forgotten on a hook beside the open front door, a sliver of light rain visible past the door edge, a mug of coffee on the table at the edge of the picture, morning light, the scene filling the picture."
+    prompt: "Inside a Taipei apartment entryway in morning light, the walls, floor and doorway running off every edge of the picture: a seven-year-old wearing a plain one-colour school bag with no patches, tabs, logos or marks, looking at a plain one-colour rain jacket left on a plain wooden peg beside the front door, the door standing wide open with light rain falling outside, the edge of a table with a mug of coffee at one side."
     alt:
       en: "A seven-year-old with a school bag looks at a forgotten rain jacket by the open front door while rain falls outside."
       zh-hans: "背着书包的七岁孩子看着忘在门边挂钩上的雨衣，门外正下着小雨。"
@@ -286,7 +286,7 @@ images:
     size: '4:3'
   - id: tool-time-in
     page: tool/time-in
-    prompt: "A Kaohsiung living room in soft window light: a parent sitting on the floor with their back against a plain olive sofa in flat colour with no pattern, holding a four-year-old on their lap, the child's head resting on the parent's chest, both quiet, the room filling the picture."
+    prompt: "A Kaohsiung living room in soft window light, a window on the left wall, light patches on the wooden floor and a plain olive sofa in flat colour with no pattern running off the right edge of the picture: a parent sitting on the floor with their back against the sofa, holding a four-year-old in a teal T-shirt on their lap, the child's head resting on the parent's chest and the child's arms folded on their own chest, the parent's arms loosely around the child, their feet tucked under a plain folded blanket, both quiet."
     alt:
       en: "A parent sits on the floor against the sofa holding a four-year-old on their lap, the child’s head resting on the parent’s chest."
       zh-hans: "家长背靠沙发坐在地板上，把四岁的孩子抱在腿上，孩子的头靠在家长胸前。"
@@ -294,7 +294,7 @@ images:
     size: '4:3'
   - id: tool-time-out
     page: tool/time-out
-    prompt: "A four-year-old sitting calmly on a small wooden stool in a quiet corner of a Hangzhou living room beside a plain wall and a potted plant, a parent sitting at the dining table in the background with a cup of tea, afternoon light."
+    prompt: "A Hangzhou living room in afternoon light, the walls and the floor running off every edge of the picture: a four-year-old in a mustard T-shirt and teal trousers sitting calmly on a small plain wooden stool in a quiet corner beside a plain wall and a potted plant, a parent sitting at the dining table in the background with a cup of tea."
     alt:
       en: "A four-year-old sits calmly on a small stool in a quiet corner of the living room while a parent sits at the dining table in the background."
       zh-hans: "四岁的孩子平静地坐在客厅安静角落的小凳子上，家长坐在后面的餐桌边。"
@@ -302,7 +302,7 @@ images:
     size: '4:3'
   - id: tool-privilege-removal
     page: tool/privilege-removal
-    prompt: "A Taipei apartment kitchen in warm evening light: a tablet lying face down with its blank back showing, charging on the counter beside a kettle and a bowl of fruit, a ten-year-old at the kitchen table behind reading a plain-covered book seen from the side, the room filling the picture."
+    prompt: "A Taipei apartment kitchen in warm evening light, the counter, cabinets and table running off the edges of the picture: in front, a tablet shut inside a plain olive folio cover lying closed on the counter with its charging cable plugged in, beside a plain matte ceramic kettle in flat colour with no metal and a bowl of fruit; behind, a ten-year-old at the kitchen table reading a plain-covered book, seen from the side."
     alt:
       en: "A tablet charges face down on the kitchen counter while a ten-year-old reads a book at the table behind it."
       zh-hans: "平板扣在厨房台面上充电，十岁的孩子在后面的餐桌边看书。"
