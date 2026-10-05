@@ -272,7 +272,7 @@ Run on Claude Fable 5.1 on branch `claude/brave-darwin-7h6nne` ([PR #9](https://
 The table at the top: content lint 171 files, 0 errors; locale parity 57 entries per locale, clean; build 120 pages, QA 0 errors, 48 PDFs, 120 Open Graph images; link test 20,387 internal links (14,377 to an anchor), 0 broken; anchor test 32 of 32; behavior test 81 of 81; keyboard test 33 of 33; UI check 165 views (18 pages in three locales at 375px light, 1280px light and 375px dark, plus the home page at 320px), no problems; axe-core 4.13.0: 363 page runs, 0 violations; Lighthouse: all 18 medians 98 or higher (performance 100 on every desktop page and on the English mobile pages, 99 on five Chinese mobile pages and 98 on the zh-Hant physical discipline page on mobile; accessibility, best practices and SEO 100 everywhere); sources unchanged in this pass, so the sources job's last run stands (37181587302: 176 entries, 0 failures).
 
 <!-- link-test:start -->
-Link test run 2026-10-05 00:56 UTC over dist/ (121 HTML pages).
+Link test run 2026-10-05 01:30 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
