@@ -2032,6 +2032,13 @@ a.anchor:hover {
     content-visibility: auto;
     contain-intrinsic-block-size: auto 8em;
   }
+
+  /* The source list is laid out for real: it is many times taller than the 8em estimate, so while
+     skipped its entries ran past the estimate into the footer, and the footer links measured as
+     touching the DOI links (Lighthouse target-size). */
+  .prose > section.footnotes {
+    content-visibility: visible;
+  }
 }
 
 /* When the address points at something on the page (a deep link or a table-of-contents jump),
