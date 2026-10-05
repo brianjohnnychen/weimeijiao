@@ -2,11 +2,12 @@ name: Generate images
 
 # Generates illustration candidates (content/images.yml, SPEC §9) with Cloudflare Workers AI and commits
 # them to the review branch images/incoming for a full-size review. Nothing goes live from here: the
-# chosen candidate per image is copied to src/assets/ai/<id>.jpg on a batch branch, logged in
+# chosen candidate per image is copied to src/assets/ai/<id>.jpg on the working branch, logged in
 # docs/IMAGES.md and merged through a pull request; deploys are deploy.yml's business.
-# Manual dispatch only (the daily schedule and the push trigger are gone with the photo plan): runs cost
-# usage on the Workers Paid plan, so each one is deliberate. The review branch is created from the
-# triggering branch if missing, otherwise kept merged with it.
+# Manual dispatch only: runs cost usage on the Workers Paid plan, so each one is deliberate.
+# The run generates from the branch it was dispatched on (its prompts and script), then adds only the
+# new files under image-candidates/ on top of images/incoming: the review branch stores candidates and is
+# never merged with the working branch, so it cannot conflict with it.
 on:
   workflow_dispatch:
     inputs:
@@ -47,24 +48,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check out the review branch
-        id: branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git fetch origin images/incoming 2>/dev/null; then
-            git checkout -B images/incoming origin/images/incoming
-            if ! git merge --no-edit "origin/${GITHUB_REF_NAME}"; then
-              echo "::error::images/incoming does not merge cleanly with ${GITHUB_REF_NAME}; resolve it by hand."
-              exit 1
-            fi
-            echo "Writing to images/incoming (merged with ${GITHUB_REF_NAME})."
-          else
-            git checkout -B images/incoming
-            echo "Writing to a new images/incoming branch from ${GITHUB_REF_NAME}."
-          fi
-          echo "name=images/incoming" >> "$GITHUB_OUTPUT"
-
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -85,20 +68,37 @@ jobs:
           IMAGE_STEPS: ${{ github.event.inputs.steps }}
         run: node scripts/generate-images.mjs
 
-      - name: Commit the candidates for review
+      - name: Commit the candidates to the review branch
         if: always()
-        env:
-          BRANCH: ${{ steps.branch.outputs.name }}
         run: |
-          git add image-candidates
-          if git diff --cached --quiet; then
+          shopt -s nullglob
+          files=(image-candidates/*.jpg)
+          if [ ${#files[@]} -eq 0 ]; then
             echo "No new candidates."
             exit 0
           fi
-          git commit -m "Generate illustration candidates for review"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p "$RUNNER_TEMP/candidates"
+          mv image-candidates/*.jpg "$RUNNER_TEMP/candidates/"
+          git reset --hard --quiet
+          git clean -fdq
+          if git fetch origin images/incoming 2>/dev/null; then
+            git checkout -B images/incoming origin/images/incoming
+          else
+            git checkout -B images/incoming
+          fi
+          mkdir -p image-candidates
+          cp "$RUNNER_TEMP"/candidates/*.jpg image-candidates/
+          git add image-candidates
+          if git diff --cached --quiet; then
+            echo "Candidates identical to the ones already on the review branch."
+            exit 0
+          fi
+          git commit -m "Generate illustration candidates for review (run ${GITHUB_RUN_ID} from ${GITHUB_REF_NAME})"
           for i in 1 2 3; do
-            git pull --rebase origin "$BRANCH" 2>/dev/null || true
-            git push origin "HEAD:$BRANCH" && break
+            git push origin HEAD:images/incoming && break
+            git pull --rebase origin images/incoming || true
             sleep $((i * 5))
           done
-          echo "Pushed to $BRANCH. Review each candidate at full size, copy the cleanest to src/assets/ai/<id>.jpg on a batch branch and log it in docs/IMAGES.md."
+          echo "Pushed to images/incoming. Review each candidate at full size, copy the cleanest to src/assets/ai/<id>.jpg on the working branch and log it in docs/IMAGES.md."
