@@ -11,7 +11,7 @@ import { t } from '../../i18n/ui';
 import { getPage, assertParity } from '../../lib/content';
 import { setupCites, headingsIn } from '../../lib/page';
 import { ALL_SOURCES, citeNumberIfCited, citedIn, researchHref } from '../../lib/cites';
-import { SOURCES, sourceLink } from '../../lib/sources';
+import { SOURCES } from '../../lib/sources';
 
 export function getStaticPaths() {
   return localeStaticPaths();
@@ -45,7 +45,6 @@ const countText = data.count.replace('{total}', String(total)).replace('{cited}'
         <h3 id={`group-${group.key}-heading`}>{groups[group.key]}</h3>
         <ul class="bib-list bib-list-plain">
           {group.sources.map((s) => {
-            const link = sourceLink(s);
             const where = cited.get(s.id) ?? [];
             const n = citeNumberIfCited(s.id);
             return (
@@ -53,7 +52,6 @@ const countText = data.count.replace('{total}', String(total)).replace('{cited}'
                 <p class="bib-citation">{n !== undefined && <span class="bib-number" aria-hidden="true">{n}</span>}<Citation source={s} locale={locale} /></p>
                 <p class="bib-meta">
                   <span class="chip">{ui.studyType[s.evidence_level]}</span>
-                  <a href={link.href} rel="noopener" lang="en">{link.label}</a>
                   {s.pmid && <a href={`https://pubmed.ncbi.nlm.nih.gov/${s.pmid}/`} rel="noopener">{data.pubmed} {s.pmid}</a>}
                   {n !== undefined && <a href={researchHref(locale, s.id)}>{data.researchEntry}</a>}
                 </p>

@@ -1,41 +1,36 @@
 name: Generate images
 
-# Generates the site's photographs (content/images.yml, SPEC §9) with Cloudflare Workers AI and commits
-# them for review. Nothing goes live from here: deploys are deploy.yml's business, and only reviewed
-# images are merged to main (docs/IMAGES.md keeps the review log).
-#   - Daily at 00:20 UTC (after the free allocation resets) and on manual dispatch, the run works on the
-#     review branch images/incoming: created from the triggering branch (main) if missing, otherwise kept
-#     merged with it, and pushed back with the new files.
-#   - A push that changes the manifest, the script or this file on any branch other than main generates
-#     on that branch, so a prompt change can be tried before it reaches main.
-#   - A push to main never generates: merges carry only reviewed images.
-# It generates within the free daily allocation only and stops at the first "allocation used up" answer.
+# Generates illustration candidates (content/images.yml, SPEC §9) with Cloudflare Workers AI and commits
+# them to the review branch images/incoming for a full-size review. Nothing goes live from here: the
+# chosen candidate per image is copied to src/assets/ai/<id>.jpg on the working branch, logged in
+# docs/IMAGES.md and merged through a pull request; deploys are deploy.yml's business.
+# Manual dispatch only: runs cost usage on the Workers Paid plan, so each one is deliberate.
+# The run generates from the branch it was dispatched on (its prompts and script), then adds only the
+# new files under image-candidates/ on top of images/incoming: the review branch stores candidates and is
+# never merged with the working branch, so it cannot conflict with it.
 on:
   workflow_dispatch:
     inputs:
-      regenerate:
-        description: Image ids to generate again even if a file exists (comma separated, optional)
+      ids:
+        description: Image ids to generate (comma separated); empty = every id without an approved illustration
         required: false
         default: ''
-      max:
-        description: How many images to generate in this run
+      candidates:
+        description: Candidates per image
         required: false
-        default: '4'
+        default: '3'
+      max:
+        description: At most this many ids in this run (empty = all)
+        required: false
+        default: ''
+      steps:
+        description: Inference steps (empty = the script's default, 28)
+        required: false
+        default: ''
       probe_only:
         description: Only print the model catalog, the schema and the usage report
         type: boolean
         default: false
-      steps:
-        description: Inference steps (empty = the script's default)
-        required: false
-        default: ''
-  schedule:
-    - cron: '20 0 * * *'
-  push:
-    paths:
-      - content/images.yml
-      - scripts/generate-images.mjs
-      - .github/workflows/images.yml
 
 permissions:
   contents: write
@@ -46,37 +41,12 @@ concurrency:
 
 jobs:
   generate:
-    # A push to main is a merge of reviewed work: it never generates.
-    if: github.event_name != 'push' || github.ref != 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-
-      - name: Pick the branch that receives the images
-        id: branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ "${GITHUB_EVENT_NAME}" = "push" ]; then
-            echo "name=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
-            echo "Writing to the pushed branch ${GITHUB_REF_NAME}."
-          else
-            if git fetch origin images/incoming 2>/dev/null; then
-              git checkout -B images/incoming origin/images/incoming
-              if ! git merge --no-edit "origin/${GITHUB_REF_NAME}"; then
-                echo "::error::images/incoming does not merge cleanly with ${GITHUB_REF_NAME}; resolve it by hand."
-                exit 1
-              fi
-              echo "Writing to images/incoming (merged with ${GITHUB_REF_NAME})."
-            else
-              git checkout -B images/incoming
-              echo "Writing to a new images/incoming branch from ${GITHUB_REF_NAME}."
-            fi
-            echo "name=images/incoming" >> "$GITHUB_OUTPUT"
-          fi
 
       - uses: actions/setup-node@v5
         with:
@@ -86,31 +56,58 @@ jobs:
       - name: Install (runtime dependencies only)
         run: npm ci --omit=dev
 
-      - name: Probe the catalog and generate
+      - name: Probe the catalog and generate candidates
         id: generate
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_AI_TOKEN: ${{ secrets.CF_AI_TOKEN }}
-          REGENERATE: ${{ github.event.inputs.regenerate }}
-          MAX_IMAGES: ${{ github.event.inputs.max || '4' }}
+          IMAGE_IDS: ${{ github.event.inputs.ids }}
+          CANDIDATES: ${{ github.event.inputs.candidates || '3' }}
+          MAX_IMAGES: ${{ github.event.inputs.max }}
           PROBE_ONLY: ${{ github.event.inputs.probe_only }}
           IMAGE_STEPS: ${{ github.event.inputs.steps }}
         run: node scripts/generate-images.mjs
 
-      - name: Commit the new images for review
+      - name: Commit the candidates to the review branch
         if: always()
-        env:
-          BRANCH: ${{ steps.branch.outputs.name }}
         run: |
-          git add src/assets/ai
-          if git diff --cached --quiet; then
-            echo "No new images."
+          shopt -s nullglob
+          files=(image-candidates/*.jpg)
+          if [ ${#files[@]} -eq 0 ] && [ ! -f image-candidates/run-ids.txt ]; then
+            echo "No new candidates."
             exit 0
           fi
-          git commit -m "Generate photographs for review"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p "$RUNNER_TEMP/candidates"
+          if [ ${#files[@]} -gt 0 ]; then mv image-candidates/*.jpg "$RUNNER_TEMP/candidates/"; fi
+          if [ -f image-candidates/run-ids.txt ]; then mv image-candidates/run-ids.txt "$RUNNER_TEMP/run-ids.txt"; fi
+          git reset --hard --quiet
+          git clean -fdq
+          if git fetch origin images/incoming 2>/dev/null; then
+            git checkout -B images/incoming origin/images/incoming
+          else
+            git checkout -B images/incoming
+          fi
+          mkdir -p image-candidates
+          # The review branch holds only the latest run's candidates for each id: the earlier files of the ids this run
+          # worked on go first (an id whose pictures were all discarded as framed would otherwise keep the old ones).
+          if [ -f "$RUNNER_TEMP/run-ids.txt" ]; then
+            while read -r id; do
+              if [ -n "$id" ]; then git ls-files image-candidates | grep -E "^image-candidates/${id}-[0-9]+\.jpg$" | xargs -r git rm -q --; fi
+            done < "$RUNNER_TEMP/run-ids.txt"
+          fi
+          new=("$RUNNER_TEMP"/candidates/*.jpg)
+          if [ ${#new[@]} -gt 0 ]; then cp "${new[@]}" image-candidates/; fi
+          git add -A image-candidates
+          if git diff --cached --quiet; then
+            echo "Candidates identical to the ones already on the review branch."
+            exit 0
+          fi
+          git commit -m "Generate illustration candidates for review (run ${GITHUB_RUN_ID} from ${GITHUB_REF_NAME})"
           for i in 1 2 3; do
-            git pull --rebase origin "$BRANCH" 2>/dev/null || true
-            git push origin "HEAD:$BRANCH" && break
+            git push origin HEAD:images/incoming && break
+            git pull --rebase origin images/incoming || true
             sleep $((i * 5))
           done
-          echo "Pushed to $BRANCH. Review each image at full size and log it in docs/IMAGES.md before merging."
+          echo "Pushed to images/incoming. Review each candidate at full size, copy the cleanest to src/assets/ai/<id>.jpg on the working branch and log it in docs/IMAGES.md."

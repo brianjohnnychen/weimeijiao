@@ -1,11 +1,21 @@
 ---
-// One formatted reference (APA-like), kept in the source's own language.
+// One reference in APA 7th edition (SPEC §5.9): authors, year, sentence-case title, journal and
+// volume in italics, issue, pages, DOI link. English works stay in English on every locale's page;
+// a Chinese-language work keeps its own title and follows the Chinese APA 7 conventions.
 import type { Source } from '../lib/sources';
 import { yearOf } from '../lib/sources';
+import { venueParts } from '../lib/cite-text.mjs';
+import { apaTitle } from '../lib/apa-title.mjs';
 import type { Locale } from '../i18n/locales';
 
 interface Props { source: Source; locale: Locale }
 const { source: s, locale } = Astro.props;
 const showEnglishTitle = locale === 'en' && s.title_en && s.lang !== 'en';
+const { journal, volume, issue, pages } = venueParts(s.venue);
+const isBook = !volume && !pages && /press|books|publish/i.test(journal);
+const title = s.lang === 'en' ? apaTitle(s.title) : s.title;
+const link = s.doi ? `https://doi.org/${s.doi}` : s.url;
+const zh = s.lang !== 'en';
+const stop = zh ? '。' : '.';
 ---
-<span lang={s.lang}>{s.authors} ({yearOf(s)}). <cite class="citation-title">{s.title}</cite>{showEnglishTitle && <span lang="en"> [{s.title_en}]</span>}. {s.venue}.</span>
+<span lang={s.lang}>{s.authors} ({yearOf(s)}){stop} {isBook ? <cite class="citation-title"><i>{title}</i></cite> : <cite class="citation-title">{title}</cite>}{showEnglishTitle && <span lang="en"> [{s.title_en}]</span>}{stop} {isBook ? <>{journal}{stop}</> : <><i>{journal}</i>{volume ? ', ' : ''}{volume ? <i>{volume}</i> : null}{issue ? `(${issue})` : ''}{pages ? `, ${pages}` : ''}{stop}</>} <a href={link} rel="noopener" class="citation-link" lang="en">{link}</a></span>

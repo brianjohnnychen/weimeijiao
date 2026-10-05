@@ -906,6 +906,11 @@ a.chip:hover {
   overflow: hidden;
 }
 
+/* Block, so no baseline gap under the picture: the rounded corners belong to the picture itself */
+.page-hero-media img {
+  display: block;
+}
+
 @media (min-width: 860px) {
   .page-hero-grid.has-media {
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
@@ -1264,12 +1269,13 @@ q {
   min-height: 28px;
 }
 
+/* APA 7: article titles roman, the journal and volume italic (see Citation.astro); long DOI links may wrap anywhere. */
 .citation-title {
-  font-style: italic;
+  font-style: normal;
 }
 
-:lang(zh) .citation-title:lang(zh) {
-  font-style: normal;
+.citation-link {
+  overflow-wrap: anywhere;
 }
 
 /* Related links */
@@ -2025,6 +2031,13 @@ a.anchor:hover {
   .prose > :is(p, ul, ol, div, section, table, blockquote, figure, nav, dl) {
     content-visibility: auto;
     contain-intrinsic-block-size: auto 8em;
+  }
+
+  /* The source list is laid out for real: it is many times taller than the 8em estimate, so while
+     skipped its entries ran past the estimate into the footer, and the footer links measured as
+     touching the DOI links (Lighthouse target-size). */
+  .prose > section.footnotes {
+    content-visibility: visible;
   }
 }
 

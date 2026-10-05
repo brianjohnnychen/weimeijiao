@@ -3,6 +3,7 @@
 // number; the link goes to its exact entry on the Research page, which links back here
 // (the first marker for each source on a page gets id cite-<id>-1).
 import { getSource } from '../lib/sources';
+import { inTextCite } from '../lib/cite-text.mjs';
 import { citeNumber, researchHref } from '../lib/cites';
 import { t, withColon } from '../i18n/ui';
 import type { Locale } from '../i18n/locales';
@@ -16,8 +17,8 @@ const n = citeNumber(id);
 ctx.seen[id] = (ctx.seen[id] ?? 0) + 1;
 const locale = ctx.locale as Locale;
 const ui = t(locale);
-const firstAuthor = source.authors.split(/,|&/)[0].trim();
-const label = withColon(locale, `${ui.citeLabel} ${n}`, `${firstAuthor} ${source.year ?? ''}`.trim());
+// Hover and tap text: the source number and its author-year form (SPEC §6, Citations in the text).
+const label = withColon(locale, `${ui.citeLabel} ${n}`, inTextCite(source, locale));
 const hrefTarget = ctx.mode === 'bibliography' ? `#src-${id}` : researchHref(locale, id);
 ---
 <sup class="cite"><a href={hrefTarget} id={`cite-${id}-${ctx.seen[id]}`} aria-label={label} title={label}>{n}</a></sup>

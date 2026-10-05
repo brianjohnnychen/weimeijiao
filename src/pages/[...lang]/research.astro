@@ -8,7 +8,6 @@ import { t } from '../../i18n/ui';
 import { getPage, assertParity } from '../../lib/content';
 import { setupCites, headingsIn } from '../../lib/page';
 import { BIBLIOGRAPHY, citeNumber, citedIn, sourcesHref } from '../../lib/cites';
-import { sourceLink } from '../../lib/sources';
 
 export function getStaticPaths() {
   return localeStaticPaths();
@@ -48,7 +47,6 @@ const colon = locale === 'en' ? ': ' : '：';
         <h3 id={`group-${group.key}-heading`}>{data.groups[group.key]}</h3>
         <ol class="bib-list">
           {group.sources.map((s) => {
-            const link = sourceLink(s);
             const where = cited.get(s.id) ?? [];
             if (!where.length) throw new Error(`${s.id} is cited but no ${locale} page citing it was found: add that page to citingPages() in src/lib/cites.ts`);
             return (
@@ -56,7 +54,7 @@ const colon = locale === 'en' ? ': ' : '：';
                 <p class="bib-citation"><Citation source={s} locale={locale} /></p>
                 <p class="bib-meta">
                   <span class="chip">{ui.studyType[s.evidence_level]}</span>
-                  <a href={link.href} rel="noopener" lang="en">{link.label}</a>
+                  
                   {s.pmid && <a href={`https://pubmed.ncbi.nlm.nih.gov/${s.pmid}/`} rel="noopener">{data.pubmed} {s.pmid}</a>}
                   <a class="bib-sources-link" href={sourcesHref(locale, s.id)}>{ui.sourcesEntry}</a>
                 </p>
