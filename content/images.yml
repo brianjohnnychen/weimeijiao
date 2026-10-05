@@ -343,7 +343,7 @@ images:
   # Situations
   - id: situation-tantrums
     page: situation/tantrums
-    prompt: "A two-year-old sitting on the living-room floor of a Taipei apartment with crossed arms and a pout beside a dropped toy, a parent sitting on the floor a meter away looking calm, afternoon light."
+    prompt: "A two-year-old in a T-shirt and trousers sitting on the living-room floor of a Taipei apartment with crossed arms and a pout beside a dropped toy, a parent sitting on the floor a meter away looking calm, afternoon light."
     alt:
       en: "A two-year-old sits pouting on the living-room floor with crossed arms while a parent sits calmly a short distance away."
       zh-hans: "两岁的孩子抱着胳膊噘着嘴坐在客厅地板上，家长平静地坐在不远处。"
