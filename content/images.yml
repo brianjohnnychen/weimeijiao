@@ -59,9 +59,9 @@ images:
     page: toolbox
     prompt: "A full-bleed view of a kitchen doorway and hallway in a Taipei apartment on a school morning, the walls, floor and doorway touching all four edges of the canvas with no cream margin, no border, no inset panel and no drop shadow: a parent crouched to a six-year-old's eye level with both hands resting on their own knees, speaking calmly, a plain one-colour canvas school bag with no badge, patch, emblem or lettering on the floor beside them, soft morning light."
     alt:
-      en: "A parent crouches to a six-year-old’s eye level in the kitchen doorway and speaks calmly, a school bag on the floor beside them."
-      zh-hans: "家长在厨房门口蹲下来，和六岁的孩子平视着平静地说话，书包放在旁边的地上。"
-      zh-hant: "家長在廚房門口蹲下來，和六歲的孩子平視著平靜地說話，書包放在旁邊的地上。"
+      en: "A parent crouches to a young child’s eye level in the kitchen doorway and speaks calmly, a school bag on the floor beside them."
+      zh-hans: "家长在厨房门口蹲下来，和孩子平视着平静地说话，书包放在旁边的地上。"
+      zh-hant: "家長在廚房門口蹲下來，和孩子平視著平靜地說話，書包放在旁邊的地上。"
     size: '4:3'
   - id: situations-hero
     page: situations
@@ -304,9 +304,9 @@ images:
     page: tool/privilege-removal
     prompt: "A Taipei apartment kitchen in warm evening light, the counter, cabinets and table running off the edges of the picture: in front, a tablet shut inside a plain olive folio cover lying closed on the counter with its charging cable plugged in, beside a plain matte ceramic kettle in flat colour with no metal and a bowl of fruit; behind, a ten-year-old at the kitchen table reading a plain-covered book, seen from the side."
     alt:
-      en: "A tablet charges face down on the kitchen counter while a ten-year-old reads a book at the table behind it."
-      zh-hans: "平板扣在厨房台面上充电，十岁的孩子在后面的餐桌边看书。"
-      zh-hant: "平板扣在廚房流理台上充電，十歲的孩子在後面的餐桌邊看書。"
+      en: "A tablet charges in its closed cover on the kitchen counter while a school-age child reads a book at the table behind it."
+      zh-hans: "平板合着保护套在厨房台面上充电，学龄孩子在后面的餐桌边看书。"
+      zh-hant: "平板蓋著保護套在廚房流理台上充電，學齡孩子在後面的餐桌邊看書。"
     size: '4:3'
   - id: tool-problem-solving
     page: tool/problem-solving
