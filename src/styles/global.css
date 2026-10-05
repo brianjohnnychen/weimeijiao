@@ -906,6 +906,11 @@ a.chip:hover {
   overflow: hidden;
 }
 
+/* Block, so no baseline gap under the picture: the rounded corners belong to the picture itself */
+.page-hero-media img {
+  display: block;
+}
+
 @media (min-width: 860px) {
   .page-hero-grid.has-media {
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
