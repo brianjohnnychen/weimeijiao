@@ -6,3 +6,16 @@
 # Last batch (2026-10-03, run 37147001796) is recorded in each entry's verified_via.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
+# Batch of 2026-10-06 (INBOX item 8, a toddler who keeps testing limits): ages and procedures in the
+# time-out studies, the safety practices in the Cochrane home-safety review, and what the AAP policy
+# statement says about time-out and limits for young children.
+- id: kendrick-2012-cochrane
+  pattern: "stair|gate|stor|reach|cupboard|safety practice|possession|equipment"
+- id: day-roberts-1983
+  pattern: "barrier|year|month|age|preschool|spank|minimum"
+- id: bean-roberts-1981
+  pattern: "year|month|age|preschool|spank|release|escape"
+- id: compliance-plos-2018
+  pattern: "age|year|month|toddler|preschool|time-out|timeout"
+- id: aap-2018-discipline
+  pattern: "time-out|time out|timeout|toddler|redirect|limit|remov"

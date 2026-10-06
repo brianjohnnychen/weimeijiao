@@ -64,9 +64,12 @@ async function get(url, { json = false, browser = false, timeout = 25000, accept
   }
 }
 
+// Only real markup is stripped (a tag name right after "<", as in <i>, </p> or <jats:p>): a "<" in running
+// text, such as "children <6 years" or "p < 0.001" in an abstract, must not swallow the text up to the next ">".
 const clean = (s) =>
   String(s ?? '')
-    .replace(/<[^>]+>/g, ' ')
+    .replace(/<!--[\s\S]*?-->|<![^>]*>|<\?[^>]*>/g, ' ')
+    .replace(/<\/?[A-Za-z][A-Za-z0-9:_-]*(?:\s[^<>]*)?\/?>/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
@@ -140,7 +143,7 @@ async function europePmc(doi) {
   const r = await get(`https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${q}&resultType=core&format=json`, { json: true });
   const hit = r.body?.resultList?.result?.[0];
   if (!hit) return null;
-  return { pmid: hit.pmid, pmcid: hit.pmcid, title: clean(hit.title), abstract: clean(hit.abstractText), journal: hit.journalInfo?.journal?.title, year: hit.pubYear };
+  return { pmid: hit.pmid, pmcid: hit.pmcid, title: clean(hit.title), abstract: clean(hit.abstractText), authors: clean(hit.authorString), journal: hit.journalInfo?.journal?.title, year: hit.pubYear };
 }
 
 async function openAlexAbstract(doi) {
@@ -319,8 +322,10 @@ async function abstractFor(doi, pmid) {
   let pm = pmid;
   let abs = '';
   let source = '';
+  let authors = '';
   if (doi) {
     const ep = await europePmc(doi);
+    authors = ep?.authors ?? '';
     if (ep?.abstract) {
       abs = ep.abstract;
       source = 'Europe PMC';
@@ -346,7 +351,7 @@ async function abstractFor(doi, pmid) {
       source = 'publisher page';
     }
   }
-  return { abstract: abs, source, pmid: pm };
+  return { abstract: abs, source, pmid: pm, authors };
 }
 
 const summary = [];
@@ -507,8 +512,9 @@ async function lookupCandidates(fileArg) {
     if (cr) {
       report(`  MATCH: ${cr.authors}\n    (${cr.year}${cr.online && cr.online !== cr.year ? `, online ${cr.online}` : ''}). ${cr.title}${cr.subtitle ? ': ' + cr.subtitle : ''}.\n    ${cr.container}, ${cr.volume ?? '-'}(${cr.issue ?? '-'}), ${cr.page ?? '-'}. doi:${cr.doi} [${cr.type}; ${cr.publisher}]`);
       const a = await abstractFor(cr.doi, c.pmid);
+      if (a.authors) report(`  Europe PMC authors: ${a.authors}`);
       const abs = a.abstract || cr.abstract;
-      if (abs) report(`  abstract (${a.abstract ? a.source : 'Crossref'}${a.pmid ? `, PMID ${a.pmid}` : ''}):\n${wrap(abs.slice(0, 3000), 110, '    ')}`);
+      if (abs) report(`  abstract (${a.abstract ? a.source : 'Crossref'}${a.pmid ? `, PMID ${a.pmid}` : ''}):\n${wrap(abs.slice(0, 6000), 110, '    ')}`);
       else report('  abstract: none found');
     }
     if (c.url) {
