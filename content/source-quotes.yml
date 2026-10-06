@@ -19,3 +19,5 @@
   pattern: "age|year|month|toddler|preschool|time-out|timeout"
 - id: aap-2018-discipline
   pattern: "time-out|time out|timeout|toddler|redirect|limit|remov"
+- url: "https://europepmc.org/article/MED/26773009"
+  pattern: "Pediatr Psychol|Journal of Pediatric Psychology|779|2017"
