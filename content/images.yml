@@ -421,6 +421,14 @@ images:
       zh-hans: "家长蹲在正专心叠杯子的学步儿旁边，与孩子平视，手轻轻搭在孩子手臂上等孩子抬头。"
       zh-hant: "家長蹲在正專心疊杯子的學步兒旁邊，與孩子平視，手輕輕搭在孩子手臂上等孩子抬頭。"
     size: '4:3'
+  - id: situation-testing-limits
+    page: situation/testing-limits
+    prompt: "A Taipei living room in afternoon light, a plain flat-coloured sofa and the wooden floor running off every edge of the picture: a parent kneeling on the floor beside a two-year-old in a teal T-shirt and olive trousers, guiding the child's open hand to stroke a calm, sleepy family dog gently along its back, the parent's other arm resting between the child and the dog's head, a plain dog bed and a low white baby gate behind them."
+    alt:
+      en: "A parent kneels beside a two-year-old and guides the child’s open hand to stroke the family dog gently, a dog bed and a baby gate behind them."
+      zh-hans: "家长跪在两岁的孩子身边，引导孩子张开手轻轻抚摸家里的狗，后面是狗窝和儿童安全门。"
+      zh-hant: "家長跪在兩歲的孩子身邊，引導孩子張開手輕輕摸家裡的狗，後面是狗窩和兒童安全門。"
+    size: '4:3'
   - id: situation-whining
     page: situation/whining
     prompt: "A Taipei kitchen in afternoon light, the counter running off the bottom of the picture: a parent in a plain long-sleeved top stirring a wok with a spatula in the near hand and holding the wok's long handle in the far hand, a little steam, and a four-year-old standing on the parent's side away from the stove, pinching a fold of the parent's sleeve at the elbow with both hands, a mild pout."
