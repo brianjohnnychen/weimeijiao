@@ -1,6 +1,6 @@
-# UI check (2026-10-05 02:20 UTC)
+# UI check (2026-10-06 16:28 UTC)
 
-165 page views: 18 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen, or the section a view's anchor names; overflow, header, console, image and request checks cover the whole page.
+174 page views: 19 pages x 3 locales x (375px light, 1280px light, 375px dark), plus the home page at 320px in each locale. Screenshots show the first screen, or the section a view's anchor names; overflow, header, console, image and request checks cover the whole page.
 
 ## Problems
 
@@ -34,6 +34,9 @@ None.
 | zh-hans | situation-ignores-me | 375 | light | - | ok | [zh-hans-situation-ignores-me-375.jpg](zh-hans-situation-ignores-me-375.jpg) |
 | zh-hans | situation-ignores-me | 1280 | light | - | ok | [zh-hans-situation-ignores-me-1280.jpg](zh-hans-situation-ignores-me-1280.jpg) |
 | zh-hans | situation-ignores-me | 375 | dark | - | ok | [zh-hans-situation-ignores-me-375-dark.jpg](zh-hans-situation-ignores-me-375-dark.jpg) |
+| zh-hans | situation-testing-limits | 375 | light | - | ok | [zh-hans-situation-testing-limits-375.jpg](zh-hans-situation-testing-limits-375.jpg) |
+| zh-hans | situation-testing-limits | 1280 | light | - | ok | [zh-hans-situation-testing-limits-1280.jpg](zh-hans-situation-testing-limits-1280.jpg) |
+| zh-hans | situation-testing-limits | 375 | dark | - | ok | [zh-hans-situation-testing-limits-375-dark.jpg](zh-hans-situation-testing-limits-375-dark.jpg) |
 | zh-hans | little-time | 375 | light | - | ok | [zh-hans-little-time-375.jpg](zh-hans-little-time-375.jpg) |
 | zh-hans | little-time | 1280 | light | ok | ok | [zh-hans-little-time-1280.jpg](zh-hans-little-time-1280.jpg) |
 | zh-hans | little-time | 375 | dark | - | ok | [zh-hans-little-time-375-dark.jpg](zh-hans-little-time-375-dark.jpg) |
@@ -89,6 +92,9 @@ None.
 | zh-hant | situation-ignores-me | 375 | light | - | ok | [zh-hant-situation-ignores-me-375.jpg](zh-hant-situation-ignores-me-375.jpg) |
 | zh-hant | situation-ignores-me | 1280 | light | - | ok | [zh-hant-situation-ignores-me-1280.jpg](zh-hant-situation-ignores-me-1280.jpg) |
 | zh-hant | situation-ignores-me | 375 | dark | - | ok | [zh-hant-situation-ignores-me-375-dark.jpg](zh-hant-situation-ignores-me-375-dark.jpg) |
+| zh-hant | situation-testing-limits | 375 | light | - | ok | [zh-hant-situation-testing-limits-375.jpg](zh-hant-situation-testing-limits-375.jpg) |
+| zh-hant | situation-testing-limits | 1280 | light | - | ok | [zh-hant-situation-testing-limits-1280.jpg](zh-hant-situation-testing-limits-1280.jpg) |
+| zh-hant | situation-testing-limits | 375 | dark | - | ok | [zh-hant-situation-testing-limits-375-dark.jpg](zh-hant-situation-testing-limits-375-dark.jpg) |
 | zh-hant | little-time | 375 | light | - | ok | [zh-hant-little-time-375.jpg](zh-hant-little-time-375.jpg) |
 | zh-hant | little-time | 1280 | light | ok | ok | [zh-hant-little-time-1280.jpg](zh-hant-little-time-1280.jpg) |
 | zh-hant | little-time | 375 | dark | - | ok | [zh-hant-little-time-375-dark.jpg](zh-hant-little-time-375-dark.jpg) |
@@ -144,6 +150,9 @@ None.
 | en | situation-ignores-me | 375 | light | - | ok | [en-situation-ignores-me-375.jpg](en-situation-ignores-me-375.jpg) |
 | en | situation-ignores-me | 1280 | light | - | ok | [en-situation-ignores-me-1280.jpg](en-situation-ignores-me-1280.jpg) |
 | en | situation-ignores-me | 375 | dark | - | ok | [en-situation-ignores-me-375-dark.jpg](en-situation-ignores-me-375-dark.jpg) |
+| en | situation-testing-limits | 375 | light | - | ok | [en-situation-testing-limits-375.jpg](en-situation-testing-limits-375.jpg) |
+| en | situation-testing-limits | 1280 | light | - | ok | [en-situation-testing-limits-1280.jpg](en-situation-testing-limits-1280.jpg) |
+| en | situation-testing-limits | 375 | dark | - | ok | [en-situation-testing-limits-375-dark.jpg](en-situation-testing-limits-375-dark.jpg) |
 | en | little-time | 375 | light | - | ok | [en-little-time-375.jpg](en-little-time-375.jpg) |
 | en | little-time | 1280 | light | ok | ok | [en-little-time-1280.jpg](en-little-time-1280.jpg) |
 | en | little-time | 375 | dark | - | ok | [en-little-time-375-dark.jpg](en-little-time-375-dark.jpg) |

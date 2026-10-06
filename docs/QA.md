@@ -314,14 +314,14 @@ Brian's direction of 2026-10-04 evening (INBOX item 7, SPEC §9): polished illus
 - **Tests:** the final build passed the full suite in section 15; the UI check screenshots in docs/screenshots/ show the new pictures at 375px and 1280px in all three locales.
 
 <!-- link-test:start -->
-Link test run 2026-10-05 01:30 UTC over dist/ (121 HTML pages).
+Link test run 2026-10-06 16:22 UTC over dist/ (121 HTML pages).
 
 | Locale | Pages | Internal links | With #anchor | Broken |
 |---|---|---|---|---|
-| zh-hans | 41 | 6823 | 4793 | 0 |
-| zh-hant | 40 | 6782 | 4792 | 0 |
-| en | 40 | 6782 | 4792 | 0 |
-| all | 121 | 20387 | 14377 | 0 |
+| zh-hans | 41 | 7014 | 4984 | 0 |
+| zh-hant | 40 | 6973 | 4983 | 0 |
+| en | 40 | 6973 | 4983 | 0 |
+| all | 121 | 20960 | 14950 | 0 |
 
 In-content links to a whole page (no #anchor), for review: 84 target page(s).
 - /printables/family-rules/ <- /approach/ ("家规海报"); /by-age/3-5-years/ ("家规海报"); /printables/ ("家规海报"); +3 more
