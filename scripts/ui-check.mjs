@@ -28,6 +28,7 @@ const PAGES = [
   ['toolbox', '/toolbox/'],
   ['situations', '/situations/'],
   ['situation-ignores-me', '/situations/#ignores-me'],
+  ['situation-testing-limits', '/situations/#testing-limits'],
   ['little-time', '/little-time/'],
   ['physical', '/physical-discipline/'],
   ['learning', '/learning/'],
