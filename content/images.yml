@@ -421,6 +421,14 @@ images:
       zh-hans: "家长蹲在正专心叠杯子的学步儿旁边，与孩子平视，手轻轻搭在孩子手臂上等孩子抬头。"
       zh-hant: "家長蹲在正專心疊杯子的學步兒旁邊，與孩子平視，手輕輕搭在孩子手臂上等孩子抬頭。"
     size: '4:3'
+  - id: situation-testing-limits
+    page: situation/testing-limits
+    prompt: "The dining corner of a Taipei flat in afternoon light, the pale tiled floor and plain walls running off every edge of the picture: a two-year-old in a teal T-shirt and olive trousers crouches on the floor and wipes up spilled breakfast cereal with a small cloth beside an upturned plastic bowl, while a parent crouches next to the child holding a small dustpan, smiling encouragingly; a potted plant stands on a high shelf on the wall and a low white baby gate closes off the kitchen doorway behind them."
+    alt:
+      en: "A toddler crouches beside a parent and wipes up spilled cereal with a cloth next to a tipped-over bowl; a potted plant sits on a high shelf and a baby gate closes off the kitchen doorway."
+      zh-hans: "学步儿蹲在家长身边，用抹布擦地上撒出来的麦片，旁边倒着一只碗；盆栽放在高高的架子上，厨房门口装着儿童安全门。"
+      zh-hant: "學步兒蹲在家長身邊，用抹布擦地上灑出來的麥片，旁邊倒著一個碗；盆栽放在高高的架子上，廚房門口裝著兒童安全門。"
+    size: '4:3'
   - id: situation-whining
     page: situation/whining
     prompt: "A Taipei kitchen in afternoon light, the counter running off the bottom of the picture: a parent in a plain long-sleeved top stirring a wok with a spatula in the near hand and holding the wok's long handle in the far hand, a little steam, and a four-year-old standing on the parent's side away from the stove, pinching a fold of the parent's sleeve at the elbow with both hands, a mild pout."

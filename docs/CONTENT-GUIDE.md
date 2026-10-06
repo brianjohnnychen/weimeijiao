@@ -109,7 +109,8 @@ Situations:
 | screens | Screens | 屏幕时间 | 螢幕時間 |
 | lying | Lying | 说谎 | 說謊 |
 | defiance | Defiance and "no" | 对着干、说“不” | 唱反調、說「不」 |
-ignores-me | My toddler ignores me | 学步儿不理我 | 學步兒不理我 |
+| ignores-me | My toddler ignores me | 学步儿不理我 | 學步兒不理我 |
+| testing-limits | My toddler keeps testing limits | 学步儿一再试探底线 | 學步兒一再試探底線 |
 | whining | Whining | 哼哼唧唧、缠人 | 一直盧、哭哭啼啼 |
 | homework | Homework | 写作业 | 寫功課 |
 | grandparents | Grandparents with different rules | 祖辈规矩不一样 | 長輩規矩不一樣 |

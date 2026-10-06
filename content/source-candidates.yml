@@ -1,5 +1,8 @@
 # Candidate sources for the sources workflow's candidates job (metadata and abstracts before anything
-# is added to sources.yml). Empty: the toddler-page batch (13 candidates, run 37181068575) was looked up
-# on 2026-10-04; 11 were added to sources.yml, kuczynski-kochanska-1990 and kochanska-aksan-1995 were
-# not (no readable abstract, so no claim could be verified).
+# is added to sources.yml). Empty: the INBOX item 8 batches for the situation page My toddler keeps testing
+# limits (22 candidates in run 37487659279, 4 looked up again or anew in run 37489839624) were read on
+# 2026-10-06, and 16 were added to sources.yml. Not added: holden-west-1989, roberts-powers-1990 and
+# roberts-1988-room (no readable abstract; the first DOI tried for Roberts 1988 belongs to an enuresis
+# article), mcneil-1994-escape (the DOI belongs to another article in the same issue), and
+# kochanska-tjebkes-forman-1998 and morrongiello-2004-toddlers (no sentence on the page needs them).
 []

@@ -1,12 +1,21 @@
 ILLUSTRATIONS COMPLETE
 
-All 55 site images are approved illustrations, merged to main in PR #10 on 2026-10-05. Nothing in the repository needs Workers AI any more, so the Cloudflare Workers Paid plan can be cancelled.
+All 56 site images are approved illustrations: 55 merged to main in PR #10 on 2026-10-05, and the 56th, for the testing-limits situation, in [PR #11](https://github.com/brianjohnnychen/weimeijiao/pull/11) (INBOX item 8). Nothing in the repository needs Workers AI for the site to build or deploy; a new page's picture comes from the dispatch-only images workflow.
 
 # STATUS
 
 ## LIVE AT https://魏美娇.com (2026-10-04, 10:00 Taipei)
 
 The final QA pass ran 2026-10-04 05:31-07:20 Taipei (2026-10-03 21:31-23:20 UTC) on branch `claude/dreamy-mayer-2nub40` ([PR #1](https://github.com/brianjohnnychen/weimeijiao/pull/1)), run by the build session on its current model because no switch to Fable with a FINAL QA PASS message arrived within 60 minutes of READY FOR FINAL PASS (SPEC §2). Three separate reviews (interactive behaviour, rendered text in all three locales, HTML and accessibility) went through the built site; every finding is fixed or explicitly accepted, and every check was run again. Details: docs/QA.md, section 9.
+
+### Situation page My toddler keeps testing limits (INBOX item 8), 2026-10-06 23:21 to 2026-10-07 01:31 Taipei ([PR #11](https://github.com/brianjohnnychen/weimeijiao/pull/11))
+
+- **The page:** `/situations/#testing-limits` in all three locales (学步儿一再试探底线 / 學步兒一再試探底線 / My toddler keeps testing limits), ages 1-3: prevention, a physical stop, one rule line, the same short consequence enforced with a playpen or safety gate (a short time-out from about 3), a quicker answer and the activity closed for the day when the child runs straight back, every caregiver the same, pets, repair, both sides on spanking per SPEC §7, how long it takes. No doctor or therapist on the page; the help section is the generic not-working link.
+- **Sources and picture:** 16 new verified sources, all cited (192 entries, sources run 37492424057 green); the 56th illustration after two rejected dog scenes (QA.md section 17, IMAGES.md).
+- **Also:** linked from five situations, the 1-3 phase page and four tool cards; the approach page's time-out back-ups now read calm and never painful, matching the time-out card; the source checker no longer cuts abstract text after a "<".
+- **Tests on the final build:** content lint 174 files, 0 errors; parity 58 entries per locale; build 120 pages, QA 0 errors; link test 20,960 internal links, 0 broken; anchor 32 of 32; behavior 81 of 81; keyboard 33 of 33; UI check 174 views, no problems; axe 363 runs, 0 violations; Lighthouse all 18 medians 95 or higher (mobile performance 95 to 100, desktop 100; accessibility, best practices and SEO 100 on every page); the situations page, checked on its own, is as good as or better than on main before this change.
+- **Workers AI:** the three image runs (16 candidates) succeeded; their logs do not show whether they ran on the paid plan or within the free daily allocation, which the Cloudflare dashboard's Workers AI usage page would show.
+- **For Brian:** the situations page on Chinese mobile scores about 90 for performance in Lighthouse, as it did before this change, because that long page pulls about 2.4 MB of CJK font slices. Raising it is a typography choice (fewer font weights, or system fonts for Chinese body text); say if you want it.
 
 ### Illustrations for every image (INBOX item 7), 2026-10-04 22:55 to 2026-10-05 10:46 Taipei ([PR #10](https://github.com/brianjohnnychen/weimeijiao/pull/10))
 
@@ -81,23 +90,23 @@ Both domains resolved within minutes of Cowork's Cloudflare fix (reported at abo
 | Check | Result |
 |---|---|
 | Fact-check per claim | 11 build-phase reviews, the final text review, the Fable audit's re-verification of all markers against the source checker's abstracts, and this pass's translation QA, which checked every cited sentence in all three locales against the source's finding and key facts (about 25 accuracy fixes) |
-| Content lint | 171 files, 0 errors, 0 warnings (also rejects personal names outside About, misspellings of WeiMeiJiao, heading mismatches between locales, and an author-year that does not match the source cited in its sentence) |
-| Locale parity | `scripts/parity-test.mjs` in CI: 57 entries per locale, every page, situation, tool, phase and learning page in all three locales, frontmatter lists the same length, alt text in every locale for 55 images |
+| Content lint | 174 files, 0 errors, 0 warnings (also rejects personal names outside About, misspellings of WeiMeiJiao, heading mismatches between locales, and an author-year that does not match the source cited in its sentence) |
+| Locale parity | `scripts/parity-test.mjs` in CI: 58 entries per locale, every page, situation, tool, phase and learning page in all three locales, frontmatter lists the same length, alt text in every locale for 56 images |
 | Build and QA | 120 pages (40 per locale), 0 errors, 0 warnings; no third-party assets |
-| Link test | 20,387 internal links, 14,377 to an anchor, 0 broken |
+| Link test | 20,960 internal links, 14,950 to an anchor, 0 broken |
 | Anchor test | 32 of 32 deep links land on their target (375px and 1280px) |
 | Behavior test | 81 of 81 checks pass in all three locales |
 | Keyboard test | 33 of 33 checks pass at 375px in all three locales |
 | Accessibility | axe-core 4.13.0, WCAG 2.2 AA plus best practice: 0 violations in 363 page runs (all 121 pages at 375px light, 375px dark and 1280px); html-validate from the final pass |
-| UI check | 165 views in three locales (17 pages plus the new situation section at its anchor): no overflow, console errors, failed requests or broken images; dark mode passes; header fits |
+| UI check | 174 views in three locales (17 pages plus the two newest situation sections at their anchors): no overflow, console errors, failed requests or broken images; dark mode passes; header fits |
 | Printables | 45 one-page sheets and 3 two-page age finders, all at 100% scale |
-| Lighthouse | all 18 medians (3 runs each) are 98 or higher: performance 100 on every desktop page and on the English mobile pages, 99 on five Chinese mobile pages and 98 on the zh-Hant physical discipline page on mobile; accessibility, best practices and SEO 100 on every page; single mobile runs ranged down to 97 (the physical discipline page in both Chinese locales) (docs/lighthouse.md) |
-| Sources and help lines | Actions run 37212615184: 176 sources, 0 failures; landing pages 8 carry the cited DOI in their citation metadata, 88 resolve to a publisher URL that carries the cited DOI or the publisher's id for the work, 80 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be tied to the work, 0 land on a wrong page; all 14 help-line numbers found on their official pages |
+| Lighthouse | all 18 medians (3 runs each) are 95 or higher: performance 100 on every desktop page and on the English mobile pages, 95 to 98 on the Chinese mobile pages (single runs as low as 85 on this machine); accessibility, best practices and SEO 100 on every page. The situations page, outside this set, scores 100 on desktop and English mobile but 92 and 90 on Chinese mobile, about what it scored on main before INBOX item 8 (its CJK font slices total about 2.4 MB), and accessibility 96 in English, a target-size artifact of off-screen guides skipped by content-visibility, also present on main (QA.md section 17) (docs/lighthouse.md) |
+| Sources and help lines | Actions run 37492424057: 192 sources, 0 failures; landing pages 9 carry the cited DOI in their citation metadata, 93 resolve to a publisher URL that carries the cited DOI, 90 resolve to such a URL but the publisher refuses automated readers (the URL still names the work), 0 could not be read, 0 land on a wrong page; the help-line job passed in the same run |
 
 ### What is built
 
-- **Site:** Astro 7, static, three locales with full parity: Simplified Chinese at `/`, Traditional Chinese (Taiwan usage) at `/zh-hant/`, English at `/en/`. 40 pages per locale (six age phases from birth to 12, six learning pages, 16 tools, 13 situations, the approach with edge cases, little time, physical discipline, Research, Sources, 16 printables, About) plus a trilingual 404, sitemap with hreflang, robots.txt and Open Graph images.
-- **Content:** 168 MDX files written natively in each language, 919 citation markers per locale pointing to 171 distinct academic sources out of 176 verified entries, each marker linked to its exact Research entry and back, and each Research entry to the Sources page. Physical discipline follows SPEC §7. Terminology per docs/GLOSSARY.md.
+- **Site:** Astro 7, static, three locales with full parity: Simplified Chinese at `/`, Traditional Chinese (Taiwan usage) at `/zh-hant/`, English at `/en/`. 40 pages per locale (six age phases from birth to 12, six learning pages, 16 tools, 14 situations, the approach with edge cases, little time, physical discipline, Research, Sources, 16 printables, About) plus a trilingual 404, sitemap with hreflang, robots.txt and Open Graph images.
+- **Content:** 174 MDX files (58 per locale) written natively in each language, 955 citation markers per locale pointing to 187 distinct academic sources out of 192 verified entries, each marker linked to its exact Research entry and back, and each Research entry to the Sources page. Physical discipline follows SPEC §7. Terminology per docs/GLOSSARY.md.
 - **Printables:** 16 per locale, 48 PDFs rendered at build time.
 - **Images:** photographs generated by AI per SPEC §9 (FLUX.2 [dev] on Workers AI, documentary style), rolled out in reviewed daily batches: 0 of 54 approved so far; 31 pages still show a first-style illustration and 23 the designed placeholder; 12 family photos on About with gallery and lightbox. Review log: docs/IMAGES.md.
 - **Workflows:** `ci.yml` (every push: content lint, build with QA, link test, anchor test, behavior test, keyboard test), `sources.yml` (DOI, metadata, landing page and help-line checks: on change, weekly, on demand), `images.yml`, `deploy.yml` (every push to `main` and manual dispatch; build, deploy, smoke test of the live site and both redirect domains), `smoke.yml`.
