@@ -85,6 +85,7 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | lying | Lying | 说谎 | 說謊 |
 | defiance | Defiance and "no" | 对着干、说“不” | 唱反調、說「不」 |
 | ignores-me | My toddler ignores me | 学步儿不理我 | 學步兒不理我 |
+| testing-limits | My toddler keeps testing limits | 学步儿一再试探底线 | 學步兒一再試探底線 |
 | whining | Whining | 哼哼唧唧、缠人 | 一直盧、哭哭啼啼 |
 | homework | Homework | 写作业 | 寫功課 |
 | grandparents | Grandparents with different rules | 祖辈规矩不一样 | 長輩規矩不一樣 |
@@ -109,6 +110,14 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | getting attention first (attention before the instruction) | 先引起注意 | 先引起注意 | |
 | guided compliance (hands-on guidance) | 手把手带着做 | 手把手帶著做 | The behavioral term is guided compliance; lay text keeps 手把手. |
 | a do request / a don't (prohibition) | 要孩子做某事 / 禁止孩子做某事 | 要孩子做某事 / 禁止孩子做某事 | |
+| testing limits (the toddler pattern) | 试探底线 | 試探底線 | The everyday idiom for the pattern, used in the testing-limits title; a limit itself stays 界限 / 界線. |
+| safety gate / playpen | 儿童安全门 / 游戏围栏 | 兒童安全門 / 遊戲圍欄 | |
+| barrier (the time-out back-up in Day and Roberts) | “阻隔” | 「阻隔」 | With quotes at first mention, as on the approach and physical discipline pages. |
+| supervision (of a young child) | 看护 | 看顧 | |
+| resource guarding / territory guarding (dogs) | 护食、护东西 / 护地盘 | 護食、護東西 / 護地盤 | |
+| extinction / extinction burst | 消退 / 消退爆发 | 消弱 / 消弱爆發 | Taiwan behavior analysis uses 消弱. |
+| guilt-like / shame-like response (Drummond et al.) | 类似内疚 / 类似羞愧的反应 | 類似內疚 / 類似羞愧的反應 | |
+| repair (what the child does after harm) | 弥补、修补 | 彌補、修補 | The tool name stays 冲突后的修复 / 衝突後的修復. |
 | negotiation (Kuczynski's skilled form of resistance) | 讨价还价（跟你讲条件） | 討價還價（跟你講條件） | |
 | direct defiance (Kuczynski's category; outright defiance in lay text) | 直接违抗 | 直接違抗 | |
 | limit setting (the verb; a limit is 界限 / 界線) | 设限 | 設限 | |
