@@ -423,11 +423,11 @@ images:
     size: '4:3'
   - id: situation-testing-limits
     page: situation/testing-limits
-    prompt: "A Taipei living room in afternoon light, a plain flat-coloured sofa and the wooden floor running off every edge of the picture: a medium-sized family dog, wide awake with its eyes open and its head up, lies relaxed on the floor; a two-year-old in a teal T-shirt and olive trousers sits beside the dog's middle and strokes its back with one flat, open hand while the parent, kneeling close behind the child, rests a hand lightly over the child's hand and keeps the other forearm between the child and the dog's head; a plain dog bed and a low white baby gate behind them."
+    prompt: "The dining corner of a Taipei flat in afternoon light, the pale tiled floor and plain walls running off every edge of the picture: a two-year-old in a teal T-shirt and olive trousers crouches on the floor and wipes up spilled breakfast cereal with a small cloth beside an upturned plastic bowl, while a parent crouches next to the child holding a small dustpan, smiling encouragingly; a potted plant stands on a high shelf on the wall and a low white baby gate closes off the kitchen doorway behind them."
     alt:
-      en: "A parent kneels behind a two-year-old and guides the child’s open hand along the back of the family dog, which lies awake and relaxed; a dog bed and a baby gate behind them."
-      zh-hans: "家长跪在两岁的孩子身后，引导孩子张开手顺着家里那只狗的背轻轻抚摸，狗醒着，放松地趴着；后面是狗窝和儿童安全门。"
-      zh-hant: "家長跪在兩歲的孩子身後，引導孩子張開手順著家裡那隻狗的背輕輕摸，狗醒著，放鬆地趴著；後面是狗窩和兒童安全門。"
+      en: "A two-year-old crouches beside a parent and wipes up spilled cereal with a small cloth next to an upturned bowl; a potted plant sits on a high shelf and a baby gate closes off the kitchen doorway."
+      zh-hans: "两岁的孩子蹲在家长身边，拿小抹布擦地上撒出来的麦片，旁边扣着一只碗；盆栽放在高高的架子上，厨房门口装着儿童安全门。"
+      zh-hant: "兩歲的孩子蹲在家長身邊，拿小抹布擦地上灑出來的麥片，旁邊倒扣著一個碗；盆栽放在高高的架子上，廚房門口裝著兒童安全門。"
     size: '4:3'
   - id: situation-whining
     page: situation/whining
