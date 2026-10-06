@@ -3,21 +3,8 @@
 #   { url, pattern }        any page
 #   { search }              Bing and DuckDuckGo results with snippets
 # Remove entries once the question is settled; the job prints matching sentences only.
-# Last batch (2026-10-03, run 37147001796) is recorded in each entry's verified_via.
+# Last batch (2026-10-06, run 37489839624, INBOX item 8) is recorded in the verified_via of
+# kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety; day-roberts-1983, bean-roberts-1981
+# and aap-2018-discipline gave no ages or time-out details beyond what their entries already say.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
-# Batch of 2026-10-06 (INBOX item 8, a toddler who keeps testing limits): ages and procedures in the
-# time-out studies, the safety practices in the Cochrane home-safety review, and what the AAP policy
-# statement says about time-out and limits for young children.
-- id: kendrick-2012-cochrane
-  pattern: "stair|gate|stor|reach|cupboard|safety practice|possession|equipment"
-- id: day-roberts-1983
-  pattern: "barrier|year|month|age|preschool|spank|minimum"
-- id: bean-roberts-1981
-  pattern: "year|month|age|preschool|spank|release|escape"
-- id: compliance-plos-2018
-  pattern: "age|year|month|toddler|preschool|time-out|timeout"
-- id: aap-2018-discipline
-  pattern: "time-out|time out|timeout|toddler|redirect|limit|remov"
-- url: "https://europepmc.org/article/MED/26773009"
-  pattern: "Pediatr Psychol|Journal of Pediatric Psychology|779|2017"

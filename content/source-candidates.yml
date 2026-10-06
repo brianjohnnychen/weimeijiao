@@ -1,23 +1,8 @@
 # Candidate sources for the sources workflow's candidates job (metadata and abstracts before anything
-# is added to sources.yml). Second batch for INBOX item 8, the situation page on toddlers who keep
-# testing limits (2026-10-06). The first batch (22 candidates, run 37487659279) was read on 2026-10-06:
-# these four are looked up again or for the first time. Reisner and Arhant come back because the
-# checker used to cut abstract text after a "<" ("children <6 years"); Morrongiello 2001 for the full
-# author list (Crossref lists only the first author); Roberts 1988 under the DOI that follows the
-# enuresis article the first batch's DOI turned out to be.
-- key: "morrongiello-2001-rules"
-  doi: "10.1093/jpepsy/26.2.105"
-  query: "Morrongiello, Midgett & Shields 2001, Don't run with scissors: Young children's knowledge of home safety rules, Journal of Pediatric Psychology 26(2) 105-115"
-  claim: "Children recalled about half of their parents' home safety rules; knowledge did not predict injuries, while compliance with the rules and parental supervision did."
-- key: "reisner-2007-dogs"
-  doi: "10.1136/ip.2007.015396"
-  query: "Reisner, Shofer & Nance 2007, Behavioral assessment of child-directed canine aggression, Injury Prevention 13(5) 348-351"
-  claim: "Most children were bitten by dogs with no history of biting children; the circumstances of bites differed for children under 6."
-- key: "arhant-2017-dogs"
-  doi: "10.3389/fvets.2017.00130"
-  query: "Arhant, Beetz & Troxler 2017, Caregiver reports of interactions between children up to 6 years and their family dog: Implications for dog bite prevention, Frontiers in Veterinary Science 4, 130"
-  claim: "Petting and other benign behaviors toward the family dog commonly precede bites to children up to 6; caregivers' attitudes to supervision relate to the interactions they allow."
-- key: "roberts-1988-room"
-  doi: "10.1177/01454455880123003"
-  query: "Roberts 1988, Enforcing chair timeouts with room timeouts, Behavior Modification 12(3) 353-370"
-  claim: "A brief room time-out used as a back-up when preschoolers left the time-out chair enforced the chair time-out."
+# is added to sources.yml). Empty: the INBOX item 8 batches for the situation page My toddler keeps testing
+# limits (22 candidates in run 37487659279, 4 looked up again or anew in run 37489839624) were read on
+# 2026-10-06, and 16 were added to sources.yml. Not added: holden-west-1989, roberts-powers-1990 and
+# roberts-1988-room (no readable abstract; the first DOI tried for Roberts 1988 belongs to an enuresis
+# article), mcneil-1994-escape (the DOI belongs to another article in the same issue), and
+# kochanska-tjebkes-forman-1998 and morrongiello-2004-toddlers (no sentence on the page needs them).
+[]
