@@ -1,15 +1,12 @@
 # Word-for-word lookups, run on push by the quotes job in .github/workflows/sources.yml.
 #   { id, pattern, urls? }    a sources.yml entry: its abstract and article page(s)
-#   { url, pattern, links? }  any page; links lists the page's links matching that pattern
+#   { url, pattern, links?, pdf? }  any page; links lists the page's links matching that pattern,
+#                             pdf: true reads a PDF's text
 #   { search }                Bing and DuckDuckGo results with snippets
 # Remove entries once the question is settled; the job prints matching sentences only.
-# Last batch (2026-10-06, run 37489839624, INBOX item 8) is recorded in the verified_via of
-# kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety.
+# Last batches (2026-10-07, runs 37562414170 to 37566471153, INBOX item 9) are recorded in the verified_via
+# of the entries they settled: niu-wang-2024-ef, zhang-wang-liu-2020, lee-wu-2004-taiwan, kim-2013-tiger
+# and chao-1994. Before that (2026-10-06, run 37489839624, INBOX item 8): kendrick-2012-cochrane,
+# compliance-plos-2018 and shen-2017-dog-safety.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
-# Eighth batch of 2026-10-07 (INBOX item 9). The seventh batch (run 37565177146) did not settle Chao's last
-# page: OpenAlex lists first and last page as 1111 and Semantic Scholar has no record. This batch reads the
-# page numbers printed in the full text.
-- url: "https://aacdrpubs.faculty.ucdavis.edu/wp-content/uploads/sites/211/2015/03/chao001.pdf"
-  pdf: true
-  pattern: "1119|1111|1994, 65|Child Development, 1994|REFERENCES|References|Wu, D"

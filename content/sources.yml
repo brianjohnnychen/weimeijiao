@@ -4963,14 +4963,14 @@
   - 'ERIC record EJ491656: "Chinese mothers scored significantly higher than European American mothers on the training measure, even after other factors were controlled. The results may help explain Chinese school success."'
   - 'Full text: guan "can mean ''to care for'' or even ''to love'' as well as ''to govern.'' Therefore, parental care, concern, and involvement are synonymous with firm control and governance of the child."'
   - 'Full text: "This training, then, takes place in the context of a supportive, highly involved, and physically close mother-child relationship."; "One distinctive feature of this concept of training for the Chinese involves the role or responsibility that parents have to be highly involved, caring, and concerned."'
-  - 'Pages: Crossref gives the first page (1111); the full text shows page headers 1113 to 1118.'
+  - 'Full text, first page: "CHILD DEVELOPMENT, 1994, 65, 1111-1119"; the abstract: "This study suggests that the concepts of authoritative and authoritarian are somewhat ethnocentric and do not capture the important features of Chinese child rearing, especially for explaining their school success."'
   topics:
   - parenting-dimensions
   - school
   ages: "mothers of preschool children"
   strength: single-study
   accessed: '2026-10-07'
-  verified_via: '2026-10-07 sources workflow (GitHub Actions): the Crossref search matched the DOI (author, title, journal, volume, issue, first page; candidates job, run 37562414170); no abstract was found in Europe PMC, PubMed, OpenAlex or Semantic Scholar, so the ERIC record (EJ491656) was read through the ERIC API (quotes job, run 37563702980) and the article itself in an open copy hosted at UC Davis (quotes job, run 37564222692). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+  verified_via: '2026-10-07 sources workflow (GitHub Actions): the Crossref search matched the DOI (author, title, journal, volume, issue, first page; candidates job, run 37562414170); no abstract was found in Europe PMC, PubMed, OpenAlex or Semantic Scholar, so the ERIC record (EJ491656) was read through the ERIC API (quotes job, run 37563702980) and the article itself in an open copy hosted at UC Davis (quotes jobs, runs 37564222692 and 37566471153, which also confirm the pages, 1111-1119). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
 - id: niu-wang-2024-ef
   evidence_level: longitudinal
   authors: "牛骅、王美芳"
