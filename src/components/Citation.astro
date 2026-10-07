@@ -15,7 +15,13 @@ const { journal, volume, issue, pages } = venueParts(s.venue);
 const isBook = !volume && !pages && /press|books|publish/i.test(journal);
 const title = s.lang === 'en' ? apaTitle(s.title) : s.title;
 const link = s.doi ? `https://doi.org/${s.doi}` : s.url;
+// Chinese APA 7: names joined with 、 (as stored), full-width brackets and commas, 。 after each element,
+// no spaces between elements: 张秀慧、王美芳、刘莉（2020）。标题。期刊，36（6），725-733。
 const zh = s.lang !== 'en';
 const stop = zh ? '。' : '.';
+const gap = zh ? '' : ' ';
+const year = zh ? `（${yearOf(s)}）` : ` (${yearOf(s)})`;
+const comma = zh ? '，' : ', ';
+const issuePart = issue ? (zh ? `（${issue}）` : `(${issue})`) : '';
 ---
-<span lang={s.lang}>{s.authors} ({yearOf(s)}){stop} {isBook ? <cite class="citation-title"><i>{title}</i></cite> : <cite class="citation-title">{title}</cite>}{showEnglishTitle && <span lang="en"> [{s.title_en}]</span>}{stop} {isBook ? <>{journal}{stop}</> : <><i>{journal}</i>{volume ? ', ' : ''}{volume ? <i>{volume}</i> : null}{issue ? `(${issue})` : ''}{pages ? `, ${pages}` : ''}{stop}</>} <a href={link} rel="noopener" class="citation-link" lang="en">{link}</a></span>
+<span lang={s.lang}>{s.authors}{year}{stop}{gap}{isBook ? <cite class="citation-title"><i>{title}</i></cite> : <cite class="citation-title">{title}</cite>}{showEnglishTitle && <span lang="en"> [{s.title_en}]</span>}{stop}{gap}{isBook ? <>{journal}{stop}</> : <><i>{journal}</i>{volume ? comma : ''}{volume ? <i>{volume}</i> : null}{issuePart}{pages ? `${comma}${pages}` : ''}{stop}</>} <a href={link} rel="noopener" class="citation-link" lang="en">{link}</a></span>

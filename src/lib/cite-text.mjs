@@ -7,7 +7,8 @@
 export function parseAuthors(authors) {
   const out = [];
   let etAl = false;
-  const tokens = String(authors ?? '').split(/,\s*/).map((t) => t.trim()).filter(Boolean);
+  // Chinese references separate names with 、 (Chinese APA 7): "张秀慧、王美芳、刘莉".
+  const tokens = String(authors ?? '').split(/,\s*|、|，/).map((t) => t.trim()).filter(Boolean);
   for (let tok of tokens) {
     if (tok.startsWith('&')) tok = tok.slice(1).trim();
     if (!tok) continue;
@@ -32,20 +33,34 @@ export const GROUP_NAMES = {
 
 const JOIN = { en: ' and ', 'zh-hans': ' 和 ', 'zh-hant': ' 與 ' };
 const ETAL = { en: ' et al.', 'zh-hans': ' 等', 'zh-hant': ' 等人' };
+// Chinese names take no spaces around the joining word: 牛某某和王某某, 牛某某等人.
+const JOIN_CJK = { en: ' and ', 'zh-hans': '和', 'zh-hant': '與' };
+const ETAL_CJK = { en: ' et al.', 'zh-hans': '等', 'zh-hant': '等人' };
+const CJK = /[\u3400-\u9fff\uf900-\ufaff]/;
 
 /** Names part of the in-text citation: "Gershoff and Grogan-Kaylor", "Leijten et al.", "Gershoff 與 Grogan-Kaylor". */
 export function inTextNames(authors, locale = 'en', groupNames = GROUP_NAMES) {
   const { authors: list, etAl } = parseAuthors(authors);
   const name = (a) => (a.group && groupNames[a.surname]?.[locale]) || a.surname;
   if (!list.length) return '';
+  const cjk = CJK.test(list[0].surname);
+  const join = (cjk ? JOIN_CJK : JOIN)[locale] ?? JOIN.en;
+  const etal = (cjk ? ETAL_CJK : ETAL)[locale] ?? ETAL.en;
   if (list.length === 1 && !etAl) return name(list[0]);
-  if (list.length === 2 && !etAl) return `${name(list[0])}${JOIN[locale] ?? JOIN.en}${name(list[1])}`;
-  return `${name(list[0])}${ETAL[locale] ?? ETAL.en}`;
+  if (list.length === 2 && !etAl) return `${name(list[0])}${join}${name(list[1])}`;
+  return `${name(list[0])}${etal}`;
+}
+
+/** The author string to name a source by on a locale's pages: English pages use a Chinese-language
+ *  work's romanized authors (authors_en), Chinese pages its names in the page's script (authors_zh). */
+export function authorsFor(source, locale = 'en') {
+  if (locale === 'en') return source.authors_en ?? source.authors;
+  return source.authors_zh?.[locale] ?? source.authors;
 }
 
 /** Full in-text citation with the year in the locale's parentheses. */
 export function inTextCite(source, locale = 'en', groupNames = GROUP_NAMES) {
-  const names = inTextNames(source.authors, locale, groupNames);
+  const names = inTextNames(authorsFor(source, locale), locale, groupNames);
   const year = source.year !== undefined ? String(source.year) : 'n.d.';
   return locale === 'en' ? `${names} (${year})` : `${names}（${year}）`;
 }
