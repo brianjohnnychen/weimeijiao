@@ -7,12 +7,9 @@
 # kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
-# Fifth batch of 2026-10-07 (INBOX item 9). Settled by the fourth batch (run 37563447311): niu-wang-2024's
-# full text (RichHTML) gives the lab-task results (a higher starting level of punishment predicted more
-# WCST errors, beta = 0.10, p < .05, for fathers and for mothers; the English abstract's "better" is a
-# mistranslation) and the Taiwanese study's full text gives its sample and measures. The ERIC record page
-# of Chao (1994) reset the connection; this batch asks the ERIC API for the record instead.
-- url: "https://api.ies.ed.gov/eric/?search=id%3AEJ491656&fields=id,title,author,description,source,publicationdateyear&format=json"
-  pattern: "training|Chinese|mothers|authoritarian|school|control|EJ491656"
-- url: "https://eric.ed.gov/?id=EJ491656"
-  pattern: "training|Chinese|mothers|authoritarian|school|control"
+# Sixth batch of 2026-10-07 (INBOX item 9). Settled by the fifth batch (run 37563702980): the ERIC record of
+# Chao (1994) (EJ491656), now recorded in chao-1994. This batch reads the article itself (an open copy
+# hosted at UC Davis) for its abstract, its pages and what it says the Chinese notion of training means.
+- url: "https://aacdrpubs.faculty.ucdavis.edu/wp-content/uploads/sites/211/2015/03/chao001.pdf"
+  pdf: true
+  pattern: "guan|chiao shun|training|govern|to love|care for|1111|Child Development|authoritarian|school success|Abstract"
