@@ -8,7 +8,7 @@ const PROPER = [
   'Child-Directed Interaction', 'Family Check-Up', 'Nurse-Family Partnership', 'Hong Kong', 'Mainland China', 'China', 'Chinese',
   'Taiwan', 'Taiwanese', 'Canada', 'Canadian', 'United States', 'Australia', 'Australian', 'New Zealand', 'Dutch', 'Netherlands',
   'Europe', 'European', 'English', 'Spanish', 'Mandarin', 'Cantonese', 'Cochrane', 'Gershoff', 'Grogan-Kaylor', 'Kazdin', 'Oregon',
-  'Shanghai', 'Beijing', 'Quebec', 'Montreal', 'Chicago', 'Latino', 'Hispanic', 'African American', 'Asian American',
+  'Shanghai', 'Beijing', 'Jinan', 'Taipei', 'Quebec', 'Montreal', 'Chicago', 'Latino', 'Hispanic', 'African American', 'Asian American', 'American',
   'Fragile Families', 'Millennium Cohort', 'Avon Longitudinal Study', 'NICHD', 'Oxford', 'Dweck', 'Baumrind', 'Patterson',
   'Growing Up in Australia', 'Longitudinal Study of Australian Children', 'Study of Early Child Care', 'National Institute of Child Health and Human Development',
   'More Fun with Sisters and Brothers Program', 'Collaborative & Proactive Solutions',
