@@ -1221,7 +1221,8 @@ q {
   padding: 0 0.12em;
 }
 
-.cite + .cite::before {
+/* Only markers written back to back get a comma (the build adds cite-next; see scripts/smart-quotes.mjs). */
+.cite-next::before {
   content: ',';
   color: var(--text-3);
 }
