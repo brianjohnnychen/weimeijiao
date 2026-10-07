@@ -2034,18 +2034,25 @@ a.anchor:hover {
     contain-intrinsic-block-size: auto 8em;
   }
 
-  /* The source list is laid out for real: it is many times taller than the 8em estimate, so while
-     skipped its entries ran past the estimate into the footer, and the footer links measured as
-     touching the DOI links (Lighthouse target-size). */
+  /* The source list as a whole is laid out for real: it is many times taller than the 8em estimate,
+     so while skipped its entries ran past the estimate into the footer, and the footer links measured
+     as touching the DOI links (Lighthouse target-size). Each entry is skipped on its own instead, with
+     an estimate close to its real height, which keeps long lists (60 entries on the physical
+     discipline page) out of the first layout and the one-step switch to the Chinese web fonts. */
   .prose > section.footnotes {
     content-visibility: visible;
+  }
+
+  .footnote-list > li {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 10em;
   }
 }
 
 /* When the address points at something on the page (a deep link or a table-of-contents jump),
    everything is laid out for real, so estimated sizes above the target cannot push it out of
    place. */
-main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *) {
+main:has(:target) :is(.bib-entry, .tool-card, .situation, .prose > *, .footnote-list > li) {
   content-visibility: visible;
 }
 
