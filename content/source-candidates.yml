@@ -1,8 +1,49 @@
 # Candidate sources for the sources workflow's candidates job (metadata and abstracts before anything
-# is added to sources.yml). Empty: the INBOX item 8 batches for the situation page My toddler keeps testing
-# limits (22 candidates in run 37487659279, 4 looked up again or anew in run 37489839624) were read on
-# 2026-10-06, and 16 were added to sources.yml. Not added: holden-west-1989, roberts-powers-1990 and
-# roberts-1988-room (no readable abstract; the first DOI tried for Roberts 1988 belongs to an enuresis
-# article), mcneil-1994-escape (the DOI belongs to another article in the same issue), and
-# kochanska-tjebkes-forman-1998 and morrongiello-2004-toddlers (no sentence on the page needs them).
-[]
+# is added to sources.yml). Batch for INBOX item 9, the cultural question on hitting (2026-10-07).
+# Academic sources only; a claim is used only if the abstract or the article page supports it.
+- key: "chao-1994"
+  query: "Chao 1994, Beyond parental control and authoritarian parenting style: Understanding Chinese parenting through the cultural notion of training, Child Development 65(4) 1111-1119"
+  claim: "Chinese parental control (guan, training) is a cultural notion of care, involvement and high expectation, not the same as Western authoritarian parenting; it helps explain Chinese children's school success."
+- key: "kim-2013-tiger"
+  doi: "10.1037/a0030612"
+  query: "Kim, Wang, Orozco-Lapray, Shen & Murtuza 2013, Does tiger parenting exist? Parenting profiles of Chinese Americans and adolescent developmental outcomes, Asian American Journal of Psychology 4(1) 7-18"
+  claim: "Among Chinese American families, supportive parenting was the most common profile and went with the best outcomes, including GPA; tiger parenting went with lower GPA and more depressive symptoms."
+- key: "wang-liu-2018-reciprocal"
+  doi: "10.1111/cdev.12724"
+  query: "Wang & Liu 2018, Reciprocal relations between harsh discipline and children's externalizing behavior in China: A 5-year longitudinal study, Child Development 89(1) 174-187"
+  claim: "In 702 Chinese families followed for five years, parents' corporal punishment predicted later increases in children's externalizing behavior."
+- key: "wang-liu-2014-prevalence"
+  query: "Wang & Liu 2014, Parental harsh discipline in mainland China: Prevalence, frequency, and coexistence, Child Abuse & Neglect 38(6) 1128-1137"
+  claim: "Most parents of preschoolers in mainland China reported using corporal punishment in the past year."
+- key: "liu-wang-2018-normativeness"
+  query: "Liu & Wang 2018, Parental harsh discipline and adolescent problem behavior in China: Perceived normativeness as a moderator, Child Abuse & Neglect 86 1-9"
+  claim: "In China, harsh discipline was linked with more adolescent problem behavior; perceived normativeness changed the strength of the link."
+- key: "elgar-2018-bans"
+  doi: "10.1136/bmjopen-2018-021616"
+  query: "Elgar et al. 2018, Corporal punishment bans and physical fighting in adolescents: an ecological study of 88 countries, BMJ Open 8(9) e021616"
+  claim: "Countries with full bans on corporal punishment had lower rates of adolescent fighting than countries without bans."
+- key: "cheung-pomerantz-2011"
+  doi: "10.1111/j.1467-8624.2011.01582.x"
+  query: "Cheung & Pomerantz 2011, Parents' involvement in children's learning in the United States and China: Implications for children's academic and emotional adjustment, Child Development 82(3) 932-950"
+  claim: "Chinese parents were more involved in children's learning than American parents, and involvement benefited children's academic adjustment in both countries."
+- key: "ng-pomerantz-deng-2014"
+  doi: "10.1111/cdev.12102"
+  query: "Ng, Pomerantz & Deng 2014, Why are Chinese mothers more controlling than American mothers? My child is my report card, Child Development 85(1) 355-369"
+  claim: "Chinese mothers' self-worth was more tied to their children's performance, which helped explain their greater control."
+- key: "liu-bray-2017-tutoring"
+  query: "Liu & Bray 2017, Determinants of demand for private supplementary tutoring in China: findings from a national survey, Education Economics 25(2) 205-218"
+  claim: "A national survey (China Family Panel Studies) showed widespread private tutoring among Chinese students in Grades 1-12."
+- key: "osterman-2014-finland"
+  query: "Österman, Björkqvist & Wahlbeck 2014, Twenty-eight years after the complete ban on the physical punishment of children in Finland: Trends and psychosocial concomitants, Aggressive Behavior 40(6) 568-581"
+  claim: "After Finland's ban, physical punishment declined across generations, and having been physically punished went with poorer psychosocial outcomes."
+- key: "durrant-1999-sweden"
+  query: "Durrant 1999, Evaluating the success of Sweden's corporal punishment ban, Child Abuse & Neglect 23(5) 435-448"
+  claim: "Sweden's ban was followed by less public support for and use of corporal punishment, without rises in youth crime."
+- key: "pinquart-kauser-2018"
+  query: "Pinquart & Kauser 2018, Do the associations of parenting styles with behavior problems and academic achievement vary by culture? Results from a meta-analysis, Cultural Diversity and Ethnic Minority Psychology 24(1) 75-100"
+  claim: "Across cultures, authoritarian parenting was linked with at least one negative child outcome, including lower academic achievement, in every region studied."
+- key: "niu-wang-2024-ef"
+  doi: "10.16187/j.cnki.issn1001-4918.2024.04.03"
+  query: "父母体罚与儿童执行功能的关系：一项3年的追踪研究, 心理发展与教育 2024 40(4) 479-487"
+  url: "https://devpsy.bnu.edu.cn/CN/10.16187/j.cnki.issn1001-4918.2024.04.03"
+  claim: "In 710 third and fourth graders followed for three years, parents' corporal punishment had cumulative links with more everyday executive-function difficulties; one lab-task result went the other way."

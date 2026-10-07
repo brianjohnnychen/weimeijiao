@@ -4,7 +4,23 @@
 #   { search }              Bing and DuckDuckGo results with snippets
 # Remove entries once the question is settled; the job prints matching sentences only.
 # Last batch (2026-10-06, run 37489839624, INBOX item 8) is recorded in the verified_via of
-# kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety; day-roberts-1983, bean-roberts-1981
-# and aap-2018-discipline gave no ages or time-out details beyond what their entries already say.
+# kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
+# Batch of 2026-10-07 (INBOX item 9, the cultural question on hitting): the Chinese-language article
+# pages (authors, abstract, results), the Taiwanese study's records, and the GPA figures in the full text
+# of the tiger-parenting study.
+- url: "https://devpsy.bnu.edu.cn/CN/10.16187/j.cnki.issn1001-4918.2024.04.03"
+  pattern: "体罚|执行功能|被试|追踪|威斯康星|摘要|作者|大学|累积|任务"
+- url: "https://devpsy.bnu.edu.cn/EN/abstract/abstract2933.shtml"
+  pattern: "corporal|executive|Wisconsin|710|longitudinal|cumulative|task|Abstract"
+- url: "https://devpsy.bnu.edu.cn/CN/abstract/abstract2580.shtml"
+  pattern: "体罚|严厉管教|规范|问题行为|摘要|作者|题目"
+- url: "https://ir.sinica.edu.tw/handle/201000000A/64735?locale=en"
+  pattern: "棒打|暴力|管教|父母|台灣社會學|Taiwanese|violen|discipline|abstract|Abstract|摘要"
+- url: "https://lawdata.com.tw/tw/detail.aspx?no=302868"
+  pattern: "棒打|暴力|管教|父母|台灣社會學|摘要|DOI"
+- url: "https://europepmc.org/article/PMC/PMC3641860"
+  pattern: "GPA|grade point|supportive parenting|tiger parenting|easygoing|harsh"
+- url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3641860/"
+  pattern: "GPA|grade point|supportive parenting|tiger parenting"
