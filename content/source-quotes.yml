@@ -7,22 +7,18 @@
 # kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
-# Second batch of 2026-10-07 (INBOX item 9): the Chinese executive-function study's full text (its Chinese
-# abstract says a higher starting level of punishment went with worse lab-task scores, its English abstract
-# says better), Chao (1994) on Chinese training parenting, and the full abstract of the Taiwanese study.
-- url: "https://devpsy.bnu.edu.cn/CN/10.16187/j.cnki.issn1001-4918.2024.04.03"
-  pattern: "威斯康星|执行功能任务|初始水平|截距|斜率"
-  links: "rich|html|pdf|全文|download"
-- url: "https://devpsy.bnu.edu.cn/CN/rich_html/10.16187/j.cnki.issn1001-4918.2024.04.03"
-  pattern: "威斯康星|执行功能任务|初始水平|截距|斜率|正向预测|负向预测|持续性错误|局限|因果"
-- url: "https://lawdata.com.tw/tw/detail.aspx?no=302868"
-  pattern: "."
-- url: "https://doi.org/10.2307/1131308"
-  pattern: "training|chiao shun|guan|authoritarian|Chinese|mothers|school"
-- url: "https://pubmed.ncbi.nlm.nih.gov/?term=%22Beyond+parental+control+and+authoritarian+parenting+style%22"
-  pattern: "training|chiao shun|guan|authoritarian|Chinese|mothers|school|PMID"
+# Third batch of 2026-10-07 (INBOX item 9). Settled by the second batch (run 37562832060): the Chinese
+# abstract of niu-wang-2024 (a higher starting level of punishment went with worse lab-task scores; its
+# English abstract says better), the Taiwanese study's full abstract (it does not say which parenting
+# practices were measured) and the ERIC listing of Chao (1994), cut short. This batch: the ERIC record of
+# Chao (1994), the Chinese article's full text (RichHTML), and a search for the Taiwanese article's full text.
 - url: "https://eric.ed.gov/?q=%22Beyond+parental+control+and+authoritarian+parenting+style%22"
-  pattern: "training|chiao shun|guan|authoritarian|Chinese|mothers|school"
-- url: "https://srcd.onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-8624.1994.tb00806.x"
-  pattern: "training|chiao shun|guan|authoritarian|Chinese|mothers|school"
-- search: "Chao 1994 \"Beyond parental control and authoritarian parenting style\" training Chinese mothers abstract"
+  pattern: "training|Chinese"
+  links: "id=EJ|id=ED"
+- url: "https://devpsy.bnu.edu.cn/CN/abstract/abstract2933.shtml"
+  pattern: "RichHTML"
+  links: "rich|pdf|lsdy|download"
+- url: "https://devpsy.bnu.edu.cn/CN/article/downloadArticleFile.do?attachType=RICH_HTML&id=2933"
+  pattern: "威斯康星|执行功能任务|初始水平|截距|斜率|正向预测|负向预测|持续性错误|错误|局限|因果"
+- search: "棒打出壞子 青少年暴力行為的連結機制 李文傑 吳齊殷 體罰 嚴厲"
+  mkt: "zh-TW"

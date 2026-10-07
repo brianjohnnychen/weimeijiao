@@ -538,7 +538,11 @@ async function chromeText(url) {
       await page.waitForTimeout(3500);
       const text = await page.evaluate(() => document.body?.innerText ?? '');
       const links = await page.evaluate(() =>
-        [...document.querySelectorAll('a[href]')].map((a) => ({ href: a.href, text: (a.textContent ?? '').trim().replace(/\s+/g, ' ').slice(0, 120) })),
+        [...document.querySelectorAll('a[href]')].map((a) => ({
+          href: a.href,
+          text: (a.textContent ?? '').trim().replace(/\s+/g, ' ').slice(0, 120),
+          onclick: (a.getAttribute('onclick') ?? '').slice(0, 200),
+        })),
       );
       return { status: res?.status() ?? 0, text, finalUrl: page.url(), links };
     } finally {
@@ -709,9 +713,9 @@ async function lookupQuotes(fileArg) {
       // links: a pattern for the page's links worth following (full text, PDF, an English version).
       if (e.links && page.links?.length) {
         const lr = new RegExp(e.links, 'i');
-        const hits = page.links.filter((l) => lr.test(l.href) || lr.test(l.text));
+        const hits = page.links.filter((l) => lr.test(l.href) || lr.test(l.text) || lr.test(l.onclick));
         report(`  links matching /${lr.source}/i: ${hits.length}`);
-        for (const l of hits.slice(0, 30)) report(`    - ${l.text || '(no text)'} -> ${l.href}`);
+        for (const l of hits.slice(0, 30)) report(`    - ${l.text || '(no text)'} -> ${l.href}${l.onclick ? ` [onclick ${l.onclick}]` : ''}`);
       }
     }
   }
