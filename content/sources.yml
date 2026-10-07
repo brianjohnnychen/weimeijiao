@@ -4955,19 +4955,22 @@
   url: https://doi.org/10.2307/1131308
   lang: en
   finding:
-    en: "Questionnaires given to immigrant Chinese and European American mothers of preschool children measured parental control, authoritative-authoritarian parenting style and the Chinese concept of child training; Chinese mothers scored significantly higher than European American mothers on the training measure, even after other factors were controlled, and the results may help explain Chinese children's school success."
-    zh-hans: "研究用问卷比较了移民美国的华人母亲和欧裔美国母亲（孩子均为学龄前儿童）在父母控制、权威型与专制型教养风格，以及中国人“训练”孩子（training）的观念上的表现；即使控制其他因素，华人母亲在“训练”量表上的得分仍显著高于欧裔美国母亲，这些结果或许有助于解释华人孩子在学业上的成功。"
-    zh-hant: "研究用問卷比較了移民美國的華人母親和歐裔美國母親（孩子都是學齡前兒童）在父母控制、權威型與專制型教養風格，以及中國人「訓練」孩子（training）的觀念上的表現；即使控制其他因素，華人母親在「訓練」量表上的得分仍顯著高於歐裔美國母親，這些結果或許有助於解釋華人孩子在學業上的成功。"
+    en: "Questionnaires given to immigrant Chinese and European American mothers of preschool children measured parental control, authoritative-authoritarian parenting style and the Chinese concept of child training; Chinese mothers scored significantly higher on the training measure even after other factors were controlled. Chao argues that Chinese parental control (guan, which can mean \"to care for\" or even \"to love\" as well as \"to govern\") takes place within a supportive, highly involved and physically close mother-child relationship, which Western labels such as authoritarian do not capture, and that the results may help explain Chinese school success."
+    zh-hans: "研究用问卷比较了移民美国的华人母亲和欧裔美国母亲（孩子均为学龄前儿童）在父母控制、权威型与专制型教养风格，以及中国人“训练”孩子（training）的观念上的表现；即使控制其他因素，华人母亲在“训练”量表上的得分仍显著高于欧裔美国母亲。作者认为，中国父母的“管”（guan）不只是管束，也可以有“关心”甚至“爱”的意思，这种训练发生在支持、高度投入而亲密的母子关系里，是“专制型”这类西方概念涵盖不了的；这些结果或许有助于解释华人孩子在学业上的成功。"
+    zh-hant: "研究用問卷比較了移民美國的華人母親和歐裔美國母親（孩子都是學齡前兒童）在父母控制、權威型與專制型教養風格，以及中國人「訓練」孩子（training）的觀念上的表現；即使控制其他因素，華人母親在「訓練」量表上的得分仍顯著高於歐裔美國母親。作者認為，中國父母的「管」（guan）不只是管束，也可以有「關心」甚至「愛」的意思，這種訓練發生在支持、高度投入而親密的母子關係裡，是「專制型」這類西方概念涵蓋不了的；這些結果或許有助於解釋華人孩子在學業上的成就。"
   key_facts:
   - 'ERIC record EJ491656: "Examined the child-rearing practices of immigrant Chinese and European American mothers of preschool children through questionnaires that measured parental control, authoritative-authoritarian parenting style, and the Chinese concept of child training."'
   - 'ERIC record EJ491656: "Chinese mothers scored significantly higher than European American mothers on the training measure, even after other factors were controlled. The results may help explain Chinese school success."'
+  - 'Full text: guan "can mean ''to care for'' or even ''to love'' as well as ''to govern.'' Therefore, parental care, concern, and involvement are synonymous with firm control and governance of the child."'
+  - 'Full text: "This training, then, takes place in the context of a supportive, highly involved, and physically close mother-child relationship."; "One distinctive feature of this concept of training for the Chinese involves the role or responsibility that parents have to be highly involved, caring, and concerned."'
+  - 'Pages: Crossref gives the first page (1111); the full text shows page headers 1113 to 1118.'
   topics:
   - parenting-dimensions
   - school
   ages: "mothers of preschool children"
   strength: single-study
   accessed: '2026-10-07'
-  verified_via: '2026-10-07 sources workflow (GitHub Actions): the Crossref search matched the DOI (author, title, journal, volume, issue, first page; candidates job, run 37562414170); no abstract was found in Europe PMC, PubMed, OpenAlex or Semantic Scholar, so the ERIC record (EJ491656) was read through the ERIC API (quotes job, run 37563702980). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+  verified_via: '2026-10-07 sources workflow (GitHub Actions): the Crossref search matched the DOI (author, title, journal, volume, issue, first page; candidates job, run 37562414170); no abstract was found in Europe PMC, PubMed, OpenAlex or Semantic Scholar, so the ERIC record (EJ491656) was read through the ERIC API (quotes job, run 37563702980) and the article itself in an open copy hosted at UC Davis (quotes job, run 37564222692). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
 - id: niu-wang-2024-ef
   evidence_level: longitudinal
   authors: "牛骅、王美芳"
