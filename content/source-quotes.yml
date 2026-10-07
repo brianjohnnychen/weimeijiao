@@ -7,9 +7,10 @@
 # kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
-# Sixth batch of 2026-10-07 (INBOX item 9). Settled by the fifth batch (run 37563702980): the ERIC record of
-# Chao (1994) (EJ491656), now recorded in chao-1994. This batch reads the article itself (an open copy
-# hosted at UC Davis) for its abstract, its pages and what it says the Chinese notion of training means.
-- url: "https://aacdrpubs.faculty.ucdavis.edu/wp-content/uploads/sites/211/2015/03/chao001.pdf"
-  pdf: true
-  pattern: "guan|chiao shun|training|govern|to love|care for|1111|Child Development|authoritarian|school success|Abstract"
+# Seventh batch of 2026-10-07 (INBOX item 9). Settled by the sixth batch (run 37564222692): Chao's full text
+# (guan, training, the supportive relationship), now recorded in chao-1994. This batch confirms its last page
+# (Crossref gives only the first, 1111) from the OpenAlex and Semantic Scholar records.
+- url: "https://api.openalex.org/works/doi:10.2307/1131308"
+  pattern: "first_page|last_page|1111|1119|biblio"
+- url: "https://api.semanticscholar.org/graph/v1/paper/DOI:10.2307/1131308?fields=title,year,journal"
+  pattern: "pages|1111|volume"
