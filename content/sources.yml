@@ -4709,3 +4709,362 @@
   ages: "not stated (113 data sets from applied behavior research)"
   accessed: '2026-10-06'
   verified_via: '2026-10-06 candidates job of the sources workflow (GitHub Actions run 37487659279): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC. The entry was added for the situation page My toddler keeps testing limits; the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: kim-2013-tiger
+  evidence_level: longitudinal
+  authors: "Kim, S. Y., Wang, Y., Orozco-Lapray, D., Shen, Y., & Murtuza, M."
+  year: 2013
+  title: 'Does "tiger parenting" exist? Parenting profiles of Chinese Americans and adolescent developmental outcomes'
+  venue: "Asian American Journal of Psychology, 4(1), 7-18"
+  doi: 10.1037/a0030612
+  pmid: "23646228"
+  url: https://doi.org/10.1037/a0030612
+  lang: en
+  finding:
+    en: "In 444 Chinese American families followed for 8 years, from early adolescence to emerging adulthood, four parenting profiles emerged: supportive, tiger, easygoing and harsh. Tiger parenting scored relatively high on both the positive dimensions (such as warmth) and the negative ones (such as hostility, shaming and punitive parenting). Supportive parenting, the most common profile, went with the best outcomes; compared with it, tiger parenting went with lower GPA and educational attainment and less sense of family obligation, and with more academic pressure, depressive symptoms and alienation from parents."
+    zh-hans: "研究追踪了 444 个美国华裔家庭，从孩子青春期早期一直到成年初期，历时 8 年，归纳出四种教养类型：支持型、虎式、随和型和严厉型。虎式教养在温暖等正面做法和敌意、羞辱、惩罚等负面做法上的得分都相对较高。最常见的支持型教养，孩子的发展结果最好；与之相比，虎式教养的孩子学业成绩（GPA）和最终受教育程度更低，家庭责任感更弱，学业压力、抑郁症状和与父母的疏离感更多。"
+    zh-hant: "研究追蹤了 444 個美國華裔家庭，從孩子青春期早期一直到成年初期，歷時 8 年，歸納出四種教養類型：支持型、虎式、隨和型和嚴厲型。虎式教養在溫暖等正面做法和敵意、羞辱、懲罰等負面做法上的得分都相對較高。最常見的支持型教養，孩子的發展結果最好；與之相比，虎式教養的孩子學業成績（GPA）和最終教育程度較低，家庭責任感較弱，學業壓力、憂鬱症狀和與父母的疏離感較多。"
+  key_facts:
+  - 'Abstract: "In a three-wave longitudinal design spanning eight years, from early adolescence to emerging adulthood, adolescents (54% female), fathers and mothers from 444 Chinese American families reported on eight parenting dimensions (e.g., warmth and shaming) and six developmental outcomes (e.g., GPA and academic pressure)."'
+  - 'Abstract: "Latent profile analyses on the eight parenting dimensions demonstrated four parenting profiles: supportive, tiger, easygoing, and harsh parenting."'
+  - 'Abstract: "Path analyses showed that the supportive parenting profile, which was the most common, was associated with the best developmental outcomes, followed by easygoing parenting, tiger parenting, and harsh parenting."'
+  - 'Abstract: "Compared with the supportive parenting profile, a tiger parenting profile was associated with lower GPA and educational attainment, as well as less of a sense of family obligation; it was also associated with more academic pressure, more depressive symptoms and a greater sense of alienation."'
+  - 'Full text (PMC3641860): "the parenting profile that scored relatively high on both the positive and negative parenting dimensions was consistent with our operationalization of \"tiger parenting\""; the eight dimensions were "warmth, parental monitoring, democratic parenting, inductive reasoning, hostility, psychological control, shaming, and punitive parenting".'
+  - 'Full text: GPA came from school records; results are path coefficients (supportive parenting "was associated with higher GPA (β = .13 to .28, p <= .007)"), not group mean GPAs, so the site gives no GPA figures.'
+  topics:
+  - parenting-dimensions
+  - school
+  ages: "early adolescence to emerging adulthood (three waves over 8 years)"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 23646228); the quotes job of the same run read the full text in PubMed Central (PMC3641860) for the profile definitions and the GPA results. Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: wang-liu-2018-reciprocal
+  evidence_level: longitudinal
+  authors: "Wang, M., & Liu, L."
+  year: 2018
+  title: "Reciprocal relations between harsh discipline and children's externalizing behavior in China: A 5-year longitudinal study"
+  venue: "Child Development, 89(1), 174-187"
+  doi: 10.1111/cdev.12724
+  pmid: "28146336"
+  url: https://doi.org/10.1111/cdev.12724
+  lang: en
+  finding:
+    en: "In 702 father-mother pairs in China whose children were 6 to 9 years old at the start, measured at five time points 1 year apart, mothers' and fathers' corporal punishment predicted children's later externalizing behavior, and these parent-driven effects grew stronger over time; children's externalizing behavior in turn predicted their parents' later psychological aggression. The effects of corporal punishment held for boys and girls; the child-driven effects held only for boys."
+    zh-hans: "研究对中国 702 对父母（孩子起初 6 至 9 岁）每隔 1 年测量一次，共 5 次，发现母亲和父亲的体罚都能预测孩子之后的外化问题行为，而且这种由父母带动的影响随时间越来越强；反过来，孩子的外化问题行为也能预测父母之后的心理攻击。体罚的这种影响在男孩和女孩身上都存在，由孩子带动的影响只见于男孩。"
+    zh-hant: "研究對中國 702 對父母（孩子起初 6 至 9 歲）每隔 1 年測量一次，共 5 次，發現母親和父親的體罰都能預測孩子之後的外化問題行為，而且這種由父母帶動的影響隨時間越來越強；反過來，孩子的外化問題行為也能預測父母之後的心理攻擊。體罰的這種影響在男孩和女孩身上都存在，由孩子帶動的影響只見於男孩。"
+  key_facts:
+  - 'Abstract: "Seven hundred two father-mother dyads of children (6-9 years of age at baseline) completed measures of parental harsh discipline and children''s externalizing behavior at five time points, 1 year apart."'
+  - 'Abstract: "Autoregressive latent trajectory models revealed that maternal and paternal corporal punishment predicted subsequent children''s externalizing behavior (parent-driven effects), whereas children''s externalizing behavior predicted subsequent maternal and paternal psychological aggression (child-driven effects)."'
+  - 'Abstract: "The parent-driven effects became stronger, whereas the child-driven effects were equally strong across time."'
+  - 'Abstract: "the parent-driven effects for corporal punishment were found for both boys and girls, whereas the child-driven effects for psychological aggression were found only for boys."'
+  topics:
+  - physical-punishment
+  - culture
+  - aggression
+  side: majority
+  ages: "6 to 9 years at baseline, five yearly waves"
+  strength: consistent
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 28146336). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: wang-liu-2014-prevalence
+  evidence_level: cross-sectional
+  authors: "Wang, M., & Liu, L."
+  year: 2014
+  title: "Parental harsh discipline in mainland China: Prevalence, frequency, and coexistence"
+  venue: "Child Abuse & Neglect, 38(6), 1128-1137"
+  doi: 10.1016/j.chiabu.2014.02.016
+  pmid: "24661692"
+  url: https://doi.org/10.1016/j.chiabu.2014.02.016
+  lang: en
+  finding:
+    en: "In 2,518 father-mother pairs of children aged 3 to 15 in mainland China, parental harsh discipline (psychological aggression, corporal punishment and severe physical abuse) was prevalent, at rates in the middle of the ranges found in other studies; it was most likely directed at boys or 7-year-olds, and psychological aggression and corporal punishment by both parents declined with the child's age."
+    zh-hans: "研究调查了中国大陆 2,518 对孩子 3 至 15 岁的父母，发现父母的严厉管教（心理攻击、体罚和严重的身体虐待）相当普遍，比例处于其他研究所发现范围的中间；严厉管教最常针对男孩或 7 岁的孩子，父母双方的心理攻击和体罚都随孩子年龄增长而减少。"
+    zh-hant: "研究調查了中國大陸 2,518 對孩子 3 至 15 歲的父母，發現父母的嚴厲管教（心理攻擊、體罰和嚴重的身體虐待）相當普遍，比例落在其他研究所發現範圍的中間；嚴厲管教最常針對男孩或 7 歲的孩子，父母雙方的心理攻擊和體罰都隨孩子年齡增長而減少。"
+  key_facts:
+  - 'Abstract: "Using a sample of 2,518 father-mother dyads of 3-15-year-old children, the findings revealed that parental harsh discipline was prevalent in mainland China."'
+  - 'Abstract: "The rates of harsh discipline in the current study fell in the middle of the ranges of rates found in other studies."'
+  - 'Abstract: "Harsh discipline was most likely directed at boys or children aged 7 years and committed by mothers, young fathers, or high and low socioeconomic status (SES) parents."'
+  - 'Abstract: "The prevalence of maternal and paternal PA and CP declined with the children''s age." The abstract gives no rates, so the site gives none.'
+  topics:
+  - physical-punishment
+  - culture
+  ages: "3 to 15 years"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): the Crossref search matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 24661692). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: liu-wang-2018-normativeness
+  evidence_level: cross-sectional
+  authors: "Liu, L., & Wang, M."
+  year: 2018
+  title: "Parental harsh discipline and adolescent problem behavior in China: Perceived normativeness as a moderator"
+  venue: "Child Abuse & Neglect, 86, 1-9"
+  doi: 10.1016/j.chiabu.2018.09.009
+  pmid: "30248492"
+  url: https://doi.org/10.1016/j.chiabu.2018.09.009
+  lang: en
+  finding:
+    en: "In 1,158 Chinese middle-school students, parental harsh discipline (psychological aggression and corporal punishment) was associated with higher levels of externalizing and internalizing problem behaviors. Where adolescents saw corporal punishment as normal in Chinese society, its association with externalizing problems was weaker, and where they saw psychological aggression as normal, its association with internalizing problems was weaker."
+    zh-hans: "对 1,158 名中国初中生的研究发现，父母的严厉管教（心理攻击和体罚）与青少年更多的外化和内化问题行为相关。青少年越认为体罚在中国社会是正常的，体罚与外化问题的关联越弱；越认为心理攻击是正常的，心理攻击与内化问题的关联越弱。"
+    zh-hant: "對 1,158 名中國國中生的研究發現，父母的嚴厲管教（心理攻擊和體罰）與青少年較多的外化和內化問題行為有關。青少年越認為體罰在中國社會是正常的，體罰與外化問題的關聯越弱；越認為心理攻擊是正常的，心理攻擊與內化問題的關聯越弱。"
+  key_facts:
+  - 'Abstract: "Using a sample of 1158 Chinese middle-school students, our findings revealed that parental harsh discipline was associated with high levels of adolescent externalizing and internalizing behaviors."'
+  - 'Abstract: "Adolescents'' perceived normativeness of psychological aggression buffered the association between parental psychological aggression and adolescents'' internalizing problem behaviors, whereas their perceived normativeness of corporal punishment buffered the association between parental corporal punishment and adolescents'' externalizing problem behaviors."'
+  topics:
+  - physical-punishment
+  - culture
+  - aggression
+  side: majority
+  ages: "middle-school students"
+  strength: consistent
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): the Crossref search matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 30248492). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: elgar-2018-bans
+  evidence_level: cross-sectional
+  authors: "Elgar, F. J., Donnelly, P. D., Michaelson, V., Gariépy, G., Riehm, K. E., Walsh, S. D., & Pickett, W."
+  year: 2018
+  title: "Corporal punishment bans and physical fighting in adolescents: An ecological study of 88 countries"
+  venue: "BMJ Open, 8(9), e021616"
+  doi: 10.1136/bmjopen-2018-021616
+  pmid: "30327378"
+  url: https://doi.org/10.1136/bmjopen-2018-021616
+  lang: en
+  finding:
+    en: "In school-based health surveys of 403,604 adolescents in 88 countries, frequent physical fighting was less common in the 30 countries with full bans on corporal punishment (in schools and the home) than in the 20 with no ban: 69% of the rate in males and 42% in females; the 38 countries with partial bans (schools only) had less fighting in females only. The authors note that the design cannot show whether the bans changed child discipline or reflected a social milieu that inhibits youth violence."
+    zh-hans: "研究汇总了 88 个国家 403,604 名青少年的学校健康调查。与 20 个没有禁令的国家相比，30 个全面禁止体罚（学校和家庭）的国家，青少年经常打架的比例在男生中只有前者的 69%，在女生中只有 42%；38 个只在学校禁止体罚的国家，只有女生打架较少。作者指出，这种研究设计无法判断是禁令改变了管教方式，还是这些社会本来就较少青少年暴力。"
+    zh-hant: "研究彙整了 88 個國家 403,604 名青少年的學校健康調查。與 20 個沒有禁令的國家相比，30 個全面禁止體罰（學校和家庭）的國家，青少年經常打架的比例在男生中只有前者的 69%，在女生中只有 42%；38 個只在學校禁止體罰的國家，只有女生打架較少。作者指出，這種研究設計無法判斷是禁令改變了管教方式，還是這些社會本來就較少青少年暴力。"
+  key_facts:
+  - 'Abstract: "Ecological study of low-income to high-income 88 countries. Setting School-based health surveys of students. Participants 403 604 adolescents."'
+  - 'Abstract: "Primary outcome measure Age-standardised prevalence of frequent physical fighting (ie, 4+ episodes in the previous year) for male and female adolescents in each country."'
+  - 'Abstract: "Compared with 20 countries with no ban, the group of 30 countries with full bans (in schools and in the home) experienced 69% the rate of fighting in males and 42% in females. Thirty-eight countries with partial bans (in schools but not in the home) experienced less fighting in females only (56% the rate found in countries without bans)."'
+  - 'Abstract: "Whether bans precipitated changes in child discipline or reflected a social milieu that inhibits youth violence remains unclear due to the study design and data limitations."'
+  - 'The site names no country and gives no legal content (SPEC 7.5): only the cross-national association and its limits.'
+  topics:
+  - physical-punishment
+  - aggression
+  side: majority
+  ages: "adolescents in school-based surveys"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 30327378). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: cheung-pomerantz-2011
+  evidence_level: longitudinal
+  authors: "Cheung, C. S.-S., & Pomerantz, E. M."
+  year: 2011
+  title: "Parents' involvement in children's learning in the United States and China: Implications for children's academic and emotional adjustment"
+  venue: "Child Development, 82(3), 932-950"
+  doi: 10.1111/j.1467-8624.2011.01582.x
+  pmid: "21418057"
+  url: https://doi.org/10.1111/j.1467-8624.2011.01582.x
+  lang: en
+  finding:
+    en: "Following 825 American and Chinese children every 6 months from the start of seventh grade to the end of eighth grade, parents' heightened involvement in their children's learning predicted children's enhanced engagement and achievement similarly in the United States and China. American parents' involvement went less with control and more with autonomy support than Chinese parents' did, and involvement predicted children's sense of competence and positive emotional functioning more strongly in the United States."
+    zh-hans: "研究追踪了 825 名美国和中国孩子，从七年级开始到八年级结束，每 6 个月测量一次。父母更多参与孩子的学习，在美国和中国同样预示孩子学习投入和成绩的提高。与中国父母相比，美国父母的参与较少伴随控制、较多伴随自主支持；参与对孩子能力感和积极情绪的预测作用，在美国也更强。"
+    zh-hant: "研究追蹤了 825 名美國和中國孩子，從七年級開始到八年級結束，每 6 個月測量一次。父母更多參與孩子的學習，在美國和中國同樣預示孩子學習投入和成績的提升。與中國父母相比，美國父母的參與較少伴隨控制、較多伴隨自主支持；參與對孩子能力感和正向情緒的預測作用，在美國也更強。"
+  key_facts:
+  - 'Abstract: "Beginning in seventh grade, 825 American and Chinese children (mean age=12.74 years) reported on their parents'' involvement in their learning as well as their parents'' psychological control and autonomy support every 6 months until the end of 8th grade."'
+  - 'Abstract: "American (vs. Chinese) parents'' involvement was associated less with their control and more with their autonomy support."'
+  - 'Abstract: "Despite these different associations, parents'' heightened involvement predicted children''s enhanced engagement and achievement similarly in the United States and China. However, it predicted enhanced perceptions of competence and positive emotional functioning more strongly in the United States than China."'
+  topics:
+  - school
+  ages: "seventh and eighth grade (mean age 12.74 at the start)"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 21418057). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: ng-pomerantz-deng-2014
+  evidence_level: longitudinal
+  authors: "Ng, F. F.-Y., Pomerantz, E. M., & Deng, C."
+  year: 2014
+  title: 'Why are Chinese mothers more controlling than American mothers? "My child is my report card"'
+  venue: "Child Development, 85(1), 355-369"
+  doi: 10.1111/cdev.12102
+  pmid: "23581633"
+  url: https://doi.org/10.1111/cdev.12102
+  lang: en
+  finding:
+    en: "In 215 mothers and their children (average age about 13) in China and the United States, reporting twice over a year, psychologically controlling parenting was higher among Chinese than American mothers, and Chinese mothers' feelings of worth were more contingent on their children's performance, which contributed to their greater psychological control."
+    zh-hans: "研究让中国和美国的 215 位母亲及其孩子（平均约 13 岁）在一年内报告两次，发现中国母亲的心理控制比美国母亲多；中国母亲的自我价值感更取决于孩子的表现，这是她们心理控制较多的原因之一。"
+    zh-hant: "研究讓中國和美國的 215 位母親及其孩子（平均約 13 歲）在一年內報告兩次，發現中國母親的心理控制比美國母親多；中國母親的自我價值感更取決於孩子的表現，這是她們心理控制較多的原因之一。"
+  key_facts:
+  - 'Abstract: "Twice over a year, 215 mothers and children (Mage = 12.86 years) in China and the United States (European and African American) reported on psychologically controlling parenting."'
+  - 'Abstract: "Psychologically controlling parenting was higher among Chinese than American mothers, particularly European (vs. African) American mothers."'
+  - 'Abstract: "Chinese (vs. American) mothers'' feelings of worth were more contingent on children''s performance, with this contributing to their heightened psychological control relative to American mothers."'
+  topics:
+  - parenting-dimensions
+  - school
+  ages: "early adolescence (mean age 12.86)"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): Crossref metadata matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 23581633). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: liu-bray-2017-tutoring
+  evidence_level: cross-sectional
+  authors: "Liu, J., & Bray, M."
+  year: 2017
+  title: "Determinants of demand for private supplementary tutoring in China: Findings from a national survey"
+  venue: "Education Economics, 25(2), 205-218"
+  doi: 10.1080/09645292.2016.1182623
+  url: https://doi.org/10.1080/09645292.2016.1182623
+  lang: en
+  finding:
+    en: "Private tutoring has expanded and intensified in China, yet no government statistics or other empirical studies fully capture its extent; this paper analyzes the private tutoring received by students in Grades 1 to 12 in the nationally representative China Family Panel Studies, and the student and parent factors behind the decision to receive tutoring and the spending on it."
+    zh-hans: "课外补习在中国不断扩张、愈演愈烈，但没有政府统计或其他实证研究能完整反映其规模；本文利用具有全国代表性的中国家庭追踪调查，分析一至十二年级学生接受课外补习的情况，以及影响是否补习和补习花费的学生与家长因素。"
+    zh-hant: "課外補習在中國不斷擴張、愈演愈烈，但沒有政府統計或其他實證研究能完整反映其規模；本文利用具全國代表性的中國家庭追蹤調查，分析一至十二年級學生接受課外補習的情形，以及影響是否補習和補習花費的學生與家長因素。"
+  key_facts:
+  - 'Abstract: "Private tutoring has expanded and intensified in China. However, no government statistical data or other empirical studies fully capture its extent and characteristics."'
+  - 'Abstract: "This paper analyses private tutoring received by students in Grades 1-12 as indicated by a nationwide representative survey entitled China Family Panel Studies."'
+  - 'The abstract gives no participation rates, so the site gives none. Crossref dates the online version 2016; the issue, 25(2), is 2017.'
+  topics:
+  - school
+  ages: "Grades 1 to 12"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): the Crossref search matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from OpenAlex. Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: pinquart-kauser-2018
+  evidence_level: meta-analysis
+  authors: "Pinquart, M., & Kauser, R."
+  year: 2018
+  title: "Do the associations of parenting styles with behavior problems and academic achievement vary by culture? Results from a meta-analysis"
+  venue: "Cultural Diversity and Ethnic Minority Psychology, 24(1), 75-100"
+  doi: 10.1037/cdp0000149
+  pmid: "28394165"
+  url: https://doi.org/10.1037/cdp0000149
+  lang: en
+  finding:
+    en: "A meta-analysis of 428 studies found more ethnic and regional similarities than differences: authoritative parenting was associated with at least one positive child outcome, and authoritarian parenting with at least one negative outcome, in all regions of the globe, with some regional variation. Associations of authoritarian parenting with child outcomes were weaker in countries with higher individualism scores, and in Western countries authoritative parenting was more strongly linked with academic achievement in non-Hispanic White families than in Asian minorities. The authors conclude that parents across the globe could be recommended to behave authoritatively, although authoritarian and permissive parenting is, to some extent, tolerable in a few cultural contexts."
+    zh-hans: "一项汇总 428 项研究的荟萃分析发现，不同族群和地区之间相似多于差异：在全球各个地区，权威型教养都至少与一项正面的儿童结果相关，专制型教养都至少与一项负面结果相关，只是程度因地区而有所不同。在个人主义得分较高的国家，专制型教养与儿童结果的关联较弱；在西方国家，权威型教养与学业成绩的关联在非西班牙裔白人家庭中比在亚裔少数族群中更强。作者的结论是，可以建议全球的父母采用权威型教养，不过在少数文化背景下，专制型和放任型教养在一定程度上是可以容忍的。"
+    zh-hant: "一項彙整 428 項研究的統合分析發現，不同族群和地區之間相似多於差異：在全球各個地區，權威型教養都至少與一項正面的兒童結果有關，專制型教養都至少與一項負面結果有關，只是程度因地區而有所不同。在個人主義得分較高的國家，專制型教養與兒童結果的關聯較弱；在西方國家，權威型教養與學業成績的關聯在非西班牙語裔白人家庭中比在亞裔少數族群中更強。作者的結論是，可以建議全球的父母採用權威型教養，不過在少數文化背景下，專制型和放任型教養在一定程度上是可以容忍的。"
+  key_facts:
+  - 'Abstract: "A systematic search in electronic databases and cross referencing identified 428 studies that were included in the random-effects meta-analysis."'
+  - 'Abstract: "More ethnic and regional similarities than differences were identified."'
+  - 'Abstract: "In western countries, associations of authoritative parenting with academic achievement were stronger in non-Hispanic, White families than in Asian minorities."'
+  - 'Abstract: "Authoritative parenting was associated with at least 1 positive child outcome and authoritarian parenting was associated with at least 1 negative outcome in all regions of the globe, with some regional variation."'
+  - 'Abstract: "Finally, associations of authoritarian parenting with child outcomes were weaker in countries with a higher individualism score, as were associations of authoritative parenting with academic performance."'
+  - 'Abstract: "Parents across the globe could be recommended to behave authoritatively, although authoritarian and permissive parenting is, to some extent, tolerable in a few cultural contexts."'
+  topics:
+  - parenting-dimensions
+  - school
+  ages: "children and adolescents (428 studies)"
+  strength: consistent
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 candidates job of the sources workflow (GitHub Actions run 37562414170): the Crossref search matched the DOI (authors, title, venue, volume, pages) and the abstract was read in full from Europe PMC (PMID 28394165). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: chao-1994
+  evidence_level: cross-sectional
+  authors: "Chao, R. K."
+  year: 1994
+  title: "Beyond parental control and authoritarian parenting style: Understanding Chinese parenting through the cultural notion of training"
+  venue: "Child Development, 65(4), 1111-1119"
+  doi: 10.2307/1131308
+  url: https://doi.org/10.2307/1131308
+  lang: en
+  finding:
+    en: "Questionnaires given to immigrant Chinese and European American mothers of preschool children measured parental control, authoritative-authoritarian parenting style and the Chinese concept of child training; Chinese mothers scored significantly higher on the training measure even after other factors were controlled. Chao argues that Chinese parental control (guan, which can mean \"to care for\" or even \"to love\" as well as \"to govern\") takes place within a supportive, highly involved and physically close mother-child relationship, which Western labels such as authoritarian do not capture, and that the results may help explain Chinese school success."
+    zh-hans: "研究用问卷比较了移民美国的华人母亲和欧裔美国母亲（孩子均为学龄前儿童）在父母控制、权威型与专制型教养风格，以及中国人“训练”孩子（training）的观念上的表现；即使控制其他因素，华人母亲在“训练”量表上的得分仍显著高于欧裔美国母亲。作者认为，中国父母的“管”（guan）不只是管束，也可以有“关心”甚至“爱”的意思，这种训练发生在支持、高度投入而亲密的母子关系里，是“专制型”这类西方概念涵盖不了的；这些结果或许有助于解释华人孩子在学业上的成功。"
+    zh-hant: "研究用問卷比較了移民美國的華人母親和歐裔美國母親（孩子都是學齡前兒童）在父母控制、權威型與專制型教養風格，以及中國人「訓練」孩子（training）的觀念上的表現；即使控制其他因素，華人母親在「訓練」量表上的得分仍顯著高於歐裔美國母親。作者認為，中國父母的「管」（guan）不只是管束，也可以有「關心」甚至「愛」的意思，這種訓練發生在支持、高度投入而親密的母子關係裡，是「專制型」這類西方概念涵蓋不了的；這些結果或許有助於解釋華人孩子在學業上的成就。"
+  key_facts:
+  - 'ERIC record EJ491656: "Examined the child-rearing practices of immigrant Chinese and European American mothers of preschool children through questionnaires that measured parental control, authoritative-authoritarian parenting style, and the Chinese concept of child training."'
+  - 'ERIC record EJ491656: "Chinese mothers scored significantly higher than European American mothers on the training measure, even after other factors were controlled. The results may help explain Chinese school success."'
+  - 'Full text: guan "can mean ''to care for'' or even ''to love'' as well as ''to govern.'' Therefore, parental care, concern, and involvement are synonymous with firm control and governance of the child."'
+  - 'Full text: "This training, then, takes place in the context of a supportive, highly involved, and physically close mother-child relationship."; "One distinctive feature of this concept of training for the Chinese involves the role or responsibility that parents have to be highly involved, caring, and concerned."'
+  - 'Full text, first page: "CHILD DEVELOPMENT, 1994, 65, 1111-1119"; the abstract: "This study suggests that the concepts of authoritative and authoritarian are somewhat ethnocentric and do not capture the important features of Chinese child rearing, especially for explaining their school success."'
+  topics:
+  - parenting-dimensions
+  - school
+  ages: "mothers of preschool children"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 sources workflow (GitHub Actions): the Crossref search matched the DOI (author, title, journal, volume, issue, first page; candidates job, run 37562414170); no abstract was found in Europe PMC, PubMed, OpenAlex or Semantic Scholar, so the ERIC record (EJ491656) was read through the ERIC API (quotes job, run 37563702980) and the article itself in an open copy hosted at UC Davis (quotes jobs, runs 37564222692 and 37566471153, which also confirm the pages, 1111-1119). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI, the link and the landing page on every push.'
+- id: niu-wang-2024-ef
+  evidence_level: longitudinal
+  authors: "牛骅、王美芳"
+  authors_en: "Niu, H., & Wang, M."
+  authors_zh:
+    zh-hans: "牛骅、王美芳"
+    zh-hant: "牛驊、王美芳"
+  year: 2024
+  title: "父母体罚与儿童执行功能的关系：一项3年的追踪研究"
+  title_en: "The relations between parental corporal punishment and children's executive function: A 3-year longitudinal study"
+  venue: "心理发展与教育, 40(4), 479-487"
+  doi: 10.16187/j.cnki.issn1001-4918.2024.04.03
+  url: https://devpsy.bnu.edu.cn/CN/10.16187/j.cnki.issn1001-4918.2024.04.03
+  lang: zh-Hans
+  finding:
+    en: "Following 710 third- and fourth-grade children in China and both their parents for 3 years, the more corporal punishment fathers and mothers used at the start, and the more slowly it declined, the more everyday executive function problems children had: a cumulative effect. On a lab task (the Wisconsin Card Sorting Test), a higher starting level of punishment from either parent predicted somewhat more errors, but its change over time did not predict task scores, so the lab task showed no cumulative effect."
+    zh-hans: "对 710 名小学三、四年级学生及其父母双方进行的 3 年追踪研究发现，父亲和母亲体罚的初始水平越高、随时间下降越慢，孩子日常执行功能问题越多，存在累积效应。在实验室任务（威斯康星卡片分类测验）上，父母任何一方体罚的初始水平越高，孩子的错误略多，但体罚随时间的变化不能预测任务成绩，任务水平上不存在累积效应。"
+    zh-hant: "對 710 名小學三、四年級學生及其父母雙方進行的 3 年追蹤研究發現，父親和母親體罰的初始水準越高、隨時間下降越慢，孩子日常執行功能問題越多，存在累積效應。在實驗室作業（威斯康辛卡片分類測驗）上，父母任何一方體罰的初始水準越高，孩子的錯誤略多，但體罰隨時間的變化不能預測作業成績，作業表現上不存在累積效應。"
+  key_facts:
+  - '摘要："本研究采用连续3年追踪研究设计，以亲子冲突解决策略量表、执行功能行为评定量表和威斯康星卡片分类测验为工具对710名三、四年级小学生及其父母双亲进行测查。"'
+  - '摘要："（1）父母体罚初始水平越高、随时间下降越慢，儿童日常执行功能问题越多，父母体罚对儿童日常执行功能的影响均存在累积效应；（2）父母体罚初始水平越高，儿童执行功能任务水平越差，但父母体罚的发展变化不能预测儿童执行功能任务水平，父母体罚对儿童执行功能任务水平的影响不存在累积效应。"'
+  - 'Results (full text, RichHTML): controlling for SES and child age, the initial level and the change of fathers'' and mothers'' corporal punishment predicted questionnaire-rated executive function problems (β > 0.26 for fathers, β > 0.25 for mothers, p < 0.001); the initial level predicted more WCST non-perseverative errors (β = 0.10, p < 0.05 for each parent) and, marginally, fewer categories completed (β = -0.09 and -0.08, p < 0.10); change over time did not predict WCST scores. The models explained 16-17% of the variance in everyday executive function at the third wave and 2-3% of the WCST scores.'
+  - 'Discussion (full text): "本研究发现父亲和母亲体罚对儿童日常执行功能和执行功能任务水平都具有显著的消极影响。"'
+  - 'The English abstract says "higher initial levels of corporal punishment predicted children''s better performance-based executive function"; the Chinese abstract, the results and the discussion all say worse, so the site follows the Chinese text (the English sentence is a translation error).'
+  topics:
+  - physical-punishment
+  - culture
+  - executive-function
+  side: majority
+  ages: "third and fourth grade at the start, followed for 3 years"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 sources workflow (GitHub Actions): the DOI is registered (doi.org handle API) but has no Crossref record (candidates job, run 37562414170); the journal''s article page gave the authors, title, volume, pages and both abstracts (quotes jobs, runs 37562414170 and 37562832060), and the full text (RichHTML, quotes job of run 37563447311) gave the results and the discussion. Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI registration, the link and the landing page on every push.'
+- id: zhang-wang-liu-2020
+  evidence_level: cross-sectional
+  authors: "张秀慧、王美芳、刘莉"
+  authors_en: "Zhang, X., Wang, M., & Liu, L."
+  authors_zh:
+    zh-hans: "张秀慧、王美芳、刘莉"
+    zh-hant: "張秀慧、王美芳、劉莉"
+  year: 2020
+  title: "父母严厉管教与儿童问题行为的关系：儿童自我控制的中介作用"
+  title_en: "Parental harsh discipline and child problem behaviors: The mediating effect of child self-control"
+  venue: "心理发展与教育, 36(6), 725-733"
+  doi: 10.16187/j.cnki.issn1001-4918.2020.06.11
+  url: https://devpsy.bnu.edu.cn/CN/10.16187/j.cnki.issn1001-4918.2020.06.11
+  lang: zh-Hans
+  finding:
+    en: "In 1,097 fourth- to sixth-grade children from two public schools in Jinan and both their parents, parents' psychological aggression and corporal punishment were negatively correlated with children's self-control and positively correlated with their internalizing and externalizing problem behaviors. Fathers' psychological aggression predicted both kinds of problems and mothers' corporal punishment predicted externalizing problems, and children's self-control mediated these two links, so harsh discipline went with more problem behavior both directly and through lower self-control."
+    zh-hans: "研究对济南市两所公立学校 1,097 名小学四至六年级儿童及其父母双方进行测查，发现父母的心理攻击和体罚都与儿童自我控制显著负相关，与儿童内化和外化问题行为显著正相关；父亲心理攻击能正向预测儿童内化和外化问题行为，母亲体罚能正向预测儿童外化问题行为，儿童自我控制在这两条关系中起中介作用。也就是说，严厉管教既直接与更多问题行为相关，也通过较低的自我控制间接相关。"
+    zh-hant: "研究對濟南市兩所公立學校 1,097 名國小四至六年級兒童及其父母雙方進行調查，發現父母的心理攻擊和體罰都與兒童自我控制顯著負相關，與兒童內化和外化問題行為顯著正相關；父親的心理攻擊能正向預測兒童內化和外化問題行為，母親的體罰能正向預測兒童外化問題行為，兒童自我控制在這兩條關係中具有中介作用。也就是說，嚴厲管教既直接與較多問題行為有關，也透過較低的自我控制間接相關。"
+  key_facts:
+  - '摘要："采用中文版亲子冲突解决策略量表、社会技能评定量表和儿童行为核查量表对济南市两所公立学校的1097名小学四到六年级儿童及其父母双亲进行测查。"'
+  - '摘要："（1）父母心理攻击和体罚与儿童自我控制均呈显著负相关，与儿童内化和外化问题行为均呈显著正相关，儿童自我控制与其内化和外化问题行为均呈显著负相关；（2）父亲心理攻击可以显著正向预测儿童内化和外化问题行为，母亲体罚可以显著正向预测儿童外化问题行为；（3）儿童自我控制在父亲心理攻击和母亲体罚与儿童内外化问题行为之间起中介作用"'
+  - 'The authors write that harsh discipline "直接影响" problem behavior and "间接导致" more of it; the design is cross-sectional, so the site describes links, not causes.'
+  topics:
+  - physical-punishment
+  - culture
+  - executive-function
+  side: majority
+  ages: "fourth to sixth grade"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 sources workflow (GitHub Actions): the journal''s article page gave the authors, title, volume, pages and the abstract in full (quotes job, run 37562414170), and the candidates job of run 37563447311 found the DOI registered (doi.org handle API; no Crossref record) and the article page live under that DOI. Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the DOI registration, the link and the landing page on every push.'
+- id: lee-wu-2004-taiwan
+  evidence_level: longitudinal
+  authors: "李文傑、吳齊殷"
+  authors_en: "Lee, W.-C., & Wu, C.-I."
+  authors_zh:
+    zh-hans: "李文杰、吴齐殷"
+    zh-hant: "李文傑、吳齊殷"
+  year: 2004
+  title: "棒打出壞子？：青少年暴力行為的連結機制"
+  title_en: "Bad parents, bad kids? The linkages of adolescence violent behaviors"
+  venue: "台灣社會學, 7, 1-46"
+  url: https://ir.sinica.edu.tw/handle/201000000A/64735
+  lang: zh-Hant
+  finding:
+    en: "In a panel study of 564 junior-high boys in Taipei, harsher parenting in grade 8 (beating, whipping, yelling, or throwing the child out or locking them out when they did something wrong) went with a worse relationship with that parent as the boys saw it, and through that relationship with more violent behavior in grade 9. For mothers, the link ran entirely through the relationship; fathers' parenting also had a direct link. The authors advise parents who want to prevent deviant or violent behavior to build a good relationship with their children and let them know the reasons behind what parents do."
+    zh-hans: "台北一项追踪 564 名初中男生的研究发现，初二时父母管教越严厉（孩子做错事时殴打、鞭打、大声咆哮，或把孩子赶出去、锁在门外），儿子感受到的亲子关系越差，初三时的暴力行为也经由这层关系而更多。母亲的影响完全通过亲子关系传递，父亲的教养还另有直接的关联。作者建议，希望孩子远离偏差或暴力行为的父母，要特别注重培养良好的亲子关系，并让孩子知道父母行为背后的原因。"
+    zh-hant: "台北一項追蹤 564 名國中男生的研究發現，國二時父母管教越嚴厲（孩子做錯事時毆打、鞭打、大聲咆哮，或把孩子趕出去、鎖在門外），兒子感受到的親子關係越差，國三時的暴力行為也經由這層關係而較多。母親的影響完全透過親子關係傳遞，父親的教養還另有直接的關聯。作者建議，希望孩子遠離偏差或暴力行為的父母，要特別著重培養良好的親子關係，並讓孩子知道父母行為背後的原因。"
+  key_facts:
+  - '中文摘要："本研究的目的，在於檢視父母的教養行為和青少年所知覺的親子關係對男性青少年暴力行為的影響機制。"'
+  - '中文摘要："我們發現對於母親而言，青少年所知覺的母子關係，是母親教養行為與青少年暴力行為間的中介變項，而不是調節變項。相對地，父親的教養行為不只會透過青少年所知覺的父子關係而影響青少年的暴力行為，而且還進一步具有直接的影響"'
+  - '中文摘要："為人父母者若希望自己的子女能避免產生偏差或暴力行為，特別要著重培養良好的親子關係，以及讓子女知道父母行為背後的原因。"'
+  - 'Full text (Institute of Sociology, Academia Sinica PDF): Taipei junior-high panel begun in 1996 (1,434 first-year students in 33 schools); analysis sample "564 位男性青少年"; harsh parenting, reported for grade 8, asked whether parents used "毆打", "鞭打", "怒罵" or threw the child out or locked them out when the child did something wrong (items 大聲咆哮, 毆打你, 鞭打你, 把你趕出去或鎖在門外); violent behavior in grade 9 from self-report scales.'
+  - 'Full text: the authors open with the Taiwanese sayings "不打不成器" and "棍棒之下出孝子"; the father''s direct path from harsh parenting was one-tailed significant (0.13).'
+  - 'No DOI found; the stable link is the Academia Sinica institutional repository handle.'
+  topics:
+  - physical-punishment
+  - culture
+  - aggression
+  side: majority
+  ages: "grade 8 to grade 9 (junior high, boys)"
+  strength: single-study
+  accessed: '2026-10-07'
+  verified_via: '2026-10-07 quotes jobs of the sources workflow (GitHub Actions): the Academia Sinica repository record and the 月旦知識庫 record gave the authors, title, journal, issue and pages and the abstract in Chinese and English (runs 37562414170 and 37562832060); the full text, published by the Institute of Sociology, Academia Sinica, gave the sample, the measures and the results (run 37563447311). Added for the cultural question on the physical discipline page (INBOX item 9); the sources job re-checks the link and the landing page on every push.'

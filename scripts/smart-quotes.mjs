@@ -95,6 +95,13 @@ export function smartQuotesHtml(html) {
   return out;
 }
 
+// Citation markers written back to back (<Cite /><Cite />, [[cite:a]][[cite:b]]) are separated by a comma.
+// CSS alone cannot do it: .cite + .cite also matched two markers with words between them, because the
+// sibling combinator ignores text. So the built HTML marks the second marker of each truly adjacent pair.
+export function markAdjacentCites(html) {
+  return html.replace(/<\/sup>\s*<sup class="cite">/g, '</sup><sup class="cite cite-next">');
+}
+
 async function htmlFiles(dir, out = []) {
   for (const e of await readdir(dir, { withFileTypes: true })) {
     const p = join(dir, e.name);
@@ -108,7 +115,7 @@ export async function smartQuotesDir(dir) {
   let changed = 0;
   for (const file of await htmlFiles(dir)) {
     const html = await readFile(file, 'utf8');
-    const next = smartQuotesHtml(html);
+    const next = markAdjacentCites(smartQuotesHtml(html));
     if (next !== html) {
       await writeFile(file, next);
       changed++;
@@ -123,7 +130,7 @@ export default function smartQuotes() {
     hooks: {
       'astro:build:done': async ({ dir, logger }) => {
         const changed = await smartQuotesDir(fileURLToPath(dir));
-        logger.info(`curled English quotes in ${changed} page(s)`);
+        logger.info(`curled English quotes and marked adjacent citation markers in ${changed} page(s)`);
       },
     },
   };

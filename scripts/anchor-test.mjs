@@ -32,6 +32,10 @@ const TARGETS = [
   '/en/research/#src-zubler-2022',
   '/en/learning/7-10-years/#cite-roediger-karpicke-2006-1',
   '/en/physical-discipline/#warning-signs',
+  '/physical-discipline/#school-success',
+  '/zh-hant/physical-discipline/#school-success',
+  '/en/physical-discipline/#culture',
+  '/sources/#src-niu-wang-2024-ef',
 ];
 
 const { server, url } = await serve(join(root, 'dist'));

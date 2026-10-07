@@ -17,8 +17,10 @@
 //     they still refuse but the DOI checks out, that is a warning, not a failure.
 //   - PMIDs resolve in PubMed with a matching title.
 // Exit code 1 when any check fails.
-import { readFileSync, appendFileSync, existsSync } from 'node:fs';
+import { readFileSync, appendFileSync, existsSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { tmpdir } from 'node:os';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 
@@ -537,10 +539,32 @@ async function chromeText(url) {
       const res = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 40000 });
       await page.waitForTimeout(3500);
       const text = await page.evaluate(() => document.body?.innerText ?? '');
-      return { status: res?.status() ?? 0, text, finalUrl: page.url() };
+      const links = await page.evaluate(() =>
+        [...document.querySelectorAll('a[href]')].map((a) => ({
+          href: a.href,
+          text: (a.textContent ?? '').trim().replace(/\s+/g, ' ').slice(0, 120),
+          onclick: (a.getAttribute('onclick') ?? '').slice(0, 200),
+        })),
+      );
+      return { status: res?.status() ?? 0, text, finalUrl: page.url(), links };
     } finally {
       await page.close();
     }
+  } catch (err) {
+    return { status: 0, text: '', error: String(err?.message ?? err) };
+  }
+}
+
+// A PDF's text, for quote lookups of full texts that are only published as PDF (pdftotext, from
+// poppler-utils, which the quotes job installs).
+async function pdfText(url) {
+  try {
+    const res = await fetch(url, { headers: { 'user-agent': UA_BROWSER }, redirect: 'follow' });
+    if (!res.ok) return { status: res.status, text: '' };
+    const file = join(mkdtempSync(join(tmpdir(), 'quote-pdf-')), 'doc.pdf');
+    writeFileSync(file, Buffer.from(await res.arrayBuffer()));
+    const text = execFileSync('pdftotext', ['-enc', 'UTF-8', file, '-'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    return { status: res.status, text, finalUrl: res.url };
   } catch (err) {
     return { status: 0, text: '', error: String(err?.message ?? err) };
   }
@@ -664,14 +688,15 @@ async function searchHint(entry) {
 
 // Quote lookups (content/source-quotes.yml): settle a wording question by reading the source's
 // own sentences. Each entry is { id, pattern, urls? } for a sources.yml entry (abstract plus
-// article page), { url, pattern } for any page, or { search } for search results with snippets. Notices of reaffirmation, retirement or errata are
+// article page), { url, pattern, links?, pdf? } for any page (pdf: true reads a PDF's text), or { search } for search results with snippets. Notices of reaffirmation, retirement or errata are
 // always printed. Informational only: never fails the job.
 async function lookupQuotes(fileArg) {
   const entries = YAML.parse(readFileSync(join(root, fileArg), 'utf8')) ?? [];
   const all = YAML.parse(readFileSync(join(root, 'content', 'sources.yml'), 'utf8'));
   const list = Array.isArray(all) ? all : all.sources;
   const NOTICE = /reaffirm|retired|retirement|erratum|errata|expired/i;
-  const sentencesOf = (text) => clean(text).split(/(?<=[.!?])\s+(?=[A-Z0-9"“(\[])/);
+  // English sentences end at . ! ? before a capital; Chinese ones at 。！？ (no space follows).
+  const sentencesOf = (text) => clean(text).split(/(?<=[.!?])\s+(?=[A-Z0-9"“(\[])|(?<=[。！？])/);
   const show = (label, text, re) => {
     const hits = sentencesOf(text).filter((x) => re.test(x) || NOTICE.test(x));
     report(`  ${label}: ${hits.length} matching sentence(s)`);
@@ -699,9 +724,16 @@ async function lookupQuotes(fileArg) {
       await searchHint({ q: e.search, mkt: e.mkt });
     } else if (e.url) {
       report(`\n${e.url} (pattern /${re.source}/i)`);
-      const page = await chromeText(e.url);
+      const page = e.pdf ? await pdfText(e.url) : await chromeText(e.url);
       report(`  -> ${page.status} ${page.finalUrl ?? ''} (${page.text.length} chars)${page.error ? ' ' + page.error.slice(0, 120) : ''}`);
       if (page.text) show('page', page.text, re);
+      // links: a pattern for the page's links worth following (full text, PDF, an English version).
+      if (e.links && page.links?.length) {
+        const lr = new RegExp(e.links, 'i');
+        const hits = page.links.filter((l) => lr.test(l.href) || lr.test(l.text) || lr.test(l.onclick));
+        report(`  links matching /${lr.source}/i: ${hits.length}`);
+        for (const l of hits.slice(0, 30)) report(`    - ${l.text || '(no text)'} -> ${l.href}${l.onclick ? ` [onclick ${l.onclick}]` : ''}`);
+      }
     }
   }
   return 0;

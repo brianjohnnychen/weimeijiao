@@ -188,6 +188,16 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | device (phone or tablet) | 设备 | 裝置 / 3C 產品 | |
 | well-being | 幸福感 | 幸福感 | Not 身心健康 for well-being measures. |
 | harsh control (Pinquart's dimension) | 严厉管控 | 嚴厲管控 | Distinct from harsh discipline 严厉管教. |
+| tiger parenting / supportive parenting (Kim et al. 2013) | “虎式”教养 / 支持型教养 | 「虎式」教養 / 支持型教養 | Tiger: warm and involved but also high in hostility, shaming and punishment; supportive: warm without the harsh side. |
+| authoritative / authoritarian parenting (Baumrind's styles) | 权威型教养 / 专制型教养 | 權威型教養 / 專制型教養 | Authoritarian is glossed as strict control with little warmth (控制严格、缺少温暖 / 控制嚴格、缺少溫暖). |
+| acting out / externalizing problems | 外化问题（行为） | 外化問題（行為） | Lay gloss at first mention: 攻击、违纪这类“往外发”的问题 / 攻擊、違規這類「往外發」的問題; English pages say acting out (aggression and rule-breaking). |
+| internalizing problems | 内化问题 | 內化問題 | Lay gloss: 焦虑、抑郁 / 焦慮、憂鬱; English pages say anxiety and low mood. |
+| psychological aggression (in the parent-child conflict scales) | 心理攻击；lay text 言语攻击 | 心理攻擊；lay text 言語攻擊 | English lay text: verbal aggression. |
+| seen as normal (perceived normativeness) | 被视为正常 | 被認為正常 | |
+| private tutoring | 课外补习 | 課外補習 | |
+| training (Chao's chiao shun) and guan | “训练”（training）/ “管” | 「訓練」（training）/ 「管」 | Chao (1994): guan can mean to care for, even to love, as well as to govern. |
+| corporal punishment ban (cross-national research only) | 禁止体罚 | 禁止體罰 | SPEC 7.5: never name a country's law; only the cross-national association (Elgar et al. 2018). |
+| the sayings parents quote | 不打不成器；棍棒之下出孝子 | 不打不成器；棍棒之下出孝子 | English pages paraphrase ("a child who is never hit will never amount to anything", "the rod makes a filial son"). |
 | deviancy training | “偏差行为互相强化” | 「偏差行為互相強化」 | |
 | one-size-fits-all | “一刀切” | 「一體適用」 | |
 | motivation (learning) | 学习动机 / 内在动机 | 學習動機 / 內在動機 | Never 学习动力. |
@@ -240,6 +250,10 @@ In running text: time-out = 暂停 / 暫停, first mention on a page 暂停（ti
 | quasi-experimental / prospective study | 准实验研究 / 前瞻性研究 | 準實驗研究 / 前瞻性研究 | |
 | confounding / residual confounding | 混杂 / 残余混杂 | 干擾（因素）/ 殘餘干擾 | |
 | majority view / minority view; proponents | 多数观点 / 少数观点；支持者 | 多數觀點 / 少數觀點；支持者 | |
+| observational study | 观察性研究 | 觀察性研究 | |
+| Wisconsin Card Sorting Test | 威斯康星卡片分类测验 | 威斯康辛卡片分類測驗 | A lab task of executive function; lay text 实验室任务 / 實驗室作業. |
+| a Chinese article's title in running text | 《》 | 〈〉 for an article, 《》 for a book or journal | Taiwan usage keeps the 篇名號. |
+| Chinese-language authors in the text | 牛骅和王美芳（2024）; 张秀慧等（2020） | 牛驊與王美芳（2024）; 張秀慧等人（2020） | Full names in the page's script (authors_zh); English pages use the romanized names (authors_en): Niu and Wang (2024). |
 | peer-reviewed | 同行评审 | 同儕審查 | |
 | parent management training (generic PMT) | 家长管理训练 | 親職管理訓練 | |
 | Collaborative & Proactive Solutions (CPS) | 协作与主动解决方案（CPS） | 合作與主動解決方案（CPS） | Lay phrase: 协作式解决问题的方法 / 合作式解決問題的方法. |

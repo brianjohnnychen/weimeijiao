@@ -26,6 +26,7 @@ The full build (`npm run build`) runs QA on the built pages and `node scripts/li
 - How to write a citation:
   - MDX body: `<Cite id="kaminski-2008" />`. English: after the punctuation that ends the clause (`...behavior.<Cite id="x" />`). Chinese: before the sentence-ending punctuation (`……的效果更好<Cite id="x" />。`).
   - Frontmatter strings (lists such as `how`, `now`, `start`): `[[cite:kaminski-2008]]` in the same positions.
+- Chinese-language works (`lang: zh-Hans` or `zh-Hant`) keep their original authors and title in the reference, names joined with 、 (Chinese APA 7), plus `title_en`, `authors_en` (romanized, for English pages: "Niu and Wang (2024)") and `authors_zh` (the names in each Chinese script, for Chinese pages: "牛骅和王美芳（2024）" on zh-Hans, "牛驊與王美芳（2024）" on zh-Hant; three or more authors "张秀慧等（2020）" / "張秀慧等人（2020）"). The content check holds a Chinese author-year to that form. In running text a Chinese article title takes 《》 on zh-Hans pages and 〈〉 on zh-Hant pages.
 - Find sources with grep, then read the entry:
   `grep -n "topics:.*time-out" content/sources.yml`, `grep -n "^- id: kaminski-2008" -A 30 content/sources.yml`.
   The `side` field (majority, minority) matters on the physical discipline and little-time pages. `strength` (consistent, mixed, single-study) and `ages` are verifier notes for Encouraging learning sources.
@@ -134,7 +135,7 @@ Planned content anchors (the writers of these pages create them; others may link
 - `/by-age/<phase>/`: `#normal`, `#works`, `#backfires`, `#say` (h2, required). h3 ids inside them are free.
 - `/approach/`: `#why`, `#core` (h3: `#attention`, `#instructions`, `#ignoring`, `#consequences`, `#follow-through`), `#getting-started`, `#programs`, `#chinese-families`, `#edge-cases` (h3: `#refuses-time-out`, `#aggression`, `#public-places`, `#siblings`, `#caregivers-disagree`, `#grandparents`, `#dangerous-behavior`, `#developmental-differences`, `#preteens`, `#not-working`), `#get-help`.
 - `/little-time/`: `#principle`, `#short-time-out`, `#privilege-removal`, `#when-then`, `#planned-ignoring`, `#routines`, `#effort-table`, `#physical-discipline` (h3 `#what-studies-found`), `#bottom-line`.
-- `/physical-discipline/`: `#safety-vs-punishment` (h3 `#safety-holds`), `#majority-view`, `#minority-view`, `#agreement`, `#disagreement`, `#major-bodies`, `#decide`, `#warning-signs`, `#instead`, `#repair`, `#law`.
+- `/physical-discipline/`: `#safety-vs-punishment` (h3 `#safety-holds`), `#majority-view`, `#minority-view` (h3 `#culture`, h3 `#school-success`: children who were hit and still did well at school), `#agreement`, `#disagreement`, `#major-bodies`, `#decide`, `#warning-signs`, `#instead`, `#repair`, `#law`.
 - `/learning/<phase>/`: h2 ids from `#talk`, `#read`, `#play`, `#praise`, `#motivation`, `#focus`, `#numbers`, `#sleep-screens`, `#homework`, `#study`, `#evidence` (each phase page uses the ones that fit its age).
 - `/research/`: `#how-to-read` (h3 `#study-types`, `#correlation`, `#effect-sizes`, `#evidence-levels`, `#limits`).
 - `/sources/`: `#intro`.

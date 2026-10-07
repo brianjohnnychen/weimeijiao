@@ -12,7 +12,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import * as OpenCC from 'opencc-js';
-import { parseAuthors } from '../src/lib/cite-text.mjs';
+import { parseAuthors, inTextNames, authorsFor, GROUP_NAMES } from '../src/lib/cite-text.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
@@ -79,6 +79,7 @@ const ROUTES = new Set(['/', '/by-age/', ...PHASES.map((p) => `/by-age/${p}/`), 
 const toTw = OpenCC.Converter({ from: 't', to: 'tw' });
 const toCn = OpenCC.Converter({ from: 't', to: 'cn' });
 const MAINLAND_IN_HANT = ['質量', '視頻', '屏幕', '數據', '互聯網', '信息', '短信', '打印', '默認', '軟件', '網絡', '鼠標', '博客', '激活', '優化', '程序員', '早教', '點擊', '登錄', '賬號', '用戶', '視屏', '幼兒園大班', '課外班', '學前班', '小學生', '寶媽', '奶爸', '荟萃', '薈萃', '質疑度'];
+const HANS_OK = ['坏子'];
 const TAIWAN_IN_HANS = ['软体', '网路', '列印', '萤幕', '国小', '安亲班', '资讯', '品质', '影片', '幼稚园', '冷气', '计程车', '点选', '登入', '帐号', '使用者', '阿嬷', '阿公', '统合分析', '效果量'];
 const BANNED = [
   { re: /[—―⸺⸻]/, label: 'em dash (use a comma, colon, full stop or parentheses)' },
@@ -114,7 +115,8 @@ function anchorsFromBody(body) {
 // citation markers that follow it (English markers sit after the full stop).
 const SENTENCE_END = /[.!?。！？]/;
 // A full stop between digits (0.20) or followed directly by a letter (e.g.) does not end a sentence.
-const endsSentenceAt = (text, i) => SENTENCE_END.test(text[i]) && !(text[i] === '.' && ((/\d/.test(text[i - 1] ?? '') && /\d/.test(text[i + 1] ?? '')) || /[a-z]/.test(text[i + 1] ?? '') || /\bet al$/.test(text.slice(Math.max(0, i - 6), i))));
+// A ？ or ！ that closes a Chinese title (《棒打出坏子？》, 〈棒打出壞子？〉) belongs to the title, not the sentence.
+const endsSentenceAt = (text, i) => SENTENCE_END.test(text[i]) && !(text[i] === '.' && ((/\d/.test(text[i - 1] ?? '') && /\d/.test(text[i + 1] ?? '')) || /[a-z]/.test(text[i + 1] ?? '') || /\bet al$/.test(text.slice(Math.max(0, i - 6), i)))) && !(/[？！?!]/.test(text[i]) && /[》〉]/.test(text[i + 1] ?? ''));
 const MARKERS_AHEAD = /^(?:\s*(?:<Cite\s+id=["'][^"']+["']\s*\/>|\[\[cite:[^\]]+\]\]))+/;
 function sentenceWindow(text, at, from = at) {
   let start = at;
@@ -160,8 +162,29 @@ function checkAuthorYears(F, locale, text, where) {
     const byYear = ids.map((id) => sourceById.get(id)).filter((src) => String(src.year) === year);
     if (!byYear.length) { err(F, `${where}: "${whole}" does not match the year of any source cited in that sentence (${ids.join(', ')})`); continue; }
     if (isPerson && !orgPhrase) {
-      const hit = byYear.some((src) => parseAuthors(src.authors).authors.some((a) => a.surname.toLowerCase() === surname.toLowerCase() || a.surname.toLowerCase().endsWith(' ' + surname.toLowerCase())));
+      // A Chinese-language work is named on English pages by its romanized authors (authors_en).
+      const surnamesOf = (src) => [...parseAuthors(src.authors).authors, ...parseAuthors(src.authors_en ?? '').authors].map((a) => a.surname.toLowerCase());
+      const hit = byYear.some((src) => surnamesOf(src).some((n) => n === surname.toLowerCase() || n.endsWith(' ' + surname.toLowerCase())));
       if (!hit) err(F, `${where}: "${whole}" names ${surname}, who is not an author of the source cited in that sentence (${byYear.map((x) => x.id).join(', ')})`);
+    }
+  }
+  // Chinese names in Chinese text ("牛某和王某（2024）", "张某等（2020）", "張某等人（2020）"): when the sentence
+  // cites a Chinese-language work, the Chinese name right before a year must be that work's in-text form in
+  // the page's script (authorsFor, inTextNames: both names for two authors, the first author and 等 / 等人 for
+  // three or more) and the year its year. Organizations named in Chinese (美国儿科学会) are left to the rules above.
+  if (locale === 'en') return;
+  const orgNames = Object.values(GROUP_NAMES).map((g) => g[locale]).filter(Boolean);
+  for (const m of text.matchAll(/([\u3400-\u9fff]+)（(\d{4})[a-z]?）/gu)) {
+    const [whole, lead, year] = m;
+    if (orgNames.some((o) => lead.endsWith(o))) continue;
+    const window = sentenceWindow(text, m.index, m.index + whole.length);
+    const zh = markerIdsIn(window).filter((id) => sourceById.has(id)).map((id) => sourceById.get(id)).filter((src) => src.lang !== 'en');
+    if (!zh.length) continue;
+    const byYear = zh.filter((src) => String(src.year) === year);
+    if (!byYear.length) { err(F, `${where}: "${whole}" does not match the year of the Chinese-language source cited in that sentence (${zh.map((x) => x.id).join(', ')})`); continue; }
+    const names = (src) => inTextNames(authorsFor(src, locale), locale);
+    if (!byYear.some((src) => lead.endsWith(names(src)))) {
+      err(F, `${where}: "${whole}" should name ${byYear.map((src) => `${names(src)}（${year}）`).join(' or ')}, the in-text form of the Chinese-language source cited in that sentence`);
     }
   }
 }
@@ -249,10 +272,12 @@ function checkText(f, locale, text, where) {
     for (const w of MAINLAND_IN_HANT) if (plain.includes(w)) err(f, `${where}: mainland term "${w}" in zh-Hant`);
     if (/[“”]/.test(plain)) warn(f, `${where}: zh-Hant uses 「」 quotes, not “”`);
   } else if (locale === 'zh-hans') {
-    const conv = toCn(plain);
-    if (conv !== plain) {
-      for (let i = 0; i < plain.length; i++) if (plain[i] !== conv[i]) {
-        err(f, `${where}: Traditional character in zh-Hans "${plain.slice(Math.max(0, i - 3), i + 4)}"`);
+    // Words OpenCC misreads as Traditional: 坏子 is "bad son" (《棒打出坏子？》), not 坯子 "blank".
+    const masked = HANS_OK.reduce((t, w) => t.split(w).join('□'.repeat(w.length)), plain);
+    const conv = toCn(masked);
+    if (conv !== masked) {
+      for (let i = 0; i < masked.length; i++) if (masked[i] !== conv[i]) {
+        err(f, `${where}: Traditional character in zh-Hans "${masked.slice(Math.max(0, i - 3), i + 4)}"`);
         break;
       }
     }

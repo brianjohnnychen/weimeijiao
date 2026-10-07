@@ -13,6 +13,12 @@ const SourceSchema = z.object({
   /** Evidence level: what kind of study or document this is (SPEC §6). */
   evidence_level: z.enum(STUDY_TYPES),
   authors: z.string(),
+  /** A Chinese-language work's authors in romanized APA form ("Niu, Y., & Wang, M."), for the author-year
+   *  form on English pages; the reference itself keeps the original names (Chinese APA 7 conventions). */
+  authors_en: z.string().optional(),
+  /** The same names in each Chinese page's script, for the author-year form in running text and hover text
+   *  ("牛驊、王美芳" on zh-Hant pages for a work published as "牛骅、王美芳"); the reference keeps the original. */
+  authors_zh: z.object({ 'zh-hans': z.string(), 'zh-hant': z.string() }).optional(),
   year: z.union([z.number(), z.string()]).optional(),
   date: z.string().optional(),
   title: z.string(),
