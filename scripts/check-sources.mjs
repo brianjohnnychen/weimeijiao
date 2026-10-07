@@ -537,7 +537,10 @@ async function chromeText(url) {
       const res = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 40000 });
       await page.waitForTimeout(3500);
       const text = await page.evaluate(() => document.body?.innerText ?? '');
-      return { status: res?.status() ?? 0, text, finalUrl: page.url() };
+      const links = await page.evaluate(() =>
+        [...document.querySelectorAll('a[href]')].map((a) => ({ href: a.href, text: (a.textContent ?? '').trim().replace(/\s+/g, ' ').slice(0, 120) })),
+      );
+      return { status: res?.status() ?? 0, text, finalUrl: page.url(), links };
     } finally {
       await page.close();
     }
@@ -671,7 +674,8 @@ async function lookupQuotes(fileArg) {
   const all = YAML.parse(readFileSync(join(root, 'content', 'sources.yml'), 'utf8'));
   const list = Array.isArray(all) ? all : all.sources;
   const NOTICE = /reaffirm|retired|retirement|erratum|errata|expired/i;
-  const sentencesOf = (text) => clean(text).split(/(?<=[.!?])\s+(?=[A-Z0-9"“(\[])/);
+  // English sentences end at . ! ? before a capital; Chinese ones at 。！？ (no space follows).
+  const sentencesOf = (text) => clean(text).split(/(?<=[.!?])\s+(?=[A-Z0-9"“(\[])|(?<=[。！？])/);
   const show = (label, text, re) => {
     const hits = sentencesOf(text).filter((x) => re.test(x) || NOTICE.test(x));
     report(`  ${label}: ${hits.length} matching sentence(s)`);
@@ -702,6 +706,13 @@ async function lookupQuotes(fileArg) {
       const page = await chromeText(e.url);
       report(`  -> ${page.status} ${page.finalUrl ?? ''} (${page.text.length} chars)${page.error ? ' ' + page.error.slice(0, 120) : ''}`);
       if (page.text) show('page', page.text, re);
+      // links: a pattern for the page's links worth following (full text, PDF, an English version).
+      if (e.links && page.links?.length) {
+        const lr = new RegExp(e.links, 'i');
+        const hits = page.links.filter((l) => lr.test(l.href) || lr.test(l.text));
+        report(`  links matching /${lr.source}/i: ${hits.length}`);
+        for (const l of hits.slice(0, 30)) report(`    - ${l.text || '(no text)'} -> ${l.href}`);
+      }
     }
   }
   return 0;
