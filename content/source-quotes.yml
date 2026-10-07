@@ -7,18 +7,12 @@
 # kendrick-2012-cochrane, compliance-plos-2018 and shen-2017-dog-safety.
 # The 2026-10-03 domain probes (public DNS answers and .com registry status) are recorded in
 # docs/STATUS.md, open issue 1; after DNS changes, smoke.yml is the live check.
-# Fourth batch of 2026-10-07 (INBOX item 9). Settled by the third batch (run 37563236009): the ERIC record
-# id of Chao (1994) (EJ491656), the RichHTML and PDF addresses of niu-wang-2024 (from the page's lsdy1 links)
-# and the open full text of the Taiwanese study (Institute of Sociology, Academia Sinica). This batch reads
-# them: Chao's abstract, the Chinese study's results on the lab task, and which parenting practices the
-# Taiwanese study measured.
+# Fifth batch of 2026-10-07 (INBOX item 9). Settled by the fourth batch (run 37563447311): niu-wang-2024's
+# full text (RichHTML) gives the lab-task results (a higher starting level of punishment predicted more
+# WCST errors, beta = 0.10, p < .05, for fathers and for mothers; the English abstract's "better" is a
+# mistranslation) and the Taiwanese study's full text gives its sample and measures. The ERIC record page
+# of Chao (1994) reset the connection; this batch asks the ERIC API for the record instead.
+- url: "https://api.ies.ed.gov/eric/?search=id%3AEJ491656&fields=id,title,author,description,source,publicationdateyear&format=json"
+  pattern: "training|Chinese|mothers|authoritarian|school|control|EJ491656"
 - url: "https://eric.ed.gov/?id=EJ491656"
   pattern: "training|Chinese|mothers|authoritarian|school|control"
-- url: "https://devpsy.bnu.edu.cn/article/2024/1001-4918/20240403.htm"
-  pattern: "威斯康星|执行功能任务|初始水平|截距|斜率|正向预测|负向预测|持续性错误|错误数|局限|因果"
-- url: "https://devpsy.bnu.edu.cn/CN/article/downloadArticleFile.do?attachType=PDF&id=2933"
-  pdf: true
-  pattern: "威斯康星|执行功能任务|初始水平|截距|斜率|正向预测|负向预测|持续性错误|错误数|局限|因果"
-- url: "https://www.ios.sinica.edu.tw/upload/completetext/20241018072206.pdf"
-  pdf: true
-  pattern: "體罰|打罵|嚴厲|責打|管教方式|教養行為的測量|量表|題目|測量|樣本|國中|追蹤"
