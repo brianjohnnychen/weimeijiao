@@ -112,5 +112,8 @@ const LATIN_PRELOAD = ['dm-sans-latin-400-normal.woff2', 'dm-sans-latin-700-norm
       import { initSite } from '../scripts/site';
       initSite();
     </script>
+    {/* Sentinel visitor telemetry to the Meteor City hub (meteor-admin). Client beacon trusted by Origin, no secret; the hidden link is a scrape canary (never an <img>, so browsers do not auto-load it). */}
+    <script is:inline src="https://meteor-admin.pages.dev/beacon.js" data-project="weimeijiao" defer></script>
+    <a href="https://meteor-admin.pages.dev/c?p=weimeijiao" aria-hidden="true" tabindex="-1" rel="nofollow noopener" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">&middot;</a>
   </body>
 </html>
